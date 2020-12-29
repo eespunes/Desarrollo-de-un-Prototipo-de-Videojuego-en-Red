@@ -24,18 +24,29 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	virtual void Accelerate() override;
-
+	virtual void Brake() override;
 protected:
 	USpringArmComponent* springArm;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UCameraComponent* camera;
 
 	UPROPERTY(EditAnywhere,Category="Speed")
+	float accelerationRate = 1.f;
 	float acceleration;
 	UPROPERTY(EditAnywhere,Category="Speed")
-	float maxSpeed;
+	float maxSpeed = 4000.f;
 	float currentSpeed = 0.f;
-	float isAccelerating = false;
+	bool isAccelerating = false;
+
+	bool isBraking;
+	UPROPERTY(EditAnywhere,Category="Speed")
+	float brakeRate = 1.5f;
+	UPROPERTY(EditAnywhere,Category="Speed")
+	float reverseRate = 3;
+	float reverseSpeed;
+	UPROPERTY(EditAnywhere,Category="Speed")
+	float frictionDecelerationRate;
+	float frictionDeceleration;
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 private:

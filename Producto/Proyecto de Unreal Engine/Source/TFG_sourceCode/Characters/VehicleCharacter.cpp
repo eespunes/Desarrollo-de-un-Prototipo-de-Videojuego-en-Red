@@ -20,6 +20,9 @@ AVehicleCharacter::AVehicleCharacter()
 void AVehicleCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	reverseSpeed = -maxSpeed / reverseRate;
+	acceleration = maxSpeed / accelerationRate;
+	frictionDeceleration = acceleration / frictionDecelerationRate;
 }
 
 // Called every frame
@@ -27,13 +30,30 @@ void AVehicleCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (isAccelerating)
+	if (isAccelerating && !isBraking)
 	{
-		currentSpeed = FMath::Min(currentSpeed + acceleration * DeltaTime, maxSpeed);
+		currentSpeed = FMath::Min(currentSpeed + (acceleration) * DeltaTime, maxSpeed);
+	}
+	else if (isBraking && !isAccelerating)
+	{
+		currentSpeed -= acceleration * brakeRate * DeltaTime;
+		if (currentSpeed <= 0.f)
+			currentSpeed = FMath::Max(currentSpeed - acceleration * brakeRate * DeltaTime, reverseSpeed);
+	}
+	else if (isBraking && isAccelerating)
+	{
+		if (currentSpeed < 0.f)
+			currentSpeed += acceleration * brakeRate * DeltaTime;
+		else
+			currentSpeed = FMath::Max(currentSpeed - acceleration * DeltaTime, 0.f);
 	}
 	else
 	{
-		currentSpeed = FMath::Max(currentSpeed - acceleration * DeltaTime, 0.f);
+		frictionDeceleration = (acceleration / 2);
+		if (currentSpeed < 0.f)
+			currentSpeed += frictionDeceleration * DeltaTime;
+		else
+			currentSpeed = FMath::Max(currentSpeed - frictionDeceleration * DeltaTime, 0.f);
 	}
 	UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), currentSpeed);
 	AddMovementInput(GetActorForwardVector() * (currentSpeed / maxSpeed));
@@ -42,4 +62,9 @@ void AVehicleCharacter::Tick(float DeltaTime)
 void AVehicleCharacter::Accelerate()
 {
 	isAccelerating = !isAccelerating;
+}
+
+void AVehicleCharacter::Brake()
+{
+	isBraking = !isBraking;
 }

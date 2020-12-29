@@ -11,4 +11,5 @@ class TFG_SOURCECODE_API IVehicle
 {
 public:
 	virtual void Accelerate() =0;
+	virtual void Brake() =0;
 };

@@ -21,3 +21,8 @@ void ACarCharacter::Accelerate()
 {
 	Super::Accelerate();
 }
+
+void ACarCharacter::Brake()
+{
+	Super::Brake();
+}

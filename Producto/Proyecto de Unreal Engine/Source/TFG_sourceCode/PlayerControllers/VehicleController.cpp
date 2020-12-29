@@ -24,6 +24,8 @@ void AVehicleController::SetupInputComponent()
 
 	InputComponent->BindAction("Accelerate", IE_Pressed, this, &AVehicleController::Accelerate);
 	InputComponent->BindAction("Accelerate", IE_Released, this, &AVehicleController::Accelerate);
+	InputComponent->BindAction("Brake", IE_Pressed, this, &AVehicleController::Brake);
+	InputComponent->BindAction("Brake", IE_Released, this, &AVehicleController::Brake);
 }
 
 void AVehicleController::Accelerate()
@@ -35,4 +37,15 @@ void AVehicleController::Accelerate()
 	}
 
 	vehicleCharacter->Accelerate();
+}
+
+void AVehicleController::Brake()
+{
+	if (!vehicleCharacter)
+	{
+		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetOwner()->GetName());
+		return;
+	}
+
+	vehicleCharacter->Brake();
 }

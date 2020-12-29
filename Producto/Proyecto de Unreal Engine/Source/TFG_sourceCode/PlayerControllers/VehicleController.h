@@ -19,15 +19,16 @@ class TFG_SOURCECODE_API AVehicleController : public APlayerController, public I
 	GENERATED_BODY()
 public:
 	AVehicleController();
-protected:
 	virtual void Accelerate() override;
+	virtual void Brake() override;
+protected:
 	virtual void BeginPlay() override;
-private:
 	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
 	// USpringArmComponent* springArm;
 	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
 	// UCameraComponent* camera;
 
+private:
 	AVehicleCharacter* vehicleCharacter;
 
 	virtual void SetupInputComponent() override;

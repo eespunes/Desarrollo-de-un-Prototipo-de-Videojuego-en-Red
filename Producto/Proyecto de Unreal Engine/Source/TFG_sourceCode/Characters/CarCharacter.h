@@ -17,6 +17,7 @@ public:
 	ACarCharacter();
 	virtual void Tick(float DeltaTime) override;
 	virtual void Accelerate() override;
+	virtual void Brake() override;
 
 protected:
 	virtual void BeginPlay() override;
