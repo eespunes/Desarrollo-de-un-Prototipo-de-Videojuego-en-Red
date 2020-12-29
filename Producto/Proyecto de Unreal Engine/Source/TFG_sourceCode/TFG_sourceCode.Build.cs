@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class TFG_sourceCode : ModuleRules
+public class TFG_SourceCode : ModuleRules
 {
-	public TFG_sourceCode(ReadOnlyTargetRules Target) : base(Target)
+	public TFG_SourceCode(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	

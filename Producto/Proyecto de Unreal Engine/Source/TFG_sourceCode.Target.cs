@@ -3,12 +3,12 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class TFG_sourceCodeTarget : TargetRules
+public class TFG_SourceCodeTarget : TargetRules
 {
-	public TFG_sourceCodeTarget( TargetInfo Target) : base(Target)
+	public TFG_SourceCodeTarget( TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.AddRange( new string[] { "TFG_sourceCode" } );
+		ExtraModuleNames.AddRange( new string[] { "TFG_SourceCode" } );
 	}
 }
