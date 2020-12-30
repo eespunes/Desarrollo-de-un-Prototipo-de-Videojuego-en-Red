@@ -6,7 +6,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c03e321-85c4-4899-bf6a-1b88adea9950" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Documents/Recerca/Level Up! The Guide to Great Video Game Design ( PDFDrive ).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Eyes_TEX.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Decal_OpeningRace.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Glow_09_TEX.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_MAT.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_B.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_G.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_R.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Decal_01_TEX.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_B.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_G.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_R.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Wheel_MAT.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Texture2D_Character_Eyes_TEX_png.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/lightning.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/lightning_PhysicsAsset.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/SM_Track.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/SM_Track.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Car.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Car.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/Track_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Track_Map.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/PlayerControllers/VehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/PlayerControllers/VehicleController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +63,10 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/IVehicle.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/CarCharacter.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/CarCharacter.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.cpp" />
     </changedPaths>
   </component>
@@ -56,9 +80,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="C++ Project.TFG_SourceCode">
+  <component name="RunManager">
     <configuration name="TFG_SourceCode" type="CppProject" factoryName="C++ Project">
       <configuration_1>
         <option name="CONFIGURATION" value="DebugGame Editor" />
@@ -285,6 +310,9 @@
       <workItem from="1609254440276" duration="1623000" />
       <workItem from="1609256364405" duration="8233000" />
       <workItem from="1609340963269" duration="6955000" />
+      <workItem from="1609413421358" duration="54000" />
+      <workItem from="1609427213413" duration="7956000" />
+      <workItem from="1609436064328" duration="75000" />
     </task>
     <servers />
   </component>

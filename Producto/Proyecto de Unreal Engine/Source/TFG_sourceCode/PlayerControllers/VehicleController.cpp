@@ -49,7 +49,7 @@ void AVehicleController::Accelerate()
 {
 	if (!vehicleCharacter)
 	{
-		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetOwner()->GetName());
+		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
 		return;
 	}
 
@@ -60,7 +60,7 @@ void AVehicleController::Brake()
 {
 	if (!vehicleCharacter)
 	{
-		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetOwner()->GetName());
+		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
 		return;
 	}
 
@@ -71,7 +71,7 @@ void AVehicleController::Turn(float value)
 {
 	if (!vehicleCharacter)
 	{
-		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetOwner()->GetName());
+		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
 		return;
 	}
 

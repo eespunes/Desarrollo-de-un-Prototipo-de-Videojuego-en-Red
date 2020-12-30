@@ -22,7 +22,9 @@ void AVehicleCharacter::BeginPlay()
 	Super::BeginPlay();
 	reverseSpeed = -maxSpeed / reverseRate;
 	acceleration = maxSpeed / accelerationRate;
-	frictionDeceleration = acceleration / frictionDecelerationRate;
+
+	if (GetCharacterMovement())
+		GetCharacterMovement()->MaxAcceleration = FMath::Abs(acceleration);
 }
 
 // Called every frame
@@ -32,7 +34,7 @@ void AVehicleCharacter::Tick(float DeltaTime)
 
 	CalculateSpeed(DeltaTime);
 
-	AddMovementInput(GetActorForwardVector() * (currentSpeed / maxSpeed));
+	AddMovementInput(GetActorForwardVector(), currentSpeed * DeltaTime);
 }
 
 void AVehicleCharacter::Accelerate()
@@ -52,11 +54,12 @@ void AVehicleCharacter::Turn(float value)
 
 float AVehicleCharacter::CalculateRotation(float value) const
 {
-	if (currentSpeed < 1 && currentSpeed > -1)
-		return 0.f;
-	float interval = maxTurnSpeed - minTurnSpeed;
-	interval *= currentSpeed / maxSpeed;
-	return value * (maxTurnSpeed - interval);
+	float percentage = FMath::Abs(currentSpeed) / maxSpeed;
+	if (percentage > frictionDecelerationRate)
+		percentage = 1;
+	else
+		percentage /= frictionDecelerationRate;
+	return value * (maxTurnSpeed * percentage);
 }
 
 void AVehicleCharacter::CalculateSpeed(float DeltaTime)
@@ -82,11 +85,24 @@ void AVehicleCharacter::CalculateSpeed(float DeltaTime)
 	}
 	else
 	{
-		if (currentSpeed < 0.f)
-			currentSpeed += frictionDeceleration * DeltaTime;
-		else
-			currentSpeed = FMath::Max(currentSpeed - frictionDeceleration * DeltaTime, 0.f);
+		FrictionBraking(DeltaTime);
 	}
+
+	if (GetCharacterMovement())
+		GetCharacterMovement()->MaxWalkSpeed = FMath::Abs(currentSpeed);
+}
+
+
+void AVehicleCharacter::FrictionBraking(float DeltaTime)
+{
+	float percentage = FMath::Abs(currentSpeed) / maxSpeed;
+	if (percentage > frictionDecelerationRate)
+		percentage = 1;
+
+	if (currentSpeed < 0.f)
+		currentSpeed += acceleration * percentage * DeltaTime;
+	else
+		currentSpeed = FMath::Max(currentSpeed - acceleration * percentage * DeltaTime, 0.f);
 }
 
 float AVehicleCharacter::GetSpeed() const
