@@ -21,6 +21,7 @@ public:
 	AVehicleController();
 	virtual void Accelerate() override;
 	virtual void Brake() override;
+	virtual void Turn(float value) override;
 protected:
 	virtual void BeginPlay() override;
 	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
@@ -30,6 +31,11 @@ protected:
 
 private:
 	AVehicleCharacter* vehicleCharacter;
+	//HUD
+	UPROPERTY(EditAnywhere,Category="HUD")
+	TSubclassOf<class UUserWidget> hudClass;
 
 	virtual void SetupInputComponent() override;
+	void Actions();
+	void Axis();
 };

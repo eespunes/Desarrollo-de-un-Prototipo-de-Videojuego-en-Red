@@ -25,11 +25,16 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void Accelerate() override;
 	virtual void Brake() override;
+	virtual void Turn(float value) override;
+	
+	UFUNCTION(BlueprintPure)
+	float GetSpeed() const;
 protected:
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	USpringArmComponent* springArm;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UCameraComponent* camera;
-
+	//Accelerate
 	UPROPERTY(EditAnywhere,Category="Speed")
 	float accelerationRate = 1.f;
 	float acceleration;
@@ -37,17 +42,27 @@ protected:
 	float maxSpeed = 4000.f;
 	float currentSpeed = 0.f;
 	bool isAccelerating = false;
-
+	//Brake
 	bool isBraking;
 	UPROPERTY(EditAnywhere,Category="Speed")
 	float brakeRate = 1.5f;
+	//Reverse
 	UPROPERTY(EditAnywhere,Category="Speed")
 	float reverseRate = 3;
 	float reverseSpeed;
+	//Not Accelerating, nor braking
 	UPROPERTY(EditAnywhere,Category="Speed")
 	float frictionDecelerationRate;
 	float frictionDeceleration;
+
+	//Turn
+	UPROPERTY(EditAnywhere,Category="Speed")
+	float minTurnSpeed = 10.f;
+	UPROPERTY(EditAnywhere,Category="Speed")
+	float maxTurnSpeed = 50.f;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-private:
+	void CalculateSpeed(float DeltaTime);
+	float CalculateRotation(float DeltaTime) const;
 };

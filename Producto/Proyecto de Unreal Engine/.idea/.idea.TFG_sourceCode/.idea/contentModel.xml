@@ -48956,8 +48956,8 @@
       <e p="UE4Game.Target.cs" t="Include" />
     </e>
     <e p="C:\Users\erike\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\erike\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_TFG_SourceCode.95753660.01" t="ExcludeRecursive" />
-    <e p="G:\TFG Videojocs\Producte\Source Code" t="IncludeFlat">
+    <e p="C:\Users\erike\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_TFG_SourceCode.1770022536.00" t="ExcludeRecursive" />
+    <e p="G:\Desarrollo de un Prototipo de Videojuego en Red\Producte\Source Code" t="IncludeFlat">
       <e p=".gitignore" t="Include" />
       <e p="Config" t="Include">
         <e p="DefaultEditor.ini" t="Include" />

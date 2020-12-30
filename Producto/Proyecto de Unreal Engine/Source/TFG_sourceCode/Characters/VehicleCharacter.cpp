@@ -30,32 +30,8 @@ void AVehicleCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (isAccelerating && !isBraking)
-	{
-		currentSpeed = FMath::Min(currentSpeed + (acceleration) * DeltaTime, maxSpeed);
-	}
-	else if (isBraking && !isAccelerating)
-	{
-		currentSpeed -= acceleration * brakeRate * DeltaTime;
-		if (currentSpeed <= 0.f)
-			currentSpeed = FMath::Max(currentSpeed - acceleration * brakeRate * DeltaTime, reverseSpeed);
-	}
-	else if (isBraking && isAccelerating)
-	{
-		if (currentSpeed < 0.f)
-			currentSpeed += acceleration * brakeRate * DeltaTime;
-		else
-			currentSpeed = FMath::Max(currentSpeed - acceleration * DeltaTime, 0.f);
-	}
-	else
-	{
-		frictionDeceleration = (acceleration / 2);
-		if (currentSpeed < 0.f)
-			currentSpeed += frictionDeceleration * DeltaTime;
-		else
-			currentSpeed = FMath::Max(currentSpeed - frictionDeceleration * DeltaTime, 0.f);
-	}
-	UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), currentSpeed);
+	CalculateSpeed(DeltaTime);
+
 	AddMovementInput(GetActorForwardVector() * (currentSpeed / maxSpeed));
 }
 
@@ -67,4 +43,53 @@ void AVehicleCharacter::Accelerate()
 void AVehicleCharacter::Brake()
 {
 	isBraking = !isBraking;
+}
+
+void AVehicleCharacter::Turn(float value)
+{
+	AddControllerYawInput(CalculateRotation(value) * GetWorld()->DeltaTimeSeconds);
+}
+
+float AVehicleCharacter::CalculateRotation(float value) const
+{
+	if (currentSpeed < 1 && currentSpeed > -1)
+		return 0.f;
+	float interval = maxTurnSpeed - minTurnSpeed;
+	interval *= currentSpeed / maxSpeed;
+	return value * (maxTurnSpeed - interval);
+}
+
+void AVehicleCharacter::CalculateSpeed(float DeltaTime)
+{
+	if (isAccelerating && !isBraking)
+	{
+		if (currentSpeed < 0.f)
+			currentSpeed += acceleration * brakeRate * DeltaTime;
+		currentSpeed = FMath::Min(currentSpeed + (acceleration) * DeltaTime, maxSpeed);
+	}
+	else if (isBraking && !isAccelerating)
+	{
+		currentSpeed -= acceleration * brakeRate * DeltaTime;
+		if (currentSpeed <= 0.f)
+			currentSpeed = FMath::Max(currentSpeed - acceleration * DeltaTime, reverseSpeed);
+	}
+	else if (isBraking && isAccelerating)
+	{
+		if (currentSpeed < 0.f)
+			currentSpeed += acceleration * brakeRate * DeltaTime;
+		else
+			currentSpeed = FMath::Max(currentSpeed - acceleration * brakeRate * DeltaTime, 0.f);
+	}
+	else
+	{
+		if (currentSpeed < 0.f)
+			currentSpeed += frictionDeceleration * DeltaTime;
+		else
+			currentSpeed = FMath::Max(currentSpeed - frictionDeceleration * DeltaTime, 0.f);
+	}
+}
+
+float AVehicleCharacter::GetSpeed() const
+{
+	return currentSpeed / 100;
 }

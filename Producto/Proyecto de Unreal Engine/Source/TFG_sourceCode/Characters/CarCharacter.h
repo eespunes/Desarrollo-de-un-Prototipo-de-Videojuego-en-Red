@@ -18,6 +18,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void Accelerate() override;
 	virtual void Brake() override;
+	virtual void Turn(float value) override;
 
 protected:
 	virtual void BeginPlay() override;

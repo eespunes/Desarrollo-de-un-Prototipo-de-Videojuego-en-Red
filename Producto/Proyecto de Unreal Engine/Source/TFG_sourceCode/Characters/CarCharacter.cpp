@@ -26,3 +26,8 @@ void ACarCharacter::Brake()
 {
 	Super::Brake();
 }
+
+void ACarCharacter::Turn(float value)
+{
+	Super::Turn(value);
+}

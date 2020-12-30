@@ -6,11 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c03e321-85c4-4899-bf6a-1b88adea9950" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Car.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Car.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Track_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Track_Map.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +18,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/CharacterMovementComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/PlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h" root0="FORCE_HIGHLIGHTING" />
@@ -39,11 +37,12 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Pawns/VehiclePawn.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/IVehicle.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/CarCharacter.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/CarCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.cpp" />
     </changedPaths>
   </component>
@@ -284,7 +283,8 @@
       <workItem from="1609240563309" duration="1663000" />
       <workItem from="1609242386963" duration="875000" />
       <workItem from="1609254440276" duration="1623000" />
-      <workItem from="1609256364405" duration="6331000" />
+      <workItem from="1609256364405" duration="8233000" />
+      <workItem from="1609340963269" duration="6955000" />
     </task>
     <servers />
   </component>
@@ -303,6 +303,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
