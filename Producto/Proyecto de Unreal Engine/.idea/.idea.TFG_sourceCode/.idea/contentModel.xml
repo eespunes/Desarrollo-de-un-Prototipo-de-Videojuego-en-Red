@@ -48962,6 +48962,7 @@
       <e p="Config" t="Include">
         <e p="DefaultEditor.ini" t="Include" />
         <e p="DefaultEngine.ini" t="Include" />
+        <e p="DefaultInput.ini" t="Include" />
       </e>
       <e p="Engine" t="Include" />
       <e p="Games" t="Include" />
@@ -48973,27 +48974,25 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Source" t="Include">
         <e p="TFG_SourceCode" t="Include">
-          <e p="Characters" t="Include">
-            <e p="CarCharacter.cpp" t="Include" />
-            <e p="CarCharacter.h" t="Include" />
-            <e p="IVehicle.cpp" t="Include" />
-            <e p="IVehicle.h" t="Include" />
-            <e p="VehicleCharacter.cpp" t="Include" />
-            <e p="VehicleCharacter.h" t="Include" />
-          </e>
           <e p="GameModes" t="Include">
-            <e p="GameplayGameMode.cpp" t="Include" />
-            <e p="GameplayGameMode.h" t="Include" />
-          </e>
-          <e p="PlayerControllers" t="Include">
-            <e p="VehicleController.cpp" t="Include" />
-            <e p="VehicleController.h" t="Include" />
+            <e p="RaceGameMode.cpp" t="Include" />
+            <e p="RaceGameMode.h" t="Include" />
           </e>
           <e p="TFG_SourceCode.Build.cs" t="Include" />
           <e p="TFG_SourceCode.cpp" t="Include" />
           <e p="TFG_SourceCode.h" t="Include" />
           <e p="TFG_SourceCodeGameModeBase.cpp" t="Include" />
           <e p="TFG_SourceCodeGameModeBase.h" t="Include" />
+          <e p="Vehicle" t="Include">
+            <e p="CarPawn.cpp" t="Include" />
+            <e p="CarPawn.h" t="Include" />
+            <e p="IVehicle.cpp" t="Include" />
+            <e p="IVehicle.h" t="Include" />
+            <e p="VehicleController.cpp" t="Include" />
+            <e p="VehicleController.h" t="Include" />
+            <e p="VehiclePawn.cpp" t="Include" />
+            <e p="VehiclePawn.h" t="Include" />
+          </e>
         </e>
         <e p="TFG_SourceCode.Target.cs" t="Include" />
         <e p="TFG_SourceCodeEditor.Target.cs" t="Include" />

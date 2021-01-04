@@ -6,30 +6,194 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c03e321-85c4-4899-bf6a-1b88adea9950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Documents/Recerca/Level Up! The Guide to Great Video Game Design ( PDFDrive ).pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Eyes_TEX.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Decal_OpeningRace.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Glow_09_TEX.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_MAT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_B.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_G.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_R.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Decal_01_TEX.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_B.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_G.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_R.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Wheel_MAT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/Texture2D_Character_Eyes_TEX_png.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/lightning.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TEST_DELETE/lightning_PhysicsAsset.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Fixed_Template_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Landscape.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MasterGrid.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MasterSolidColor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/BlackGrid.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/LandscapeNoHole.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/RedGrid.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/SolidOrange.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/SolidRed.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/Template_BaseBlue.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWave.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWaveSmall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWedge.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/CubeMaterial.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/LoopBig.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/LoopSmall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/RampLarge.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/RampTwist.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/RoadSegment_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightFull.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightHalf.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightQuarter.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_45.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90Large.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/pole.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/turn_22andhalf.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Geometry/Meshes/1M_Cube.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Geometry/Meshes/1M_Cube_Chamfer.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Geometry/Meshes/CubeMaterial.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Geometry/Meshes/TemplateFloor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Maps/MAP_TEST.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/CarPawn.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/CarPawn.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Diseño/Diagramas.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../Diseño/Diagramas.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/SM_Track.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/SM_Track.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/BoxTruck/M_BoxTruck_Body.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/BoxTruck/M_BoxTruck_Box.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/BoxTruck/M_BoxTruck_Chassis.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/BoxTruck/M_BoxTruck_Interior.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/BoxTruck/Mi_BoxTruck_Glass.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Hatchback/M_Hatchback_Body.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Hatchback/M_Hatchback_Interior.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Hatchback/M_Hatchback_Under.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Hatchback/Mi_Hatchback_Glass.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Track.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/M_Track.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Blank.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Glass.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Pickup/M_Pickup_Body.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Pickup/M_Pickup_Interior.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Pickup/M_Pickup_Under.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Pickup/Mi_Pickup_Glass.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/SUV/M_SUV_Body.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/SUV/M_SUV_Interior.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/SUV/M_SUV_Under.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/SUV/Mi_SUV_Glass.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/SportsCar/M_SportsCar_Body.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/SportsCar/M_SportsCar_Interior.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/SportsCar/M_SportsCar_Under.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/SportsCar/Mi_Glass_SportsCar.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/SM_Hatchback.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/SM_Pickup.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/SM_SUV.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/SM_SportsCar.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/SM_Track.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/SM_Truck_Box.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Hatchback.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Hatchback_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Pickup.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Pickup_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_SUV.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_SUV_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_SportsCar.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_SportsCar_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Truck_Box.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Truck_Box_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Truck_Chassis.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Truck_Chassis_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Skeletons/SK_Vehicle_Skeleton.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Box_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Box_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Box_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Chassis_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Chassis_EMM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Chassis_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Chassis_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Exterior_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Exterior_EMM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Exterior_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Exterior_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Glass_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Glass_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Glass_OPC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Glass_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Interior_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Interior_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/BoxTruck/TX_Truck_Interior_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_Diffuse_0.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_Diffuse_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_Diffuse_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_EMM_0.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_Normal_0.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_Normal_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_Normal_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_OPC_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_ORM_0.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_ORM_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Hatchback/TX_Hatchback_ORM_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Diffuse_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Diffuse_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_EMM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Interior_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Interior_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Interior_OPC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Interior_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Normal_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_Normal_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_OPC_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_ORM_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Pickup/TX_Pickup_ORM_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Details_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Details_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Details_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Glass_BaseColor.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Glass_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Glass_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Main_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Main_Emissive.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Main_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Main_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Undercar_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Undercar_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SUV/TX_SUV_Undercar_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Exterior_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Exterior_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Exterior_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Glass_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Glass_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Glass_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Interior_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Interior_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Interior_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Underside_Diffuse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Underside_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_SportsCar_Underside_ORM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/SportsCar/TX_Sportscar_Exterior_Emissive.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Map.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Track_Albedo.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Track_Normal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_GameplayGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_GameplayGameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Car.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Car.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Track_Map.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Track_Map.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/PlayerControllers/VehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/PlayerControllers/VehicleController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/Track_Map.umap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Eyes_TEX.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Decal_OpeningRace.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Glow_09_TEX.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_MAT.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_B.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_G.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Body_Masks_02_TEX_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Decal_01_TEX.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_B.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_G.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Tire_Masks_01_TEX_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Character_Mcqueen_Wheel_MAT.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/Texture2D_Character_Eyes_TEX_png.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/lightning.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TEST_DELETE/lightning_PhysicsAsset.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/CarCharacter.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/CarCharacter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/IVehicle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/IVehicle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/IVehicle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/IVehicle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Characters/VehicleCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/GameModes/GameplayGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/GameModes/RaceGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/GameModes/GameplayGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/GameModes/RaceGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/PlayerControllers/VehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehicleController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/PlayerControllers/VehicleController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehicleController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +206,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/CharacterMovementComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/PrimitiveComponentPhysics.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/PlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/Collision/WorldCollision.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -60,14 +226,26 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Pawns/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Pawns/VehiclePawn.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehiclePawn.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/IVehicle.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/CarCharacter.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/CarCharacter.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/VehicleCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/IVehicle.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/PlayerControllers/VehicleController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/Vehicle.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/Vehicle.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/Car.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/Car.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/CarPawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceameMode.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehicleController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mKRvbKPKj4fjUCOKwTltdS6uf0" />
@@ -77,13 +255,20 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="C++ Project.TFG_SourceCode">
     <configuration name="TFG_SourceCode" type="CppProject" factoryName="C++ Project">
       <configuration_1>
         <option name="CONFIGURATION" value="DebugGame Editor" />
@@ -313,6 +498,9 @@
       <workItem from="1609413421358" duration="54000" />
       <workItem from="1609427213413" duration="7956000" />
       <workItem from="1609436064328" duration="75000" />
+      <workItem from="1609772426334" duration="1516000" />
+      <workItem from="1609774302052" duration="6989000" />
+      <workItem from="1609781378012" duration="584000" />
     </task>
     <servers />
   </component>
