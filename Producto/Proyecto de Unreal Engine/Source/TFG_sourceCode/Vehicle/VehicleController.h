@@ -31,7 +31,7 @@ protected:
 	// UCameraComponent* camera;
 
 private:
-	AVehiclePawn* vehicleCharacter;
+	AVehiclePawn* vehiclePawn;
 	//HUD
 	UPROPERTY(EditAnywhere,Category="HUD")
 	TSubclassOf<class UUserWidget> hudClass;

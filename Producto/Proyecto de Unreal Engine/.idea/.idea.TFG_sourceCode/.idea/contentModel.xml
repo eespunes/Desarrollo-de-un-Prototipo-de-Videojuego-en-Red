@@ -48992,6 +48992,8 @@
             <e p="VehicleController.h" t="Include" />
             <e p="VehiclePawn.cpp" t="Include" />
             <e p="VehiclePawn.h" t="Include" />
+            <e p="WheelComponent.cpp" t="Include" />
+            <e p="WheelComponent.h" t="Include" />
           </e>
         </e>
         <e p="TFG_SourceCode.Target.cs" t="Include" />

@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "VehiclePawn.h"
+#include "WheelComponent.h"
+
 #include "CarPawn.generated.h"
 
 /**
@@ -25,16 +27,23 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void SuspensionForces() override;
 private:
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
-	USceneComponent* frontWheels;
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
-	USceneComponent* rearWheels;
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UWheelComponent* rightFrontWheel;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* rightFrontWheelMesh;
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UWheelComponent* leftFrontWheel;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* leftFrontWheelMesh;
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UWheelComponent* rightRearWheel;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* rightRearWheelMesh;
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UWheelComponent* leftRearWheel;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* leftRearWheelMesh;
 };

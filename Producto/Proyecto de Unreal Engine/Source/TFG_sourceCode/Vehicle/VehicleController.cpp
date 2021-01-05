@@ -11,7 +11,7 @@ AVehicleController::AVehicleController()
 void AVehicleController::BeginPlay()
 {
 	Super::BeginPlay();
-	vehicleCharacter = Cast<AVehiclePawn>(GetPawn());
+	vehiclePawn = Cast<AVehiclePawn>(GetPawn());
 	
 	UUserWidget* HUD = CreateWidget(this, hudClass);
 	HUD->AddToViewport();
@@ -41,44 +41,44 @@ void AVehicleController::Axis()
 
 void AVehicleController::Accelerate()
 {
-	if (!vehicleCharacter)
+	if (!vehiclePawn)
 	{
 		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
 		return;
 	}
 
-	vehicleCharacter->Accelerate();
+	vehiclePawn->Accelerate();
 }
 
 void AVehicleController::Brake()
 {
-	if (!vehicleCharacter)
+	if (!vehiclePawn)
 	{
 		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
 		return;
 	}
 
-	vehicleCharacter->Brake();
+	vehiclePawn->Brake();
 }
 
 void AVehicleController::Turn(float value)
 {
-	if (!vehicleCharacter)
+	if (!vehiclePawn)
 	{
 		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
 		return;
 	}
 
-	vehicleCharacter->Turn(value);
+	vehiclePawn->Turn(value);
 }
 
 void AVehicleController::Drift()
 {
-	if (!vehicleCharacter)
+	if (!vehiclePawn)
 	{
 		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
 		return;
 	}
 
-	vehicleCharacter->Drift();
+	vehiclePawn->Drift();
 }

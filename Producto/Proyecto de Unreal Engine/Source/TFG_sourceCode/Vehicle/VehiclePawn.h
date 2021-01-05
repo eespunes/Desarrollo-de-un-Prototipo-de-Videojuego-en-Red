@@ -41,9 +41,13 @@ protected:
 	// UStaticMeshComponent* wheels[];
 
 	UPROPERTY(EditAnywhere,Category="Vehicle: Suspension")
-	float suspensionRigidity = .25f;
-	UPROPERTY(EditAnywhere,Category="Vehicle: Suspension")
 	float suspensionDistance = 100.f;
+	UPROPERTY(EditAnywhere,Category="Vehicle: Suspension")
+	float suspensionRate;
+	UPROPERTY(EditAnywhere,Category="Vehicle: Suspension")
+	float dampingRate;
+
+	FVector lastUpVector;
 
 	//Accelerate
 	UPROPERTY(EditAnywhere,Category="Vehicle: Speed")
@@ -78,6 +82,5 @@ protected:
 	void FrictionBraking();
 
 	void GravityForce() const;
-	void SingleSuspensionForce(FVector position, UStaticMeshComponent* mesh, FString Name) const;
 	virtual void SuspensionForces();
 };

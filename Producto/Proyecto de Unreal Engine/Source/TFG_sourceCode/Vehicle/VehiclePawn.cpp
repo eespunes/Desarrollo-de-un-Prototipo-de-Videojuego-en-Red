@@ -25,6 +25,9 @@ AVehiclePawn::AVehiclePawn()
 void AVehiclePawn::BeginPlay()
 {
 	Super::BeginPlay();
+
+	lastUpVector = GetActorUpVector();
+
 	// reverseSpeed = -maxSpeed / reverseRate;
 	// acceleration = maxSpeed / accelerationRate;
 }
@@ -119,30 +122,7 @@ void AVehiclePawn::FrictionBraking()
 
 void AVehiclePawn::GravityForce() const
 {
-	chassisMesh->AddForce(-GetActorUpVector() * 980, NAME_None, true);
-}
-
-void AVehiclePawn::SingleSuspensionForce(FVector position, UStaticMeshComponent* mesh, FString Name) const
-{
-	FHitResult hit;
-	FVector end = position + (-GetActorUpVector() * suspensionDistance);
-
-	GetWorld()->LineTraceSingleByChannel(hit, position, end, ECC_WorldStatic);
-
-	if (hit.bBlockingHit)
-	{
-		float suspensionRate = hit.Distance / suspensionDistance;
-		float mult = suspensionRate;
-		mesh->AddForce(GetActorUpVector() * (980 * suspensionRate - 5 * GetVelocity().Size()) / 4, NAME_None, true);
-
-		DrawDebugLine(GetWorld(), position, end, FColor::Green, false, -1, 0, 5);
-	}
-	else
-		DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0, 5);
-
-	if (GEngine)
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
-		                                 FString::Printf(TEXT("Velocity: %f"), mesh->GetComponentVelocity().Size()));
+	chassisMesh->AddForce(-lastUpVector * 980, NAME_None, true);
 }
 
 void AVehiclePawn::SuspensionForces()

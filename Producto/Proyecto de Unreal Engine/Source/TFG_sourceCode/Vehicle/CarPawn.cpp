@@ -3,31 +3,35 @@
 
 #include "CarPawn.h"
 
+#include "WheelComponent.h"
+
 ACarPawn::ACarPawn()
 {
-	frontWheels = CreateDefaultSubobject<USceneComponent>(TEXT("Front Wheels"));
-	frontWheels->SetupAttachment(RootComponent);
-	rearWheels = CreateDefaultSubobject<USceneComponent>(TEXT("Rear Wheels"));
-	rearWheels->SetupAttachment(RootComponent);
-
+	rightFrontWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Right Front Wheel"));
+	rightFrontWheel->SetupAttachment(RootComponent);
 	rightFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Front Wheel Mesh"));
-	rightFrontWheelMesh->SetupAttachment(frontWheels);
+	rightFrontWheelMesh->SetupAttachment(rightFrontWheel);
+
+	leftFrontWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Left Front Wheel"));
+	leftFrontWheel->SetupAttachment(RootComponent);
 	leftFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Front Wheel Mesh"));
-	leftFrontWheelMesh->SetupAttachment(frontWheels);
+	leftFrontWheelMesh->SetupAttachment(leftFrontWheel);
+
+	rightRearWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Right Rear Wheel"));
+	rightRearWheel->SetupAttachment(RootComponent);
 	rightRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Rear Wheel Mesh"));
-	rightRearWheelMesh->SetupAttachment(rearWheels);
+	rightRearWheelMesh->SetupAttachment(rightRearWheel);
+
+	leftRearWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Left Rear Wheel"));
+	leftRearWheel->SetupAttachment(RootComponent);
 	leftRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Rear Wheel Mesh"));
-	leftRearWheelMesh->SetupAttachment(rearWheels);
+	leftRearWheelMesh->SetupAttachment(leftRearWheel);
 }
 
 void ACarPawn::BeginPlay()
 {
 	Super::BeginPlay();
 
-	rightFrontWheelMesh->SetSimulatePhysics(true);
-	leftFrontWheelMesh->SetSimulatePhysics(true);
-	rightRearWheelMesh->SetSimulatePhysics(true);
-	leftRearWheelMesh->SetSimulatePhysics(true);
 	// wheels[4];
 	// wheels[0]=rightFrontWheelMesh;
 	// wheels[1]=leftFrontWheelMesh;
@@ -39,10 +43,12 @@ void ACarPawn::SuspensionForces()
 {
 	Super::SuspensionForces();
 
-	SingleSuspensionForce(rightFrontWheelMesh->GetComponentLocation(), rightFrontWheelMesh,TEXT("Right Front"));
-	SingleSuspensionForce(leftFrontWheelMesh->GetComponentLocation(), leftFrontWheelMesh,TEXT("Left Front"));
-	SingleSuspensionForce(rightRearWheelMesh->GetComponentLocation(), rightRearWheelMesh,TEXT("Right Rear"));
-	SingleSuspensionForce(leftRearWheelMesh->GetComponentLocation(), leftRearWheelMesh,TEXT("Left Rear"));
+	bool rightFront = rightFrontWheel->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
+	bool leftFront = leftFrontWheel->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
+	bool rightRear = rightRearWheel->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
+	bool leftRear = leftRearWheel->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
+
+	if (rightFront && leftFront && rightRear && leftRear) lastUpVector = GetActorUpVector();
 }
 
 void ACarPawn::Tick(float DeltaTime)
