@@ -15,7 +15,7 @@ AVehiclePawn::AVehiclePawn()
 	RootComponent = chassisMesh;
 
 	springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
-	springArm->SetupAttachment(RootComponent);
+	springArm->SetupAttachment(chassisMesh);
 
 	camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	camera->SetupAttachment(springArm);
@@ -28,101 +28,125 @@ void AVehiclePawn::BeginPlay()
 
 	lastUpVector = GetActorUpVector();
 
-	// reverseSpeed = -maxSpeed / reverseRate;
-	// acceleration = maxSpeed / accelerationRate;
+	reverseSpeed = -maxSpeed / reverseRate;
+	acceleration = (maxSpeed / accelerationRate) * 10;
 }
 
 // Called every frame
 void AVehiclePawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	// CalculateSpeed(DeltaTime);
+	CalculateSpeed();
 	GravityForce();
 	SuspensionForces();
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Yellow,
-		                                 FString::Printf(TEXT("Velocity: %f"), GetVelocity().Size()));
-	}
 }
 
 void AVehiclePawn::Accelerate()
 {
-	// isAccelerating = !isAccelerating;
+	isAccelerating = !isAccelerating;
 }
 
 void AVehiclePawn::Brake()
 {
-	// isBraking = !isBraking;
+	isBraking = !isBraking;
 }
 
 void AVehiclePawn::Turn(float value)
 {
-	// AddControllerYawInput(CalculateRotation(value) * GetWorld()->DeltaTimeSeconds);
+	float angular = FMath::Abs(chassisMesh->GetPhysicsAngularVelocity().Z);
+	if (value == 0 && angular > 10)
+	{
+		chassisMesh->SetAngularDamping(100.f);
+	}
+	else if (value == 0 && angular <= 10)
+	{
+		chassisMesh->SetPhysicsAngularVelocity(FVector(0, 0, 0));
+	}
+	else if (angular < maxTurnSpeed)
+	{
+		chassisMesh->SetAngularDamping(.01f);
+		chassisMesh->AddTorqueInDegrees(GetActorUpVector() * value * minTurnSpeed, NAME_None, true);
+	}
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
+			                                 TEXT("Angular: %f"), angular));
+	}
 }
 
 void AVehiclePawn::Drift()
 {
 }
 
-float AVehiclePawn::CalculateRotation() const
+float AVehiclePawn::CalculateRotation(float value) const
 {
-	// float percentage = FMath::Abs(currentSpeed) / maxSpeed;
-	// if (percentage > frictionDecelerationRate)
-	// 	percentage = 1;
-	// else
-	// 	percentage /= frictionDecelerationRate;
-	// return value * (maxTurnSpeed * percentage);
-	return 0;
+	float percentage = FMath::Abs(lastVelocity) / maxSpeed;
+	if (percentage > frictionDecelerationRate)
+		percentage = 1;
+	else
+		percentage /= frictionDecelerationRate;
+	return value * (maxTurnSpeed * percentage);
 }
 
 void AVehiclePawn::CalculateSpeed()
 {
-	// if (isAccelerating && !isBraking)
-	// {
-	// 	if (currentSpeed < 0.f)
-	// 		currentSpeed += acceleration * brakeRate * DeltaTime;
-	// 	currentSpeed = FMath::Min(currentSpeed + (acceleration) * DeltaTime, maxSpeed);
-	// }
-	// else if (isBraking && !isAccelerating)
-	// {
-	// 	currentSpeed -= acceleration * brakeRate * DeltaTime;
-	// 	if (currentSpeed <= 0.f)
-	// 		currentSpeed = FMath::Max(currentSpeed - acceleration * DeltaTime, reverseSpeed);
-	// }
-	// else if (isBraking && isAccelerating)
-	// {
-	// 	if (currentSpeed < 0.f)
-	// 		currentSpeed += acceleration * brakeRate * DeltaTime;
-	// 	else
-	// 		currentSpeed = FMath::Max(currentSpeed - acceleration * brakeRate * DeltaTime, 0.f);
-	// }
-	// else
-	// {
-	// 	FrictionBraking(DeltaTime);
-	// }
-	//
-	// if (GetCharacterMovement())
-	// 	GetCharacterMovement()->MaxWalkSpeed = FMath::Abs(currentSpeed);
+	float deltaTime = GetWorld()->DeltaTimeSeconds;
+	float velocitySize = chassisMesh->GetPhysicsLinearVelocity().Size();
+	float currentVelocity = FVector(GetActorForwardVector().X * velocitySize,
+	                                GetActorForwardVector().Y * velocitySize, 0).Size();
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Yellow,
+		                                 FString::Printf(
+			                                 TEXT("Velocity: %f"), currentVelocity));
+	}
+	if (isAccelerating & !isBraking && inGround)
+	{
+		chassisMesh->SetLinearDamping(10.f);
+		if (currentVelocity < maxSpeed)
+		{
+			chassisMesh->AddForce(GetActorForwardVector() * acceleration, NAME_None, true);
+		}
+		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("Accelerating")));
+	}
+	else if (!isAccelerating & isBraking && inGround)
+	{
+		chassisMesh->SetLinearDamping(10.f);
+		currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
+		if (currentVelocity > reverseSpeed)
+			chassisMesh->AddForce(GetActorForwardVector() * -acceleration * brakeRate, NAME_None, true);
+
+		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("Braking")));
+	}
+	else if (isBraking && isAccelerating && inGround)
+	{
+		chassisMesh->SetLinearDamping(1.f);
+	}
+	else
+	{
+		chassisMesh->SetLinearDamping(.5f);
+	}
+
+	lastVelocity = currentVelocity;
 }
 
 
 void AVehiclePawn::FrictionBraking()
 {
+	// float deltaTime = GetWorld()->DeltaTimeSeconds;
 	// float percentage = FMath::Abs(currentSpeed) / maxSpeed;
 	// if (percentage > frictionDecelerationRate)
 	// 	percentage = 1;
 	//
 	// if (currentSpeed < 0.f)
-	// 	currentSpeed += acceleration * percentage * DeltaTime;
+	// 	currentSpeed += acceleration * percentage * deltaTime;
 	// else
-	// 	currentSpeed = FMath::Max(currentSpeed - acceleration * percentage * DeltaTime, 0.f);
+	// 	currentSpeed = FMath::Max(currentSpeed - acceleration * percentage * deltaTime, 0.f);
 }
 
 void AVehiclePawn::GravityForce() const
 {
-	chassisMesh->AddForce(-lastUpVector * 980, NAME_None, true);
+	chassisMesh->AddForce(-GetActorUpVector() * 980, NAME_None, true);
 }
 
 void AVehiclePawn::SuspensionForces()
@@ -132,4 +156,9 @@ void AVehiclePawn::SuspensionForces()
 float AVehiclePawn::GetSpeed() const
 {
 	return currentSpeed;
+}
+
+UStaticMeshComponent* AVehiclePawn::GetMesh() const
+{
+	return chassisMesh;
 }

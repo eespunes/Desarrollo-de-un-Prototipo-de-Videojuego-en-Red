@@ -30,6 +30,8 @@ public:
 
 	UFUNCTION(BlueprintPure)
 	float GetSpeed() const;
+	
+	UStaticMeshComponent* GetMesh() const;
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* chassisMesh;
@@ -54,7 +56,7 @@ protected:
 	float accelerationRate = 1.f;
 	float acceleration;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Speed")
-	float maxSpeed = 4000.f;
+	float maxSpeed = 500.f;
 	float currentSpeed = 0.f;
 	bool isAccelerating = false;
 	//Brake
@@ -74,11 +76,14 @@ protected:
 	float minTurnSpeed = 10.f;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
 	float maxTurnSpeed = 50.f;
+	float lastVelocity;
+
+	bool inGround;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void CalculateSpeed();
-	float CalculateRotation() const;
+	float CalculateRotation(float value) const;
 	void FrictionBraking();
 
 	void GravityForce() const;
