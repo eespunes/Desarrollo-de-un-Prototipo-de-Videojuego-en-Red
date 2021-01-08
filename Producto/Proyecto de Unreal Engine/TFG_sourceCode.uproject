@@ -5,12 +5,12 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "TFG_sourceCode",
+			"Name": "TFG_SourceCode",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
-	],
-	"TargetPlatforms": [
-		"AllDesktop"
 	]
 }

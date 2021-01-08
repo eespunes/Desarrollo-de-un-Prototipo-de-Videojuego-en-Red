@@ -2,13 +2,13 @@
 
 using UnrealBuildTool;
 
-public class TFG_sourceCode : ModuleRules
+public class TFG_SourceCode : ModuleRules
 {
-	public TFG_sourceCode(ReadOnlyTargetRules Target) : base(Target)
+	public TFG_SourceCode(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore","UMG" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
