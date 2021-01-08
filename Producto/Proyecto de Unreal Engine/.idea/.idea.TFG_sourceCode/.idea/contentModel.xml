@@ -48962,6 +48962,7 @@
       <e p="Config" t="Include">
         <e p="DefaultEditor.ini" t="Include" />
         <e p="DefaultEngine.ini" t="Include" />
+        <e p="DefaultGame.ini" t="Include" />
         <e p="DefaultInput.ini" t="Include" />
       </e>
       <e p="Engine" t="Include" />
@@ -48977,6 +48978,16 @@
           <e p="GameModes" t="Include">
             <e p="RaceGameMode.cpp" t="Include" />
             <e p="RaceGameMode.h" t="Include" />
+          </e>
+          <e p="Levels" t="Include">
+            <e p="BaseLevelActor.cpp" t="Include" />
+            <e p="BaseLevelActor.h" t="Include" />
+            <e p="ILevel.cpp" t="Include" />
+            <e p="ILevel.h" t="Include" />
+          </e>
+          <e p="RaceControllers" t="Include">
+            <e p="CheckPoint.cpp" t="Include" />
+            <e p="CheckPoint.h" t="Include" />
           </e>
           <e p="TFG_SourceCode.Build.cs" t="Include" />
           <e p="TFG_SourceCode.cpp" t="Include" />

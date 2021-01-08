@@ -75,8 +75,12 @@ protected:
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
 	float minTurnSpeed = 10.f;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
-	float maxTurnSpeed = 50.f;
+	float maxTurnAngle = 50.f;
 	float lastVelocity;
+
+	UPROPERTY(EditAnywhere,Category="Vehicle: Drift")
+	float maxDriftAngle = 100.f;
+	int isDrifting;
 
 	bool inGround;
 
@@ -84,7 +88,6 @@ protected:
 	virtual void BeginPlay() override;
 	void CalculateSpeed();
 	float CalculateRotation(float value) const;
-	void FrictionBraking();
 
 	void GravityForce() const;
 	virtual void SuspensionForces();

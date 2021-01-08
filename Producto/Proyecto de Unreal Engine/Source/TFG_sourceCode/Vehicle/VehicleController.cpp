@@ -30,8 +30,12 @@ void AVehicleController::Actions()
 {
 	InputComponent->BindAction("Accelerate", IE_Pressed, this, &AVehicleController::Accelerate);
 	InputComponent->BindAction("Accelerate", IE_Released, this, &AVehicleController::Accelerate);
+	
 	InputComponent->BindAction("Brake", IE_Pressed, this, &AVehicleController::Brake);
 	InputComponent->BindAction("Brake", IE_Released, this, &AVehicleController::Brake);
+
+	InputComponent->BindAction("Drift", IE_Pressed, this, &AVehicleController::Drift);
+	InputComponent->BindAction("Drift", IE_Released, this, &AVehicleController::Drift);
 }
 
 void AVehicleController::Axis()
