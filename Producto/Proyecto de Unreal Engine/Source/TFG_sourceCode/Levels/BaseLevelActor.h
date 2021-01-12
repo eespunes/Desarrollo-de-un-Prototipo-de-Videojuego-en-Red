@@ -17,13 +17,16 @@ UCLASS()
 class TFG_SOURCECODE_API ABaseLevelActor : public ALevelScriptActor, public ILevel
 {
 private:
-	
+
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	int laps;
-	TArray<ACheckPoint*> checkpoints;
+	int numberOfLaps;
+	int numberOfCheckpoints;
 
 
 protected:
 	virtual void BeginPlay() override;
+public:
+	int GetNumberOfLaps() const;
+	int GetNumberOfCheckpoints() const;
 };

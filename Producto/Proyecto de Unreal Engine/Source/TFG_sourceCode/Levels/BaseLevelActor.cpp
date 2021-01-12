@@ -16,8 +16,18 @@ void ABaseLevelActor::BeginPlay()
 		ACheckPoint* checkpoint = Cast<ACheckPoint>(actor);
 		if (checkpoint)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("CheckPoint #%i -> %f, %f, %f"), c++, checkpoint->GetActorLocation().X,checkpoint->GetActorLocation().Y,checkpoint->GetActorLocation().Z);
-			checkpoints.Add(checkpoint);
+			++c;
 		}
 	}
+	numberOfCheckpoints = c;
+}
+
+int ABaseLevelActor::GetNumberOfLaps() const
+{
+	return numberOfLaps;
+}
+
+int ABaseLevelActor::GetNumberOfCheckpoints() const
+{
+	return numberOfCheckpoints;
 }

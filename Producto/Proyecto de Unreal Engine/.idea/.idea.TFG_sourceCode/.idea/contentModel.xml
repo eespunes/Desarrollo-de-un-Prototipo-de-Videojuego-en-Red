@@ -48988,6 +48988,8 @@
           <e p="RaceControllers" t="Include">
             <e p="CheckPoint.cpp" t="Include" />
             <e p="CheckPoint.h" t="Include" />
+            <e p="RaceComponent.cpp" t="Include" />
+            <e p="RaceComponent.h" t="Include" />
           </e>
           <e p="TFG_SourceCode.Build.cs" t="Include" />
           <e p="TFG_SourceCode.cpp" t="Include" />
