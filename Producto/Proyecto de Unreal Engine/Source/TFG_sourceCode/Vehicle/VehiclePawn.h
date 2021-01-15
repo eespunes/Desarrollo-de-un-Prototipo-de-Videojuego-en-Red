@@ -37,8 +37,8 @@ public:
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* chassisMesh;
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
-	USpringArmComponent* springArm;
+	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	// USpringArmComponent* springArm;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UCameraComponent* camera;
 
@@ -88,6 +88,8 @@ protected:
 	int isDrifting;
 
 	bool inGround;
+	float turnTimer;
+	float driftValue;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

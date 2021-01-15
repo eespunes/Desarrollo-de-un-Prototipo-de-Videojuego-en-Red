@@ -4,6 +4,7 @@
 #include "VehiclePawn.h"
 
 #include "DrawDebugHelpers.h"
+#include "Math/UnitConversion.h"
 
 // Sets default values
 AVehiclePawn::AVehiclePawn()
@@ -14,11 +15,11 @@ AVehiclePawn::AVehiclePawn()
 	chassisMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Chassis Mesh"));
 	RootComponent = chassisMesh;
 
-	springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
-	springArm->SetupAttachment(chassisMesh);
-
+	// springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
+	// springArm->SetupAttachment(chassisMesh);
+	//
 	camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	camera->SetupAttachment(springArm);
+	camera->SetupAttachment(chassisMesh);
 
 	raceComponent = CreateDefaultSubobject<URaceComponent>(TEXT("Race Component"));
 }
@@ -38,13 +39,14 @@ void AVehiclePawn::BeginPlay()
 void AVehiclePawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	chassisMesh->SetPhysicsLinearVelocity(GetActorForwardVector() * 0);
+	if (inGround)
+		chassisMesh->SetPhysicsLinearVelocity(GetActorForwardVector() * 0);
 	GravityForce();
 	SuspensionForces();
 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
-		                                 TEXT("Linear: %f,%f,%f"), GetActorForwardVector() .X,
-		                                 GetActorForwardVector() .Y,
-		                                 GetActorForwardVector() .Z));
+		                                 TEXT("Linear: %f,%f,%f"), GetActorForwardVector().X,
+		                                 GetActorForwardVector().Y,
+		                                 GetActorForwardVector().Z));
 	CalculateSpeed(chassisMesh->GetPhysicsLinearVelocity());
 }
 
@@ -63,28 +65,49 @@ void AVehiclePawn::Turn(float value)
 	float angular = FMath::Abs(chassisMesh->GetPhysicsAngularVelocity().Z);
 	if (isDrifting)
 	{
-		if (angular < maxDriftAngle)
-			chassisMesh->SetAngularDamping(.01f);
-		chassisMesh->AddTorqueInDegrees(GetActorUpVector() * value * minTurnSpeed, NAME_None, true);
+		if (driftValue == 0)
+		{
+			if (value != 0)
+				driftValue = maxDriftAngle * value;
+			else
+				isDrifting = false;
+		}
+
+		driftValue += GetWorld()->DeltaTimeSeconds * value * 10;
+
+		chassisMesh->SetPhysicsAngularVelocityInDegrees(
+			FVector(
+				chassisMesh->GetPhysicsAngularVelocity().X,
+				chassisMesh->GetPhysicsAngularVelocity().Y,
+				driftValue));
 	}
 	else
 	{
+		driftValue = 0;
 		chassisMesh->SetPhysicsAngularVelocityInDegrees(
 			FVector(
 				chassisMesh->GetPhysicsAngularVelocity().X,
 				chassisMesh->GetPhysicsAngularVelocity().Y,
 				CalculateRotation(value)));
+
+		if (FMath::Abs(value) >= 1)
+			turnTimer += GetWorld()->DeltaTimeSeconds;
+		else
+			turnTimer = 0;
+		if (turnTimer >= 1)isDrifting = true;
 	}
+	if (turnTimer >= 1 && isDrifting && value == 0)isDrifting = false;
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
-			                                 TEXT("Angular: %f"), chassisMesh->GetPhysicsAngularVelocity().Z));
+			                                 TEXT("Angular: %f"), angular));
 	}
 }
 
 void AVehiclePawn::Drift()
 {
 	isDrifting = !isDrifting;
+	turnTimer = 0;
 }
 
 float AVehiclePawn::CalculateRotation(float value) const
@@ -94,8 +117,8 @@ float AVehiclePawn::CalculateRotation(float value) const
 		percentage = 1;
 	else
 		percentage /= frictionDecelerationRate;
-	
-	return value * (maxTurnAngle * percentage);
+
+	return value * (isDrifting ? maxDriftAngle : maxTurnAngle * percentage);
 }
 
 void AVehiclePawn::CalculateSpeed(FVector additionalForces)
@@ -137,8 +160,8 @@ void AVehiclePawn::CalculateSpeed(FVector additionalForces)
 		currentSpeed = FMath::Max(currentSpeed - acceleration * frictionDecelerationRate * deltaTime, 0.f);
 		action = TEXT("Nothing");
 	}
-
-	chassisMesh->SetPhysicsLinearVelocity((GetActorForwardVector() * currentSpeed) + additionalForces);
+	if (inGround)
+		chassisMesh->SetPhysicsLinearVelocity((GetActorForwardVector() * currentSpeed) + additionalForces*10);
 
 	if (GEngine)
 	{
