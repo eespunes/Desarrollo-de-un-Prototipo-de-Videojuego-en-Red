@@ -9,23 +9,23 @@ ACarPawn::ACarPawn()
 {
 	rightFrontWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Right Front Wheel"));
 	rightFrontWheel->SetupAttachment(RootComponent);
-	// rightFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Front Wheel Mesh"));
-	// rightFrontWheelMesh->SetupAttachment(rightFrontWheel);
+	rightFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Front Wheel Mesh"));
+	rightFrontWheelMesh->SetupAttachment(rightFrontWheel);
 
 	leftFrontWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Left Front Wheel"));
 	leftFrontWheel->SetupAttachment(RootComponent);
-	// leftFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Front Wheel Mesh"));
-	// leftFrontWheelMesh->SetupAttachment(leftFrontWheel);
+	leftFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Front Wheel Mesh"));
+	leftFrontWheelMesh->SetupAttachment(leftFrontWheel);
 
 	rightRearWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Right Rear Wheel"));
 	rightRearWheel->SetupAttachment(RootComponent);
-	// rightRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Rear Wheel Mesh"));
-	// rightRearWheelMesh->SetupAttachment(rightRearWheel);
+	rightRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Rear Wheel Mesh"));
+	rightRearWheelMesh->SetupAttachment(rightRearWheel);
 
 	leftRearWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Left Rear Wheel"));
 	leftRearWheel->SetupAttachment(RootComponent);
-	// leftRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Rear Wheel Mesh"));
-	// leftRearWheelMesh->SetupAttachment(leftRearWheel);
+	leftRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Rear Wheel Mesh"));
+	leftRearWheelMesh->SetupAttachment(leftRearWheel);
 }
 
 void ACarPawn::BeginPlay()

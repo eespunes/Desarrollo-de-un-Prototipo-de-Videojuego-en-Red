@@ -24,7 +24,5 @@ protected:
 	virtual void BeginPlay() override;
 private:
 	float suspensionCompression;
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	UStaticMeshComponent* wheelMesh;
 	UStaticMeshComponent* vehicleMesh;
 };

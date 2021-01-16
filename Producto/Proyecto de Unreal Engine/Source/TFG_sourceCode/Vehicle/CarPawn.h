@@ -29,21 +29,21 @@ protected:
 private:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UWheelComponent* rightFrontWheel;
-	// UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	// UStaticMeshComponent* rightFrontWheelMesh;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UStaticMeshComponent* rightFrontWheelMesh;
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UWheelComponent* leftFrontWheel;
-	// UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	// UStaticMeshComponent* leftFrontWheelMesh;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UStaticMeshComponent* leftFrontWheelMesh;
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UWheelComponent* rightRearWheel;
-	// UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	// UStaticMeshComponent* rightRearWheelMesh;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UStaticMeshComponent* rightRearWheelMesh;
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UWheelComponent* leftRearWheel;
-	// UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	// UStaticMeshComponent* leftRearWheelMesh;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UStaticMeshComponent* leftRearWheelMesh;
 };

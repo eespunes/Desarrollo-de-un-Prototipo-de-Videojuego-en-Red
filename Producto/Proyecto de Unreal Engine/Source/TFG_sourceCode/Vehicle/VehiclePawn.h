@@ -11,6 +11,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "TFG_SourceCode/RaceControllers/RaceComponent.h"
+
 #include "VehiclePawn.generated.h"
 
 UCLASS()
@@ -30,15 +32,18 @@ public:
 
 	UFUNCTION(BlueprintPure)
 	float GetSpeed() const;
-	
 	UStaticMeshComponent* GetMesh() const;
+	URaceComponent* GetRaceComponent() const;
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* chassisMesh;
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
-	USpringArmComponent* springArm;
+	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	// USpringArmComponent* springArm;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UCameraComponent* camera;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	URaceComponent* raceComponent;
 
 	// UStaticMeshComponent* wheels[];
 
@@ -75,16 +80,21 @@ protected:
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
 	float minTurnSpeed = 10.f;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
-	float maxTurnSpeed = 50.f;
+	float maxTurnAngle = 50.f;
 	float lastVelocity;
 
+	UPROPERTY(EditAnywhere,Category="Vehicle: Drift")
+	float maxDriftAngle = 100.f;
+	int isDrifting;
+
 	bool inGround;
+	float turnTimer;
+	float driftValue;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void CalculateSpeed();
+	void CalculateSpeed(FVector additionalForces);
 	float CalculateRotation(float value) const;
-	void FrictionBraking();
 
 	void GravityForce() const;
 	virtual void SuspensionForces();
