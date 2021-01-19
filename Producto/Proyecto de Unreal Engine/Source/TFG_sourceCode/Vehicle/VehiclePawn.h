@@ -36,7 +36,7 @@ public:
 	URaceComponent* GetRaceComponent() const;
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
-	UStaticMeshComponent* chassisMesh;
+	UStaticMeshComponent* mesh;
 	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	// USpringArmComponent* springArm;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
@@ -90,11 +90,13 @@ protected:
 	bool inGround;
 	float turnTimer;
 	float driftValue;
+	float lastTurnValue;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void CalculateSpeed(FVector additionalForces);
 	float CalculateRotation(float value) const;
+	FVector GetCenterOfMass();
 
 	void GravityForce() const;
 	virtual void SuspensionForces();

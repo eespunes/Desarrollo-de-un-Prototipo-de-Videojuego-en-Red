@@ -23,6 +23,7 @@ public:
 	virtual void Brake() override;
 	virtual void Turn(float value) override;
 	virtual void Drift() override;
+	void Pause();
 protected:
 	virtual void BeginPlay() override;
 	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))

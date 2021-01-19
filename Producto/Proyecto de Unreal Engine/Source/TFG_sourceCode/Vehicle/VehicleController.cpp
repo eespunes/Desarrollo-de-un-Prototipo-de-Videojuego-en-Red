@@ -6,15 +6,13 @@
 #include "Blueprint/UserWidget.h"
 
 AVehicleController::AVehicleController()
-{}
+{
+}
 
 void AVehicleController::BeginPlay()
 {
 	Super::BeginPlay();
 	vehiclePawn = Cast<AVehiclePawn>(GetPawn());
-	
-	UUserWidget* HUD = CreateWidget(this, hudClass);
-	HUD->AddToViewport();
 }
 
 void AVehicleController::SetupInputComponent()
@@ -30,12 +28,14 @@ void AVehicleController::Actions()
 {
 	InputComponent->BindAction("Accelerate", IE_Pressed, this, &AVehicleController::Accelerate);
 	InputComponent->BindAction("Accelerate", IE_Released, this, &AVehicleController::Accelerate);
-	
+
 	InputComponent->BindAction("Brake", IE_Pressed, this, &AVehicleController::Brake);
 	InputComponent->BindAction("Brake", IE_Released, this, &AVehicleController::Brake);
 
 	InputComponent->BindAction("Drift", IE_Pressed, this, &AVehicleController::Drift);
 	InputComponent->BindAction("Drift", IE_Released, this, &AVehicleController::Drift);
+
+	InputComponent->BindAction("Pause", IE_Pressed, this, &AVehicleController::Pause);
 }
 
 void AVehicleController::Axis()
@@ -85,4 +85,17 @@ void AVehicleController::Drift()
 	}
 
 	vehiclePawn->Drift();
+}
+
+void AVehicleController::Pause()
+{
+	if(!IsPaused())
+	{
+		UUserWidget* HUD = CreateWidget(this, hudClass);
+		HUD->AddToViewport();
+		SetPause(true);
+		bShowMouseCursor = true;
+		bEnableClickEvents = true;
+		bEnableMouseOverEvents = true;
+	}
 }

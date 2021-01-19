@@ -6,17 +6,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c03e321-85c4-4899-bf6a-1b88adea9950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/NewPlayerCameraManager.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Diseño/GDD.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Diseño/GDD.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/BlackGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/BlackGrid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_CheckPoint.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerControllers/BP_VehicleController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerControllers/BP_VehicleController.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/L_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_Test.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/WheelComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/WheelComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +72,6 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Characters/CarPawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceameMode.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehicleController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Wheel.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.h" />
@@ -80,12 +81,13 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/BaseLevelActor.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/BaseLevelActor.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehicleController.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/WheelComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/WheelComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehicleController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehicleController.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mKRvbKPKj4fjUCOKwTltdS6uf0" />
@@ -349,6 +351,11 @@
       <workItem from="1610461556305" duration="5238000" />
       <workItem from="1610699212606" duration="9081000" />
       <workItem from="1610711138089" duration="286000" />
+      <workItem from="1610721885912" duration="1974000" />
+      <workItem from="1610730034683" duration="625000" />
+      <workItem from="1610903481094" duration="7506000" />
+      <workItem from="1610987164283" duration="659000" />
+      <workItem from="1611071995032" duration="883000" />
     </task>
     <servers />
   </component>
