@@ -30,22 +30,17 @@ public:
 	virtual void Turn(float value) override;
 	virtual void Drift() override;
 
-	UFUNCTION(BlueprintPure)
-	float GetSpeed() const;
 	UStaticMeshComponent* GetMesh() const;
+	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* mesh;
-	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
-	// USpringArmComponent* springArm;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UCameraComponent* camera;
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	URaceComponent* raceComponent;
-
-	// UStaticMeshComponent* wheels[];
 
 	UPROPERTY(EditAnywhere,Category="Vehicle: Suspension")
 	float suspensionDistance = 100.f;
@@ -91,12 +86,17 @@ protected:
 	float turnTimer;
 	float driftValue;
 	float lastTurnValue;
+	float turnValue;
+	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
+	float steeringValue;
+	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
+	int turnToDriftSeconds;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void CalculateSpeed(FVector additionalForces);
-	float CalculateRotation(float value) const;
-	FVector GetCenterOfMass();
+	void Movement();
+	float CalculateMaxDriftValue() const;
+	FVector GetCenterOfMass() const;
 
 	void GravityForce() const;
 	virtual void SuspensionForces();

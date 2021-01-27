@@ -13,6 +13,8 @@ void AVehicleController::BeginPlay()
 {
 	Super::BeginPlay();
 	vehiclePawn = Cast<AVehiclePawn>(GetPawn());
+	UUserWidget* HUD = CreateWidget(this, hudClass);
+	HUD->AddToViewport();
 }
 
 void AVehicleController::SetupInputComponent()
@@ -91,8 +93,8 @@ void AVehicleController::Pause()
 {
 	if(!IsPaused())
 	{
-		UUserWidget* HUD = CreateWidget(this, hudClass);
-		HUD->AddToViewport();
+		UUserWidget* pauseHUD = CreateWidget(this, pauseClass);
+		pauseHUD->AddToViewport();
 		SetPause(true);
 		bShowMouseCursor = true;
 		bEnableClickEvents = true;

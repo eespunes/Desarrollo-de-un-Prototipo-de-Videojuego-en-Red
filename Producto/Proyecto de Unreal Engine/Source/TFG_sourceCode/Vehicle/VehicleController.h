@@ -34,8 +34,10 @@ protected:
 private:
 	AVehiclePawn* vehiclePawn;
 	//HUD
-	UPROPERTY(EditAnywhere,Category="HUD")
+	UPROPERTY(EditAnywhere,Category="UI")
 	TSubclassOf<class UUserWidget> hudClass;
+	UPROPERTY(EditAnywhere,Category="UI")
+	TSubclassOf<class UUserWidget> pauseClass;
 
 	virtual void SetupInputComponent() override;
 	void Actions();
