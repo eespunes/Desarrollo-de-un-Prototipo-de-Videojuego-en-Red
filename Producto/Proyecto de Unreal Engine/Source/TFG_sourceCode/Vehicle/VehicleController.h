@@ -23,6 +23,7 @@ public:
 	virtual void Brake() override;
 	virtual void Turn(float value) override;
 	virtual void Drift() override;
+	void Pause();
 protected:
 	virtual void BeginPlay() override;
 	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
@@ -33,8 +34,10 @@ protected:
 private:
 	AVehiclePawn* vehiclePawn;
 	//HUD
-	UPROPERTY(EditAnywhere,Category="HUD")
+	UPROPERTY(EditAnywhere,Category="UI")
 	TSubclassOf<class UUserWidget> hudClass;
+	UPROPERTY(EditAnywhere,Category="UI")
+	TSubclassOf<class UUserWidget> pauseClass;
 
 	virtual void SetupInputComponent() override;
 	void Actions();

@@ -44,30 +44,34 @@ bool UWheelComponent::SuspensionForce(float suspensionDistance, float force, flo
 
 	if (hit.bBlockingHit)
 	{
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
-			                                 FString::Printf(TEXT("%s: %f"), *GetName(), hit.Distance));
-		}
-
 		//HACE FALTA ROTAR LA RUEDA EN EL EJE DE LAS Y HIT NORMAL
-		float currentSuspensionCompression = suspensionDistance - hit.Distance;
+		float currentSuspensionCompression = 1 - (hit.Distance / suspensionDistance);
 		float springForce = currentSuspensionCompression * force;
 		float frictionForce = (currentSuspensionCompression - suspensionCompression);
 		frictionForce /= GetWorld()->DeltaTimeSeconds;
 		frictionForce *= frictionValue;
 		springForce += frictionForce;
 
-		vehicleMesh->AddForceAtLocation(hit.ImpactNormal * springForce, position, NAME_None);
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
+			                                 FString::Printf(
+				                                 TEXT("%s: %f"), *GetName(),
+				                                 currentSuspensionCompression));
+		}
+
+		vehicleMesh->AddForceAtLocation(GetUpVector() * springForce, position, NAME_None);
 
 		suspensionCompression = currentSuspensionCompression;
+
+		
 
 		DrawDebugLine(GetWorld(), position, hit.ImpactPoint, FColor::Green, false, -1, 0, 5);
 		return true;
 	}
 	else
 	{
-	//suspension=0
+		suspensionCompression = 0;
 		DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0, 5);
 		return false;
 	}

@@ -4,22 +4,53 @@
 #include "BaseLevelActor.h"
 
 #include "Kismet/GameplayStatics.h"
+#include "TFG_SourceCode/RaceControllers/CheckPoint.h"
+#include "TFG_SourceCode/Vehicle/VehiclePawn.h"
+
+class AVehiclePawn;
 
 void ABaseLevelActor::BeginPlay()
+{
+	FindCheckpoints();
+
+	FindVehicles();
+}
+
+ABaseLevelActor::ABaseLevelActor()
+{
+	PrimaryActorTick.bCanEverTick = true;
+}
+
+
+void ABaseLevelActor::FindCheckpoints()
 {
 	TArray<AActor*> foundActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACheckPoint::StaticClass(), foundActors);
 
-	int c = 0;
 	for (AActor* actor : foundActors)
 	{
 		ACheckPoint* checkpoint = Cast<ACheckPoint>(actor);
 		if (checkpoint)
 		{
-			++c;
+			checkpoints.Add(checkpoint);
 		}
 	}
-	numberOfCheckpoints = c;
+	numberOfCheckpoints = checkpoints.Num();
+}
+
+void ABaseLevelActor::FindVehicles()
+{
+	TArray<AActor*> foundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AVehiclePawn::StaticClass(), foundActors);
+
+	for (AActor* actor : foundActors)
+	{
+		AVehiclePawn* vehicle = Cast<AVehiclePawn>(actor);
+		if (vehicle)
+		{
+			vehicles.Add(vehicle->GetRaceComponent());
+		}
+	}
 }
 
 int ABaseLevelActor::GetNumberOfLaps() const
@@ -30,4 +61,17 @@ int ABaseLevelActor::GetNumberOfLaps() const
 int ABaseLevelActor::GetNumberOfCheckpoints() const
 {
 	return numberOfCheckpoints;
+}
+
+void ABaseLevelActor::TickActor(float DeltaTime, ELevelTick TickType, FActorTickFunction& ThisTickFunction)
+{
+	Super::TickActor(DeltaTime, TickType, ThisTickFunction);
+	for (URaceComponent* raceComponent : vehicles)
+	{
+		raceComponent->CalculateDistance(checkpoints[raceComponent->GetExpectedCheckpoint()]);
+	}
+	for (int i = 0; i < vehicles.Num(); i++)
+	{
+		vehicles[i]->SetPosition(i + 1);
+	}
 }

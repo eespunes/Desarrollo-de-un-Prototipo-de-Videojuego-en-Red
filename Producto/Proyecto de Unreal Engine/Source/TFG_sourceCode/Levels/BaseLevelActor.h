@@ -7,8 +7,12 @@
 #include "ILevel.h"
 #include "Chaos/AABB.h"
 #include "Engine/LevelScriptActor.h"
-#include "TFG_SourceCode/RaceControllers/CheckPoint.h"
+
+
 #include "BaseLevelActor.generated.h"
+
+class URaceComponent;
+class ACheckPoint;
 
 /**
  * 
@@ -19,14 +23,20 @@ class TFG_SOURCECODE_API ABaseLevelActor : public ALevelScriptActor, public ILev
 private:
 
 	GENERATED_BODY()
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	int numberOfLaps;
-	int numberOfCheckpoints;
-
 
 protected:
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	int32 numberOfLaps;
+	int32 numberOfCheckpoints;
+	
+	TArray<URaceComponent*> vehicles;
+	TArray<ACheckPoint*> checkpoints;
+	void FindCheckpoints();
+	void FindVehicles();
 	virtual void BeginPlay() override;
 public:
-	int GetNumberOfLaps() const;
-	int GetNumberOfCheckpoints() const;
+	ABaseLevelActor();
+	int32 GetNumberOfLaps() const;
+	int32 GetNumberOfCheckpoints() const;
+	virtual void TickActor(float DeltaTime, ELevelTick TickType, FActorTickFunction& ThisTickFunction) override;
 };
