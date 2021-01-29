@@ -91,11 +91,14 @@ protected:
 	float steeringValue;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
 	int turnToDriftSeconds;
+	float initialDriftValue = 20;
+	float driftTimer;
+	float driftSign;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();
-	float CalculateMaxDriftValue() const;
+	float CalculateMaxDriftValue();
 	FVector GetCenterOfMass() const;
 
 	void GravityForce() const;

@@ -61,15 +61,26 @@ void AVehiclePawn::Turn(float value)
 
 void AVehiclePawn::Drift()
 {
-	if (turnTimer < turnToDriftSeconds)
+	if (turnTimer < turnToDriftSeconds && FMath::Abs(lastVelocity) > maxSpeed * 0.5f)
+	{
 		isDrifting = !isDrifting;
+		if (isDrifting)
+			driftSign = FMath::Sign(turnValue);;
+	}
 }
 
-float AVehiclePawn::CalculateMaxDriftValue() const
+float AVehiclePawn::CalculateMaxDriftValue()
 {
-	// if (turnValue == 1)
-	// 	driftValue +=turnValue
-	return driftValue >= maxDriftAngle ? maxDriftAngle : driftValue;
+	if (driftValue == 0)
+		driftValue = maxTurnAngle;
+
+	if (FMath::Abs(turnValue) >= 1)
+		driftTimer += GetWorld()->DeltaTimeSeconds;
+	else
+		driftTimer = 0;
+
+	driftValue += FMath::Exp(driftTimer - 4);
+	return driftValue >= maxDriftAngle ? maxDriftAngle : driftSign * driftValue;
 }
 
 void AVehiclePawn::Movement()
@@ -117,24 +128,34 @@ void AVehiclePawn::Movement()
 
 		if (isDrifting)
 		{
+			if (driftSign == 0)
+			{
+				isDrifting = false;
+				return;
+			}
 			action += TEXT(" - Drift");
-			mesh->SetPhysicsMaxAngularVelocityInDegrees(
-				CalculateMaxDriftValue());
+			action += driftSign > 0 ? TEXT(" - Right") : TEXT(" - Left");
+			mesh->SetPhysicsMaxAngularVelocityInDegrees(CalculateMaxDriftValue());
 
 			if (turnTimer >= turnToDriftSeconds && FMath::Abs(turnValue) <= 0)
+			{
 				isDrifting = false;
+				turnTimer = 0;
+			}
 
-			mesh->AddTorqueInDegrees(GetActorUpVector() * minTurnSpeed * turnValue * currentVelocity / maxSpeed,
-			                         NAME_None, true);
+			mesh->AddTorqueInDegrees(GetActorUpVector() * minTurnSpeed * driftSign, NAME_None, true);
 		}
 		else
 		{
-			mesh->SetPhysicsMaxAngularVelocityInDegrees(maxTurnAngle);
+			driftValue = 0;
+			mesh->SetPhysicsMaxAngularVelocityInDegrees(
+				(maxTurnAngle + (maxDriftAngle - maxTurnAngle) * (1 - (currentVelocity / maxSpeed))));
 			if (FMath::Abs(turnValue) == 0 || (currentVelocity / maxSpeed) < frictionDecelerationRate)
 			{
+				action += TEXT(" - No Turn");
 				if (angular < .25f)
 					lastTurnValue = 0;
-				mesh->AddTorqueInDegrees(GetActorUpVector() * lastTurnValue * angular * -1, NAME_None, true);
+				mesh->AddTorqueInDegrees(GetActorUpVector() * lastTurnValue * -angular, NAME_None, true);
 			}
 			else
 			{
@@ -145,7 +166,11 @@ void AVehiclePawn::Movement()
 				{
 					turnTimer = 0;
 				}
-				if (turnTimer >= turnToDriftSeconds) { isDrifting = true; }
+				if (turnTimer >= turnToDriftSeconds)
+				{
+					driftSign = FMath::Sign(turnValue);
+					isDrifting = true;
+				}
 				else
 				{
 					mesh->AddTorqueInDegrees(GetActorUpVector() * minTurnSpeed * turnValue * currentVelocity / maxSpeed,

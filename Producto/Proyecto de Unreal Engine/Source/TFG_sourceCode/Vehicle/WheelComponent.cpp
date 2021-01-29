@@ -64,6 +64,8 @@ bool UWheelComponent::SuspensionForce(float suspensionDistance, float force, flo
 
 		suspensionCompression = currentSuspensionCompression;
 
+		
+
 		DrawDebugLine(GetWorld(), position, hit.ImpactPoint, FColor::Green, false, -1, 0, 5);
 		return true;
 	}

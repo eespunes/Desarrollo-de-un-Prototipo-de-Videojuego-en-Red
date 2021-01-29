@@ -6,23 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c03e321-85c4-4899-bf6a-1b88adea9950" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Documents/Entregables/Avantprojecte_ErikEspunesJubero.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Pause.png" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Pause.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Pause.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Pause.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerControllers/BP_VehicleController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerControllers/BP_VehicleController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_Speed.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Levels/BaseLevelActor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Levels/BaseLevelActor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Levels/BaseLevelActor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Levels/BaseLevelActor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/RaceControllers/RaceComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/RaceControllers/RaceComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/RaceControllers/RaceComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/RaceControllers/RaceComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehicleController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehicleController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehicleController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_sourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/L_TestEmpty.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_TestEmpty.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +24,9 @@
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/PhysicsEngine/BodyInstance.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Editor/DetailCustomizations/Private/BodyInstanceCustomization.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/PlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Public/GenericPlatform/GenericPlatformMath.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/corecrt_math.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Pawn.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/Components/PrimitiveComponent.h" root0="FORCE_HIGHLIGHTING" />
@@ -87,7 +76,6 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/WheelComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/ILevel.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/WheelComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehicleController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehicleController.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" />
@@ -98,6 +86,7 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/BaseLevelActor.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/WheelComponent.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mKRvbKPKj4fjUCOKwTltdS6uf0" />
@@ -369,7 +358,8 @@
       <workItem from="1611327309081" duration="172000" />
       <workItem from="1611327650910" duration="4786000" />
       <workItem from="1611334051554" duration="6831000" />
-      <workItem from="1611769562879" duration="6559000" />
+      <workItem from="1611769562879" duration="7282000" />
+      <workItem from="1611848755035" duration="6811000" />
     </task>
     <servers />
   </component>
