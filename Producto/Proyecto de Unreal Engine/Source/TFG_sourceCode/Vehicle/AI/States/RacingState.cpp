@@ -9,13 +9,15 @@ RacingState::RacingState(AAIVehicleController* VehicleController): State(Vehicle
 void RacingState::SetUp()
 {
 	State::SetUp();
-	//vehicle = vehicleController->GetVehicle();
+	vehicle = vehicleController->GetVehicle();
 }
 
 void RacingState::Update()
 {
 	State::Update();
-	//UE_LOG(LogTemp, Warning, TEXT("%f"), vehicleController->GetCurrentCheckpoint()->GetActorLocation().X);
+
+	FVector checkpointLocation=vehicleController->GetCurrentCheckpoint()->GetActorLocation()
+	vehicleController->Print(vehicleController->GetCurrentCheckpoint()->GetActorLocation().X);
 }
 
 void RacingState::Exit()

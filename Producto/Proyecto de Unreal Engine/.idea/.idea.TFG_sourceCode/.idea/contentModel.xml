@@ -49304,10 +49304,12 @@
     <e p="C:\Users\erike\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
     <e p="C:\Users\erike\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_TFG_SourceCode.-1074362487.00" t="ExcludeRecursive" />
     <e p="G:\Desarrollo de un Prototipo de Videojuego en Red\Producto\Proyecto de Unreal Engine" t="IncludeFlat">
+      <e p=".gitignore" t="Include" />
       <e p="Config" t="Include">
         <e p="DefaultEditor.ini" t="Include" />
         <e p="DefaultEngine.ini" t="Include" />
         <e p="DefaultGame.ini" t="Include" />
+        <e p="DefaultInput.ini" t="Include" />
       </e>
       <e p="Engine" t="Include" />
       <e p="Games" t="Include" />
@@ -49319,15 +49321,65 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Source" t="Include">
         <e p="TFG_SourceCode" t="Include">
+          <e p="GameModes" t="Include">
+            <e p="RaceGameMode.cpp" t="Include" />
+            <e p="RaceGameMode.h" t="Include" />
+          </e>
+          <e p="Levels" t="Include">
+            <e p="BaseLevelActor.cpp" t="Include" />
+            <e p="BaseLevelActor.h" t="Include" />
+            <e p="ILevel.cpp" t="Include" />
+            <e p="ILevel.h" t="Include" />
+          </e>
+          <e p="RaceControllers" t="Include">
+            <e p="CheckPoint.cpp" t="Include" />
+            <e p="CheckPoint.h" t="Include" />
+          </e>
           <e p="TFG_SourceCode.Build.cs" t="Include" />
           <e p="TFG_SourceCode.cpp" t="Include" />
           <e p="TFG_SourceCode.h" t="Include" />
           <e p="TFG_SourceCodeGameModeBase.cpp" t="Include" />
           <e p="TFG_SourceCodeGameModeBase.h" t="Include" />
+          <e p="Vehicle" t="Include">
+            <e p="AI" t="Include">
+              <e p="AIVehicleController.cpp" t="Include" />
+              <e p="AIVehicleController.h" t="Include" />
+              <e p="States" t="Include">
+                <e p="IdleState.cpp" t="Include" />
+                <e p="IdleState.h" t="Include" />
+                <e p="IState.cpp" t="Include" />
+                <e p="IState.h" t="Include" />
+                <e p="RacingState.cpp" t="Include" />
+                <e p="RacingState.h" t="Include" />
+                <e p="StartState.cpp" t="Include" />
+                <e p="StartState.h" t="Include" />
+                <e p="State.cpp" t="Include" />
+                <e p="State.h" t="Include" />
+              </e>
+            </e>
+            <e p="CarPawn.cpp" t="Include" />
+            <e p="CarPawn.h" t="Include" />
+            <e p="Components" t="Include">
+              <e p="RaceComponent.cpp" t="Include" />
+              <e p="RaceComponent.h" t="Include" />
+              <e p="WheelComponent.cpp" t="Include" />
+              <e p="WheelComponent.h" t="Include" />
+            </e>
+            <e p="Controllers" t="Include">
+              <e p="VehicleController.cpp" t="Include" />
+              <e p="VehicleController.h" t="Include" />
+            </e>
+            <e p="IVehicle.cpp" t="Include" />
+            <e p="IVehicle.h" t="Include" />
+            <e p="VehiclePawn.cpp" t="Include" />
+            <e p="VehiclePawn.h" t="Include" />
+          </e>
         </e>
         <e p="TFG_SourceCode.Target.cs" t="Include" />
         <e p="TFG_SourceCodeEditor.Target.cs" t="Include" />
       </e>
+      <e p="splash.png" t="Include" />
+      <e p="TFG_SourceCode.png" t="Include" />
       <e p="TFG_SourceCode.sln" t="IncludeFlat" />
       <e p="TFG_SourceCode.uproject" t="Include" />
       <e p="Visualizers" t="Include" />

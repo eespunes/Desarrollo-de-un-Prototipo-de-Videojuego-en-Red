@@ -52,13 +52,13 @@ bool UWheelComponent::SuspensionForce(float suspensionDistance, float force, flo
 		frictionForce *= frictionValue;
 		springForce += frictionForce;
 
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
-			                                 FString::Printf(
-				                                 TEXT("%s: %f"), *GetName(),
-				                                 currentSuspensionCompression));
-		}
+		// if (GEngine)
+		// {
+		// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
+		// 	                                 FString::Printf(
+		// 		                                 TEXT("%s: %f"), *GetName(),
+		// 		                                 currentSuspensionCompression));
+		// }
 
 		vehicleMesh->AddForceAtLocation(GetUpVector() * springForce, position, NAME_None);
 

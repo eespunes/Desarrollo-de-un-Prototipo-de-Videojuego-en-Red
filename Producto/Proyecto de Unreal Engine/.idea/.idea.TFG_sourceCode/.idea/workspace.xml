@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72007b2f-4042-4c59-b223-ef83cd178953" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_sourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Background.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Background.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Large.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Large.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Large_Inverted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Large_Inverted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Normal.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Square.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Square.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Square_Inverted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Square_Inverted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Pause.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Pause.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/tcm.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/tcm.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Splash/EdSplash.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Splash/EdSplash.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Splash/Splash.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Splash/Splash.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TFG_sourceCode.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TFG_sourceCode.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +18,10 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/WheelComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o1fP8uDPMpdYAlNuzHFQKgI06A" />
@@ -46,6 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -166,13 +155,15 @@
       <updated>1612458992551</updated>
       <workItem from="1612459003429" duration="1000" />
       <workItem from="1612459174083" duration="515000" />
+      <workItem from="1612460001800" duration="23000" />
+      <workItem from="1612460119565" duration="1364000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -187,6 +178,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../../.." />
+    </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>
