@@ -7,11 +7,7 @@
 		{
 			"Name": "TFG_SourceCode",
 			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine",
-				"AIModule"
-			]
+			"LoadingPhase": "Default"
 		}
 	]
 }

@@ -175,6 +175,8 @@
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/AvfMedia" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/AvidDNxMedia" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/BlackmagicMedia" />
+    <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/ElectraPlayer" />
+    <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/ElectraUtil" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/HAPMedia" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/HLMedia" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/ImgMedia" />
