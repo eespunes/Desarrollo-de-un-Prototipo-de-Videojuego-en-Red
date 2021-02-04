@@ -3,8 +3,6 @@
 
 #include "CarPawn.h"
 
-#include "WheelComponent.h"
-
 ACarPawn::ACarPawn()
 {
 	rightFrontWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Right Front Wheel"));

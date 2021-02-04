@@ -31,7 +31,7 @@ void AVehiclePawn::BeginPlay()
 
 	lastUpVector = GetActorUpVector();
 
-	reverseSpeed = -maxSpeed / 3;
+	reverseSpeed = -maxSpeed / reverseRate;
 	acceleration = (maxSpeed / accelerationRate) * 200;
 }
 
@@ -61,7 +61,7 @@ void AVehiclePawn::Turn(float value)
 
 void AVehiclePawn::Drift()
 {
-	if (turnTimer < turnToDriftSeconds && FMath::Abs(lastVelocity) > maxSpeed * 0.5f)
+	if (turnTimer < turnToDriftSeconds)
 	{
 		isDrifting = !isDrifting;
 		if (isDrifting)
@@ -74,12 +74,14 @@ float AVehiclePawn::CalculateMaxDriftValue()
 	if (driftValue == 0)
 		driftValue = maxTurnAngle;
 
-	if (FMath::Abs(turnValue) >= 1)
+	if (FMath::Abs(turnValue) >= 1 && FMath::Sign(turnValue) == driftSign)
+	{
 		driftTimer += GetWorld()->DeltaTimeSeconds;
+		driftValue += FMath::Exp(driftTimer - 4);
+	}
 	else
 		driftTimer = 0;
 
-	driftValue += FMath::Exp(driftTimer - 4);
 	return driftValue >= maxDriftAngle ? maxDriftAngle : driftSign * driftValue;
 }
 
@@ -87,7 +89,7 @@ void AVehiclePawn::Movement()
 {
 	float deltaTime = GetWorld()->DeltaTimeSeconds;
 	float currentVelocity = (GetActorForwardVector() * mesh->GetPhysicsLinearVelocity()).Size();
-	float angular = (mesh->GetPhysicsAngularVelocityInDegrees() * GetActorUpVector()).Size();
+	float currentAngular = (mesh->GetPhysicsAngularVelocityInDegrees() * GetActorUpVector()).Size();
 
 	FString action;
 	if (inGround)
@@ -128,9 +130,10 @@ void AVehiclePawn::Movement()
 
 		if (isDrifting)
 		{
-			if (driftSign == 0)
+			if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / reverseRate)
 			{
 				isDrifting = false;
+				turnTimer = 0;
 				return;
 			}
 			action += TEXT(" - Drift");
@@ -143,19 +146,26 @@ void AVehiclePawn::Movement()
 				turnTimer = 0;
 			}
 
-			mesh->AddTorqueInDegrees(GetActorUpVector() * minTurnSpeed * driftSign, NAME_None, true);
+			mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * driftSign, NAME_None, true);
 		}
 		else
 		{
 			driftValue = 0;
 			mesh->SetPhysicsMaxAngularVelocityInDegrees(
 				(maxTurnAngle + (maxDriftAngle - maxTurnAngle) * (1 - (currentVelocity / maxSpeed))));
-			if (FMath::Abs(turnValue) == 0 || (currentVelocity / maxSpeed) < frictionDecelerationRate)
+			if (FMath::Abs(turnValue) == 0 /*|| (currentVelocity / maxSpeed) < frictionDecelerationRate*/)
 			{
 				action += TEXT(" - No Turn");
-				if (angular < .25f)
+				if (currentAngular > maxTurnAngle * frictionDecelerationRate)
+				{
+					action += TEXT(" - Stopping");
+					// mesh->AddTorqueInDegrees(GetActorUpVector() * lastTurnValue * -currentAngular * 10, NAME_None, true);
+				}
+				else
+				{
+					action += TEXT(" - Stopped");
 					lastTurnValue = 0;
-				mesh->AddTorqueInDegrees(GetActorUpVector() * lastTurnValue * -angular, NAME_None, true);
+				}
 			}
 			else
 			{
@@ -173,9 +183,9 @@ void AVehiclePawn::Movement()
 				}
 				else
 				{
-					mesh->AddTorqueInDegrees(GetActorUpVector() * minTurnSpeed * turnValue * currentVelocity / maxSpeed,
+					mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * turnValue * currentVelocity / maxSpeed,
 					                         NAME_None, true);
-					lastTurnValue = turnValue > 0 ? 10 : turnValue < 0 ? -10 : 0;
+					lastTurnValue = FMath::Sign(turnValue);
 				}
 			}
 		}
@@ -185,7 +195,7 @@ void AVehiclePawn::Movement()
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
-			                                 TEXT("Angular: %f"), angular));
+			                                 TEXT("Angular: %f"), currentAngular));
 		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Yellow,
 		                                 FString::Printf(
 			                                 TEXT("Speed: %f"), currentVelocity));
@@ -195,7 +205,7 @@ void AVehiclePawn::Movement()
 
 void AVehiclePawn::GravityForce() const
 {
-	mesh->AddForce(-GetActorUpVector() * 980, NAME_None, true);
+	mesh->AddForce(GetActorUpVector() * GetWorld()->GetGravityZ(), NAME_None, true);
 }
 
 

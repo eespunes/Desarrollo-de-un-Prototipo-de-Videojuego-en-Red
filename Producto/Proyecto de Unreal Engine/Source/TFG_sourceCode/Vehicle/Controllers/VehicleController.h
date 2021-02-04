@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
-#include "IVehicle.h"
-#include "VehiclePawn.h"
+#include "TFG_SourceCode/Vehicle/IVehicle.h"
+#include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 
 #include "VehicleController.generated.h"

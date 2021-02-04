@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 
-#include "VehiclePawn.h"
 #include "Components/SceneComponent.h"
 #include "WheelComponent.generated.h"
 

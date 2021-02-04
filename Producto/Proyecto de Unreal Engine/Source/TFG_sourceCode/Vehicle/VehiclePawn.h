@@ -11,7 +11,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "TFG_SourceCode/RaceControllers/RaceComponent.h"
+#include "Components/RaceComponent.h"
 
 #include "VehiclePawn.generated.h"
 
@@ -50,6 +50,7 @@ protected:
 	float dampingRate;
 
 	FVector lastUpVector;
+	bool inGround;
 
 	//Accelerate
 	UPROPERTY(EditAnywhere,Category="Vehicle: Speed")
@@ -57,8 +58,8 @@ protected:
 	float acceleration;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Speed")
 	float maxSpeed = 500.f;
-	float currentSpeed = 0.f;
 	bool isAccelerating = false;
+	float lastVelocity;
 	//Brake
 	bool isBraking;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Speed")
@@ -73,34 +74,30 @@ protected:
 
 	//Turn
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
-	float minTurnSpeed = 10.f;
+	float steeringRate = 10.f;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
 	float maxTurnAngle = 50.f;
-	float lastVelocity;
-
-	UPROPERTY(EditAnywhere,Category="Vehicle: Drift")
-	float maxDriftAngle = 100.f;
-	int isDrifting;
-
-	bool inGround;
-	float turnTimer;
-	float driftValue;
-	float lastTurnValue;
-	float turnValue;
-	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
-	float steeringValue;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Turn")
 	int turnToDriftSeconds;
-	float initialDriftValue = 20;
+	float turnTimer;
+	float lastTurnValue;
+	float turnValue;
+
+	//Drift
+	UPROPERTY(EditAnywhere,Category="Vehicle: Drift")
+	float maxDriftAngle = 100.f;
+	bool isDrifting;
+	float driftValue;
 	float driftTimer;
 	float driftSign;
+	float lastAngular;
+
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();
 	float CalculateMaxDriftValue();
 	FVector GetCenterOfMass() const;
-
 	void GravityForce() const;
 	virtual void SuspensionForces();
 };

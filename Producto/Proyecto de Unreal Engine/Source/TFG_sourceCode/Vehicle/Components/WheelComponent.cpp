@@ -4,7 +4,7 @@
 #include "WheelComponent.h"
 
 #include "DrawDebugHelpers.h"
-#include "VehiclePawn.h"
+#include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 // Sets default values for this component's properties
 UWheelComponent::UWheelComponent()

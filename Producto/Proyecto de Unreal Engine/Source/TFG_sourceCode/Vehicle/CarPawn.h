@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "VehiclePawn.h"
-#include "WheelComponent.h"
+#include "Components/WheelComponent.h"
 
 #include "CarPawn.generated.h"
 

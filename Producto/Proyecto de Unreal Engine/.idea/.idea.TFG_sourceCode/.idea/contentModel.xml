@@ -48988,8 +48988,6 @@
           <e p="RaceControllers" t="Include">
             <e p="CheckPoint.cpp" t="Include" />
             <e p="CheckPoint.h" t="Include" />
-            <e p="RaceComponent.cpp" t="Include" />
-            <e p="RaceComponent.h" t="Include" />
           </e>
           <e p="TFG_SourceCode.Build.cs" t="Include" />
           <e p="TFG_SourceCode.cpp" t="Include" />
@@ -48997,16 +48995,38 @@
           <e p="TFG_SourceCodeGameModeBase.cpp" t="Include" />
           <e p="TFG_SourceCodeGameModeBase.h" t="Include" />
           <e p="Vehicle" t="Include">
+            <e p="AI" t="Include">
+              <e p="AIVehicleController.cpp" t="Include" />
+              <e p="AIVehicleController.h" t="Include" />
+              <e p="States" t="Include">
+                <e p="IdleState.cpp" t="Include" />
+                <e p="IdleState.h" t="Include" />
+                <e p="IState.cpp" t="Include" />
+                <e p="IState.h" t="Include" />
+                <e p="RacingState.cpp" t="Include" />
+                <e p="RacingState.h" t="Include" />
+                <e p="StartState.cpp" t="Include" />
+                <e p="StartState.h" t="Include" />
+                <e p="State.cpp" t="Include" />
+                <e p="State.h" t="Include" />
+              </e>
+            </e>
             <e p="CarPawn.cpp" t="Include" />
             <e p="CarPawn.h" t="Include" />
+            <e p="Components" t="Include">
+              <e p="RaceComponent.cpp" t="Include" />
+              <e p="RaceComponent.h" t="Include" />
+              <e p="WheelComponent.cpp" t="Include" />
+              <e p="WheelComponent.h" t="Include" />
+            </e>
+            <e p="Controllers" t="Include">
+              <e p="VehicleController.cpp" t="Include" />
+              <e p="VehicleController.h" t="Include" />
+            </e>
             <e p="IVehicle.cpp" t="Include" />
             <e p="IVehicle.h" t="Include" />
-            <e p="VehicleController.cpp" t="Include" />
-            <e p="VehicleController.h" t="Include" />
             <e p="VehiclePawn.cpp" t="Include" />
             <e p="VehiclePawn.h" t="Include" />
-            <e p="WheelComponent.cpp" t="Include" />
-            <e p="WheelComponent.h" t="Include" />
           </e>
         </e>
         <e p="TFG_SourceCode.Target.cs" t="Include" />
