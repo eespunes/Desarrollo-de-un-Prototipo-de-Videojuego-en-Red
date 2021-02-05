@@ -7,9 +7,9 @@ class State : public IState
 {
 protected:
 	AAIVehicleController* vehicleController;
-public:
 	State(AAIVehicleController* VehicleController);
 
+public:
 	virtual void SetUp() override;
 	virtual void Update() override;
 	virtual void Exit() override;

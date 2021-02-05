@@ -63,6 +63,13 @@ int ABaseLevelActor::GetNumberOfCheckpoints() const
 	return numberOfCheckpoints;
 }
 
+ACheckPoint* ABaseLevelActor::GetCheckpoint(int32 idx)
+{
+	if (idx < checkpoints.Num())
+		return checkpoints[idx];
+	return nullptr;
+}
+
 void ABaseLevelActor::TickActor(float DeltaTime, ELevelTick TickType, FActorTickFunction& ThisTickFunction)
 {
 	Super::TickActor(DeltaTime, TickType, ThisTickFunction);

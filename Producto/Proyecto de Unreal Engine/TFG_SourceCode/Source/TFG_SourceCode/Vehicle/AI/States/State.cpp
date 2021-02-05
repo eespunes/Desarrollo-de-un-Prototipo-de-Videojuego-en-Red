@@ -2,7 +2,6 @@
 
 State::State(AAIVehicleController* VehicleController): vehicleController(VehicleController)
 {
-	SetUp();
 }
 
 void State::SetUp()

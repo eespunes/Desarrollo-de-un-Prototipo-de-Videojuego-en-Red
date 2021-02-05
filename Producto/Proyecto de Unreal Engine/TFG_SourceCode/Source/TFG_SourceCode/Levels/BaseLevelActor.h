@@ -38,5 +38,6 @@ public:
 	ABaseLevelActor();
 	int32 GetNumberOfLaps() const;
 	int32 GetNumberOfCheckpoints() const;
+	ACheckPoint* GetCheckpoint(int32 idx);
 	virtual void TickActor(float DeltaTime, ELevelTick TickType, FActorTickFunction& ThisTickFunction) override;
 };

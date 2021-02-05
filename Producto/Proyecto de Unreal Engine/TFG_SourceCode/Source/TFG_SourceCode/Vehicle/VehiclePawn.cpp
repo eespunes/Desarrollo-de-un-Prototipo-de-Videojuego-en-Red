@@ -56,6 +56,7 @@ void AVehiclePawn::Brake()
 
 void AVehiclePawn::Turn(float value)
 {
+	UE_LOG(LogTemp,Error,TEXT("Turn Value= %f"),value);
 	turnValue = value;
 }
 
@@ -96,7 +97,7 @@ void AVehiclePawn::Movement()
 	{
 		if (isAccelerating & !isBraking)
 		{
-			mesh->SetLinearDamping(1.f);
+			mesh->SetLinearDamping(1.5f);
 			if (currentVelocity < maxSpeed)
 			{
 				mesh->AddForceAtLocation(GetActorForwardVector() * acceleration, GetCenterOfMass());
@@ -106,7 +107,7 @@ void AVehiclePawn::Movement()
 		}
 		else if (!isAccelerating & isBraking)
 		{
-			mesh->SetLinearDamping(1.f);
+			mesh->SetLinearDamping(1.5f);
 			currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
 			if (currentVelocity > reverseSpeed)
 			{
@@ -192,15 +193,15 @@ void AVehiclePawn::Movement()
 	}
 
 	//DEBUG
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
-			                                 TEXT("Angular: %f"), currentAngular));
+	// if (GEngine)
+	// {
+	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
+	// 		                                 TEXT("Angular: %f"), currentAngular));
 		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Yellow,
 		                                 FString::Printf(
 			                                 TEXT("Speed: %f"), currentVelocity));
-		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("%s"), *action));
-	}
+	// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("%s"), *action));
+	// }
 }
 
 void AVehiclePawn::GravityForce() const
