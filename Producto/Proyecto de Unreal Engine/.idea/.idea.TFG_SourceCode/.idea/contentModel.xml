@@ -49326,8 +49326,6 @@
             <e p="RaceGameMode.h" t="Include" />
           </e>
           <e p="Levels" t="Include">
-            <e p="BaseLevelActor.cpp" t="Include" />
-            <e p="BaseLevelActor.h" t="Include" />
             <e p="ILevel.cpp" t="Include" />
             <e p="ILevel.h" t="Include" />
             <e p="RacingLevel.cpp" t="Include" />

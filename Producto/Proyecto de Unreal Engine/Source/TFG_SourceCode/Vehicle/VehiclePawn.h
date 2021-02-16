@@ -41,11 +41,15 @@ public:
 	void SetMaxSpeed(float speed);
 	float GetInitialMaxSpeed();
 	void Damage();
+	void InvertControls(const TSubclassOf<AActor>& particle);
+	void NormalControls();
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* mesh;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	USceneComponent* objectSpawnPoint;
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	USceneComponent* particleSpawnPoint;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UCameraComponent* camera;
 
@@ -108,7 +112,9 @@ protected:
 	float hitWaiting = 3;
 	bool canUseObject{true};
 	float hiTimer;
-	
+	bool invertControls;
+	AActor* currentParticle;
+
 
 protected:
 	// Called when the game starts or when spawned

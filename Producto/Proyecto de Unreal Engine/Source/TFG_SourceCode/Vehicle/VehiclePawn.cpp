@@ -3,11 +3,9 @@
 
 #include "VehiclePawn.h"
 
-#include <iterator>
-
 
 #include "DrawDebugHelpers.h"
-#include "FramePro/FramePro.h"
+#include "Kismet/GameplayStatics.h"
 #include "Math/UnitConversion.h"
 #include "TFG_SourceCode/Objects/Base/ObjectBase.h"
 
@@ -22,6 +20,9 @@ AVehiclePawn::AVehiclePawn()
 
 	objectSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Object Spawn Point"));
 	objectSpawnPoint->SetupAttachment(mesh);
+
+	particleSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Particle Spawn Point"));
+	particleSpawnPoint->SetupAttachment(mesh);
 
 	camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	camera->SetupAttachment(mesh);
@@ -46,15 +47,15 @@ void AVehiclePawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if(!canUseObject)
+	if (!canUseObject)
 	{
-		if(hiTimer>=hitWaiting)
+		if (hiTimer >= hitWaiting)
 		{
 			canUseObject = true;
 			maxSpeed = initialMaxSpeed;
-			hiTimer=0;
+			hiTimer = 0;
 		}
-		hiTimer+=DeltaTime;
+		hiTimer += DeltaTime;
 	}
 
 	GravityForce();
@@ -74,8 +75,7 @@ void AVehiclePawn::Brake()
 
 void AVehiclePawn::Turn(float value)
 {
-	// UE_LOG(LogTemp,Error,TEXT("Turn Value= %f"),value);
-	turnValue = value;
+	turnValue = invertControls ? -value : value;
 }
 
 void AVehiclePawn::Drift()
@@ -128,7 +128,7 @@ void AVehiclePawn::Movement()
 	FString action;
 	if (inGround)
 	{
-		if (isAccelerating & !isBraking)
+		if (!invertControls && isAccelerating && !isBraking || invertControls && !isAccelerating && isBraking)
 		{
 			mesh->SetLinearDamping(1.5f);
 			if (currentVelocity < maxSpeed)
@@ -138,7 +138,7 @@ void AVehiclePawn::Movement()
 			}
 			action = TEXT("Accelerating");
 		}
-		else if (!isAccelerating & isBraking)
+		else if (!invertControls && !isAccelerating && isBraking || invertControls && isAccelerating && !isBraking)
 		{
 			mesh->SetLinearDamping(1.5f);
 			currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
@@ -303,4 +303,20 @@ void AVehiclePawn::Damage()
 {
 	canUseObject = false;
 	maxSpeed = 0;
+}
+
+void AVehiclePawn::InvertControls(const TSubclassOf<AActor>& particle)
+{
+	currentParticle = GetWorld()->SpawnActor<AActor>(particle,
+	                                                 particleSpawnPoint->GetComponentLocation(),
+	                                                 particleSpawnPoint->GetComponentRotation());
+	currentParticle->AttachToComponent(particleSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
+
+	invertControls = true;
+}
+
+void AVehiclePawn::NormalControls()
+{
+	currentParticle->Destroy();
+	invertControls = false;
 }
