@@ -23,6 +23,7 @@ public:
 	virtual void Brake() override;
 	virtual void Turn(float value) override;
 	virtual void Drift() override;
+	virtual void UseObject() override;
 	void Pause();
 protected:
 	virtual void BeginPlay() override;

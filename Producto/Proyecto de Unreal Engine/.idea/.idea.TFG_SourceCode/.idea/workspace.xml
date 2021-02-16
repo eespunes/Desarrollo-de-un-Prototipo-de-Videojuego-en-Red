@@ -5,31 +5,147 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a9676-8ee9-41bb-8b8f-ca5cc00466f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/03_-_Default.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Mjolnir.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/Question_Mark_Block.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_IdunApple.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_Mjolnir.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_ObjectContainer.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_RuneShield.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_Sleipnir.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_ValkyriaSpear.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Vehicles/chassis.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Vehicles/tyre.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_IdunApple.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_Mjolnir.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ObjectContainer.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_RuneShield.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_Sleipnir.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ValkyriaSpear.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ValkyriaSpearContainer.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/HarmObjectBase.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/HarmObjectBase.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/ObjectBase.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/ObjectBase.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/ProtectObjectBase.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/ProtectObjectBase.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ValkyriaSpearContainer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ValkyriaSpearContainer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/IObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/IObject.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/IdunApple.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/IdunApple.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/RuneShield.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/RuneShield.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Sleipnir.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Sleipnir.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/ValkyriaSpear.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/ValkyriaSpear.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/kisspng-car-jeep-skid-mark-tire-tread-tracks-5add1e8d44f622_5717047715244407172825.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/FX/kisspng-car-jeep-skid-mark-tire-tread-tracks-5add1e8d44f622_5717047715244407172825.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Car.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Car.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Eyes.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Eyes.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Fixed_Template_Master.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Fixed_Template_Master.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Landscape.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Landscape.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Track.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/M_Track.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MasterGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MasterGrid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MasterSolidColor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MasterSolidColor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/BlackGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/BlackGrid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/LandscapeNoHole.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/LandscapeNoHole.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/RedGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/RedGrid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/SolidOrange.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/SolidOrange.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/SolidRed.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/SolidRed.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/Template_BaseBlue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/Template_BaseBlue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Tyres.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Tyres.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWave.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWave.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWaveSmall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWaveSmall.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWedge.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWedge.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/CubeMaterial.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/LoopBig.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/LoopBig.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/LoopSmall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/LoopSmall.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Plane.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Plane.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/RampLarge.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/RampLarge.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/RampTwist.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/RampTwist.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/RoadSegment_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/RoadSegment_01.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/StraightFull.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightFull.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/StraightHalf.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightHalf.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/StraightQuarter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightQuarter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_45.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_45.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90Large.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90Large.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/chassis.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/pole.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/pole.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/turn_22andhalf.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/turn_22andhalf.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/tyre.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Eyes_TEX.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Decal_OpeningRace.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Glow_09_TEX.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_B.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_G.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Decal_01_TEX.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_B.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_G.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_R.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Background.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Background.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Large.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Large.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Large_Inverted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Large_Inverted.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Normal.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Square.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Square.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Button_Square_Inverted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Button_Square_Inverted.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/F_Jigsaw.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/F_Jigsaw.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/F_JigsawStencil.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/F_JigsawStencil.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/Jigsaw-Bold.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/Jigsaw-Bold.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/Jigsaw-Light.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/Jigsaw-Light.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/Jigsaw-Medium.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/Jigsaw-Medium.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/Jigsaw-Regular.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/Jigsaw-Regular.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/JigsawStencil_Bold.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/JigsawStencil_Bold.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/JigsawStencil_Medium.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/JigsawStencil_Medium.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Fonts/JigsawStencil_Regular.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Fonts/JigsawStencil_Regular.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Pause.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Pause.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/tcm.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/tcm.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AI/BP_AIVehicleController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AI/BP_AIVehicleController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_CheckPoint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_CheckPoint.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/NewPlayerCameraManager.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/NewPlayerCameraManager.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerControllers/BP_VehicleController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerControllers/BP_VehicleController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_PauseMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_PauseMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Geometry/Meshes/1M_Cube.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Geometry/Meshes/1M_Cube.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Geometry/Meshes/1M_Cube_Chamfer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Geometry/Meshes/1M_Cube_Chamfer.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Geometry/Meshes/CubeMaterial.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Geometry/Meshes/CubeMaterial.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Geometry/Meshes/TemplateFloor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Geometry/Meshes/TemplateFloor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/L_MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_MainMenu.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/L_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/L_TestEmpty.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_TestEmpty.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Splash/EdSplash.png" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Splash/EdSplash.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Splash/EdSplash.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Splash/EdSplash.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Splash/Splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Splash/Splash.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Splash/Splash.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Splash/Splash.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/BaseLevelActor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/BaseLevelActor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/BaseLevelActor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/BaseLevelActor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/State.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/State.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/State.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/State.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/IVehicle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/IVehicle.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TFG_sourceCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/TFG_sourceCode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/splash.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +153,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Public/Math/Vector.h" root0="FORCE_HIGHLIGHTING" />
@@ -58,6 +174,8 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.h" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o4EWjl8pjWQVpM2wNuAC3HkYWq" />
@@ -197,6 +315,7 @@
       <workItem from="1612537508659" duration="186000" />
       <workItem from="1612537760043" duration="388000" />
       <workItem from="1612538228843" duration="5638000" />
+      <workItem from="1613489640984" duration="444000" />
     </task>
     <servers />
   </component>

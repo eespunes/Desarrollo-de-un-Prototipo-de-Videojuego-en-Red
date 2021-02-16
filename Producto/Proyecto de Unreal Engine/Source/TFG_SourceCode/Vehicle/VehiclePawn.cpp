@@ -7,7 +7,9 @@
 
 
 #include "DrawDebugHelpers.h"
+#include "FramePro/FramePro.h"
 #include "Math/UnitConversion.h"
+#include "TFG_SourceCode/Objects/Base/ObjectBase.h"
 
 // Sets default values
 AVehiclePawn::AVehiclePawn()
@@ -17,6 +19,9 @@ AVehiclePawn::AVehiclePawn()
 
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Chassis Mesh"));
 	RootComponent = mesh;
+
+	objectSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Object Spawn Point"));
+	objectSpawnPoint->SetupAttachment(mesh);
 
 	camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	camera->SetupAttachment(mesh);
@@ -33,12 +38,25 @@ void AVehiclePawn::BeginPlay()
 
 	reverseSpeed = -maxSpeed / reverseRate;
 	acceleration = (maxSpeed / accelerationRate) * 200;
+	initialMaxSpeed = maxSpeed;
 }
 
 // Called every frame
 void AVehiclePawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	if(!canUseObject)
+	{
+		if(hiTimer>=hitWaiting)
+		{
+			canUseObject = true;
+			maxSpeed = initialMaxSpeed;
+			hiTimer=0;
+		}
+		hiTimer+=DeltaTime;
+	}
+
 	GravityForce();
 	SuspensionForces();
 	Movement();
@@ -56,7 +74,7 @@ void AVehiclePawn::Brake()
 
 void AVehiclePawn::Turn(float value)
 {
-	UE_LOG(LogTemp,Error,TEXT("Turn Value= %f"),value);
+	// UE_LOG(LogTemp,Error,TEXT("Turn Value= %f"),value);
 	turnValue = value;
 }
 
@@ -68,6 +86,21 @@ void AVehiclePawn::Drift()
 		if (isDrifting)
 			driftSign = FMath::Sign(turnValue);;
 	}
+}
+
+void AVehiclePawn::UseObject()
+{
+	if (currentObject && canUseObject)
+	{
+		currentObject->UseObject();
+	}
+}
+
+void AVehiclePawn::RemoveObject()
+{
+	currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+	currentObject->SetOwner(nullptr);
+	currentObject = nullptr;
 }
 
 float AVehiclePawn::CalculateMaxDriftValue()
@@ -193,15 +226,19 @@ void AVehiclePawn::Movement()
 	}
 
 	//DEBUG
-	// if (GEngine)
-	// {
-	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
-	// 		                                 TEXT("Angular: %f"), currentAngular));
+	if (GEngine)
+	{
+		// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
+		// 		                                 TEXT("Angular: %f"), currentAngular));
 		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Yellow,
 		                                 FString::Printf(
 			                                 TEXT("Speed: %f"), currentVelocity));
-	// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("%s"), *action));
-	// }
+		// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("%s"), *action));
+		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue,
+		                                 FString::Printf(
+			                                 TEXT("Object= %s"),
+			                                 currentObject ? *currentObject->GetName() : *FString("NO OBJECT")));
+	}
 }
 
 void AVehiclePawn::GravityForce() const
@@ -228,4 +265,42 @@ UStaticMeshComponent* AVehiclePawn::GetMesh() const
 URaceComponent* AVehiclePawn::GetRaceComponent() const
 {
 	return raceComponent;
+}
+
+AObjectBase* AVehiclePawn::GetCurrentObject() const
+{
+	return currentObject;
+}
+
+void AVehiclePawn::SetCurrentObject(AObjectBase* CurrentObject)
+{
+	//SPAWN OBJECT AT THE DESIRED POSITION
+
+	this->currentObject = CurrentObject;
+	this->currentObject->SetVehicle(this);
+	this->currentObject->SetOwner(this);
+	this->currentObject->SetActorLocation(objectSpawnPoint->GetComponentLocation());
+	this->currentObject->AttachToComponent(objectSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
+}
+
+float AVehiclePawn::GetMaxSpeed() const
+{
+	return maxSpeed;
+}
+
+void AVehiclePawn::SetMaxSpeed(float speed)
+{
+	maxSpeed = speed;
+	acceleration = (maxSpeed / accelerationRate) * 200;
+}
+
+float AVehiclePawn::GetInitialMaxSpeed()
+{
+	return initialMaxSpeed;
+}
+
+void AVehiclePawn::Damage()
+{
+	canUseObject = false;
+	maxSpeed = 0;
 }

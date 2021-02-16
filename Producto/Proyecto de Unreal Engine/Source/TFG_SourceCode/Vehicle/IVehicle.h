@@ -14,4 +14,5 @@ public:
 	virtual void Brake() =0;
 	virtual  void Turn(float value)=0;
 	virtual  void Drift()=0;
+	virtual  void UseObject()=0;
 };

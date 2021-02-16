@@ -1,0 +1,48 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "RacingLevel.h"
+
+#include "Kismet/GameplayStatics.h"
+#include "TFG_SourceCode/RaceControllers/CheckPoint.h"
+#include "TFG_SourceCode/RaceControllers/RaceController.h"
+#include "TFG_SourceCode/Vehicle/VehiclePawn.h"
+
+class AVehiclePawn;
+
+void ARacingLevel::BeginPlay()
+{
+	raceController = GetWorld()->SpawnActor<ARaceController>(ARaceController::StaticClass(), GetActorLocation(),
+	                                                         GetActorRotation());
+}
+
+ARacingLevel::ARacingLevel()
+{
+	PrimaryActorTick.bCanEverTick = true;
+}
+
+int32 ARacingLevel::GetNumberOfLaps() const
+{
+	return numberOfLaps;
+}
+
+int32 ARacingLevel::GetNumberOfCheckpoints() const
+{
+	if (!raceController)
+		return -1;
+	return raceController->GetNumberOfCheckpoints();
+}
+
+ACheckPoint* ARacingLevel::GetCheckpoint(int32 idx) const
+{
+	if (!raceController)
+		return nullptr;
+	return raceController->GetCheckpoint(idx);
+}
+
+inline URaceComponent* ARacingLevel::GetVehicle(int32 position)
+{
+	if (!raceController)
+		return nullptr;
+	return raceController->GetVehicle(position);
+}
