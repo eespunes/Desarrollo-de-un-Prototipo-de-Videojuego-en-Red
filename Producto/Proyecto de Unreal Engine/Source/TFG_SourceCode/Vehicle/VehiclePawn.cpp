@@ -305,13 +305,16 @@ void AVehiclePawn::Damage()
 	maxSpeed = 0;
 }
 
-void AVehiclePawn::InvertControls(const TSubclassOf<AActor>& particle)
+void AVehiclePawn::InstantiateParticle(const TSubclassOf<AActor>& particle)
 {
 	currentParticle = GetWorld()->SpawnActor<AActor>(particle,
 	                                                 particleSpawnPoint->GetComponentLocation(),
 	                                                 particleSpawnPoint->GetComponentRotation());
 	currentParticle->AttachToComponent(particleSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
+}
 
+void AVehiclePawn::InvertControls()
+{
 	invertControls = true;
 }
 

@@ -49355,6 +49355,8 @@
               <e p="LokiTrick.h" t="Include" />
               <e p="Mjolnir.cpp" t="Include" />
               <e p="Mjolnir.h" t="Include" />
+              <e p="OdinEye.cpp" t="Include" />
+              <e p="OdinEye.h" t="Include" />
               <e p="RuneShield.cpp" t="Include" />
               <e p="RuneShield.h" t="Include" />
               <e p="Sleipnir.cpp" t="Include" />

@@ -41,7 +41,8 @@ public:
 	void SetMaxSpeed(float speed);
 	float GetInitialMaxSpeed();
 	void Damage();
-	void InvertControls(const TSubclassOf<AActor>& particle);
+	void InstantiateParticle(const TSubclassOf<AActor>& particle);
+	void InvertControls();
 	void NormalControls();
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
