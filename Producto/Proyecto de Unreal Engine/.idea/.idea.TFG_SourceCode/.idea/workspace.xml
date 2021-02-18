@@ -6,73 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a9676-8ee9-41bb-8b8f-ca5cc00466f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/BP_RaceStart.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Apple.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Apple.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Car.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Car.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Eyes.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Eyes.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Iris_001_Material.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Iris_001_Material.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Eyes.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Eyes.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Head.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Head.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Horns1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Horns1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Horns2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Horns2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Mjolnir.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Mjolnir.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Sclera_001_Material.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Sclera_001_Material.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Tyres.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Tyres.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_JormundgandrBite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_LokiTrick.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Eyes_TEX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Decal_OpeningRace.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Decal_OpeningRace.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Glow_09_TEX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Glow_09_TEX.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_B.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_G.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_G.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Body_Masks_02_TEX_R.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Decal_01_TEX.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Decal_01_TEX.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_B.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_G.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_G.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Textures/Character_Mcqueen_Tire_Masks_01_TEX_R.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/Eye_Ble_Bump.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Body_AO.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Body_Albedo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Body_Emission.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Body_Specular.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Character_Eyes.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Eyes.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Head_Albedo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Head_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Head_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Horns1_Albedo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Horns1_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Horns1_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Horns2_Albedo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Horns2_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Jormundgandr_Horns2_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Mjolnir_AO.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Mjolnir_Albedo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Mjolnir_Metallic.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Mjolnir_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Mjolnir_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Tyres_AO.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Tyres_Albedo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Tyres_Metallic.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/TX_Tyres_Specular.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/T_Sclera_B.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/T_Sclera_D.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/T_Translucent_Mask.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/T__Sclera_Mask.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/bumpapple.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/materiliz_diffuseOriginal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Textures/tttt.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_JormundgandrBite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_JormundgandrBite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_LokiTrick.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_LokiTrick.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/L_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ValkyriaSpearContainer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ValkyriaSpearContainer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/AdvancedMagicFX12/Materials/MI_ky_trail_sword_fire.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/FX/AdvancedMagicFX12/Materials/MI_ky_trail_sword_fire.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ObjectContainer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ObjectContainer.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -369,7 +308,7 @@
       <workItem from="1613495743831" duration="2625000" />
       <workItem from="1613583876168" duration="3997000" />
       <workItem from="1613644044642" duration="43000" />
-      <workItem from="1613660729050" duration="5343000" />
+      <workItem from="1613660729050" duration="6037000" />
     </task>
     <servers />
   </component>
