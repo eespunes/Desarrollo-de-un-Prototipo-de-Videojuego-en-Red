@@ -49341,6 +49341,8 @@
               <e p="ProtectObjectBase.h" t="Include" />
             </e>
             <e p="Containers" t="Include">
+              <e p="FenrirRoarContainer.cpp" t="Include" />
+              <e p="FenrirRoarContainer.h" t="Include" />
               <e p="ObjectContainer.cpp" t="Include" />
               <e p="ObjectContainer.h" t="Include" />
               <e p="ValkyriaSpearContainer.cpp" t="Include" />
@@ -49349,6 +49351,8 @@
             <e p="IObject.cpp" t="Include" />
             <e p="IObject.h" t="Include" />
             <e p="Simple Objects" t="Include">
+              <e p="FenrirRoar.cpp" t="Include" />
+              <e p="FenrirRoar.h" t="Include" />
               <e p="IdunApple.cpp" t="Include" />
               <e p="IdunApple.h" t="Include" />
               <e p="JormundgandrBite.cpp" t="Include" />

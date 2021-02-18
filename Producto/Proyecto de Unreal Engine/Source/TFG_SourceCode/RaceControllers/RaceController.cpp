@@ -80,6 +80,11 @@ int ARaceController::GetNumberOfCheckpoints() const
 	return checkpoints.Num();
 }
 
+int32 ARaceController::GetNumberOfVehicles()
+{
+	return vehicles.Num();
+}
+
 URaceComponent* ARaceController::GetVehicle(int32 position)
 {
 	if (position >= vehicles.Num() || position < 0)
@@ -105,7 +110,8 @@ void ARaceController::Tick(float DeltaTime)
 				aux = vehicles[j];
 				vehicles[j] = vehicles[j - 1];
 				vehicles[j - 1] = aux;
-			}else if(vehicles[j]->GetTimeValue() == vehicles[j - 1]->GetTimeValue())
+			}
+			else if (vehicles[j]->GetTimeValue() == vehicles[j - 1]->GetTimeValue())
 			{
 				if (vehicles[j]->GetDistance() < vehicles[j - 1]->GetDistance())
 				{

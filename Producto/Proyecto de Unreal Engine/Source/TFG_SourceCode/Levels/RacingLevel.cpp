@@ -33,6 +33,13 @@ int32 ARacingLevel::GetNumberOfCheckpoints() const
 	return raceController->GetNumberOfCheckpoints();
 }
 
+int32 ARacingLevel::GetNumberOfVehicles() const
+{
+	if (!raceController)
+		return -1;
+	return raceController->GetNumberOfVehicles();
+}
+
 ACheckPoint* ARacingLevel::GetCheckpoint(int32 idx) const
 {
 	if (!raceController)

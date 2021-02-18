@@ -38,6 +38,7 @@ public:
 	ARacingLevel();
 	int32 GetNumberOfLaps() const;
 	int32 GetNumberOfCheckpoints() const;
+	int32 GetNumberOfVehicles()const;
 	ACheckPoint* GetCheckpoint(int32 idx) const;
 	URaceComponent* GetVehicle(int32 position);
 };

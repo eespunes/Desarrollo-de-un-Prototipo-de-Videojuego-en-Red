@@ -34,5 +34,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	ACheckPoint* GetCheckpoint(int32 idx);
 	int GetNumberOfCheckpoints() const;
+	int32 GetNumberOfVehicles();
 	URaceComponent* GetVehicle(int32 position);
 };
