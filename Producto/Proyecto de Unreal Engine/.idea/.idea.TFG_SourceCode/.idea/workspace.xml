@@ -6,13 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a9676-8ee9-41bb-8b8f-ca5cc00466f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Diseño/~$GDD.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/Eye_blend.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ObjectContainer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ObjectContainer.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/L_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +40,14 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/ObjectBase.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o4EWjl8pjWQVpM2wNuAC3HkYWq" />
@@ -296,6 +296,9 @@
       <workItem from="1613489640984" duration="4886000" />
       <workItem from="1613494878000" duration="134000" />
       <workItem from="1613495743831" duration="2625000" />
+      <workItem from="1613583876168" duration="3997000" />
+      <workItem from="1613644044642" duration="43000" />
+      <workItem from="1613660729050" duration="720000" />
     </task>
     <servers />
   </component>

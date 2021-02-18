@@ -49351,6 +49351,8 @@
             <e p="Simple Objects" t="Include">
               <e p="IdunApple.cpp" t="Include" />
               <e p="IdunApple.h" t="Include" />
+              <e p="JormundgandrBite.cpp" t="Include" />
+              <e p="JormundgandrBite.h" t="Include" />
               <e p="LokiTrick.cpp" t="Include" />
               <e p="LokiTrick.h" t="Include" />
               <e p="Mjolnir.cpp" t="Include" />
