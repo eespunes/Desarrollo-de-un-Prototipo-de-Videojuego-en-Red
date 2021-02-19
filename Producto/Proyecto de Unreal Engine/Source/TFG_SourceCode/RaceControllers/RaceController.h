@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "GameFramework/PlayerStart.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 
@@ -23,7 +24,10 @@ public:
 protected:
 	TArray<ACheckPoint*> checkpoints;
 	TArray<URaceComponent*> vehicles;
-	
+
+	bool canRace = false;
+	TArray<APlayerStart*> raceStarts;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void FindVehicles();
@@ -34,6 +38,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	ACheckPoint* GetCheckpoint(int32 idx);
 	int GetNumberOfCheckpoints() const;
-	int32 GetNumberOfVehicles();
+	int32 GetNumberOfVehicles() const;
 	URaceComponent* GetVehicle(int32 position);
+	bool GetCanRace() const;
+	void SetCanRace(bool value);
+	APlayerStart* GetRaceStart(int idx);
+	void UpdateTable();
 };

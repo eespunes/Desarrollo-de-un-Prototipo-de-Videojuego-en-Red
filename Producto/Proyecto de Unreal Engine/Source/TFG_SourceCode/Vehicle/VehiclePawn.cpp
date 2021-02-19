@@ -47,20 +47,28 @@ void AVehiclePawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!canUseObject)
-	{
-		if (hiTimer >= hitWaiting)
-		{
-			canUseObject = true;
-			maxSpeed = initialMaxSpeed;
-			hiTimer = 0;
-		}
-		hiTimer += DeltaTime;
-	}
-
 	GravityForce();
 	SuspensionForces();
-	Movement();
+	if (raceComponent->CanRace())
+	{
+		if (!canUseObject)
+		{
+			if (hiTimer >= hitWaiting)
+			{
+				canUseObject = true;
+				maxSpeed = initialMaxSpeed;
+				hiTimer = 0;
+			}
+			hiTimer += DeltaTime;
+		}
+
+		Movement();
+	}
+	else
+	{
+		mesh->SetLinearDamping(1000000);
+		mesh->SetAngularDamping(1000000);
+	}
 }
 
 void AVehiclePawn::Accelerate()
@@ -164,6 +172,7 @@ void AVehiclePawn::Movement()
 
 		if (isDrifting)
 		{
+			mesh->SetAngularDamping(2);
 			if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / reverseRate)
 			{
 				isDrifting = false;
@@ -185,6 +194,7 @@ void AVehiclePawn::Movement()
 		else
 		{
 			driftValue = 0;
+			mesh->SetAngularDamping(2);
 			mesh->SetPhysicsMaxAngularVelocityInDegrees(
 				(maxTurnAngle + (maxDriftAngle - maxTurnAngle) * (1 - (currentVelocity / maxSpeed))));
 			if (FMath::Abs(turnValue) == 0 /*|| (currentVelocity / maxSpeed) < frictionDecelerationRate*/)

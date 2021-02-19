@@ -7,6 +7,7 @@
 #include "ILevel.h"
 #include "Chaos/AABB.h"
 #include "Engine/LevelScriptActor.h"
+#include "GameFramework/PlayerStart.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 
@@ -41,4 +42,7 @@ public:
 	int32 GetNumberOfVehicles()const;
 	ACheckPoint* GetCheckpoint(int32 idx) const;
 	URaceComponent* GetVehicle(int32 position);
+	bool GetCanRace() const;
+	void SetCanRace(bool value) const;
+	APlayerStart* GetRaceStart(int idx) const;
 };

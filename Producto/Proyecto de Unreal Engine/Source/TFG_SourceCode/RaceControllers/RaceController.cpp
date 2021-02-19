@@ -5,6 +5,8 @@
 
 
 #include "CheckPoint.h"
+#include "EngineUtils.h"
+#include "GameFramework/PlayerStart.h"
 #include "Kismet/GameplayStatics.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
@@ -22,6 +24,25 @@ void ARaceController::BeginPlay()
 	Super::BeginPlay();
 	FindCheckpoints();
 	FindVehicles();
+
+	for (TActorIterator<APlayerStart> It(GetWorld()); It; ++It)
+	{
+		raceStarts.Add(*It);
+	}
+	APlayerStart* aux;
+	for (int i = 1; i < raceStarts.Num(); i++)
+	{
+		for (int j = raceStarts.Num() - 1; j >= i; j--)
+		{
+			if (raceStarts[j]->GetActorLabel() < raceStarts[j - 1]->
+                GetActorLabel())
+			{
+				aux = raceStarts[j];
+				raceStarts[j] = raceStarts[j - 1];
+				raceStarts[j - 1] = aux;
+			}
+		}
+	}
 }
 
 void ARaceController::FindCheckpoints()
@@ -80,7 +101,7 @@ int ARaceController::GetNumberOfCheckpoints() const
 	return checkpoints.Num();
 }
 
-int32 ARaceController::GetNumberOfVehicles()
+int32 ARaceController::GetNumberOfVehicles() const
 {
 	return vehicles.Num();
 }
@@ -92,10 +113,25 @@ URaceComponent* ARaceController::GetVehicle(int32 position)
 	return vehicles[position];
 }
 
-// Called every frame
-void ARaceController::Tick(float DeltaTime)
+bool ARaceController::GetCanRace() const
 {
-	Super::Tick(DeltaTime);
+	return canRace;
+}
+
+void ARaceController::SetCanRace(bool value)
+{
+	canRace = value;
+}
+
+APlayerStart* ARaceController::GetRaceStart(int idx)
+{
+	if (idx < raceStarts.Num())
+		return raceStarts[idx];
+	return nullptr;
+}
+
+void ARaceController::UpdateTable()
+{
 	for (URaceComponent* raceComponent : vehicles)
 	{
 		raceComponent->CalculateTimeValue();
@@ -127,4 +163,11 @@ void ARaceController::Tick(float DeltaTime)
 	{
 		vehicles[i]->SetPosition(i + 1);
 	}
+}
+
+// Called every frame
+void ARaceController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	UpdateTable();
 }

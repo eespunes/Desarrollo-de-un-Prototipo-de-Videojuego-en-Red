@@ -4,6 +4,7 @@
 #include "RacingLevel.h"
 
 #include "Kismet/GameplayStatics.h"
+#include "Serialization/JsonTypes.h"
 #include "TFG_SourceCode/RaceControllers/CheckPoint.h"
 #include "TFG_SourceCode/RaceControllers/RaceController.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
@@ -52,4 +53,25 @@ inline URaceComponent* ARacingLevel::GetVehicle(int32 position)
 	if (!raceController)
 		return nullptr;
 	return raceController->GetVehicle(position);
+}
+
+bool ARacingLevel::GetCanRace() const
+{
+	if (!raceController)
+		return nullptr;
+	return raceController->GetCanRace();
+}
+
+void ARacingLevel::SetCanRace(bool value) const
+{
+	if (!raceController)
+		return;
+	raceController->SetCanRace(value);
+}
+
+APlayerStart* ARacingLevel::GetRaceStart(int idx) const
+{
+	if (!raceController)
+		return nullptr;
+	return raceController->GetRaceStart(idx);
 }
