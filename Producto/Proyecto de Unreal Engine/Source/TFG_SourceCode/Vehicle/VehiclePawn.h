@@ -5,16 +5,11 @@
 #include "CoreMinimal.h"
 
 #include "IVehicle.h"
-#include "Camera/CameraComponent.h"
-#include "Components/CapsuleComponent.h"
-#include "GameFramework/Character.h"
-#include "GameFramework/CharacterMovementComponent.h"
-#include "GameFramework/Pawn.h"
-#include "GameFramework/SpringArmComponent.h"
-#include "Components/RaceComponent.h"
-
 #include "VehiclePawn.generated.h"
 
+class UCameraComponent;
+class URaceComponent;
+class AObjectBase;
 UCLASS()
 class TFG_SOURCECODE_API AVehiclePawn : public APawn, public IVehicle
 {
@@ -29,13 +24,30 @@ public:
 	virtual void Brake() override;
 	virtual void Turn(float value) override;
 	virtual void Drift() override;
+	virtual void UseObject() override;
+	void RemoveObject();
 
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
+
+	AObjectBase* GetCurrentObject() const;
+
+	void SetCurrentObject(AObjectBase* CurrentObject);
+	float GetMaxSpeed() const;
+	void SetMaxSpeed(float speed);
+	float GetInitialMaxSpeed();
+	void Damage();
+	void InstantiateParticle(const TSubclassOf<AActor>& particle);
+	void InvertControls();
+	void NormalControls();
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* mesh;
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	USceneComponent* objectSpawnPoint;
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	USceneComponent* particleSpawnPoint;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UCameraComponent* camera;
 
@@ -58,6 +70,7 @@ protected:
 	float acceleration;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Speed")
 	float maxSpeed = 500.f;
+	float initialMaxSpeed;
 	bool isAccelerating = false;
 	float lastVelocity;
 	//Brake
@@ -92,7 +105,16 @@ protected:
 	float driftSign;
 	float lastAngular;
 
+	//Objects
+	AObjectBase* currentObject = nullptr;
+	float hitWaiting = 3;
+	bool canUseObject{true};
+	float hiTimer;
+	bool invertControls;
+	AActor* currentParticle;
 
+
+protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();

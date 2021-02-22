@@ -5,11 +5,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "TFG_SourceCode/Vehicle/IVehicle.h"
-#include "TFG_SourceCode/Vehicle/VehiclePawn.h"
-
 
 #include "VehicleController.generated.h"
 
+class AVehiclePawn;
 /**
  * 
  */
@@ -23,6 +22,7 @@ public:
 	virtual void Brake() override;
 	virtual void Turn(float value) override;
 	virtual void Drift() override;
+	virtual void UseObject() override;
 	void Pause();
 protected:
 	virtual void BeginPlay() override;

@@ -12567,6 +12567,27 @@
         </e>
       </e>
     </e>
+    <e p="C:\Program Files\Unreal\UE_4.26\Engine\Plugins\Marketplace\CircularDependenciesDetector" t="Include">
+      <e p="CircularDependenciesDetector.uplugin" t="Include" />
+      <e p="Resources" t="Include">
+        <e p="Icon128.png" t="Include" />
+      </e>
+      <e p="Source" t="Include">
+        <e p="CircularDependenciesDetector" t="Include">
+          <e p="CircularDependenciesDetector.Build.cs" t="Include" />
+          <e p="Private" t="Include">
+            <e p="CircularDependenciesDetector.cpp" t="Include" />
+            <e p="CircularDependenciesLib.cpp" t="Include" />
+            <e p="CircularDependenciesLib.h" t="Include" />
+            <e p="CircularInvolvedAssetItem.h" t="Include" />
+            <e p="NamePair.h" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="CircularDependenciesDetector.h" t="Include" />
+          </e>
+        </e>
+      </e>
+    </e>
     <e p="C:\Program Files\Unreal\UE_4.26\Engine\Plugins\Media\AjaMedia" t="Include">
       <e p="AjaMedia.uplugin" t="Include" />
       <e p="Config" t="Include">
@@ -49302,8 +49323,8 @@
       <e p="UE4Game.Target.cs" t="Include" />
     </e>
     <e p="C:\Users\erike\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\erike\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_TFG_SourceCode.-1307532301.00" t="ExcludeRecursive" />
-    <e p="G:\Desarrollo de un Prototipo de Videojuego en Red\Producto\Proyecto de Unreal Engine\TFG_SourceCode" t="IncludeFlat">
+    <e p="C:\Users\erike\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_TFG_SourceCode.-1074362487.00" t="ExcludeRecursive" />
+    <e p="G:\Desarrollo de un Prototipo de Videojuego en Red\Producto\Proyecto de Unreal Engine" t="IncludeFlat">
       <e p=".gitignore" t="Include" />
       <e p="Config" t="Include">
         <e p="DefaultEditor.ini" t="Include" />
@@ -49326,14 +49347,58 @@
             <e p="RaceGameMode.h" t="Include" />
           </e>
           <e p="Levels" t="Include">
-            <e p="BaseLevelActor.cpp" t="Include" />
-            <e p="BaseLevelActor.h" t="Include" />
             <e p="ILevel.cpp" t="Include" />
             <e p="ILevel.h" t="Include" />
+            <e p="RacingLevel.cpp" t="Include" />
+            <e p="RacingLevel.h" t="Include" />
+          </e>
+          <e p="Objects" t="Include">
+            <e p="base" t="Include">
+              <e p="HarmObjectBase.cpp" t="Include" />
+              <e p="HarmObjectBase.h" t="Include" />
+              <e p="ObjectBase.cpp" t="Include" />
+              <e p="ObjectBase.h" t="Include" />
+              <e p="ProtectObjectBase.cpp" t="Include" />
+              <e p="ProtectObjectBase.h" t="Include" />
+            </e>
+            <e p="Containers" t="Include">
+              <e p="FenrirRoarContainer.cpp" t="Include" />
+              <e p="FenrirRoarContainer.h" t="Include" />
+              <e p="ObjectContainer.cpp" t="Include" />
+              <e p="ObjectContainer.h" t="Include" />
+              <e p="ValkyriaSpearContainer.cpp" t="Include" />
+              <e p="ValkyriaSpearContainer.h" t="Include" />
+            </e>
+            <e p="IObject.cpp" t="Include" />
+            <e p="IObject.h" t="Include" />
+            <e p="Simple Objects" t="Include">
+              <e p="FenrirRoar.cpp" t="Include" />
+              <e p="FenrirRoar.h" t="Include" />
+              <e p="IdunApple.cpp" t="Include" />
+              <e p="IdunApple.h" t="Include" />
+              <e p="JormundgandrBite.cpp" t="Include" />
+              <e p="JormundgandrBite.h" t="Include" />
+              <e p="LokiTrick.cpp" t="Include" />
+              <e p="LokiTrick.h" t="Include" />
+              <e p="Mjolnir.cpp" t="Include" />
+              <e p="Mjolnir.h" t="Include" />
+              <e p="OdinEye.cpp" t="Include" />
+              <e p="OdinEye.h" t="Include" />
+              <e p="Ragnarok.cpp" t="Include" />
+              <e p="Ragnarok.h" t="Include" />
+              <e p="RuneShield.cpp" t="Include" />
+              <e p="RuneShield.h" t="Include" />
+              <e p="Sleipnir.cpp" t="Include" />
+              <e p="Sleipnir.h" t="Include" />
+              <e p="ValkyriaSpear.cpp" t="Include" />
+              <e p="ValkyriaSpear.h" t="Include" />
+            </e>
           </e>
           <e p="RaceControllers" t="Include">
             <e p="CheckPoint.cpp" t="Include" />
             <e p="CheckPoint.h" t="Include" />
+            <e p="RaceController.cpp" t="Include" />
+            <e p="RaceController.h" t="Include" />
           </e>
           <e p="TFG_SourceCode.Build.cs" t="Include" />
           <e p="TFG_SourceCode.cpp" t="Include" />

@@ -4,6 +4,7 @@
 #include "VehicleController.h"
 
 #include "Blueprint/UserWidget.h"
+#include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 AVehicleController::AVehicleController()
 {
@@ -36,6 +37,8 @@ void AVehicleController::Actions()
 
 	InputComponent->BindAction("Drift", IE_Pressed, this, &AVehicleController::Drift);
 	InputComponent->BindAction("Drift", IE_Released, this, &AVehicleController::Drift);
+
+	InputComponent->BindAction("Use Object", IE_Pressed, this, &AVehicleController::UseObject);
 
 	InputComponent->BindAction("Pause", IE_Pressed, this, &AVehicleController::Pause);
 }
@@ -87,6 +90,17 @@ void AVehicleController::Drift()
 	}
 
 	vehiclePawn->Drift();
+}
+
+void AVehicleController::UseObject()
+{
+	if (!vehiclePawn)
+	{
+		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
+		return;
+	}
+
+	vehiclePawn->UseObject();
 }
 
 void AVehicleController::Pause()
