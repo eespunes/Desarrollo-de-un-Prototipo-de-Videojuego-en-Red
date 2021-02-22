@@ -167,6 +167,7 @@
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Lumin/MagicLeapPassableWorld" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Lumin/MagicLeapSharedFile" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Lumin/MagicLeapTablet" />
+    <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Marketplace/CircularDependenciesDetector" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/AjaMedia" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/AndroidCamera" />
     <content url="file://C:/Program Files/Unreal/UE_4.26/Engine/Plugins/Media/AndroidMedia" />

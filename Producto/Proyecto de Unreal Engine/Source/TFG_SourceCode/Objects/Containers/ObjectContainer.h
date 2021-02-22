@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 
+#include <vector>
+
+
 #include "TFG_SourceCode/Objects/Base/ObjectBase.h"
 #include "GameFramework/Actor.h"
 #include "ObjectContainer.generated.h"
@@ -20,7 +23,8 @@ class TFG_SOURCECODE_API AObjectContainer : public AActor
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* mesh;
 	UPROPERTY(EditAnywhere)
-	TSubclassOf<class AObjectBase> objectToSpawn;
+	TArray<UBlueprint*> objects;
+	std::vector<std::vector<float>> objectProbabilities;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

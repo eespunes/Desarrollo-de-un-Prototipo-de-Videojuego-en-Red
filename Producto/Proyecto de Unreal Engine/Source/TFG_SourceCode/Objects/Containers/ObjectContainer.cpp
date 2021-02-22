@@ -3,8 +3,10 @@
 
 #include "ObjectContainer.h"
 
+#include <string>
+#include <fstream>
+#include <iostream>
 
-#include "Algo/Rotate.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 
@@ -69,5 +71,8 @@ void AObjectContainer::OnOverlapBegin(AActor* ownerActor, AActor* otherActor)
 
 AObjectBase* AObjectContainer::GetObject()
 {
-	return GetWorld()->SpawnActor<AObjectBase>(objectToSpawn,GetActorLocation(),GetActorRotation());
+	int32 RandRange = FMath::RandRange(0, objects.Num() - 1);
+	UE_LOG(LogTemp, Warning, TEXT("%i"), RandRange);
+	return GetWorld()->SpawnActor<AObjectBase>(objects[RandRange]->GeneratedClass, GetActorLocation(),
+	                                           GetActorRotation());
 }

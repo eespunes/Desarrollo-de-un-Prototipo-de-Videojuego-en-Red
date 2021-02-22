@@ -5,13 +5,10 @@
 #include "CoreMinimal.h"
 
 #include "IVehicle.h"
-#include "Camera/CameraComponent.h"
-#include "GameFramework/Pawn.h"
-#include "Components/RaceComponent.h"
-
-
 #include "VehiclePawn.generated.h"
 
+class UCameraComponent;
+class URaceComponent;
 class AObjectBase;
 UCLASS()
 class TFG_SOURCECODE_API AVehiclePawn : public APawn, public IVehicle
@@ -109,7 +106,7 @@ protected:
 	float lastAngular;
 
 	//Objects
-	AObjectBase* currentObject;
+	AObjectBase* currentObject = nullptr;
 	float hitWaiting = 3;
 	bool canUseObject{true};
 	float hiTimer;

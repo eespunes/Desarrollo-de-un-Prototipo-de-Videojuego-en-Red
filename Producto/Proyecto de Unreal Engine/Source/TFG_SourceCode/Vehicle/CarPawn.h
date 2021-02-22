@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "VehiclePawn.h"
-#include "Components/WheelComponent.h"
 
 #include "CarPawn.generated.h"
 
+class UWheelComponent;
 /**
  * 
  */

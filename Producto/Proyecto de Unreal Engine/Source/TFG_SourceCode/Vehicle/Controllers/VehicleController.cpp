@@ -4,6 +4,7 @@
 #include "VehicleController.h"
 
 #include "Blueprint/UserWidget.h"
+#include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 AVehicleController::AVehicleController()
 {

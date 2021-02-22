@@ -5,6 +5,8 @@
 
 
 #include "DrawDebugHelpers.h"
+#include "Camera/CameraComponent.h"
+#include "Components/RaceComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Math/UnitConversion.h"
 #include "TFG_SourceCode/Objects/Base/ObjectBase.h"
@@ -285,12 +287,18 @@ AObjectBase* AVehiclePawn::GetCurrentObject() const
 void AVehiclePawn::SetCurrentObject(AObjectBase* CurrentObject)
 {
 	//SPAWN OBJECT AT THE DESIRED POSITION
-
-	this->currentObject = CurrentObject;
-	this->currentObject->SetVehicle(this);
-	this->currentObject->SetOwner(this);
-	this->currentObject->SetActorLocation(objectSpawnPoint->GetComponentLocation());
-	this->currentObject->AttachToComponent(objectSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
+	if (this->currentObject)
+	{
+		this->currentObject->Destroy();
+	}
+	if(CurrentObject)
+	{
+		this->currentObject = CurrentObject;
+		this->currentObject->SetVehicle(this);
+		this->currentObject->SetOwner(this);
+		this->currentObject->SetActorLocation(objectSpawnPoint->GetComponentLocation());
+		this->currentObject->AttachToComponent(objectSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
+	}
 }
 
 float AVehiclePawn::GetMaxSpeed() const

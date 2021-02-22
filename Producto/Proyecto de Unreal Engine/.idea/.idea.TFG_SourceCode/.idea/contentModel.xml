@@ -12567,6 +12567,27 @@
         </e>
       </e>
     </e>
+    <e p="C:\Program Files\Unreal\UE_4.26\Engine\Plugins\Marketplace\CircularDependenciesDetector" t="Include">
+      <e p="CircularDependenciesDetector.uplugin" t="Include" />
+      <e p="Resources" t="Include">
+        <e p="Icon128.png" t="Include" />
+      </e>
+      <e p="Source" t="Include">
+        <e p="CircularDependenciesDetector" t="Include">
+          <e p="CircularDependenciesDetector.Build.cs" t="Include" />
+          <e p="Private" t="Include">
+            <e p="CircularDependenciesDetector.cpp" t="Include" />
+            <e p="CircularDependenciesLib.cpp" t="Include" />
+            <e p="CircularDependenciesLib.h" t="Include" />
+            <e p="CircularInvolvedAssetItem.h" t="Include" />
+            <e p="NamePair.h" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="CircularDependenciesDetector.h" t="Include" />
+          </e>
+        </e>
+      </e>
+    </e>
     <e p="C:\Program Files\Unreal\UE_4.26\Engine\Plugins\Media\AjaMedia" t="Include">
       <e p="AjaMedia.uplugin" t="Include" />
       <e p="Config" t="Include">

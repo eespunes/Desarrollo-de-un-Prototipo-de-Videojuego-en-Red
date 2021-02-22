@@ -6,31 +6,467 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a9676-8ee9-41bb-8b8f-ca5cc00466f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$GDD.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/AutomotiveMaterials/CaliperPaint/MI_Caliper_Yellow.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/BrakeRotor/MI_BrakeRotor_Carbon.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/BrakeRotor/MI_BrakeRotor_Carbon_Ceramic.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/BrakeRotor/MI_BrakeRotor_Iron.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/BrakeRotor/MI_BrakeRotor_Iron_Clean.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CaliperPaint/MI_Caliper_Bumpy.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CaliperPaint/MI_Caliper_Chrome.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CaliperPaint/MI_Caliper_Grey.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CaliperPaint/MI_Caliper_Red.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CaliperPaint/MI_Caliper_Silver.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CaliperPaint/MI_Caliper_Sparkly.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CaliperPaint/MI_Caliper_Yellow.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Beige.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Black.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_BlueGreen_Pearl.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Charcoal.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Cherry.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Chocolat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_DarkBlue.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Green.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_LightBlue.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Mix_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Mix_02.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Mix_03.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Orange.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Plum.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Red.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Silver.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_Silver_Pearl.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/MI_CarPaint_White.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarbonFiber/MI_CarbonFiber.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarbonFiber/MI_CarbonFiber_Uncoated.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Decals/MI_Logo_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Emissive/MI_HMI.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Emissive/MI_LED_Blue.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Emissive/MI_LED_Green.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Emissive/MI_LED_Red.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Emissive/MI_LED_White.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass/MI_Glass_Clear.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass/MI_Glass_Tinted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass/MI_Glass_Windshield.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass/MI_Glass_Windshield_Int.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass/MI_Glass_Windshield_SunCover.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass/MI_Glass_Windshield_SunCover_Int.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass/MI_Glass_Windshield_Tinted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass_RT/MI_Glass_RT_Clear.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass_RT/MI_Glass_RT_Tinted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass_RT/MI_Glass_RT_Windshield.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass_RT/MI_Glass_RT_Windshield_Int.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass_RT/MI_Glass_RT_Windshield_SunCover.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass_RT/MI_Glass_RT_Windshield_SunCover_Int.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Glass_RT/MI_Glass_RT_Windshield_Tinted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Lamp_Blue.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Lamp_Red.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Lamp_White.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Tint_Blue.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Tint_Clear.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Tint_Red.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Transparent_Cover.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Transparent_Cover_Tinted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Transparent_Cover_Tinted_Gold.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Lights/MI_Transparent_Cover_Tinted_Red.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/CaliperPaint/MI_Caliper_Yellow.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Lights/MI_Transparent_Cover.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Lights/MI_Transparent_Cover_Tinted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Grill_Circle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Aluminium.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Aluminium_Brushed.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Aluminum_SandBlast.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Anodized_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Anodized_02.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Brass.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Brushed.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Bump_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Bump_02.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Chrome_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Chrome_02.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Chrome_Black.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Frosted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Frosted_Reflective.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Gold.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Gold_Dirty.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Gold_Frosted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Painted.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Radial.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Silver.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Steel.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Steel_SandBlast.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Wear_01.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Wear_02.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Wear_03.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Metal_Zinc_Spangles.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/MI_Miror.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Additive_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_BrakeRotor_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_CarPaint_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Decal_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Emissive_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Glass_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Opaque_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Textile_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Masters/M_Tint_Master.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Anisotropy.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Bounce_Rough.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Cracks.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Fuzzy_WS.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Imperfections.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_NormalStrength_WS.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Object_UVs.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Pearlescence.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Triplanar_Mask.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Triplanar_UVs.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Triplanar_VectorXform.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_UV.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/MaterialFunctions/MF_Wear.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_CarBody.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_CarEyes.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_CarTyre.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_Fenrir_Body.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_Fenrir_Fur.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_IdunnApple.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_Jormundgandr_Eyes.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_Jormundgandr_Head.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_Jormundgandr_Horns1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_Jormundgandr_Horns2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_Mjolnir.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_OdinEye.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Materials/Objects/M_OdinEyeIris.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Loop.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ObjectProbabilities.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/AdvancedMagicFX12/Materials/MI_ky_shockwave07_water.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/FX/AdvancedMagicFX12/Materials/MI_ky_shockwave07_water.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/AdvancedMagicFX12/particles/BP_JormundgandrHit.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/AdvancedMagicFX12/particles/BP_LokiAura.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/AdvancedMagicFX12/particles/BP_OdinTeleport.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_RaceStart.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_RaceStart.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_Additive_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_BrakeRotor_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_CarPaint_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_Decal_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_Emissive_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_Glass_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_Opaque_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_Textile_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Masters/M_Tint_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Anisotropy.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Bounce_Rough.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Cracks.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Fuzzy_WS.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Imperfections.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_NormalStrength_WS.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Object_UVs.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Pearlescence.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Triplanar_Mask.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Triplanar_UVs.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Triplanar_VectorXform.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_UV.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/MaterialFunctions/MF_Wear.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/BrakeRotor/MI_BrakeRotor_Carbon.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/BrakeRotor/MI_BrakeRotor_Carbon_Ceramic.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/BrakeRotor/MI_BrakeRotor_Iron.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/BrakeRotor/MI_BrakeRotor_Iron_Clean.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/BrakeRotor/Textures/T_CarbonCeramic_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/BrakeRotor/Textures/T_CarbonCeramic_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/BrakeRotor/Textures/T_CarbonCeramic_R2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/BrakeRotor/Textures/T_CarbonCeramic_R2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CaliperPaint/MI_Caliper_Bumpy.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CaliperPaint/MI_Caliper_Chrome.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CaliperPaint/MI_Caliper_Grey.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CaliperPaint/MI_Caliper_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CaliperPaint/MI_Caliper_Silver.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CaliperPaint/MI_Caliper_Sparkly.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CaliperPaint/MI_Caliper_Yellow.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Beige.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Black.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_BlueGreen_Pearl.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Charcoal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Cherry.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Chocolat.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_DarkBlue.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Green.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_LightBlue.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Mix_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Mix_02.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Mix_03.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Orange.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Plum.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Silver.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_Silver_Pearl.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/MI_CarPaint_White.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/Textures/T_Flakes_D2_Data.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/Textures/T_Flakes_D2_Data.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/Textures/T_Flakes_D2_Normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/Textures/T_Flakes_D2_Normal.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/Textures/T_Flakes_D3_Data.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/Textures/T_Flakes_D3_Data.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/Textures/T_Flakes_D3_Normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/Textures/T_Flakes_D3_Normal.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/Textures/T_Flakes_D4_Data.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/Textures/T_Flakes_D4_Data.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/Textures/T_Flakes_D4_Normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/Textures/T_Flakes_D4_Normal.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarPaint/Textures/T_OrangePeel_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarPaint/Textures/T_OrangePeel_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarbonFiber/MI_CarbonFiber.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarbonFiber/MI_CarbonFiber_Uncoated.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarbonFiber/Textures/T_CarbonFiber_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarbonFiber/Textures/T_CarbonFiber_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarbonFiber/Textures/T_CarbonFiber_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarbonFiber/Textures/T_CarbonFiber_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarbonFiber/Textures/T_CarbonFiber_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarbonFiber/Textures/T_CarbonFiber_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarbonFiber/Textures/T_CarbonFiber_Stiped_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarbonFiber/Textures/T_CarbonFiber_Stiped_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/CarbonFiber/Textures/T_CarbonFiber_TA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/CarbonFiber/Textures/T_CarbonFiber_TA.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Decals/MI_Logo_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Decals/MI_Logo_02.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass/MI_Glass_Clear.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass/MI_Glass_Tinted.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass/MI_Glass_Windshield.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass/MI_Glass_Windshield_SunCover.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass/MI_Glass_Windshield_Tinted.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass_RT/MI_Glass_RT_Clear.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass_RT/MI_Glass_RT_Tinted.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass_RT/MI_Glass_RT_Windshield.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass_RT/MI_Glass_RT_Windshield_SunCover.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Glass_RT/MI_Glass_RT_Windshield_Tinted.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/LicensePlate/MI_LicensePlate.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/LicensePlate/Textures/T_LicensePlate_BC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/LicensePlate/Textures/T_LicensePlate_N.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/LicensePlate/Textures/T_LicensePlate_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Lamp_Blue.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Lamp_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Lamp_White.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Tint_Blue.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Tint_Clear.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Tint_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Transparent_Cover.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Transparent_Cover_Tinted.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Transparent_Cover_Tinted_Gold.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Lights/MI_Transparent_Cover_Tinted_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Grill_Circle.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Anodized_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Brass.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Brushed.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Bump_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Bump_02.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Chrome_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Chrome_02.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Frosted.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Frosted_Reflective.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Gold.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Gold_Dirty.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Gold_Frosted.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Painted.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Radial.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Steel.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Wear_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Wear_02.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Wear_03.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Metal_Zinc_Spangles.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/MI_Miror.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Aluminium_Croscratches_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Aluminium_Croscratches_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Frosted_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Frosted_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Frosted_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Frosted_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Lines_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Lines_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Lines_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Lines_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Wear01_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Wear01_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Wear01_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Wear01_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Wear02_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Wear02_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Wear02_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Wear02_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Wear03_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Wear03_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_MetalWear_Wear03_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_MetalWear_Wear03_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Aluminum_Sand_Blasted_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Aluminum_Sand_Blasted_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Aluminum_Sand_Blasted_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Aluminum_Sand_Blasted_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Anodized_01_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Anodized_01_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Anodized_01_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Anodized_01_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Anodized_02_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Anodized_02_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Anodized_02_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Anodized_02_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Brass_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Brass_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Painted_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Painted_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Silver_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Silver_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Silver_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Silver_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Steel_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Steel_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Steel_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Steel_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Steel_Sand_Blasted_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Steel_Sand_Blasted_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Metal_Steel_Sand_Blasted_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Metal_Steel_Sand_Blasted_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Metal/Textures/T_Zinc_Spangle_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Zinc_Spangle_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Plastic/MI_Plastic_Clean.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Plastic/MI_Plastic_Glossy.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Plastic/MI_Plastic_Rough.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Plastic/MI_Plastic_Satin.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/MI_Reflector_Hexagon_Orange.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/MI_Reflector_Hexagon_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/MI_Reflector_HoneyComb_Orange.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/MI_Reflector_HoneyComb_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/MI_Reflector_Triangle_Orange.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/MI_Reflector_Triangle_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/Textures/T_ReflectorHexagon_N.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/Textures/T_Reflector_HoneyComb_N.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Reflector/Textures/T_Reflector_Triangle_N.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/MI_Rubber_Rough.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/MI_Rubber_Shiny.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/MI_Tire_Sidewall_Rough.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/MI_Tire_Sidewall_Shiny.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/MI_Tire_Tread.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/Textures/T_Rubber_02_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/Textures/T_Rubber_03_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/Textures/T_Rubber_04_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/Textures/T_Tire_Sidewall_N.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/Textures/T_Tread_BC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/Textures/T_Tread_H.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/Textures/T_Tread_N.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Exterior/Rubber/Textures/T_Tread_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/CarbonFiber/MI_CarbonFiber.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/CarbonFiber/MI_CarbonFiber_Uncoated.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Emissive/MI_HMI.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Emissive/MI_LED_Blue.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Emissive/MI_LED_Green.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Emissive/MI_LED_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Emissive/MI_LED_White.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Emissive/Textures/T_MockGPS_E.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Emissive/Textures/T_MockGPS_E.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Glass/MI_Glass_Windshield_Int.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Glass/MI_Glass_Windshield_SunCover_Int.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Glass_RT/MI_Glass_RT_Windshield_Int.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Glass_RT/MI_Glass_RT_Windshield_SunCover_Int.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/MI_Metal_Aluminium.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/MI_Metal_Aluminium_Brushed.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/MI_Metal_Aluminum_SandBlast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/MI_Metal_Anodized_02.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/MI_Metal_Brushed.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/MI_Metal_Chrome_Black.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/MI_Metal_Silver.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/MI_Metal_Steel_SandBlast.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/Textures/T_Steel_Brushed_BC.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Steel_Brushed_BC.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Metal/Textures/T_Steel_Brushed_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Metal/Textures/T_Steel_Brushed_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Holes.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Leather_Black.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Leather_Coarse.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Leather_Grey.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Leather_Rubbery.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Lines.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Mold_Capsule.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Mold_Circle.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Mold_Pyramide.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Mold_Recess.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Polypropylene.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Polyviny_Carbonate.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Polyvinyl.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Radial.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Silver.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_SmallGrain_Black.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_SmallGrain_Grey.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Smooth.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Smooth_Coated.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Smooth_Grey.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/MI_Plastic_Smooth_Red.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/Textures/T_Plastic_Polypropylene_BC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/Textures/T_Plastic_Polypropylene_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/Textures/T_Plastic_Polyvinyl_BC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/Textures/T_Plastic_Polyvinyl_Carbonate_BC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/Textures/T_Plastic_Polyvinyl_Carbonate_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Plastic/Textures/T_Plastic_Polyvinyl_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Rubber/MI_Rubber_Floor_Mats.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Rubber/MI_Rubber_Mold_Capsule.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Rubber/MI_Rubber_Mold_Circle.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Rubber/MI_Rubber_Mold_Pyramide.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Rubber/MI_Rubber_Smooth.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Rubber/MI_Rubber_Weatherstrip.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Wood/MI_Wood_Oak_Veneer_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Wood/MI_Wood_Oak_Veneer_02.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Wood/MI_Wood_Oak_Veneer_03.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Wood/Textures/T_Wood_Oak_Varnished_Veneer_BC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Wood/Textures/T_Wood_Oak_Varnished_Veneer_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Wood/Textures/T_Wood_Oak_Veneer_BC.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Interior/Wood/Textures/T_Wood_Oak_Veneer_R.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/ATL_PearlAtlas.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/ATL_PearlAtlas.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/CRV_PearlBlueGreen.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/CRV_PearlBlueGreen.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/CRV_PearlGrad1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/CRV_PearlGrad1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Black_Linear.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Black_Linear.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Brushed_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Brushed_R.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Bump_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Bump_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Circles_BCO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Circles_BCO.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_DiscRotorCrack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_DiscRotorCrack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_DiscRotorCrack_N.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_DiscRotorCrack_N.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Flat_Normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Flat_Normal.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Gray_Linear.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Gray_Linear.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Imperfections_Dust_01_Mask.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Imperfections_Dust_01_Mask.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Imperfections_FingerPrints_Mask2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Imperfections_FingerPrints_Mask2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Imperfections_Stains_Mask.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Imperfections_Stains_Mask.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Imperfections_Wipe_Mask.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Imperfections_Wipe_Mask.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Logo_01_BCO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Logo_01_BCO.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Logo_02_BCO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Logo_02_BCO.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Mask_03.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Mask_03.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Vertical_Gradient_Holes.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Vertical_Gradient_Holes.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_White_Color.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_White_Color.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_White_Linear.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_White_Linear.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Materials/Textures/T_Wiper_Mask.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/AutomotiveMaterials/Textures/T_Wiper_Mask.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Fixed_Template_Master.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Landscape.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_CarBody.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_CarEyes.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_CarTyre.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Fenrir_Body.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Fenrir_Fur.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_IdunnApple.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Eyes.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Head.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Horns1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Jormundgandr_Horns2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Mjolnir.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_OdinEye.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_OdinEyeIris.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/M_Track.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MasterGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/MasterGrid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MasterSolidColor.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/BlackGrid.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/LandscapeNoHole.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/RedGrid.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/SolidOrange.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/SolidRed.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/MaterialInstances/Template_BaseBlue.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWave.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/BumpWave.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/LoopBig.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/LoopBig.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/LoopSmall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/LoopSmall.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_Fenrir.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_Fenrir.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_IdunApple.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_IdunApple.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_JormundgandrHead.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_JormundgandrHead.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_LokiHelmet.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_LokiHelmet.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_Mjolnir.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_Mjolnir.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_ObjectContainer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_ObjectContainer.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_OdinEye.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_OdinEye.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_Sleipnir.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_Sleipnir.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_ValkyriaSpear.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/SM_ValkyriaSpear.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/ragnarok.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Objects/ragnarok.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Plane.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/RampLarge.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/RampLarge.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/RoadSegment_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/StraightFull.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightFull.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/StraightHalf.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightHalf.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/StraightQuarter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/StraightQuarter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_45.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_45.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90Large.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Turn_90Large.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/pole.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/pole.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/turn_22andhalf.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/turn_22andhalf.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_JormundgandrBite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_JormundgandrBite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_LokiTrick.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_LokiTrick.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ObjectContainer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_ObjectContainer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_OdinEye.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_OdinEye.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_Ragnarok.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_Ragnarok.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Movies/MP_Ragnarok.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Movies/MP_Ragnarok_Video.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Movies/Ragnarok.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TFG_SourceCode.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TFG_SourceCode.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,21 +477,33 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/Templates/SubclassOf.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/GameModeBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/Misc/Paths.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/UMG/Public/Components/Image.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/UMG/Private/UserWidget.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/GameModeBase.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/IdunApple.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/Math/Color.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Public/Math/Vector.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/GenericPlatform/GenericPlatformMisc.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Public/Logging/LogMacros.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/Templates/SubclassOf.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/GameModeBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/GameModeBase.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/IVehicle.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/State.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/State.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" />
@@ -68,26 +516,35 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ValkyriaSpearContainer.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.cpp" />
       <option value="$PROJECT_DIR$/Source/GameMaster.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/AIVehicleController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/Probability.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o4EWjl8pjWQVpM2wNuAC3HkYWq" />
@@ -340,6 +797,9 @@
       <workItem from="1613644044642" duration="43000" />
       <workItem from="1613660729050" duration="6037000" />
       <workItem from="1613747137052" duration="10996000" />
+      <workItem from="1613837872243" duration="3721000" />
+      <workItem from="1613922403995" duration="164000" />
+      <workItem from="1613923382689" duration="6313000" />
     </task>
     <servers />
   </component>

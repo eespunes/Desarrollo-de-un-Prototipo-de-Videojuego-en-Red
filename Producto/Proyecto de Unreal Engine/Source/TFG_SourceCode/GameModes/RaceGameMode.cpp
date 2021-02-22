@@ -25,8 +25,8 @@ void ARaceGameMode::NormalSpawn(APlayerStart*& FoundPlayerStart)
 	{
 		for (int j = UnOccupiedStartPoints.Num() - 1; j >= i; j--)
 		{
-			if (UnOccupiedStartPoints[j]->GetActorLabel() < UnOccupiedStartPoints[j - 1]->
-				GetActorLabel())
+			if (UnOccupiedStartPoints[j]->GetName() < UnOccupiedStartPoints[j - 1]->
+				GetName())
 			{
 				aux = UnOccupiedStartPoints[j];
 				UnOccupiedStartPoints[j] = UnOccupiedStartPoints[j - 1];

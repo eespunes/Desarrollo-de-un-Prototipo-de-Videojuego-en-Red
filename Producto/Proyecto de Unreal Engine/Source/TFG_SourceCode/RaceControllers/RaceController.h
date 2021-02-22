@@ -5,8 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerStart.h"
-#include "TFG_SourceCode/Vehicle/VehiclePawn.h"
-
 
 #include "RaceController.generated.h"
 

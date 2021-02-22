@@ -9,6 +9,7 @@
 #include "GameFramework/PlayerStart.h"
 #include "Kismet/GameplayStatics.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
+#include "TFG_SourceCode/Vehicle/Components/RaceComponent.h"
 
 
 // Sets default values
@@ -34,8 +35,7 @@ void ARaceController::BeginPlay()
 	{
 		for (int j = raceStarts.Num() - 1; j >= i; j--)
 		{
-			if (raceStarts[j]->GetActorLabel() < raceStarts[j - 1]->
-                GetActorLabel())
+			if (raceStarts[j]->GetName() < raceStarts[j - 1]->GetName())
 			{
 				aux = raceStarts[j];
 				raceStarts[j] = raceStarts[j - 1];
