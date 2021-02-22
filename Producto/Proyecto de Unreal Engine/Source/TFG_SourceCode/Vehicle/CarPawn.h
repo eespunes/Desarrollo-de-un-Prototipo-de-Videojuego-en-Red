@@ -21,7 +21,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void Accelerate() override;
 	virtual void Brake() override;
-	virtual void Turn(float value) override;
+	virtual void Steer(float value) override;
 	virtual void Drift() override;
 
 protected:

@@ -7,6 +7,7 @@
 #include "IVehicle.h"
 #include "VehiclePawn.generated.h"
 
+class UWheelComponent;
 class UCameraComponent;
 class URaceComponent;
 class AObjectBase;
@@ -22,7 +23,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void Accelerate() override;
 	virtual void Brake() override;
-	virtual void Turn(float value) override;
+	virtual void Steer(float value) override;
 	virtual void Drift() override;
 	virtual void UseObject() override;
 	void RemoveObject();
@@ -30,17 +31,18 @@ public:
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
-
 	AObjectBase* GetCurrentObject() const;
-
 	void SetCurrentObject(AObjectBase* CurrentObject);
 	float GetMaxSpeed() const;
 	void SetMaxSpeed(float speed);
-	float GetInitialMaxSpeed();
+	float GetInitialMaxSpeed() const;
 	void Damage();
 	void InstantiateParticle(const TSubclassOf<AActor>& particle);
 	void InvertControls();
 	void NormalControls();
+	bool GetHasBeenHit() const;
+	bool GetIsAccelerating() const;
+	FVector GetCenterOfMass() const;
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* mesh;
@@ -50,6 +52,9 @@ protected:
 	USceneComponent* particleSpawnPoint;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UCameraComponent* camera;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	TArray<UWheelComponent*> tyres;
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	URaceComponent* raceComponent;
@@ -108,8 +113,8 @@ protected:
 	//Objects
 	AObjectBase* currentObject = nullptr;
 	float hitWaiting = 3;
-	bool canUseObject{true};
-	float hiTimer;
+	bool hasBeenHit{true};
+	float hitTimer;
 	bool invertControls;
 	AActor* currentParticle;
 
@@ -118,8 +123,14 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();
+	void PerformAcceleration(float currentVelocity);
+	void PerformBraking(float& currentVelocity);
+	void PerformSteering(float currentVelocity, float currentAngular);
+	void PerformDrift(float currentVelocity);
 	float CalculateMaxDriftValue();
-	FVector GetCenterOfMass() const;
+
 	void GravityForce() const;
 	virtual void SuspensionForces();
+
+	void WaitAfterHit(float DeltaTime);
 };

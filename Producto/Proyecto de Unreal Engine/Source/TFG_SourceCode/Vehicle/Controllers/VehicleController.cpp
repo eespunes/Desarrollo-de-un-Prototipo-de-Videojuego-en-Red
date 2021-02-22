@@ -6,10 +6,6 @@
 #include "Blueprint/UserWidget.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
-AVehicleController::AVehicleController()
-{
-}
-
 void AVehicleController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -23,7 +19,6 @@ void AVehicleController::SetupInputComponent()
 	Super::SetupInputComponent();
 
 	Actions();
-
 	Axis();
 }
 
@@ -45,7 +40,7 @@ void AVehicleController::Actions()
 
 void AVehicleController::Axis()
 {
-	InputComponent->BindAxis("Turn", this, &AVehicleController::Turn);
+	InputComponent->BindAxis("Steer", this, &AVehicleController::Steer);
 }
 
 void AVehicleController::Accelerate()
@@ -70,7 +65,7 @@ void AVehicleController::Brake()
 	vehiclePawn->Brake();
 }
 
-void AVehicleController::Turn(float value)
+void AVehicleController::Steer(float value)
 {
 	if (!vehiclePawn)
 	{
@@ -78,7 +73,7 @@ void AVehicleController::Turn(float value)
 		return;
 	}
 
-	vehiclePawn->Turn(value);
+	vehiclePawn->Steer(value);
 }
 
 void AVehicleController::Drift()

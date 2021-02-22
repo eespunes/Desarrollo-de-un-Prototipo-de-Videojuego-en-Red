@@ -49339,6 +49339,7 @@
         <e p="TFG_SourceCode.vcxproj" t="IncludeRecursive" />
         <e p="UE4.vcxproj" t="IncludeRecursive" />
       </e>
+      <e p="ObjectProbabilities.txt" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Source" t="Include">
         <e p="TFG_SourceCode" t="Include">
@@ -49410,6 +49411,8 @@
               <e p="AIVehicleController.cpp" t="Include" />
               <e p="AIVehicleController.h" t="Include" />
               <e p="States" t="Include">
+                <e p="HitState.cpp" t="Include" />
+                <e p="HitState.h" t="Include" />
                 <e p="IdleState.cpp" t="Include" />
                 <e p="IdleState.h" t="Include" />
                 <e p="IState.cpp" t="Include" />

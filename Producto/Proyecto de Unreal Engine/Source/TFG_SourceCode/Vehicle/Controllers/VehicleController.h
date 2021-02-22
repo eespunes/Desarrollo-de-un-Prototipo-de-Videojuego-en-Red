@@ -17,10 +17,9 @@ class TFG_SOURCECODE_API AVehicleController : public APlayerController, public I
 {
 	GENERATED_BODY()
 public:
-	AVehicleController();
 	virtual void Accelerate() override;
 	virtual void Brake() override;
-	virtual void Turn(float value) override;
+	virtual void Steer(float value) override;
 	virtual void Drift() override;
 	virtual void UseObject() override;
 	void Pause();

@@ -2,6 +2,7 @@
 
 
 #include "DrawDebugHelpers.h"
+#include "TFG_SourceCode/RaceControllers/CheckPoint.h"
 #include "TFG_SourceCode/Vehicle/AI/AIVehicleController.h"
 
 RacingState::RacingState(AAIVehicleController* VehicleController): State(VehicleController)
@@ -17,22 +18,22 @@ void RacingState::SetUp()
 
 void RacingState::Steering()
 {
-	ACheckPoint* currentCheckpoint= vehicleController->GetCurrentCheckpoint();
-	if(currentCheckpoint)
+	ACheckPoint* currentCheckpoint = vehicleController->GetCurrentCheckpoint();
+	if (currentCheckpoint)
 	{
 		FVector checkpointLocation = currentCheckpoint->GetActorLocation();
 		FVector vehicleLocation = vehicle->GetActorLocation();
-	
+
 		FVector direction = checkpointLocation - vehicleLocation;
 		direction.Normalize();
-	
+
 		float angle = acos(FVector::DotProduct(vehicle->GetActorForwardVector(), direction)) * (180 / PI);
 		if (FVector::DotProduct(vehicle->GetActorForwardVector(),
 		                        FVector::CrossProduct(vehicle->GetActorForwardVector(), direction)) < 0)
 		{
 			angle = -angle;
 		}
-	
+
 		DrawDebugLine(vehicle->GetWorld(), vehicleLocation, vehicleLocation + direction * 1000, FColor::Purple, false,
 		              -1,
 		              0, 5);
@@ -53,7 +54,8 @@ void RacingState::Update()
 {
 	State::Update();
 	Steering();
-	vehicle->Accelerate();
+	if (!vehicle->GetIsAccelerating())
+		vehicle->Accelerate();
 }
 
 void RacingState::Exit()

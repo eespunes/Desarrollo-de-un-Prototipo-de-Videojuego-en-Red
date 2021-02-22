@@ -1,13 +1,11 @@
 ﻿#pragma once
 #include "State.h"
 
-class IdleState : public State
+class HitState : public State
 {
 public:
-	IdleState(AAIVehicleController* vehicleController, State* state);
+	HitState(AAIVehicleController* vehicleController);
 	virtual void SetUp() override;
 	virtual void Update() override;
 	virtual void Exit() override;
-protected:
-	State* currentState;
 };

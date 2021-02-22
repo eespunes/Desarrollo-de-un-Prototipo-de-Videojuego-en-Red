@@ -53,16 +53,7 @@ void AVehiclePawn::Tick(float DeltaTime)
 	SuspensionForces();
 	if (raceComponent->CanRace())
 	{
-		if (!canUseObject)
-		{
-			if (hiTimer >= hitWaiting)
-			{
-				canUseObject = true;
-				maxSpeed = initialMaxSpeed;
-				hiTimer = 0;
-			}
-			hiTimer += DeltaTime;
-		}
+		WaitAfterHit(DeltaTime);
 
 		Movement();
 	}
@@ -73,20 +64,157 @@ void AVehiclePawn::Tick(float DeltaTime)
 	}
 }
 
+/*
+*########
+*MOVEMENT
+*########
+*/
+
+void AVehiclePawn::Movement()
+{
+	float currentVelocity = (GetActorForwardVector() * mesh->GetPhysicsLinearVelocity()).Size();
+	float currentAngular = (mesh->GetPhysicsAngularVelocityInDegrees() * GetActorUpVector()).Size();
+
+	if (inGround)
+	{
+		if (!invertControls && isAccelerating && !isBraking || invertControls && !isAccelerating && isBraking)
+		{
+			PerformAcceleration(currentVelocity);
+		}
+		else if (!invertControls && !isAccelerating && isBraking || invertControls && isAccelerating && !isBraking)
+		{
+			PerformBraking(currentVelocity);
+		}
+		else if (isBraking && isAccelerating)
+		{
+			currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
+			mesh->SetLinearDamping(2.5f);
+		}
+		else
+		{
+			mesh->SetLinearDamping(1.f);
+		}
+
+		if (isDrifting)
+		{
+			PerformDrift(currentVelocity);
+		}
+		else
+		{
+			PerformSteering(currentVelocity, currentAngular);
+		}
+	}
+
+	//DEBUG
+	// if (GEngine)
+	// {
+	// 	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
+	// 	// 		                                 TEXT("Angular: %f"), currentAngular));
+	// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Yellow,
+	// 	                                 FString::Printf(
+	// 		                                 TEXT("Speed: %f"), currentVelocity));
+	// 	// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("%s"), *action));
+	// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue,
+	// 	                                 FString::Printf(
+	// 		                                 TEXT("Object= %s"),
+	// 		                                 currentObject ? *currentObject->GetName() : *FString("NO OBJECT")));
+	// }
+}
+
+/*
+*##########
+*ACCELERATE
+*##########
+*/
+
 void AVehiclePawn::Accelerate()
 {
 	isAccelerating = !isAccelerating;
 }
+
+void AVehiclePawn::PerformAcceleration(float currentVelocity)
+{
+	mesh->SetLinearDamping(1.5f);
+	if (currentVelocity < maxSpeed)
+	{
+		mesh->AddForceAtLocation(GetActorForwardVector() * acceleration, GetCenterOfMass());
+		lastVelocity = currentVelocity;
+	}
+}
+
+/*
+*#####
+*BRAKE
+*#####
+*/
 
 void AVehiclePawn::Brake()
 {
 	isBraking = !isBraking;
 }
 
-void AVehiclePawn::Turn(float value)
+void AVehiclePawn::PerformBraking(float& currentVelocity)
+{
+	mesh->SetLinearDamping(1.5f);
+	currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
+	if (currentVelocity > reverseSpeed)
+	{
+		mesh->AddForceAtLocation(-GetActorForwardVector() * acceleration * brakeRate, GetCenterOfMass());
+		lastVelocity = currentVelocity;
+	}
+}
+
+/*
+*#####
+*STEER
+*#####
+*/
+
+void AVehiclePawn::Steer(float value)
 {
 	turnValue = invertControls ? -value : value;
 }
+
+void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
+{
+	driftValue = 0;
+	mesh->SetAngularDamping(2);
+	mesh->SetPhysicsMaxAngularVelocityInDegrees(
+		(maxTurnAngle + (maxDriftAngle - maxTurnAngle) * (1 - (currentVelocity / maxSpeed))));
+	if (FMath::Abs(turnValue) == 0)
+	{
+		if (currentAngular <= maxTurnAngle * frictionDecelerationRate)
+		{
+			lastTurnValue = 0;
+		}
+	}
+	else
+	{
+		if (FMath::Abs(turnValue) >= 0)
+			turnTimer += GetWorld()->DeltaTimeSeconds;
+		else
+		{
+			turnTimer = 0;
+		}
+		if (turnTimer >= turnToDriftSeconds)
+		{
+			driftSign = FMath::Sign(turnValue);
+			isDrifting = true;
+		}
+		else
+		{
+			mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * turnValue * currentVelocity / maxSpeed,
+			                         NAME_None, true);
+			lastTurnValue = FMath::Sign(turnValue);
+		}
+	}
+}
+
+/*
+*#####
+*DRIFT
+*#####
+*/
 
 void AVehiclePawn::Drift()
 {
@@ -98,19 +226,24 @@ void AVehiclePawn::Drift()
 	}
 }
 
-void AVehiclePawn::UseObject()
+void AVehiclePawn::PerformDrift(float currentVelocity)
 {
-	if (currentObject && canUseObject)
+	mesh->SetAngularDamping(2);
+	if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / reverseRate)
 	{
-		currentObject->UseObject();
+		isDrifting = false;
+		turnTimer = 0;
+		return;
 	}
-}
+	mesh->SetPhysicsMaxAngularVelocityInDegrees(CalculateMaxDriftValue());
 
-void AVehiclePawn::RemoveObject()
-{
-	currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-	currentObject->SetOwner(nullptr);
-	currentObject = nullptr;
+	if (turnTimer >= turnToDriftSeconds && FMath::Abs(turnValue) <= 0)
+	{
+		isDrifting = false;
+		turnTimer = 0;
+	}
+
+	mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * driftSign, NAME_None, true);
 }
 
 float AVehiclePawn::CalculateMaxDriftValue()
@@ -129,146 +262,86 @@ float AVehiclePawn::CalculateMaxDriftValue()
 	return driftValue >= maxDriftAngle ? maxDriftAngle : driftSign * driftValue;
 }
 
-void AVehiclePawn::Movement()
-{
-	float deltaTime = GetWorld()->DeltaTimeSeconds;
-	float currentVelocity = (GetActorForwardVector() * mesh->GetPhysicsLinearVelocity()).Size();
-	float currentAngular = (mesh->GetPhysicsAngularVelocityInDegrees() * GetActorUpVector()).Size();
-
-	FString action;
-	if (inGround)
-	{
-		if (!invertControls && isAccelerating && !isBraking || invertControls && !isAccelerating && isBraking)
-		{
-			mesh->SetLinearDamping(1.5f);
-			if (currentVelocity < maxSpeed)
-			{
-				mesh->AddForceAtLocation(GetActorForwardVector() * acceleration, GetCenterOfMass());
-				lastVelocity = currentVelocity;
-			}
-			action = TEXT("Accelerating");
-		}
-		else if (!invertControls && !isAccelerating && isBraking || invertControls && isAccelerating && !isBraking)
-		{
-			mesh->SetLinearDamping(1.5f);
-			currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
-			if (currentVelocity > reverseSpeed)
-			{
-				mesh->AddForceAtLocation(-GetActorForwardVector() * acceleration * brakeRate, GetCenterOfMass());
-				lastVelocity = currentVelocity;
-			}
-
-			action = TEXT("Braking");
-		}
-		else if (isBraking && isAccelerating)
-		{
-			currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
-			mesh->SetLinearDamping(2.5f);
-			action = TEXT("Braking and Accelerating");
-		}
-		else
-		{
-			mesh->SetLinearDamping(1.f);
-			action = TEXT("Nothing");
-		}
-
-		if (isDrifting)
-		{
-			mesh->SetAngularDamping(2);
-			if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / reverseRate)
-			{
-				isDrifting = false;
-				turnTimer = 0;
-				return;
-			}
-			action += TEXT(" - Drift");
-			action += driftSign > 0 ? TEXT(" - Right") : TEXT(" - Left");
-			mesh->SetPhysicsMaxAngularVelocityInDegrees(CalculateMaxDriftValue());
-
-			if (turnTimer >= turnToDriftSeconds && FMath::Abs(turnValue) <= 0)
-			{
-				isDrifting = false;
-				turnTimer = 0;
-			}
-
-			mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * driftSign, NAME_None, true);
-		}
-		else
-		{
-			driftValue = 0;
-			mesh->SetAngularDamping(2);
-			mesh->SetPhysicsMaxAngularVelocityInDegrees(
-				(maxTurnAngle + (maxDriftAngle - maxTurnAngle) * (1 - (currentVelocity / maxSpeed))));
-			if (FMath::Abs(turnValue) == 0 /*|| (currentVelocity / maxSpeed) < frictionDecelerationRate*/)
-			{
-				action += TEXT(" - No Turn");
-				if (currentAngular > maxTurnAngle * frictionDecelerationRate)
-				{
-					action += TEXT(" - Stopping");
-					// mesh->AddTorqueInDegrees(GetActorUpVector() * lastTurnValue * -currentAngular * 10, NAME_None, true);
-				}
-				else
-				{
-					action += TEXT(" - Stopped");
-					lastTurnValue = 0;
-				}
-			}
-			else
-			{
-				action += TEXT(" - Turn");
-				if (FMath::Abs(turnValue) >= 0)
-					turnTimer += GetWorld()->DeltaTimeSeconds;
-				else
-				{
-					turnTimer = 0;
-				}
-				if (turnTimer >= turnToDriftSeconds)
-				{
-					driftSign = FMath::Sign(turnValue);
-					isDrifting = true;
-				}
-				else
-				{
-					mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * turnValue * currentVelocity / maxSpeed,
-					                         NAME_None, true);
-					lastTurnValue = FMath::Sign(turnValue);
-				}
-			}
-		}
-	}
-
-	//DEBUG
-	if (GEngine)
-	{
-		// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
-		// 		                                 TEXT("Angular: %f"), currentAngular));
-		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Yellow,
-		                                 FString::Printf(
-			                                 TEXT("Speed: %f"), currentVelocity));
-		// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("%s"), *action));
-		GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue,
-		                                 FString::Printf(
-			                                 TEXT("Object= %s"),
-			                                 currentObject ? *currentObject->GetName() : *FString("NO OBJECT")));
-	}
-}
+/*
+*#######
+*PHYSICS
+*#######
+*/
 
 void AVehiclePawn::GravityForce() const
 {
 	mesh->AddForce(GetActorUpVector() * GetWorld()->GetGravityZ(), NAME_None, true);
 }
 
-
-FVector AVehiclePawn::GetCenterOfMass() const
-{
-	return mesh->GetCenterOfMass() - GetActorUpVector() * 10 +
-		GetActorForwardVector() * 10;
-}
-
 void AVehiclePawn::SuspensionForces()
 {
 }
 
+/*
+*####### #######
+*OBJECTS RELATED
+*####### #######
+*/
+
+void AVehiclePawn::UseObject()
+{
+	if (currentObject && !hasBeenHit)
+	{
+		currentObject->UseObject();
+	}
+}
+
+void AVehiclePawn::RemoveObject()
+{
+	currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+	currentObject->SetOwner(nullptr);
+	currentObject = nullptr;
+}
+
+void AVehiclePawn::Damage()
+{
+	hasBeenHit = true;
+	maxSpeed = 0;
+}
+
+void AVehiclePawn::WaitAfterHit(float DeltaTime)
+{
+	if (hasBeenHit)
+	{
+		if (hitTimer >= hitWaiting)
+		{
+			hasBeenHit = false;
+			maxSpeed = initialMaxSpeed;
+			hitTimer = 0;
+		}
+		hitTimer += DeltaTime;
+	}
+}
+
+void AVehiclePawn::InstantiateParticle(const TSubclassOf<AActor>& particle)
+{
+	currentParticle = GetWorld()->SpawnActor<AActor>(particle,
+	                                                 particleSpawnPoint->GetComponentLocation(),
+	                                                 particleSpawnPoint->GetComponentRotation());
+	currentParticle->AttachToComponent(particleSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
+}
+
+void AVehiclePawn::InvertControls()
+{
+	invertControls = true;
+}
+
+void AVehiclePawn::NormalControls()
+{
+	currentParticle->Destroy();
+	invertControls = false;
+}
+
+/*
+ *####### ### #######
+ *GETTERS AND SETTERS
+ *####### ### #######
+ */
 UStaticMeshComponent* AVehiclePawn::GetMesh() const
 {
 	return mesh;
@@ -286,12 +359,11 @@ AObjectBase* AVehiclePawn::GetCurrentObject() const
 
 void AVehiclePawn::SetCurrentObject(AObjectBase* CurrentObject)
 {
-	//SPAWN OBJECT AT THE DESIRED POSITION
 	if (this->currentObject)
 	{
 		this->currentObject->Destroy();
 	}
-	if(CurrentObject)
+	if (CurrentObject)
 	{
 		this->currentObject = CurrentObject;
 		this->currentObject->SetVehicle(this);
@@ -312,32 +384,23 @@ void AVehiclePawn::SetMaxSpeed(float speed)
 	acceleration = (maxSpeed / accelerationRate) * 200;
 }
 
-float AVehiclePawn::GetInitialMaxSpeed()
+float AVehiclePawn::GetInitialMaxSpeed() const
 {
 	return initialMaxSpeed;
 }
 
-void AVehiclePawn::Damage()
+FVector AVehiclePawn::GetCenterOfMass() const
 {
-	canUseObject = false;
-	maxSpeed = 0;
+	return mesh->GetCenterOfMass() - GetActorUpVector() * 10 +
+		GetActorForwardVector() * 10;
 }
 
-void AVehiclePawn::InstantiateParticle(const TSubclassOf<AActor>& particle)
+bool AVehiclePawn::GetHasBeenHit() const
 {
-	currentParticle = GetWorld()->SpawnActor<AActor>(particle,
-	                                                 particleSpawnPoint->GetComponentLocation(),
-	                                                 particleSpawnPoint->GetComponentRotation());
-	currentParticle->AttachToComponent(particleSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
+	return hasBeenHit;
 }
 
-void AVehiclePawn::InvertControls()
+bool AVehiclePawn::GetIsAccelerating() const
 {
-	invertControls = true;
-}
-
-void AVehiclePawn::NormalControls()
-{
-	currentParticle->Destroy();
-	invertControls = false;
+	return isAccelerating;
 }

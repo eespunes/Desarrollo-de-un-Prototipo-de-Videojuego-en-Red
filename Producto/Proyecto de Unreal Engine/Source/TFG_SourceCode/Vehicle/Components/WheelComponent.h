@@ -24,4 +24,6 @@ protected:
 private:
 	float suspensionCompression;
 	UStaticMeshComponent* vehicleMesh;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UStaticMeshComponent* mesh;
 };
