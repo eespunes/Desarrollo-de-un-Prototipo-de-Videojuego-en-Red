@@ -1,22 +1,24 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "WheelComponent.h"
+#include "TyreComponent.h"
+
+#include <dshow.h>
+
 
 #include "DrawDebugHelpers.h"
+#include "MovieSceneSequenceID.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 // Sets default values for this component's properties
-UWheelComponent::UWheelComponent()
+UTyreComponent::UTyreComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wheel Mesh"));
-	mesh->SetupAttachment(this);
 }
 
 // Called when the game starts
-void UWheelComponent::BeginPlay()
+void UTyreComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -28,10 +30,9 @@ void UWheelComponent::BeginPlay()
 		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
 		return;
 	}
-	// ...
 }
 
-bool UWheelComponent::SuspensionForce(float suspensionDistance, float force, float frictionValue)
+bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, float frictionValue)
 {
 	if (!vehicleMesh)
 	{
@@ -46,7 +47,6 @@ bool UWheelComponent::SuspensionForce(float suspensionDistance, float force, flo
 
 	if (hit.bBlockingHit)
 	{
-		//HACE FALTA ROTAR LA RUEDA EN EL EJE DE LAS Y HIT NORMAL
 		float currentSuspensionCompression = 1 - (hit.Distance / suspensionDistance);
 		float springForce = currentSuspensionCompression * force;
 		float frictionForce = (currentSuspensionCompression - suspensionCompression);
@@ -54,19 +54,10 @@ bool UWheelComponent::SuspensionForce(float suspensionDistance, float force, flo
 		frictionForce *= frictionValue;
 		springForce += frictionForce;
 
-		// if (GEngine)
-		// {
-		// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
-		// 	                                 FString::Printf(
-		// 		                                 TEXT("%s: %f"), *GetName(),
-		// 		                                 currentSuspensionCompression));
-		// }
-
 		vehicleMesh->AddForceAtLocation(GetUpVector() * springForce, position, NAME_None);
+		rootPoint->SetWorldLocation(hit.ImpactPoint);
 
 		suspensionCompression = currentSuspensionCompression;
-
-		
 
 		DrawDebugLine(GetWorld(), position, hit.ImpactPoint, FColor::Green, false, -1, 0, 5);
 		return true;
@@ -74,7 +65,37 @@ bool UWheelComponent::SuspensionForce(float suspensionDistance, float force, flo
 	else
 	{
 		suspensionCompression = 0;
+		rootPoint->SetWorldLocation(end);
 		DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0, 5);
 		return false;
 	}
+}
+
+void UTyreComponent::Accelerate(float currentVelocity)
+{
+	// rotationValue = initialRotation * currentVelocity;
+	// mesh->AddLocalRotation(FQuat(FRotator(rotationValue, 0, 0)), false, 0, ETeleportType::None);
+	// lastRotationValue = rotationValue;
+}
+
+void UTyreComponent::Brake(float currentVelocity)
+{
+}
+
+void UTyreComponent::Steer(float value)
+{
+}
+
+void UTyreComponent::Drift(float value)
+{
+}
+
+void UTyreComponent::SetRootPoint(USceneComponent* RootPoint)
+{
+	rootPoint = RootPoint;
+}
+
+void UTyreComponent::SetMesh(UStaticMeshComponent* Mesh)
+{
+	mesh = Mesh;
 }

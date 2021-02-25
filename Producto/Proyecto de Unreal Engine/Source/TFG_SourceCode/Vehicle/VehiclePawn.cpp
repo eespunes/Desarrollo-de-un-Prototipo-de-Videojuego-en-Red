@@ -7,6 +7,7 @@
 #include "DrawDebugHelpers.h"
 #include "Camera/CameraComponent.h"
 #include "Components/RaceComponent.h"
+#include "Components/TyreComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Math/UnitConversion.h"
 #include "TFG_SourceCode/Objects/Base/ObjectBase.h"
@@ -51,6 +52,7 @@ void AVehiclePawn::Tick(float DeltaTime)
 
 	GravityForce();
 	SuspensionForces();
+
 	if (raceComponent->CanRace())
 	{
 		WaitAfterHit(DeltaTime);
@@ -106,19 +108,18 @@ void AVehiclePawn::Movement()
 	}
 
 	//DEBUG
-	// if (GEngine)
-	// {
-	// 	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
-	// 	// 		                                 TEXT("Angular: %f"), currentAngular));
-	// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Yellow,
-	// 	                                 FString::Printf(
-	// 		                                 TEXT("Speed: %f"), currentVelocity));
-	// 	// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue, FString::Printf(TEXT("%s"), *action));
-	// 	GEngine->AddOnScreenDebugMessage(-1, deltaTime, FColor::Blue,
-	// 	                                 FString::Printf(
-	// 		                                 TEXT("Object= %s"),
-	// 		                                 currentObject ? *currentObject->GetName() : *FString("NO OBJECT")));
-	// }
+	if (GEngine)
+	{
+		// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
+		// 		                                 TEXT("Angular: %f"), currentAngular));
+		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
+		                                 FString::Printf(
+			                                 TEXT("Speed: %f"), currentVelocity));
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Object= %s"),
+		// 	                                 currentObject ? *currentObject->GetName() : *FString("NO OBJECT")));
+	}
 }
 
 /*
@@ -139,6 +140,11 @@ void AVehiclePawn::PerformAcceleration(float currentVelocity)
 	{
 		mesh->AddForceAtLocation(GetActorForwardVector() * acceleration, GetCenterOfMass());
 		lastVelocity = currentVelocity;
+	}
+
+	for (UTyreComponent* tyre : tyres)
+	{
+		tyre->Accelerate(currentVelocity);
 	}
 }
 
@@ -161,6 +167,10 @@ void AVehiclePawn::PerformBraking(float& currentVelocity)
 	{
 		mesh->AddForceAtLocation(-GetActorForwardVector() * acceleration * brakeRate, GetCenterOfMass());
 		lastVelocity = currentVelocity;
+	}
+	for (UTyreComponent* tyre : tyres)
+	{
+		tyre->Brake(currentVelocity);
 	}
 }
 
@@ -190,23 +200,27 @@ void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 	}
 	else
 	{
-		if (FMath::Abs(turnValue) >= 0)
-			turnTimer += GetWorld()->DeltaTimeSeconds;
-		else
-		{
-			turnTimer = 0;
-		}
-		if (turnTimer >= turnToDriftSeconds)
-		{
-			driftSign = FMath::Sign(turnValue);
-			isDrifting = true;
-		}
-		else
-		{
-			mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * turnValue * currentVelocity / maxSpeed,
-			                         NAME_None, true);
-			lastTurnValue = FMath::Sign(turnValue);
-		}
+		// if (FMath::Abs(turnValue) >= 0)
+		// 	turnTimer += GetWorld()->DeltaTimeSeconds;
+		// else
+		// {
+		// 	turnTimer = 0;
+		// }
+		// if (turnTimer >= turnToDriftSeconds)
+		// {
+		// 	driftSign = FMath::Sign(turnValue);
+		// 	// isDrifting = true;
+		// }
+		// else
+		// {
+		mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * turnValue * currentVelocity / maxSpeed,
+		                         NAME_None, true);
+		lastTurnValue = FMath::Sign(turnValue);
+		// }
+	}
+	for (UTyreComponent* tyre : tyres)
+	{
+		tyre->Steer(turnValue);
 	}
 }
 
@@ -223,6 +237,10 @@ void AVehiclePawn::Drift()
 		isDrifting = !isDrifting;
 		if (isDrifting)
 			driftSign = FMath::Sign(turnValue);;
+	}
+	for (UTyreComponent* tyre : tyres)
+	{
+		tyre->Drift(turnValue);
 	}
 }
 
@@ -275,6 +293,15 @@ void AVehiclePawn::GravityForce() const
 
 void AVehiclePawn::SuspensionForces()
 {
+	inGround = true;
+	for (UTyreComponent* tyre : tyres)
+	{
+		bool temp = tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
+		if (!temp)
+		{
+			inGround = false;
+		}
+	}
 }
 
 /*
@@ -320,9 +347,11 @@ void AVehiclePawn::WaitAfterHit(float DeltaTime)
 
 void AVehiclePawn::InstantiateParticle(const TSubclassOf<AActor>& particle)
 {
-	currentParticle = GetWorld()->SpawnActor<AActor>(particle,
-	                                                 particleSpawnPoint->GetComponentLocation(),
-	                                                 particleSpawnPoint->GetComponentRotation());
+	currentParticle = GetWorld()->SpawnActor<AActor>(
+		particle,
+		particleSpawnPoint->GetComponentLocation(),
+		particleSpawnPoint->GetComponentRotation()
+	);
 	currentParticle->AttachToComponent(particleSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
 }
 
@@ -342,6 +371,24 @@ void AVehiclePawn::NormalControls()
  *GETTERS AND SETTERS
  *####### ### #######
  */
+
+FVector AVehiclePawn::GetForward() const
+{
+	FHitResult hit;
+	FVector position = GetActorLocation();
+	FVector end = position - (GetActorUpVector() * 300);
+	FVector forward = GetActorForwardVector();
+
+	GetWorld()->LineTraceSingleByChannel(hit, position, end, ECC_WorldStatic);
+
+	if (hit.bBlockingHit)
+	{
+		forward = GetActorForwardVector() - hit.Normal * GetActorForwardVector();
+	}
+
+	return forward;
+}
+
 UStaticMeshComponent* AVehiclePawn::GetMesh() const
 {
 	return mesh;
@@ -393,6 +440,11 @@ FVector AVehiclePawn::GetCenterOfMass() const
 {
 	return mesh->GetCenterOfMass() - GetActorUpVector() * 10 +
 		GetActorForwardVector() * 10;
+}
+
+bool AVehiclePawn::GetDrifting() const
+{
+	return isDrifting;
 }
 
 bool AVehiclePawn::GetHasBeenHit() const

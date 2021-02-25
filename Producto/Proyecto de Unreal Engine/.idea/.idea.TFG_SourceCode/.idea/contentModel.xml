@@ -49339,7 +49339,6 @@
         <e p="TFG_SourceCode.vcxproj" t="IncludeRecursive" />
         <e p="UE4.vcxproj" t="IncludeRecursive" />
       </e>
-      <e p="ObjectProbabilities.txt" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Source" t="Include">
         <e p="TFG_SourceCode" t="Include">
@@ -49430,8 +49429,8 @@
             <e p="Components" t="Include">
               <e p="RaceComponent.cpp" t="Include" />
               <e p="RaceComponent.h" t="Include" />
-              <e p="WheelComponent.cpp" t="Include" />
-              <e p="WheelComponent.h" t="Include" />
+              <e p="TyreComponent.cpp" t="Include" />
+              <e p="TyreComponent.h" t="Include" />
             </e>
             <e p="Controllers" t="Include">
               <e p="VehicleController.cpp" t="Include" />

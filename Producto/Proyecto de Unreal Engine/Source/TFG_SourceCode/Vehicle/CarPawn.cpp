@@ -3,77 +3,51 @@
 
 #include "CarPawn.h"
 
-#include "Components/WheelComponent.h"
+#include "Components/TyreComponent.h"
 
 ACarPawn::ACarPawn()
 {
-	for (int i = 0; i < 4; ++i)
-	{
-		FName name = FName(TEXT("Wheel %i"), i + 1);
-		UWheelComponent* tyre = CreateDefaultSubobject<UWheelComponent>(name);
-		tyre->SetupAttachment(RootComponent);
-		tyres.Add(tyre);
-	}
-	// rightFrontWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Right Front Wheel"));
-	// rightFrontWheel->SetupAttachment(RootComponent);
-	// rightFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Front Wheel Mesh"));
-	// rightFrontWheelMesh->SetupAttachment(rightFrontWheel);
-	//
-	// leftFrontWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Left Front Wheel"));
-	// leftFrontWheel->SetupAttachment(RootComponent);
-	// leftFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Front Wheel Mesh"));
-	// leftFrontWheelMesh->SetupAttachment(leftFrontWheel);
-	//
-	// rightRearWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Right Rear Wheel"));
-	// rightRearWheel->SetupAttachment(RootComponent);
-	// rightRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Rear Wheel Mesh"));
-	// rightRearWheelMesh->SetupAttachment(rightRearWheel);
-	//
-	// leftRearWheel = CreateDefaultSubobject<UWheelComponent>(TEXT("Left Rear Wheel"));
-	// leftRearWheel->SetupAttachment(RootComponent);
-	// leftRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Rear Wheel Mesh"));
-	// leftRearWheelMesh->SetupAttachment(leftRearWheel);
-}
+	rightFrontWheel = CreateDefaultSubobject<UTyreComponent>(TEXT("Right Front Tyre"));
+	rightFrontWheel->SetupAttachment(RootComponent);
+	tyres.Add(rightFrontWheel);
+	rightFrontWheelRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Right Front Tyre Root"));
+	rightFrontWheelRoot->SetupAttachment(rightFrontWheel);
+	rightFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Front Tyre Mesh"));
+	rightFrontWheelMesh->SetupAttachment(rightFrontWheelRoot);
+	
+	rightFrontWheel->SetMesh(rightFrontWheelMesh);
+	rightFrontWheel->SetRootPoint(rightFrontWheelRoot);
 
-void ACarPawn::BeginPlay()
-{
-	Super::BeginPlay();
-}
+	leftFrontWheel = CreateDefaultSubobject<UTyreComponent>(TEXT("Left Front Tyre"));
+	leftFrontWheel->SetupAttachment(RootComponent);
+	tyres.Add(leftFrontWheel);
+	leftFrontWheelRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Left Front Tyre Root"));
+	leftFrontWheelRoot->SetupAttachment(leftFrontWheel);
+	leftFrontWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Front Tyre Mesh"));
+	leftFrontWheelMesh->SetupAttachment(leftFrontWheelRoot);
 
-void ACarPawn::SuspensionForces()
-{
-	Super::SuspensionForces();
+	leftFrontWheel->SetMesh(leftFrontWheelMesh);
+	leftFrontWheel->SetRootPoint(leftFrontWheelRoot);
 
-	// bool rightFront = rightFrontWheel->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
-	// bool leftFront = leftFrontWheel->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
-	// bool rightRear = rightRearWheel->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
-	// bool leftRear = leftRearWheel->SuspensionForce(suspensionDistance, suspensionRate, dampingRate);
-	//
-	// inGround = false;
-	// if (rightFront && leftFront && rightRear && leftRear) inGround = true;
-}
+	rightRearWheel = CreateDefaultSubobject<UTyreComponent>(TEXT("Right Rear Tyre"));
+	rightRearWheel->SetupAttachment(RootComponent);
+	tyres.Add(rightRearWheel);
+	rightRearWheelRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Right Rear Tyre Root"));
+	rightRearWheelRoot->SetupAttachment(rightRearWheel);
+	rightRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Rear Tyre Mesh"));
+	rightRearWheelMesh->SetupAttachment(rightRearWheelRoot);
 
-void ACarPawn::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-}
+	rightRearWheel->SetMesh(rightRearWheelMesh);
+	rightRearWheel->SetRootPoint(rightRearWheelRoot);
 
-void ACarPawn::Accelerate()
-{
-	Super::Accelerate();
-}
+	leftRearWheel = CreateDefaultSubobject<UTyreComponent>(TEXT("Left Rear Tyre"));
+	leftRearWheel->SetupAttachment(RootComponent);
+	tyres.Add(leftRearWheel);
+	leftRearWheelRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Left Rear Tyre Root"));
+	leftRearWheelRoot->SetupAttachment(leftRearWheel);
+	leftRearWheelMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Rear Tyre Mesh"));
+	leftRearWheelMesh->SetupAttachment(leftRearWheelRoot);
 
-void ACarPawn::Brake()
-{
-	Super::Brake();
-}
-
-void ACarPawn::Steer(float value)
-{
-	Super::Steer(value);
-}
-
-void ACarPawn::Drift()
-{
-	Super::Drift();
+	leftRearWheel->SetMesh(leftRearWheelMesh);
+	leftRearWheel->SetRootPoint(leftRearWheelRoot);
 }

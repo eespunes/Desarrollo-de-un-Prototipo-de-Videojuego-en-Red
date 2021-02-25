@@ -8,7 +8,7 @@
 
 #include "CarPawn.generated.h"
 
-class UWheelComponent;
+class UTyreComponent;
 /**
  * 
  */
@@ -18,33 +18,32 @@ class TFG_SOURCECODE_API ACarPawn : public AVehiclePawn
 	GENERATED_BODY()
 public:
 	ACarPawn();
-	virtual void Tick(float DeltaTime) override;
-	virtual void Accelerate() override;
-	virtual void Brake() override;
-	virtual void Steer(float value) override;
-	virtual void Drift() override;
-
-protected:
-	virtual void BeginPlay() override;
-	virtual void SuspensionForces() override;
 private:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	UWheelComponent* rightFrontWheel;
+	UTyreComponent* rightFrontWheel;
+		UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	USceneComponent* rightFrontWheelRoot;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* rightFrontWheelMesh;
-	
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	UWheelComponent* leftFrontWheel;
+	UTyreComponent* leftFrontWheel;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	USceneComponent* leftFrontWheelRoot;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* leftFrontWheelMesh;
-	
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	UWheelComponent* rightRearWheel;
+	UTyreComponent* rightRearWheel;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	USceneComponent* rightRearWheelRoot;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* rightRearWheelMesh;
-	
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	UWheelComponent* leftRearWheel;
+	UTyreComponent* leftRearWheel;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	USceneComponent* leftRearWheelRoot;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* leftRearWheelMesh;
 };

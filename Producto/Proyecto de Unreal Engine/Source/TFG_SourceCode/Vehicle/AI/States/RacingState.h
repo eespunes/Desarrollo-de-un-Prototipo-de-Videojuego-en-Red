@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "State.h"
+#include "TFG_SourceCode/RaceControllers/CheckPoint.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 class RacingState : public State
@@ -15,4 +16,6 @@ public:
 
 private:
 	AVehiclePawn* vehicle;
+	bool canSteer;
+	ACheckPoint* lastCheckpoint;
 };

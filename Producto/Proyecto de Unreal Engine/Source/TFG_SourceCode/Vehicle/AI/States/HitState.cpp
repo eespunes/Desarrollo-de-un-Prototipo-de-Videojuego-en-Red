@@ -13,6 +13,7 @@ HitState::HitState(AAIVehicleController* vehicleController): State(vehicleContro
 void HitState::SetUp()
 {
 	State::SetUp();
+	UE_LOG(LogTemp,Warning,TEXT("HIT"));
 }
 
 void HitState::Update()

@@ -5,25 +5,32 @@
 #include "CoreMinimal.h"
 
 #include "Components/SceneComponent.h"
-#include "WheelComponent.generated.h"
+#include "TyreComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class TFG_SOURCECODE_API UWheelComponent : public USceneComponent
+class TFG_SOURCECODE_API UTyreComponent : public USceneComponent
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this component's properties
-	UWheelComponent();
+	UTyreComponent();
 	bool SuspensionForce(float suspensionDistance, float force, float frictionValue);
+	void Accelerate(float currentVelocity);
+	void Brake(float currentVelocity);
+	void Steer(float value);
+	void Drift(float value);
+
+	void SetRootPoint(USceneComponent* RootPoint);
+	void SetMesh(UStaticMeshComponent* Mesh);
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 private:
+	USceneComponent* rootPoint;
+	UStaticMeshComponent* mesh;
 	float suspensionCompression;
 	UStaticMeshComponent* vehicleMesh;
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
-	UStaticMeshComponent* mesh;
 };

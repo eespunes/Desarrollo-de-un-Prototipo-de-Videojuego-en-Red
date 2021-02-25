@@ -7,7 +7,7 @@
 #include "IVehicle.h"
 #include "VehiclePawn.generated.h"
 
-class UWheelComponent;
+class UTyreComponent;
 class UCameraComponent;
 class URaceComponent;
 class AObjectBase;
@@ -28,6 +28,7 @@ public:
 	virtual void UseObject() override;
 	void RemoveObject();
 
+	FVector GetForward() const;
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
@@ -43,6 +44,7 @@ public:
 	bool GetHasBeenHit() const;
 	bool GetIsAccelerating() const;
 	FVector GetCenterOfMass() const;
+	bool GetDrifting() const;
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* mesh;
@@ -54,9 +56,6 @@ protected:
 	UCameraComponent* camera;
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
-	TArray<UWheelComponent*> tyres;
-
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	URaceComponent* raceComponent;
 
 	UPROPERTY(EditAnywhere,Category="Vehicle: Suspension")
@@ -65,6 +64,7 @@ protected:
 	float suspensionRate;
 	UPROPERTY(EditAnywhere,Category="Vehicle: Suspension")
 	float dampingRate;
+	TArray<UTyreComponent*> tyres;
 
 	FVector lastUpVector;
 	bool inGround;

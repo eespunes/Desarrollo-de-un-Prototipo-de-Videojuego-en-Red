@@ -13,6 +13,7 @@ RacingState::RacingState(AAIVehicleController* VehicleController): State(Vehicle
 void RacingState::SetUp()
 {
 	State::SetUp();
+	UE_LOG(LogTemp, Warning, TEXT("RACING"));
 	vehicle = vehicleController->GetVehicle();
 }
 
@@ -27,25 +28,25 @@ void RacingState::Steering()
 		FVector direction = checkpointLocation - vehicleLocation;
 		direction.Normalize();
 
-		float angle = acos(FVector::DotProduct(vehicle->GetActorForwardVector(), direction)) * (180 / PI);
-		if (FVector::DotProduct(vehicle->GetActorForwardVector(),
-		                        FVector::CrossProduct(vehicle->GetActorForwardVector(), direction)) < 0)
-		{
-			angle = -angle;
-		}
+		FVector forward = vehicle->GetForward();
 
-		DrawDebugLine(vehicle->GetWorld(), vehicleLocation, vehicleLocation + direction * 1000, FColor::Purple, false,
+		float angle = FVector::DotProduct(vehicle->GetActorRightVector(), direction);
+
+		DrawDebugLine(vehicle->GetWorld(), vehicleLocation, vehicleLocation + direction * 10000, FColor::Purple, false,
 		              -1,
 		              0, 5);
 		DrawDebugLine(vehicle->GetWorld(), vehicleLocation, vehicleLocation + vehicle->GetActorForwardVector() * 1000,
 		              FColor::Blue, false, -1,
 		              0, 5);
-		// if (angle > 10)//TODO VARIABLE
-		// 	vehicle->Turn(angle / 90.0f);
-		if (GEngine)
+
+		vehicle->Steer(angle);
+		if (FMath::Abs(angle) > 0.5f && !vehicle->GetDrifting())
 		{
-			GEngine->AddOnScreenDebugMessage(-1, vehicle->GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
-				                                 TEXT("Angle: %f"), angle));
+			vehicle->Drift();
+		}
+		else if (vehicle->GetDrifting())
+		{
+			vehicle->Drift();
 		}
 	}
 }
