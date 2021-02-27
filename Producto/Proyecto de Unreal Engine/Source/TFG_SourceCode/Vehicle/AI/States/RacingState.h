@@ -16,6 +16,8 @@ public:
 
 private:
 	AVehiclePawn* vehicle;
-	bool canSteer;
 	ACheckPoint* lastCheckpoint;
+	FVector checkpointLocation;
+	bool started = false;
+	float startTimer;
 };

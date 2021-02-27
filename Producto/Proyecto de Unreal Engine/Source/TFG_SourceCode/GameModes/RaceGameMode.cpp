@@ -35,11 +35,12 @@ void ARaceGameMode::NormalSpawn(APlayerStart*& FoundPlayerStart)
 		}
 	}
 
-	FoundPlayerStart = UnOccupiedStartPoints[(playerPosition - 1) % UnOccupiedStartPoints.Num()];
+	int32 playerStartPosition = (playerPosition - 1) % UnOccupiedStartPoints.Num();
+	FoundPlayerStart = UnOccupiedStartPoints[playerStartPosition];
 
-	for (int i = 0; i < 1/*UnOccupiedStartPoints.Num()*/; ++i)
+	for (int i = 0; i < UnOccupiedStartPoints.Num(); ++i)
 	{
-		if (i != (playerPosition - 1) % UnOccupiedStartPoints.Num())
+		if (i != playerStartPosition)
 		{
 			GetWorld()->SpawnActor<AVehiclePawn>(
 				vehicleToSpawn,

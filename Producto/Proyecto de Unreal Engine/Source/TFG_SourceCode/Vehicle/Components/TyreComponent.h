@@ -17,8 +17,7 @@ public:
 	// Sets default values for this component's properties
 	UTyreComponent();
 	bool SuspensionForce(float suspensionDistance, float force, float frictionValue);
-	void Accelerate(float currentVelocity);
-	void Brake(float currentVelocity);
+	void RotateTyres(float currentVelocity);
 	void Steer(float value);
 	void Drift(float value);
 
@@ -33,4 +32,7 @@ private:
 	UStaticMeshComponent* mesh;
 	float suspensionCompression;
 	UStaticMeshComponent* vehicleMesh;
+	float rotationValue;
+	float initialRotation = 0.5f;
+	float lastRotationValue;
 };

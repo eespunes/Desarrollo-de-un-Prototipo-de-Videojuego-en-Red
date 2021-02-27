@@ -12,7 +12,7 @@ IdleState::IdleState(AAIVehicleController* vehicleController, State* state): Sta
 void IdleState::SetUp()
 {
 	State::SetUp();
-	UE_LOG(LogTemp,Warning,TEXT("IDLE"));
+	// UE_LOG(LogTemp,Warning,TEXT("IDLE"));
 }
 
 void IdleState::Update()

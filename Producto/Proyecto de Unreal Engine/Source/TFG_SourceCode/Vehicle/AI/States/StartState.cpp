@@ -14,7 +14,7 @@ StartState::StartState(AAIVehicleController* VehicleController): State(VehicleCo
 void StartState::SetUp()
 {
 	State::SetUp();
-	UE_LOG(LogTemp,Warning,TEXT("START"));
+	// UE_LOG(LogTemp,Warning,TEXT("START"));
 }
 
 void StartState::Update()

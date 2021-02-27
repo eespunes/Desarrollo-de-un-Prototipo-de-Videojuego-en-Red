@@ -71,19 +71,15 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 	}
 }
 
-void UTyreComponent::Accelerate(float currentVelocity)
+void UTyreComponent::RotateTyres(float currentVelocity)
 {
-	// rotationValue = initialRotation * currentVelocity;
-	// mesh->AddLocalRotation(FQuat(FRotator(rotationValue, 0, 0)), false, 0, ETeleportType::None);
-	// lastRotationValue = rotationValue;
-}
-
-void UTyreComponent::Brake(float currentVelocity)
-{
+	mesh->AddLocalRotation(FQuat(FRotator(-currentVelocity / 50, 0, 0)), true, 0,
+	                       ETeleportType::None);
 }
 
 void UTyreComponent::Steer(float value)
 {
+	// mesh->AddLocalRotation(FQuat(FRotator(0, value, 0)), false, 0,ETeleportType::None);
 }
 
 void UTyreComponent::Drift(float value)

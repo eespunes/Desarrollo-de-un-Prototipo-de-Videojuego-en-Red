@@ -74,37 +74,44 @@ void AVehiclePawn::Tick(float DeltaTime)
 
 void AVehiclePawn::Movement()
 {
-	float currentVelocity = (GetActorForwardVector() * mesh->GetPhysicsLinearVelocity()).Size();
+	currentSpeed = (GetActorForwardVector() * mesh->GetPhysicsLinearVelocity()).Size();
 	float currentAngular = (mesh->GetPhysicsAngularVelocityInDegrees() * GetActorUpVector()).Size();
-
 	if (inGround)
 	{
 		if (!invertControls && isAccelerating && !isBraking || invertControls && !isAccelerating && isBraking)
 		{
-			PerformAcceleration(currentVelocity);
+			PerformAcceleration();
 		}
 		else if (!invertControls && !isAccelerating && isBraking || invertControls && isAccelerating && !isBraking)
 		{
-			PerformBraking(currentVelocity);
+			PerformBraking(currentSpeed);
 		}
 		else if (isBraking && isAccelerating)
 		{
-			currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
+			currentSpeed = lastVelocity < currentSpeed ? -currentSpeed : currentSpeed;
 			mesh->SetLinearDamping(2.5f);
 		}
 		else
 		{
 			mesh->SetLinearDamping(1.f);
 		}
-
 		if (isDrifting)
 		{
-			PerformDrift(currentVelocity);
+			PerformDrift(currentSpeed);
 		}
 		else
 		{
-			PerformSteering(currentVelocity, currentAngular);
+			PerformSteering(currentSpeed, currentAngular);
 		}
+	}
+	else
+	{
+		mesh->SetLinearDamping(.01f);
+	}
+
+	for (UTyreComponent* tyre : tyres)
+	{
+		tyre->RotateTyres(currentSpeed/*,maxSpeed*/);
 	}
 
 	//DEBUG
@@ -112,9 +119,9 @@ void AVehiclePawn::Movement()
 	{
 		// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange, FString::Printf(
 		// 		                                 TEXT("Angular: %f"), currentAngular));
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
-		                                 FString::Printf(
-			                                 TEXT("Speed: %f"), currentVelocity));
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Speed: %f"), currentSpeed));
 		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
 		//                                  FString::Printf(
 		// 	                                 TEXT("Object= %s"),
@@ -133,18 +140,13 @@ void AVehiclePawn::Accelerate()
 	isAccelerating = !isAccelerating;
 }
 
-void AVehiclePawn::PerformAcceleration(float currentVelocity)
+void AVehiclePawn::PerformAcceleration()
 {
 	mesh->SetLinearDamping(1.5f);
-	if (currentVelocity < maxSpeed)
+	if (currentSpeed < maxSpeed)
 	{
 		mesh->AddForceAtLocation(GetActorForwardVector() * acceleration, GetCenterOfMass());
-		lastVelocity = currentVelocity;
-	}
-
-	for (UTyreComponent* tyre : tyres)
-	{
-		tyre->Accelerate(currentVelocity);
+		lastVelocity = currentSpeed;
 	}
 }
 
@@ -167,10 +169,6 @@ void AVehiclePawn::PerformBraking(float& currentVelocity)
 	{
 		mesh->AddForceAtLocation(-GetActorForwardVector() * acceleration * brakeRate, GetCenterOfMass());
 		lastVelocity = currentVelocity;
-	}
-	for (UTyreComponent* tyre : tyres)
-	{
-		tyre->Brake(currentVelocity);
 	}
 }
 
@@ -200,23 +198,9 @@ void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 	}
 	else
 	{
-		// if (FMath::Abs(turnValue) >= 0)
-		// 	turnTimer += GetWorld()->DeltaTimeSeconds;
-		// else
-		// {
-		// 	turnTimer = 0;
-		// }
-		// if (turnTimer >= turnToDriftSeconds)
-		// {
-		// 	driftSign = FMath::Sign(turnValue);
-		// 	// isDrifting = true;
-		// }
-		// else
-		// {
 		mesh->AddTorqueInDegrees(GetActorUpVector() * steeringRate * turnValue * currentVelocity / maxSpeed,
 		                         NAME_None, true);
 		lastTurnValue = FMath::Sign(turnValue);
-		// }
 	}
 	for (UTyreComponent* tyre : tyres)
 	{
@@ -445,6 +429,21 @@ FVector AVehiclePawn::GetCenterOfMass() const
 bool AVehiclePawn::GetDrifting() const
 {
 	return isDrifting;
+}
+
+bool AVehiclePawn::GetBraking()
+{
+	return isBraking;
+}
+
+float AVehiclePawn::GetCurrentSpeed()
+{
+	return currentSpeed;
+}
+
+float AVehiclePawn::GetDriftSign()
+{
+	return driftSign;
 }
 
 bool AVehiclePawn::GetHasBeenHit() const

@@ -45,6 +45,9 @@ public:
 	bool GetIsAccelerating() const;
 	FVector GetCenterOfMass() const;
 	bool GetDrifting() const;
+	bool GetBraking();
+	float GetCurrentSpeed();
+	float GetDriftSign();
 protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	UStaticMeshComponent* mesh;
@@ -117,13 +120,14 @@ protected:
 	float hitTimer;
 	bool invertControls;
 	AActor* currentParticle;
+	float currentSpeed;
 
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();
-	void PerformAcceleration(float currentVelocity);
+	void PerformAcceleration();
 	void PerformBraking(float& currentVelocity);
 	void PerformSteering(float currentVelocity, float currentAngular);
 	void PerformDrift(float currentVelocity);

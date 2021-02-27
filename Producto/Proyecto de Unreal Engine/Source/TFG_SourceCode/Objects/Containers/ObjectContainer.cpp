@@ -72,7 +72,7 @@ void AObjectContainer::OnOverlapBegin(AActor* ownerActor, AActor* otherActor)
 AObjectBase* AObjectContainer::GetObject()
 {
 	int32 RandRange = FMath::RandRange(0, objects.Num() - 1);
-	UE_LOG(LogTemp, Warning, TEXT("%i"), RandRange);
+	// UE_LOG(LogTemp, Warning, TEXT("%i"), RandRange);
 	return GetWorld()->SpawnActor<AObjectBase>(objects[RandRange]->GeneratedClass, GetActorLocation(),
 	                                           GetActorRotation());
 }
