@@ -1,0 +1,1 @@
+﻿#include "IObject.h"
