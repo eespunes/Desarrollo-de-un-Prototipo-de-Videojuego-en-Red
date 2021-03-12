@@ -38,9 +38,9 @@ void RacingState::Steering()
 
 		float angle = FVector::DotProduct(vehicle->GetActorRightVector(), direction);
 
-		GEngine->AddOnScreenDebugMessage(-1, vehicle->GetWorld()->DeltaTimeSeconds, FColor::Yellow,
-                                 FString::Printf(
-                                     TEXT("%s Angle: %f"), *vehicle->GetOwner()->GetActorLabel(),angle));
+		// GEngine->AddOnScreenDebugMessage(-1, vehicle->GetWorld()->DeltaTimeSeconds, FColor::Yellow,
+  //                                FString::Printf(
+  //                                    TEXT("%s Angle: %f"), *vehicle->GetOwner()->GetActorLabel(),angle));
 
 		if (vehicle->GetCurrentSpeed() < 1 && started)
 		{

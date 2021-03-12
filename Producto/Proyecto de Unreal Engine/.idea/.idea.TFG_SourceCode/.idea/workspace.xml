@@ -6,25 +6,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a9676-8ee9-41bb-8b8f-ca5cc00466f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Diseño/Diagramas.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../Diseño/Diagramas.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/riderModule.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/HitState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/HitState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/IdleState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/IdleState.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/StartState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/StartState.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,35 +27,39 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/UMG/Public/Components/Image.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/Math/Color.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/GenericPlatform/GenericPlatformMisc.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Public/Logging/LogMacros.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/Components/SceneComponent.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/GameModeBase.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/Misc/Paths.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/UMG/Private/UserWidget.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/IdunApple.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Public/UObject/NameTypes.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/um/iphlpapi.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Public/Math/Vector.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/um/iphlpapi.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/IdunApple.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/Templates/SubclassOf.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Public/UObject/NameTypes.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Classes/GameFramework/GameModeBase.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Engine/Private/Components/SceneComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/Misc/Paths.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/GenericPlatform/GenericPlatformMisc.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/UMG/Public/Components/Image.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/Core/Private/Math/Color.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -107,7 +103,6 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/IdleState.cpp" />
@@ -116,8 +111,9 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1o4EWjl8pjWQVpM2wNuAC3HkYWq" />
@@ -136,6 +132,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="C++ Project.TFG_SourceCode">
@@ -385,6 +382,11 @@
       <workItem from="1614190114245" duration="8167000" />
       <workItem from="1614266209166" duration="8580000" />
       <workItem from="1614354447424" duration="5487000" />
+      <workItem from="1615287133742" duration="117000" />
+      <workItem from="1615287329525" duration="15000" />
+      <workItem from="1615287411090" duration="9000" />
+      <workItem from="1615287543492" duration="2056000" />
+      <workItem from="1615308742136" duration="863000" />
     </task>
     <servers />
   </component>
