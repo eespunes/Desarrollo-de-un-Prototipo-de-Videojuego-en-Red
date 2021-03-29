@@ -5,7 +5,7 @@ function addPlayerToRace(data){
 
 }
 
-function removePlayerToRace(username){
+function removePlayerFromRace(username){
 
 }
 

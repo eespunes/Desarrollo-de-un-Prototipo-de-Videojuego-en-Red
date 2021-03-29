@@ -1,7 +1,10 @@
-
-function encrypt(data) {
-
+const encrypt = function (data) {
+    return data
 }
-function decrypt(data) {
+const decrypt = function (data) {
+return data
+}
 
+module.exports = {
+    encrypt, decrypt
 }
