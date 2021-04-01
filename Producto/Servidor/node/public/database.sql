@@ -17,7 +17,7 @@ CREATE TABLE Countries
 DROP TABLE IF EXISTS Servers CASCADE;
 CREATE TABLE Servers
 (
-    ser_id        SERIAL,
+    ser_id        VARCHAR(4),
     ser_name      VARCHAR(64),
     ser_countryID VARCHAR(3) NOT NULL,
     PRIMARY KEY (ser_id),
@@ -26,20 +26,27 @@ CREATE TABLE Servers
 DROP TABLE IF EXISTS Levels CASCADE;
 CREATE TABLE Levels
 (
-    lvl_id   SERIAL,
+    lvl_id   VARCHAR(4),
     lvl_name VARCHAR(64),
     PRIMARY KEY (lvl_id)
 );
 DROP TABLE IF EXISTS Races CASCADE;
 CREATE TABLE Races
 (
-    rac_id       SERIAL UNIQUE ,
-    rac_raceDate DATE,
-    rac_serverID INTEGER,
-    rac_levelID  INTEGER,
+    rac_id       SERIAL UNIQUE,
+    rac_raceDate TIME,
+    rac_serverID VARCHAR(4),
+    rac_levelID  VARCHAR(4),
     PRIMARY KEY (rac_id, rac_raceDate, rac_serverID),
     FOREIGN KEY (rac_serverID) REFERENCES Servers (ser_id),
     FOREIGN KEY (rac_levelID) REFERENCES Levels (lvl_id)
+);
+DROP TABLE IF EXISTS AIs CASCADE;
+CREATE TABLE AIs
+(
+    ai_id    VARCHAR(4),
+    ai_level INTEGER,
+    PRIMARY KEY (ai_id)
 );
 DROP TABLE IF EXISTS Players CASCADE;
 CREATE TABLE Players
@@ -54,38 +61,51 @@ CREATE TABLE Players
     pla_silverSteeringWheel INTEGER,
     pla_bronzeSteeringWheel INTEGER,
     pla_woodenSteeringWheel INTEGER,
-    pla_aiID                INTEGER,
+    pla_aiID                VARCHAR(4),
     PRIMARY KEY (pla_username),
     FOREIGN KEY (pla_aiID) REFERENCES AIs (ai_id)
-);
-DROP TABLE IF EXISTS AIs CASCADE;
-CREATE TABLE AIs
-(
-    ai_id SERIAL,
-    PRIMARY KEY (ai_id)
 );
 DROP TABLE IF EXISTS Objects CASCADE;
 CREATE TABLE Objects
 (
-    obj_id SERIAL,
+    obj_id   VARCHAR(4),
+    obj_name VARCHAR(64),
     PRIMARY KEY (obj_id)
 );
 DROP TABLE IF EXISTS Cars CASCADE;
 CREATE TABLE Cars
 (
-    car_id SERIAL,
+    car_id               VARCHAR(4),
+    car_maxSpeed         FLOAT,
+    car_accelerationRate FLOAT,
+    car_brakeRate        FLOAT,
+    car_reverseRate      FLOAT,
+    car_steeringRate     FLOAT,
+    car_maxSteerAngle    FLOAT,
+    car_maxDriftAngle    FLOAT,
+    car_steerToDriftTime FLOAT,
     PRIMARY KEY (car_id)
+);
+
+DROP TABLE IF EXISTS Competitors CASCADE;
+CREATE TABLE Competitors
+(
+    com_playerUsername VARCHAR(64),
+    com_raceID         INTEGER,
+    com_position       INTEGER,
+    PRIMARY KEY (com_playerUsername, com_raceID),
+    FOREIGN KEY (com_playerUsername) REFERENCES Players (pla_username),
+    FOREIGN KEY (com_raceID) REFERENCES Races (rac_id)
 );
 
 DROP TABLE IF EXISTS CarSetups CASCADE;
 CREATE TABLE CarSetups
 (
     cse_playerUsername VARCHAR(64),
-    cse_raceID         INTEGER,
-    cse_carID          INTEGER,
+    cse_raceID         SERIAL,
+    cse_carID          VARCHAR(4),
     PRIMARY KEY (cse_playerUsername, cse_raceID),
-    FOREIGN KEY (cse_playerUsername) REFERENCES Players (pla_username),
-    FOREIGN KEY (cse_raceID) REFERENCES Races (rac_id),
+    FOREIGN KEY (cse_playerUsername, cse_raceID) REFERENCES Competitors (com_playerUsername, com_raceID),
     FOREIGN KEY (cse_carID) REFERENCES Cars (car_id)
 );
 
@@ -95,23 +115,12 @@ CREATE TABLE ObjectsThrew
     oth_id             SERIAL,
     oth_playerUsername VARCHAR(64),
     oth_raceID         INTEGER,
-    oth_objectID       INTEGER,
+    oth_objectID       VARCHAR(4),
     PRIMARY KEY (oth_id, oth_playerUsername, oth_raceID),
-    FOREIGN KEY (oth_playerUsername) REFERENCES Players (pla_username),
-    FOREIGN KEY (oth_raceID) REFERENCES Races (rac_id),
+    FOREIGN KEY (oth_playerUsername, oth_raceID) REFERENCES Competitors (com_playerUsername, com_raceID),
     FOREIGN KEY (oth_objectID) REFERENCES Objects (obj_id)
 );
 
-DROP TABLE IF EXISTS Competitors CASCADE;
-CREATE TABLE Competitors
-(
-    playerUsername VARCHAR(64),
-    raceID         INTEGER,
-    position       INTEGER,
-    PRIMARY KEY (playerUsername, raceID),
-    FOREIGN KEY (playerUsername) REFERENCES Players (pla_username),
-    FOREIGN KEY (raceID) REFERENCES Races (rac_id)
-);
 
 
 INSERT INTO Continents
@@ -623,7 +632,16 @@ INSERT INTO Countries
 VALUES ('ZWE', 'Republic of Zimbabwe', 'AF');
 
 INSERT INTO Servers
-VALUES ('Main Spanish Server', 'ESP');
+VALUES ('S001','Main Spanish Server', 'ESP');
+
+INSERT INTO Levels
+VALUES ('L001','Main Level');
+
+INSERT INTO Races (rac_raceDate,rac_serverID,rac_levelID)
+VALUES (now(),'S001','L001');
+INSERT INTO Races(rac_raceDate,rac_serverID,rac_levelID)
+VALUES (now(),'S001','L001');
+
 
 
 

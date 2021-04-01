@@ -2,6 +2,7 @@ const express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
     playerDB = require('./Database/DatabaseController'),
+    gameManager = require('./Game/GameManager'),
     bodyParser = require("body-parser"),
     cors = require("cors");
 
@@ -39,17 +40,16 @@ app.post('/api/wood/', (req, res) => {
 })
 
 
-app.post('/api/race/', (req, res) => {
-    playerDB.registerRace(req, res)
+app.post('/api/race/add/', (req, res) => {
+    const {username, levelID} = req.body;
+    gameManager.addPlayerToRace(username, levelID, res)
 })
-app.post('/api/race/:username/add', (req, res) => {
-    addPlayerToRace()
-})
-app.get('/api/race/:username', (req, res) => {
+app.get('/api/race/all/:username', (req, res) => {
     playerDB.getAllRacesByPlayer(req, res)
 })
-app.post('/api/race/:username/remove', (req, res) => {
-    removePlayerFromRace(req, res)
+app.get('/api/race/remove/:username', (req, res) => {
+    const {username} = req.params;
+    gameManager.removePlayerFromRace(username, res)
 })
 
 app.get('/api/car/:id', (req, res) => {
@@ -77,14 +77,8 @@ app.get('/api/level/all', (req, res) => {
     playerDB.getAllLevels(req, res)
 })
 
-function addPlayerToRace(req, res) {
-    playerDB.addPlayerToRace(req, res)
-}
-function removePlayerFromRace(req, res) {
-    playerDB.setPosition(req, res)
-}
-
 app.listen(port, () => {
+    playerDB.createServer()
     console.log(`Example app listening at http://localhost:${port}`)
 })
 

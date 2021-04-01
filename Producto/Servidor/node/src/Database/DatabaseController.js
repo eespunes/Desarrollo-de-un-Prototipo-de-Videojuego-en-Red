@@ -1,13 +1,13 @@
 const {Pool} = require('pg')
-const config = require('./DatabaseConfigurator')
-const encrypt = require("../Security/Encryption");
+const databaseConfig = require('../Configuration/DatabaseConfigurator')
+const serverConfig = require('../Configuration/ServerConfiguration')
 
 const pool = new Pool({
-    user: config.user,
-    host: config.host,
-    database: config.database,
-    password: config.password,
-    port: config.port,
+    user: databaseConfig.user,
+    host: databaseConfig.host,
+    database: databaseConfig.database,
+    password: databaseConfig.password,
+    port: databaseConfig.port,
     ssl: {
         rejectUnauthorized: false
     }
@@ -15,24 +15,33 @@ const pool = new Pool({
 
 let playersLoggedIn = []
 
+exports.createServer = function () {
+    pool.query('SELECT ser_id FROM Servers WHERE ser_id=$1', [serverConfig.serverID], (error, results) => {
+        try {
+            results.rows[0]['ser_id']
+        } catch (e) {
+            pool.query('INSERT INTO Servers VALUES($1,$2,$3)', [serverConfig.serverID, serverConfig.serverName, serverConfig.serverLocation], (error) => {
+                if (!error)
+                    console.log("Server Created in the Database")
+            })
+        }
+    })
+};
+
 exports.login = function (req, res) {
     const {username, password} = req.body;
-    try {
-        pool.query('SELECT pla_password FROM Players WHERE pla_username=$1', [username], (error, results) => {
-            if (error) {
-                res.sendStatus(404)
-            } else {
-                if (results.rows[0]['pla_password'] === password) {
-                    playersLoggedIn.push(username)
-                    console.log(playersLoggedIn)
-                    res.sendStatus(202)
-                } else
-                    res.sendStatus(403)
-            }
-        })
-    } catch (e) {
-        res.status(500).send('ERROR: Failed to login')
-    }
+    pool.query('SELECT pla_password FROM Players WHERE pla_username=$1', [username], (error, results) => {
+        if (error) {
+            res.sendStatus(404)
+        } else {
+            if (results.rows[0]['pla_password'] === password) {
+                playersLoggedIn.push(username)
+                console.log(playersLoggedIn)
+                res.sendStatus(202)
+            } else
+                res.sendStatus(403)
+        }
+    })
 };
 
 exports.logout = function (req, res) {
@@ -41,7 +50,7 @@ exports.logout = function (req, res) {
     console.log(playersLoggedIn)
     if (playerIsLoggedIn(username)) {
         playersLoggedIn = playersLoggedIn.filter(function (id) {
-            return id != username
+            return id !== username
         })
         console.log(playersLoggedIn)
         res.status(200).send()
@@ -53,7 +62,7 @@ exports.register = function (req, res) {
 
     let dataToInsert = [username, password, email, new Date().toISOString(), 1, 0, 0, 0, 0, 50];
 
-    pool.query('INSERT INTO Players VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', dataToInsert, (error, results) => {
+    pool.query('INSERT INTO Players VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', dataToInsert, (error) => {
         if (error) {
             res.sendStatus(401);
             return
@@ -75,36 +84,20 @@ exports.getPlayer = function (req, res) {
 };
 
 
-exports.registerRace = function (req, res) {
-    let {levelId} = req.body;
-
-        pool.query('INSERT INTO Races VALUES($1,$2,$3)', [new Date().toISOString(),serverID, levelID], (error, results) => {
-            if (error) {
-                res.sendStatus(400)
-            } else {
-                res.sendStatus(201)
-            }
-        })
+exports.registerRace = function (levelID) {
+    pool.query('INSERT INTO Races VALUES($1,$2,$3)', [new Date().toISOString(), serverConfig.serverID, levelID], (error) => {
+        return !error;
+    })
 };
-exports.addPlayerToRace = function (req, res) {
-    let {username, raceID} = req.body;
-
-    try {
-        pool.query('INSERT INTO Competitors VALUES($1,$2,$3)', [username, raceID, -1], (error, results) => {
-            if (error) {
-                res.sendStatus(400)
-            } else {
-                res.sendStatus(201)
-            }
-        })
-    } catch (e) {
-        res.status(500).send('ERROR: Failed to create Competitor')
-    }
+exports.addPlayerToRace = function (username, raceID) {
+    pool.query('INSERT INTO Competitors VALUES($1,$2,$3)', [username, raceID, -1], (error) => {
+        return !error;
+    })
 };
 exports.setPosition = function (req, res) {
     let {username, raceID, position} = req.body;
 
-    pool.query('UPDATE Competitors SET position = $1 WHERE playerusername = $2 and raceid=$3', [position, username, raceID], (error, results) => {
+    pool.query('UPDATE Competitors SET com_position = $1 WHERE com_playerusername = $2 and com_raceid=$3', [position, username, raceID], (error) => {
         if (error) {
             res.sendStatus(404).send('ERROR: Failed to update Competitor')
         } else {
@@ -115,7 +108,7 @@ exports.setPosition = function (req, res) {
 exports.getAllRacesByPlayer = function (req, res) {
     let {username} = req.params
 
-    pool.query('SELECT * FROM Competitors WHERE playerusername=$1', username, (err, results) => {
+    pool.query('SELECT * FROM Competitors WHERE com_playerusername=$1', username, (err, results) => {
         if (err) {
             res.sendStatus(404)
         } else {
@@ -136,7 +129,7 @@ exports.addGolden = function (req, res) {
         }
     })
 
-    pool.query('UPDATE Players SET pla_goldenSteeringWheel = $1 WHERE pla_username = $2', [value, username], (err, results) => {
+    pool.query('UPDATE Players SET pla_goldenSteeringWheel = $1 WHERE pla_username = $2', [value, username], (err) => {
         if (err) {
             res.sendStatus(406)
         } else {
@@ -155,7 +148,7 @@ exports.addSilver = function (req, res) {
         }
     })
 
-    pool.query('UPDATE Players SET pla_silverSteeringWheel = $1 WHERE pla_username = $2', [value, username], (err, results) => {
+    pool.query('UPDATE Players SET pla_silverSteeringWheel = $1 WHERE pla_username = $2', [value, username], (err) => {
         if (err) {
             res.sendStatus(406)
         } else {
@@ -174,7 +167,7 @@ exports.addBronze = function (req, res) {
         }
     })
 
-    pool.query('UPDATE Players SET pla_bronzeSteeringWheel = $1 WHERE pla_username = $2', [value, username], (err, results) => {
+    pool.query('UPDATE Players SET pla_bronzeSteeringWheel = $1 WHERE pla_username = $2', [value, username], (err) => {
         if (err) {
             res.sendStatus(406)
         } else {
@@ -193,7 +186,7 @@ exports.addWooden = function (req, res) {
         }
     })
 
-    pool.query('UPDATE Players SET pla_woodenSteeringWheel = $1 WHERE pla_username = $2', [value, username], (err, results) => {
+    pool.query('UPDATE Players SET pla_woodenSteeringWheel = $1 WHERE pla_username = $2', [value, username], (err) => {
         if (err) {
             res.sendStatus(406)
         } else {
@@ -288,12 +281,12 @@ exports.getAllLevels = function (req, res) {
 }
 
 function playerIsLoggedIn(username) {
-    let equals = false;
+    let usernameIsPlaying = false;
     playersLoggedIn.forEach(function (entry) {
         if (entry === username) {
-            equals = true;
+            usernameIsPlaying = true;
         }
     });
-    return equals;
+    return usernameIsPlaying;
 }
 
