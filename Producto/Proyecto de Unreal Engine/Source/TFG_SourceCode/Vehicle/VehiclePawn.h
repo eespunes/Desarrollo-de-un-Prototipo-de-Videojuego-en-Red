@@ -50,8 +50,6 @@ public:
 	float GetCurrentSpeed();
 	float GetDriftSign();
 protected:
-	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
-	// USceneComponent* root;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UStaticMeshComponent* carMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
@@ -59,7 +57,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	USceneComponent* particleSpawnPoint;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
-	USceneComponent* cameraRotator;
+	USpringArmComponent* springArm;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UCameraComponent* normalCamera;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")

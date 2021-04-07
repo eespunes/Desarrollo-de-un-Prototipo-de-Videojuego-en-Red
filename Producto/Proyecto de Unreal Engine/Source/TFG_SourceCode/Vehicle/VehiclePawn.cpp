@@ -31,11 +31,11 @@ AVehiclePawn::AVehiclePawn()
 	particleSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Particle Spawn Point"));
 	particleSpawnPoint->SetupAttachment(carMesh);
 
-	cameraRotator = CreateDefaultSubobject<USceneComponent>(TEXT("Camera Rotator"));
-	cameraRotator->SetupAttachment(carMesh);
+	springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
+	springArm->SetupAttachment(carMesh);
 
 	normalCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	normalCamera->SetupAttachment(cameraRotator);
+	normalCamera->SetupAttachment(springArm);
 	normalCamera->Activate();
 
 	reverseCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Reverse Camera"));
@@ -154,15 +154,15 @@ void AVehiclePawn::Movement()
 	//DEBUG
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
-		                                 FString::Printf(
-			                                 TEXT("Angular: %f"), currentSpeed));
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
-		                                 FString::Printf(
-			                                 TEXT("Speed: %f"), acceleration * FMath::Exp(accelerationTimer)));
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Angular: %f"), currentSpeed));
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Speed: %f"), acceleration * FMath::Exp(accelerationTimer)));
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
 		                                 FString::Printf(
-			                                 TEXT("Expected Checkpoiny= %i"), raceComponent->GetExpectedCheckpoint()));
+			                                 TEXT("Expected Checkpoint= %i"), raceComponent->GetExpectedCheckpoint()));
 	}
 }
 
@@ -288,11 +288,11 @@ void AVehiclePawn::Drift()
 		if (isDrifting)
 		{
 			driftSign = FMath::Sign(steerValue);
-			cameraRotator->AddLocalRotation(FRotator(0, driftSign * cameraRotation, 0));
+			springArm->AddLocalRotation(FRotator(0, driftSign * cameraRotation, 0));
 		}
 		else
 		{
-			cameraRotator->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
+			springArm->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
 		}
 	}
 	for (UTyreComponent* tyre : tyres)
@@ -310,7 +310,7 @@ void AVehiclePawn::PerformDrift(float currentVelocity)
 	{
 		isDrifting = false;
 		turnTimer = 0;
-		cameraRotator->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
+		springArm->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
 		return;
 	}
 	carMesh->SetPhysicsMaxAngularVelocityInDegrees(CalculateMaxDriftValue());
