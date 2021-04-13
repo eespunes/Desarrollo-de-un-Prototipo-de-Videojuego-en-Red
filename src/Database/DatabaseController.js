@@ -34,12 +34,16 @@ exports.login = function (req, res) {
         if (error) {
             res.sendStatus(404)
         } else {
-            if (results.rows[0]['pla_password'] === password) {
-                playersLoggedIn.push(username)
-                console.log(playersLoggedIn)
-                res.sendStatus(202)
-            } else
-                res.sendStatus(403)
+            try {
+                if (results.rows[0]['pla_password'] === password) {
+                    playersLoggedIn.push(username)
+                    console.log(playersLoggedIn)
+                    res.sendStatus(202)
+                } else
+                    res.sendStatus(403)
+            } catch (e) {
+                res.sendStatus(503)
+            }
         }
     })
 };
@@ -67,7 +71,6 @@ exports.register = function (req, res) {
             res.sendStatus(401);
             return
         }
-
         res.sendStatus(201);
     })
 };
@@ -125,7 +128,11 @@ exports.addGolden = function (req, res) {
         if (error) {
             res.sendStatus(404)
         } else {
-            value += results.rows[0]['pla_goldenSteeringWheel']
+            try {
+                value += results.rows[0]['pla_goldenSteeringWheel']
+            } catch (e) {
+                res.sendStatus(503)
+            }
         }
     })
 
@@ -144,7 +151,11 @@ exports.addSilver = function (req, res) {
         if (error) {
             res.sendStatus(404)
         } else {
-            value += results.rows[0]['pla_silverSteeringWheel']
+            try {
+                value += results.rows[0]['pla_silverSteeringWheel']
+            } catch (e) {
+                res.sendStatus(503)
+            }
         }
     })
 
@@ -163,7 +174,11 @@ exports.addBronze = function (req, res) {
         if (error) {
             res.sendStatus(404)
         } else {
-            value += results.rows[0]['pla_bronzeSteeringWheel']
+            try {
+                value += results.rows[0]['pla_bronzeSteeringWheel']
+            } catch (e) {
+                res.sendStatus(503)
+            }
         }
     })
 
@@ -182,7 +197,11 @@ exports.addWooden = function (req, res) {
         if (error) {
             res.sendStatus(404)
         } else {
-            value += results.rows[0]['pla_woodenSteeringWheel']
+            try {
+                value += results.rows[0]['pla_woodenSteeringWheel']
+            } catch (e) {
+                res.sendStatus(503)
+            }
         }
     })
 
