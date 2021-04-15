@@ -8,7 +8,7 @@ public class TFG_SourceCode : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore","UMG","AIModule" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore","UMG","AIModule","HTTP","JsonUtilities" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
