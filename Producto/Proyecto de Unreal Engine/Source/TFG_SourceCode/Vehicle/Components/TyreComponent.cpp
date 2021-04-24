@@ -39,6 +39,7 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance"));
 		return false;
 	}
+
 	FHitResult hit;
 	FVector position = GetComponentLocation();
 	FVector end = position - (GetUpVector() * suspensionDistance);
@@ -54,7 +55,7 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 		frictionForce *= frictionValue;
 		springForce += frictionForce;
 
-		vehicleMesh->AddForceAtLocation(GetUpVector() * springForce, position, NAME_None);
+		vehicleMesh->AddForceAtLocation(hit.Normal * springForce, position, NAME_None);
 		rootPoint->SetWorldLocation(hit.ImpactPoint);
 
 		suspensionCompression = currentSuspensionCompression;
@@ -78,11 +79,12 @@ void UTyreComponent::RotateTyres(float currentVelocity)
 
 void UTyreComponent::Steer(float value)
 {
-	// mesh->AddLocalRotation((FVector(GetUpVector().X, GetUpVector().Y, GetUpVector().Z) * value* GetWorld()->DeltaTimeSeconds).Rotation());
+	rootPoint->SetWorldRotation(GetOwner()->GetActorRotation() + FRotator(0, value * 15, 0));
 }
 
 void UTyreComponent::Drift(float value)
 {
+	rootPoint->SetWorldRotation(GetOwner()->GetActorRotation() + FRotator(0, -value * 30, 0));
 }
 
 void UTyreComponent::SetRootPoint(USceneComponent* RootPoint)

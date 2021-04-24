@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 
+#include <stdbool.h>
+
 #include "IVehicle.h"
 #include "VehiclePawn.generated.h"
 
@@ -116,8 +118,13 @@ protected:
 	bool isDrifting;
 	float driftValue;
 	float driftTimer;
+	float driftInverseTimer;
 	float driftSign;
 	float lastAngular;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Drift")
+	float driftRateIncrease = 20;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Drift")
+	float driftRateDecrease = 40;
 
 	//Objects
 	AObjectBase* currentObject = nullptr;
@@ -127,11 +134,13 @@ protected:
 	bool invertControls;
 	AActor* currentParticle;
 	float currentSpeed;
-	float cameraRotation = 30;
+	float cameraRotation = 15;
 	float cameraRotationConstant = 0;
 	float accelerationTimer;
 	float reverseTimer;
 	float brakeTimer;
+	float deaccelerationTimer;
+	bool Traction4x4 = false;
 
 
 protected:

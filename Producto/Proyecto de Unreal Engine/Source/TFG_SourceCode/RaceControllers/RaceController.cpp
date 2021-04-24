@@ -136,6 +136,12 @@ void ARaceController::UpdateTable()
 	{
 		raceComponent->CalculateTimeValue();
 	}
+	if (vehicles.Num() == 1)
+	{
+		vehicles[0]->SetPosition(1);
+		return;
+	}
+
 	URaceComponent* aux;
 	for (int i = 1; i < vehicles.Num(); i++)
 	{
