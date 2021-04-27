@@ -4,7 +4,18 @@ const express = require('express'),
     playerDB = require('./Database/DatabaseController'),
     gameManager = require('./Game/GameManager'),
     bodyParser = require("body-parser"),
-    cors = require("cors");
+    cors = require("cors")
+
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+io.on('connection', client => {
+    console.log('A user connected');
+
+    //Whenever someone disconnects this piece of code executed
+    client.on('disconnect', function () {
+        console.log('A user disconnected');
+    });
+});
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -77,7 +88,7 @@ app.get('/api/level/all', (req, res) => {
     playerDB.getAllLevels(req, res)
 })
 
-app.listen(port, () => {
+server.listen(port, () => {
     playerDB.createServer()
     console.log(`Example app listening at http://localhost:${port}`)
 })

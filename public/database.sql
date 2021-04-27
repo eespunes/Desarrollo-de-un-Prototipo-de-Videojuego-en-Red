@@ -34,7 +34,7 @@ DROP TABLE IF EXISTS Races CASCADE;
 CREATE TABLE Races
 (
     rac_id       SERIAL UNIQUE,
-    rac_raceDate TIME,
+    rac_raceDate TIMESTAMP,
     rac_serverID VARCHAR(4),
     rac_levelID  VARCHAR(4),
     PRIMARY KEY (rac_id, rac_raceDate, rac_serverID),

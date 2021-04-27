@@ -87,13 +87,15 @@ exports.getPlayer = function (req, res) {
 };
 
 
-exports.registerRace = function (levelID) {
-    pool.query('INSERT INTO Races VALUES($1,$2,$3)', [new Date().toISOString(), serverConfig.serverID, levelID], (error) => {
+exports.registerRace = async function (levelID) {
+    await pool.query('INSERT INTO Races (rac_raceDate, rac_serverID, rac_levelID) VALUES($1,$2,$3)', [new Date(Date.now()).toISOString().replace('T', ' ').replace('Z', ''), serverConfig.serverID, levelID], (error) => {
         return !error;
     })
 };
-exports.addPlayerToRace = function (username, raceID) {
-    pool.query('INSERT INTO Competitors VALUES($1,$2,$3)', [username, raceID, -1], (error) => {
+exports.addPlayerToRace = async function (username, raceID) {
+    await pool.query('INSERT INTO Competitors VALUES($1,$2,$3)', [username, raceID, -1], (error) => {
+        if (error)
+            console.log(raceID)
         return !error;
     })
 };
