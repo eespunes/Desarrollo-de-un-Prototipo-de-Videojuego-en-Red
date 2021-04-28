@@ -10,6 +10,7 @@
 #include "Components/TyreComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Math/UnitConversion.h"
+#include "TFG_SourceCode/GameModes/RaceGameInstance.h"
 #include "TFG_SourceCode/Objects/Base/ObjectBase.h"
 
 // Sets default values
@@ -37,6 +38,15 @@ AVehiclePawn::AVehiclePawn()
 void AVehiclePawn::BeginPlay()
 {
 	Super::BeginPlay();
+	URaceGameInstance* gameInstance = Cast<URaceGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (gameInstance)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("%f"), gameInstance->GetDifficulty())
+		maxSpeed = gameInstance->GetDifficulty();
+	}else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Not found"))
+	}
 
 	lastUpVector = GetActorUpVector();
 
