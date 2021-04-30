@@ -7,10 +7,11 @@
   <component name="ChangeListManager">
     <list default="true" id="859a9676-8ee9-41bb-8b8f-ca5cc00466f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Dot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Dot.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunication.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunication.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunication.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunication.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" afterDir="false" />
     </list>
@@ -40,10 +41,11 @@
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/Templates/SubclassOf.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/CoreUObject/Public/UObject/UObjectGlobals.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/um/iphlpapi.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unreal/UE_4.26/Engine/Source/Runtime/UMG/Public/Components/Image.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunication.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/IdunApple.h" root0="SKIP_HIGHLIGHTING" />
@@ -112,13 +114,13 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPComunicator.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPComunicator.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunicator.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunication.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.Build.cs" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunication.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/HTTPCommunication.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" />
     </changedPaths>
   </component>
@@ -138,7 +140,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C++" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="C++ Project.TFG_SourceCode">
@@ -403,6 +405,12 @@
       <workItem from="1619620031887" duration="681000" />
       <workItem from="1619620991509" duration="538000" />
       <workItem from="1619706259519" duration="2987000" />
+      <workItem from="1619795892620" duration="490000" />
+      <workItem from="1619796439620" duration="239000" />
+      <workItem from="1619796958406" duration="155000" />
+      <workItem from="1619797166887" duration="2555000" />
+      <workItem from="1619800105164" duration="1483000" />
+      <workItem from="1619801987371" duration="3484000" />
     </task>
     <servers />
   </component>

@@ -10,7 +10,7 @@ public class TFG_SourceCode : ModuleRules
 
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
-			"Core", "CoreUObject", "Engine", "InputCore", "UMG", "AIModule", "HTTP", "Json", "JsonUtilities", "SocketIOClient", "SocketIOLib"
+			"Core", "CoreUObject", "Engine", "InputCore", "UMG", "AIModule", "HTTP", "Json", "JsonUtilities", "SocketIOClient", "SocketIOLib", "SIOJson"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });
