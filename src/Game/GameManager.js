@@ -3,8 +3,6 @@ let players = new Map(),
     playerDB = require('../Database/DatabaseController');
 const Race = require("./Race");
 
-const socket = io();
-
 function checkRaces() {
     for (const race in races) {
         if (race.hasCapacity)

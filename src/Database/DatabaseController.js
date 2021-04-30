@@ -37,7 +37,6 @@ exports.login = function (req, res) {
             try {
                 if (results.rows[0]['pla_password'] === password) {
                     playersLoggedIn.push(username)
-                    console.log(playersLoggedIn)
                     res.sendStatus(202)
                 } else
                     res.sendStatus(403)
