@@ -1,32 +1,40 @@
-let players = new Map(),
+let playersMap = new Map(),
     races = [],
+    racesLength = 0,
     playerDB = require('../Database/DatabaseController');
 const Race = require("./Race");
 
 function checkRaces() {
-    for (const race in races) {
-        if (race.hasCapacity)
+    for (let i = 0; i < races.length; i++) {
+        let race = races.pop()
+        races.unshift(race)
+        if (race.hasCapacity) {
             return race.getID
+        }
     }
-    return -1
+    return -1;
 }
 
 function createRace(levelID) {
     if (!playerDB.registerRace(levelID)) {
         return -1
     }
-    let race = new Race(races.length + 1, levelID);
+    racesLength++
+    let race = new Race(racesLength, levelID);
     races.push(race)
 
     return race.getID;
 }
 
 function usernameInRace(username) {
-    for (const player in players.keys()) {
-        if (player === username)
-            return true
-    }
-    return false
+    // for (let i = 0; i < races.length; i++) {
+    //     let race = races.pop()
+    //     races.unshift(race)
+    //     if (race.hasPlayer(username)) {
+    //         return race.getID
+    //     }
+    // }
+    return -1;
 }
 
 function getRace(raceID) {
@@ -39,40 +47,40 @@ function getRace(raceID) {
     return null;
 }
 
-exports.addPlayerToRace = function (username, levelID, res) {
+exports.addPlayerToRace = function (username, levelID) {
     let raceID = checkRaces();
 
     if (raceID === -1) {
         raceID = createRace(levelID);
         if (raceID === -1) {
-            res.sendStatus(417)
-            return;
+            return '{ "status":"417", "race":""}';
         }
     }
-
-    if (usernameInRace(username)) {
-        res.sendStatus(409)
-        return;
+    if (usernameInRace(username) !== -1) {
+        return '{ "status":"409", "race":""}';
     }
 
     let addedCorrectly = playerDB.addPlayerToRace(username, raceID);
     if (!addedCorrectly) {
-        res.sendStatus(417)
-        return;
+        return '{ "status":"417", "race":""}';
     }
 
-    console.log("Player Added to the race")
+    getRace(raceID).addPlayer(username)
+    playersMap.set(username, raceID)
 
-    players.set(username, raceID)
-    let socketID = getRace(raceID).addPlayer(username)
-    res.status(200).send(socketID)
+    return '{ "status":200, "race":"' + raceID + '"}'
 };
 
 exports.removePlayerFromRace = function (username, res) {
-    if (!usernameInRace(username)) {
-        res.sendStatus(409)
-        return;
+    let raceID = usernameInRace(username);
+    if (raceID === -1) {
+        return '{ "status":"409"}';
     }
-    let race = getRace(players.get(username))
+    let race = getRace(raceID)
     race.removePlayer(username)
+    return '{ "status":"200"}';
+}
+
+exports.getPlayersFromRace = function (raceID) {
+    return getRace(raceID).getPlayers;
 }

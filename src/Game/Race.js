@@ -3,9 +3,8 @@ class Race {
     levelId = ""
     started = false
     players = []
-    socket = io();
 
-    constructor(id, levelId,io) {
+    constructor(id, levelId) {
         let idString = "R"
         if (id < 10)
             idString += "00"
@@ -28,11 +27,23 @@ class Race {
         return true
     }
 
+    hasPlayer(username) {
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            this.players.unshift(player)
+            if (player === username)
+                return true
+        }
+        return false
+    }
+
     removePlayer(username) {
-        this.players = this.players.filter(function (playerID) {
-            return playerID !== username
-        })
-        //TODO SOCKET.IO REMOVE SOCKET AND ROOM
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            if (player === username)
+                return
+            this.players.unshift(player)
+        }
     }
 
     //
@@ -41,12 +52,14 @@ class Race {
     informPlayers() {
         this.socket.at(this.id).emit(/* ... */);
     }
+
     //
     // function
     //
     startRace() {
         this.started = true
     }
+
     //
     // function
     //
@@ -55,6 +68,10 @@ class Race {
     // }
     get getID() {
         return this.id;
+    }
+
+    get getPlayers() {
+        return this.players;
     }
 }
 
