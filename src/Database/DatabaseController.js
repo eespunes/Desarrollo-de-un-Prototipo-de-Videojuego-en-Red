@@ -93,8 +93,6 @@ exports.registerRace = async function (levelID) {
 };
 exports.addPlayerToRace = async function (username, raceID) {
     await pool.query('INSERT INTO Competitors VALUES($1,$2,$3)', [username, raceID, -1], (error) => {
-        if (error)
-            console.log(raceID)
         return !error;
     })
 };

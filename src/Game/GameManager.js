@@ -2,15 +2,27 @@ let playersMap = new Map(),
     races = [],
     racesLength = 0,
     playerDB = require('../Database/DatabaseController');
-const Race = require("./Race");
+const {fork} = require('child_process');
+
+getID = async function (race) {
+    console.log("\tGetting ID")
+    race.send({id: 'getID'});
+    console.log("\tMessage sended")
+    race.on("message", result => {
+        console.log("\tGot Race ID:" + result.raceID)
+        return result.getID;
+    });
+}
 
 function checkRaces() {
     for (let i = 0; i < races.length; i++) {
         let race = races.pop()
         races.unshift(race)
-        if (race.hasCapacity) {
-            return race.getID
-        }
+        race.send({id: 'hasCapacity'});
+        race.on("message", hasCapacity => {
+            if (hasCapacity)
+                return getID(race)
+        });
     }
     return -1;
 }
@@ -20,20 +32,26 @@ function createRace(levelID) {
         return -1
     }
     racesLength++
-    let race = new Race(racesLength, levelID);
+    const race = fork("./src/Game/Race.js");
+    console.log(race)
     races.push(race)
-
-    return race.getID;
+    race.send({id: 'init', raceID: racesLength, levelID: levelID});
+    race.on("message", raceID => {
+        console.log("\tGot Race ID:" + raceID)
+        return raceID;
+    });
 }
 
 function usernameInRace(username) {
-    // for (let i = 0; i < races.length; i++) {
-    //     let race = races.pop()
-    //     races.unshift(race)
-    //     if (race.hasPlayer(username)) {
-    //         return race.getID
-    //     }
-    // }
+    for (let i = 0; i < races.length; i++) {
+        let race = races.pop()
+        races.unshift(race)
+        race.send({id: 'hasPlayer', username: username});
+        race.on("message", hasPlayer => {
+            if (hasPlayer)
+                return getID(race)
+        });
+    }
     return -1;
 }
 
@@ -41,33 +59,40 @@ function getRace(raceID) {
     for (let i = 0; i < races.length; i++) {
         let race = races.pop()
         races.unshift(race)
-        if (race.getID === raceID)
+        if (getID(race) === raceID)
             return race
     }
     return null;
 }
 
-exports.addPlayerToRace = function (username, levelID) {
+exports.addPlayerToRace = function (username, levelID, io) {
+    console.log("Checking Races")
     let raceID = checkRaces();
-
     if (raceID === -1) {
-        raceID = createRace(levelID);
+        console.log("Creating the race")
+        raceID = createRace(levelID, io);
+        console.log("Race Created: " + raceID)
         if (raceID === -1) {
             return '{ "status":"417", "race":""}';
         }
     }
-    if (usernameInRace(username) !== -1) {
-        return '{ "status":"409", "race":""}';
-    }
-
-    let addedCorrectly = playerDB.addPlayerToRace(username, raceID);
-    if (!addedCorrectly) {
-        return '{ "status":"417", "race":""}';
-    }
-
-    getRace(raceID).addPlayer(username)
-    playersMap.set(username, raceID)
-
+    console.log("RaceID: " + raceID)
+    // if (usernameInRace(username) !== -1) {
+    //     return '{ "status":"409", "race":""}';
+    // }
+    //
+    // let addedCorrectly = playerDB.addPlayerToRace(username, raceID);
+    // if (!addedCorrectly) {
+    //     return '{ "status":"417", "race":""}';
+    // }
+    //
+    // const race = getRace(raceID);
+    // race.postMessage({id: 'addPlayer', username: username});
+    // race.on("message", result => {
+    //     return result.addPlayer;
+    // });
+    // playersMap.set(username, raceID)
+    //
     return '{ "status":200, "race":"' + raceID + '"}'
 };
 
@@ -76,11 +101,20 @@ exports.removePlayerFromRace = function (username, res) {
     if (raceID === -1) {
         return '{ "status":"409"}';
     }
+
     let race = getRace(raceID)
-    race.removePlayer(username)
+    race.send({id: 'removePlayer', username: username});
+    race.on("message", removePlayer => {
+        return removePlayer;
+    });
     return '{ "status":"200"}';
 }
 
 exports.getPlayersFromRace = function (raceID) {
-    return getRace(raceID).getPlayers;
+    // let race = getRace(raceID)
+    // race.postMessage({id: 'getPlayers'});
+    // race.on("message", result => {
+    //     return result.getPlayers;
+    // });
+    return ["Papo"]
 }

@@ -12,6 +12,10 @@ const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 
+module.exports = function () {
+    return io;
+}
+
 const port = process.env.PORT || 3000
 const publicDirectoryPath = path.join(__dirname, '../public')
 
@@ -23,7 +27,9 @@ app.use(bodyParser.json());
 io.on('connection', client => {
     client.on("FindRace", (json) => {
         const {username, levelId} = JSON.parse(json);
-        const returnJSON = JSON.parse(gameManager.addPlayerToRace(username, levelId))
+
+        let returnJSON = JSON.parse(gameManager.addPlayerToRace(username, levelId, io));
+
         io.to(client.id).emit("FindRace", returnJSON);
 
         const {race} = returnJSON
@@ -117,5 +123,4 @@ server.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
 
-module.exports = io
 
