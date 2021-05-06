@@ -3,8 +3,9 @@ class Race {
     levelId = ""
     started = false
     players = []
+    time = 10
 
-    constructor(id, levelId) {
+    constructor(id, levelId, io) {
         let idString = "R"
         if (id < 10)
             idString += "00"
@@ -13,6 +14,8 @@ class Race {
 
         this.id = idString + id
         this.levelId = levelId
+        this.io = io
+        this.racing()
     }
 
     addPlayer(username) {
@@ -46,11 +49,29 @@ class Race {
         }
     }
 
+    racing() {
+        this.searchingPlayersTimer = setInterval(this.searchingPlayers.bind(this), 1000)
+        this.informPlayers()
+        this.stopRace()
+    }
+
+    //
+    // function
+    //
+    // stopRace() {
+    //
+
+    // a()
+    // {
+    //     if (smthCompleted)
+    //         dosmth();
+    //     else return Promise.delay(1000).then(() => a());
+    // }
     //
     // function
     //
     informPlayers() {
-        this.socket.at(this.id).emit(/* ... */);
+        // this.socket.at(this.id).emit(/* ... */);
     }
 
     //
@@ -63,9 +84,10 @@ class Race {
     //
     // function
     //
-    // stopRace() {
-    //
-    // }
+    stopRace() {
+
+    }
+
     get getID() {
         return this.id;
     }
@@ -73,6 +95,29 @@ class Race {
     get getPlayers() {
         return this.players;
     }
+
+    searchingPlayers() {
+        if (this.players.length < 2) {
+            console.log("Buscando jugadores...")
+            this.io.emit(this.id, "Buscando jugadores...")
+        } else {
+            clearInterval(this.searchingPlayersTimer);
+            this.waitingPlayersTimer = setInterval(this.waitingPlayers.bind(this), 1000)
+        }
+    }
+
+    waitingPlayers() {
+        if (this.time <= 0) {
+            console.log("Empieza la carrera")
+            this.io.emit(this.id, "Empieza la carrera")
+            clearInterval(this.waitingPlayersTimer);
+        } else {
+            console.log("Time: " + this.time)
+            this.io.emit(this.id, "Tiempo restante para empezar:"+this.time+"")
+            this.time--
+        }
+    }
 }
 
-module.exports = Race
+module
+    .exports = Race

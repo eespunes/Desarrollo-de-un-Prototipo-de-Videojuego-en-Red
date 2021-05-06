@@ -23,13 +23,13 @@ app.use(bodyParser.json());
 io.on('connection', client => {
     client.on("FindRace", (json) => {
         const {username, levelId} = JSON.parse(json);
-        const returnJSON = JSON.parse(gameManager.addPlayerToRace(username, levelId))
+        const returnJSON = JSON.parse(gameManager.addPlayerToRace(username, levelId,io))
         io.to(client.id).emit("FindRace", returnJSON);
 
         const {race} = returnJSON
         client.join(race, function () {
             setTimeout(() => {
-                io.emit(race, gameManager.getPlayersFromRace(race))
+                io.emit(race+"-players", gameManager.getPlayersFromRace(race))
             }, 500);
 
         });

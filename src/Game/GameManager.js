@@ -15,25 +15,25 @@ function checkRaces() {
     return -1;
 }
 
-function createRace(levelID) {
+function createRace(levelID, io) {
     if (!playerDB.registerRace(levelID)) {
         return -1
     }
     racesLength++
-    let race = new Race(racesLength, levelID);
+    let race = new Race(racesLength, levelID, io);
     races.push(race)
 
     return race.getID;
 }
 
 function usernameInRace(username) {
-    // for (let i = 0; i < races.length; i++) {
-    //     let race = races.pop()
-    //     races.unshift(race)
-    //     if (race.hasPlayer(username)) {
-    //         return race.getID
-    //     }
-    // }
+    for (let i = 0; i < races.length; i++) {
+        let race = races.pop()
+        races.unshift(race)
+        if (race.hasPlayer(username)) {
+            return race.getID
+        }
+    }
     return -1;
 }
 
@@ -41,17 +41,19 @@ function getRace(raceID) {
     for (let i = 0; i < races.length; i++) {
         let race = races.pop()
         races.unshift(race)
-        if (race.getID === raceID)
+        if (race.getID === raceID) {
+            console.log(race.getID)
             return race
+        }
     }
     return null;
 }
 
-exports.addPlayerToRace = function (username, levelID) {
+exports.addPlayerToRace = function (username, levelID, io) {
     let raceID = checkRaces();
 
     if (raceID === -1) {
-        raceID = createRace(levelID);
+        raceID = createRace(levelID, io);
         if (raceID === -1) {
             return '{ "status":"417", "race":""}';
         }
