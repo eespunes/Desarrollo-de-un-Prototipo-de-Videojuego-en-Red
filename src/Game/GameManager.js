@@ -26,15 +26,11 @@ function createRace(levelID, io) {
     return race.getID;
 }
 
-function usernameInRace(username) {
-    for (let i = 0; i < races.length; i++) {
-        let race = races.pop()
-        races.unshift(race)
-        if (race.hasPlayer(username)) {
-            return race.getID
-        }
-    }
-    return -1;
+function usernameInRace(username, raceID) {
+    console.log(raceID)
+    const race = getRace(raceID);
+    if (!race) return false;
+    return race.hasPlayer(username);
 }
 
 function getRace(raceID) {
@@ -42,7 +38,6 @@ function getRace(raceID) {
         let race = races.pop()
         races.unshift(race)
         if (race.getID === raceID) {
-            console.log(race.getID)
             return race
         }
     }
@@ -51,17 +46,15 @@ function getRace(raceID) {
 
 exports.addPlayerToRace = function (username, levelID, io) {
     let raceID = checkRaces();
-
     if (raceID === -1) {
         raceID = createRace(levelID, io);
         if (raceID === -1) {
             return '{ "status":"417", "race":""}';
         }
     }
-    if (usernameInRace(username) !== -1) {
+    if (usernameInRace(username, raceID)) {
         return '{ "status":"409", "race":""}';
     }
-
     let addedCorrectly = playerDB.addPlayerToRace(username, raceID);
     if (!addedCorrectly) {
         return '{ "status":"417", "race":""}';
@@ -79,10 +72,27 @@ exports.removePlayerFromRace = function (username, res) {
         return '{ "status":"409"}';
     }
     let race = getRace(raceID)
-    race.removePlayer(username)
+    // race.removePlayer(username)
     return '{ "status":"200"}';
 }
 
 exports.getPlayersFromRace = function (raceID) {
-    return getRace(raceID).getPlayers;
+    let race = getRace(raceID);
+    if (race !== null)
+        return race.getPlayers;
+    else return []
+}
+
+exports.getAllRaces = function () {
+    let returnRaces = []
+    for (let i = 0; i < races.length; i++) {
+        let race = races.pop()
+        races.unshift(race)
+        returnRaces.push(race.getID)
+    }
+    return returnRaces;
+}
+
+exports.addMessageToThePlayer = function (raceID, username, message) {
+    getRace(raceID).addMessageToThePlayer(username, message)
 }

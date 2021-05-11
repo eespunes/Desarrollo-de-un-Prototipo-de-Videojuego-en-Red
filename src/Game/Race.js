@@ -1,9 +1,13 @@
 class Race {
     id = ""
     levelId = ""
-    started = false
+    sessionStarted = false
     players = []
-    time = 10
+    time = 5
+    raceStarted = false
+
+    playersMessages = new Map()
+    minPLayersToStart = 2;
 
     constructor(id, levelId, io) {
         let idString = "R"
@@ -14,16 +18,18 @@ class Race {
 
         this.id = idString + id
         this.levelId = levelId
-        this.io = io
-        this.racing()
+        this.io = io;
+
+        this.searchingPlayersTimer = setInterval(this.searchingPlayers.bind(this), 100)
     }
+
 
     addPlayer(username) {
         this.players.push(username)
     }
 
     get hasCapacity() {
-        if (this.started)
+        if (this.sessionStarted)
             return false;
         if (this.players.length === 12)
             return false
@@ -49,12 +55,6 @@ class Race {
         }
     }
 
-    racing() {
-        this.searchingPlayersTimer = setInterval(this.searchingPlayers.bind(this), 1000)
-        this.informPlayers()
-        this.stopRace()
-    }
-
     //
     // function
     //
@@ -70,15 +70,34 @@ class Race {
     //
     // function
     //
-    informPlayers() {
-        // this.socket.at(this.id).emit(/* ... */);
+    racing() {
+        if (!this.sessionStarted) return;
+        if (!this.raceStarted) {
+            if (this.allPlayersAreReady()) {
+                this.raceStarted = true;
+                this.io.emit(this.id + "-start", "Lights out")
+                console.log(this.id + ": It's lights out and away we go!!")
+            }
+        } else {
+        }
     }
 
     //
     // function
     //
     startRace() {
-        this.started = true
+        this.sessionStarted = true
+        this.racingTimer = setInterval(this.racing.bind(this), 250)
+
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            this.players.unshift(player)
+            this.playersMessages.set(player, [])
+        }
+    }
+
+    addMessageToThePlayer(username, message) {
+        this.playersMessages.get(username).push(message);
     }
 
     //
@@ -97,9 +116,8 @@ class Race {
     }
 
     searchingPlayers() {
-        if (this.players.length < 2) {
-            console.log("Buscando jugadores...")
-            this.io.emit(this.id, "Buscando jugadores...")
+        if (this.players.length < this.minPLayersToStart) {
+            this.io.emit(this.id + "-timer", "Buscando " + (this.minPLayersToStart - this.players.length) + " jugadores...")
         } else {
             clearInterval(this.searchingPlayersTimer);
             this.waitingPlayersTimer = setInterval(this.waitingPlayers.bind(this), 1000)
@@ -108,14 +126,24 @@ class Race {
 
     waitingPlayers() {
         if (this.time <= 0) {
-            console.log("Empieza la carrera")
-            this.io.emit(this.id, "Empieza la carrera")
+            this.startRace()
+            this.io.emit(this.id + "-timer", "Empieza la carrera")
             clearInterval(this.waitingPlayersTimer);
         } else {
-            console.log("Time: " + this.time)
-            this.io.emit(this.id, "Tiempo restante para empezar:"+this.time+"")
+            this.io.emit(this.id + "-timer", "Tiempo restante para empezar:" + this.time + "")
             this.time--
         }
+    }
+
+    allPlayersAreReady() {
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            this.players.unshift(player)
+            // console.log(player + " -" + this.playersMessages.get(player).length)
+            if (this.playersMessages.get(player).length === 0)
+                return false
+        }
+        return true
     }
 }
 

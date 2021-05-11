@@ -50,12 +50,10 @@ exports.login = function (req, res) {
 exports.logout = function (req, res) {
     const {username} = req.body;
 
-    console.log(playersLoggedIn)
     if (playerIsLoggedIn(username)) {
         playersLoggedIn = playersLoggedIn.filter(function (id) {
             return id !== username
         })
-        console.log(playersLoggedIn)
         res.status(200).send()
     } else
         res.status(400).send('ERROR: The User was not Logged In')
@@ -93,8 +91,6 @@ exports.registerRace = async function (levelID) {
 };
 exports.addPlayerToRace = async function (username, raceID) {
     await pool.query('INSERT INTO Competitors VALUES($1,$2,$3)', [username, raceID, -1], (error) => {
-        if (error)
-            console.log(raceID)
         return !error;
     })
 };
