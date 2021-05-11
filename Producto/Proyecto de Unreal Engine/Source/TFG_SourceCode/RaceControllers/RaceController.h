@@ -25,6 +25,7 @@ protected:
 
 	bool canRace = false;
 	TArray<APlayerStart*> raceStarts;
+	bool canStartRace;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -40,6 +41,8 @@ public:
 	URaceComponent* GetVehicle(int32 position);
 	bool GetCanRace() const;
 	void SetCanRace(bool value);
+	bool GetCanStartRace() const;
+	void SetCanStartRace(bool value);
 	APlayerStart* GetRaceStart(int idx);
 	void UpdateTable();
 };

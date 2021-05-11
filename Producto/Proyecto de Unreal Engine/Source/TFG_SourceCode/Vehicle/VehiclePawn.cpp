@@ -32,18 +32,19 @@ AVehiclePawn::AVehiclePawn()
 	camera->SetupAttachment(mesh);
 
 	raceComponent = CreateDefaultSubobject<URaceComponent>(TEXT("Race Component"));
+	networkComponent = CreateDefaultSubobject<UNetworkController>(TEXT("Network Component"));
 }
 
 // Called when the game starts or when spawned
 void AVehiclePawn::BeginPlay()
 {
 	Super::BeginPlay();
-	URaceGameInstance* gameInstance = Cast<URaceGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	gameInstance = Cast<URaceGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
 	if (gameInstance)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("%f"), gameInstance->GetDifficulty())
 		maxSpeed = gameInstance->GetDifficulty();
-	}else
+	}
+	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Not found"))
 	}

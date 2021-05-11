@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 
 #include "IVehicle.h"
+#include "TFG_SourceCode/GameModes/RaceGameInstance.h"
+
 #include "VehiclePawn.generated.h"
 
 class UTyreComponent;
@@ -121,6 +123,10 @@ protected:
 	bool invertControls;
 	AActor* currentParticle;
 	float currentSpeed;
+
+	
+	URaceGameInstance* gameInstance;
+	UNetworkController* networkComponent;
 
 
 protected:

@@ -69,6 +69,20 @@ void ARacingLevel::SetCanRace(bool value) const
 	raceController->SetCanRace(value);
 }
 
+bool ARacingLevel::GetCanStartRace() const
+{
+	if (!raceController)
+		return nullptr;
+	return raceController->GetCanStartRace();
+}
+
+void ARacingLevel::SetCanStartRace(bool value) const
+{
+	if (!raceController)
+		return;
+	raceController->SetCanStartRace(value);
+}
+
 APlayerStart* ARacingLevel::GetRaceStart(int idx) const
 {
 	if (!raceController)

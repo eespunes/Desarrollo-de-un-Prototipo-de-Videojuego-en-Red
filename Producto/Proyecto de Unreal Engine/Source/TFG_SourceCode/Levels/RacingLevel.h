@@ -44,5 +44,7 @@ public:
 	URaceComponent* GetVehicle(int32 position);
 	bool GetCanRace() const;
 	void SetCanRace(bool value) const;
+	bool GetCanStartRace() const;
+	void SetCanStartRace(bool value) const;
 	APlayerStart* GetRaceStart(int idx) const;
 };
