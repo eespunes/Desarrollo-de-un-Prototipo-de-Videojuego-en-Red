@@ -1,129 +1,151 @@
-// const util = require("util");
-// const {parentPort, workerData} = require("worker_threads");
-const io = require("../index")();
+class Race {
+    id = ""
+    levelId = ""
+    sessionStarted = false
+    players = []
+    time = 5
+    raceStarted = false
 
-let id = "",
-    levelId = "",
-    started = false,
-    players = [],
-    time = 60;
+    playersMessages = new Map()
+    minPLayersToStart = 2;
 
-process.on("message", data => {
-    console.log("\t\tMessage arrived!!")
-    const messageType = data.id;
-    if (messageType === 'hasCapacity') {
-        console.log("hasCapacity")
-        process.send( hasCapacity());
-    }
-    else if (messageType === 'getID') {
-        console.log("getID")
-        process.send({getID: getID()});
-    }
-    else if (messageType === 'hasPlayer') {
-        console.log("hasPlayer")
-        process.send(hasPlayer(data.username));
-    }
-    else if (messageType === 'addPlayer') {
-        console.log("addPlayer")
-        process.send(addPlayer(data.username));
-    }
-    else if (messageType === 'removePlayer') {
-        console.log("removePlayer")
-        process.send(removePlayer(data.username));
-    }
-    else if (messageType === 'getPlayers') {
-        console.log("getPlayers")
-        process.send({getPlayers: getPlayers()});
-    }else if (messageType === 'init'){
-        raceInit()
-        process.send(id)
+    constructor(id, levelId, io) {
+        let idString = "R"
+        if (id < 10)
+            idString += "00"
+        else if (id < 100)
+            idString += "0"
+
+        this.id = idString + id
+        this.levelId = levelId
+        this.io = io;
+
+        this.searchingPlayersTimer = setInterval(this.searchingPlayers.bind(this), 100)
     }
 
-});
 
-function raceInit(raceID,levelID) {
-    id = raceID;
-    let idString = "R"
-    if (id < 10)
-        idString += "00"
-    else if (id < 100)
-        idString += "0"
+    addPlayer(username) {
+        this.players.push(username)
+    }
 
-    id = idString + id
-    levelId = levelID
-    racing()
+    get hasCapacity() {
+        if (this.sessionStarted)
+            return false;
+        if (this.players.length === 12)
+            return false
+        return true
+    }
 
-    console.log(id+" race created")
-}
-
-function addPlayer(username) {
-    players.push(username)
-}
-
-function hasCapacity() {
-    if (started)
-        return false;
-    if (players.length === 12)
+    hasPlayer(username) {
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            this.players.unshift(player)
+            if (player === username)
+                return true
+        }
         return false
-    return true
-}
-
-function hasPlayer(username) {
-    for (let i = 0; i < players.length; i++) {
-        let player = players.pop()
-        players.unshift(player)
-        if (player === username)
-            return true
     }
-    return false
-}
 
-function removePlayer(username) {
-    for (let i = 0; i < players.length; i++) {
-        let player = players.pop()
-        if (player === username)
-            return
-        players.unshift(player)
+    removePlayer(username) {
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            if (player === username)
+                return
+            this.players.unshift(player)
+        }
     }
-}
 
-function racing() {
-    searchingPlayers()
-    informPlayers()
-    stopRace()
-}
+    //
+    // function
+    //
+    // stopRace() {
+    //
 
-function searchingPlayers() {
-    // while (true) {
-    //     console.log("caca")
-    //     if (players.length > 1)
-    //         setTimeout(() => {
-    //             io.emit(this.id, "Buscando jugadores...")
-    //         }, 100);
-    //     else
-    //         setTimeout(() => {
-    //             io.emit(this.id, time)
-    //         }, 1000);
+    // a()
+    // {
+    //     if (smthCompleted)
+    //         dosmth();
+    //     else return Promise.delay(1000).then(() => a());
     // }
+    //
+    // function
+    //
+    racing() {
+        if (!this.sessionStarted) return;
+        if (!this.raceStarted) {
+            if (this.allPlayersAreReady()) {
+                this.raceStarted = true;
+                this.io.emit(this.id + "-start", "Lights out")
+                console.log(this.id + ": It's lights out and away we go!!")
+            }
+        } else {
+        }
+    }
+
+    //
+    // function
+    //
+    startRace() {
+        this.sessionStarted = true
+        this.racingTimer = setInterval(this.racing.bind(this), 250)
+
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            this.players.unshift(player)
+            this.playersMessages.set(player, [])
+        }
+    }
+
+    addMessageToThePlayer(username, message) {
+        this.playersMessages.get(username).push(message);
+    }
+
+    //
+    // function
+    //
+    stopRace() {
+
+    }
+
+    get getID() {
+        return this.id;
+    }
+
+    get getPlayers() {
+        return this.players;
+    }
+
+    searchingPlayers() {
+        if (this.players.length < this.minPLayersToStart) {
+            this.io.emit(this.id + "-timer", "Buscando " + (this.minPLayersToStart - this.players.length) + " jugadores...")
+        } else {
+            clearInterval(this.searchingPlayersTimer);
+            this.waitingPlayersTimer = setInterval(this.waitingPlayers.bind(this), 1000)
+        }
+    }
+
+    waitingPlayers() {
+        if (this.time <= 0) {
+            this.startRace()
+            this.io.emit(this.id + "-timer", "Empieza la carrera")
+            clearInterval(this.waitingPlayersTimer);
+        } else {
+            this.io.emit(this.id + "-timer", "Tiempo restante para empezar:" + this.time + "")
+            this.time--
+        }
+    }
+
+    allPlayersAreReady() {
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            this.players.unshift(player)
+            // console.log(player + " -" + this.playersMessages.get(player).length)
+            if (this.playersMessages.get(player).length === 0)
+                return false
+        }
+        return true
+    }
 }
 
-function informPlayers() {
-    io.emit(/* ... */);
-}
-
-function startRace() {
-    this.started = true
-}
-
-function stopRace() {
-
-}
-
-function getID() {
-    return id;
-}
-
-function getPlayers() {
-    return players;
-}
-
+module
+    .exports = Race

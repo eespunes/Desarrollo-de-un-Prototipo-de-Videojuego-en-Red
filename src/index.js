@@ -12,10 +12,6 @@ const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 
-module.exports = function () {
-    return io;
-}
-
 const port = process.env.PORT || 3000
 const publicDirectoryPath = path.join(__dirname, '../public')
 
@@ -27,22 +23,25 @@ app.use(bodyParser.json());
 io.on('connection', client => {
     client.on("FindRace", (json) => {
         const {username, levelId} = JSON.parse(json);
-
-        let returnJSON = JSON.parse(gameManager.addPlayerToRace(username, levelId, io));
-
+        const returnJSON = JSON.parse(gameManager.addPlayerToRace(username, levelId, io))
         io.to(client.id).emit("FindRace", returnJSON);
 
         const {race} = returnJSON
         client.join(race, function () {
             setTimeout(() => {
-                io.emit(race, gameManager.getPlayersFromRace(race))
+                io.emit(race + "-players", gameManager.getPlayersFromRace(race))
             }, 500);
 
         });
     });
+
+    client.on("Racing", (json) => {
+        const {race, username, message} = JSON.parse(json);
+        gameManager.addMessageToThePlayer(race, username, message)
+    });
+
     client.on("Disconnect", (json) => {
         const {username, race} = JSON.parse(json);
-        console.log("Disconnect")
         client.leave(race, function () {
             gameManager.removePlayerFromRace(username)
             io.emit(race, gameManager.getPlayersFromRace(race))
@@ -123,4 +122,5 @@ server.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
 
+module.exports = io
 
