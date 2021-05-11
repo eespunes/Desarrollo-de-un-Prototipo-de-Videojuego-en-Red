@@ -6,10 +6,12 @@
 
 #include "DrawDebugHelpers.h"
 #include "Camera/CameraComponent.h"
+#include "Components/NetworkComponent.h"
 #include "Components/RaceComponent.h"
 #include "Components/TyreComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Math/UnitConversion.h"
+#include "TFG_SourceCode/GameModes/RaceGameInstance.h"
 #include "TFG_SourceCode/Objects/Base/ObjectBase.h"
 
 // Sets default values
@@ -31,12 +33,22 @@ AVehiclePawn::AVehiclePawn()
 	camera->SetupAttachment(mesh);
 
 	raceComponent = CreateDefaultSubobject<URaceComponent>(TEXT("Race Component"));
+	networkComponent = CreateDefaultSubobject<UNetworkComponent>(TEXT("Network Component"));
 }
 
 // Called when the game starts or when spawned
 void AVehiclePawn::BeginPlay()
 {
 	Super::BeginPlay();
+	gameInstance = Cast<URaceGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (gameInstance)
+	{
+		maxSpeed = gameInstance->GetDifficulty();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Not found"))
+	}
 
 	lastUpVector = GetActorUpVector();
 

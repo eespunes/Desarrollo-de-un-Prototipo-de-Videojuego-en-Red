@@ -123,6 +123,17 @@ void ARaceController::SetCanRace(bool value)
 	canRace = value;
 }
 
+
+bool ARaceController::GetCanStartRace() const
+{
+	return canStartRace;
+}
+
+void ARaceController::SetCanStartRace(bool value)
+{
+	canStartRace = value;
+}
+
 APlayerStart* ARaceController::GetRaceStart(int idx)
 {
 	if (idx < raceStarts.Num())

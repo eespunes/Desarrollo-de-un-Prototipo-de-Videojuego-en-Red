@@ -5,8 +5,11 @@
 #include "CoreMinimal.h"
 
 #include "IVehicle.h"
+#include "TFG_SourceCode/GameModes/RaceGameInstance.h"
+
 #include "VehiclePawn.generated.h"
 
+class UNetworkComponent;
 class UTyreComponent;
 class UCameraComponent;
 class URaceComponent;
@@ -60,6 +63,8 @@ protected:
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
 	URaceComponent* raceComponent;
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	UNetworkComponent* networkComponent;
 
 	UPROPERTY(EditAnywhere,Category="Vehicle: Suspension")
 	float suspensionDistance = 100.f;
@@ -121,6 +126,9 @@ protected:
 	bool invertControls;
 	AActor* currentParticle;
 	float currentSpeed;
+
+	
+	URaceGameInstance* gameInstance;
 
 
 protected:
