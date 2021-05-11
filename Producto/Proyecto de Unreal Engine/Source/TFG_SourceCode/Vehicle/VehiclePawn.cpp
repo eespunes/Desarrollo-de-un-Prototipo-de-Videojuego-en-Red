@@ -6,6 +6,7 @@
 
 #include "DrawDebugHelpers.h"
 #include "Camera/CameraComponent.h"
+#include "Components/NetworkComponent.h"
 #include "Components/RaceComponent.h"
 #include "Components/TyreComponent.h"
 #include "Kismet/GameplayStatics.h"
@@ -32,7 +33,7 @@ AVehiclePawn::AVehiclePawn()
 	camera->SetupAttachment(mesh);
 
 	raceComponent = CreateDefaultSubobject<URaceComponent>(TEXT("Race Component"));
-	networkComponent = CreateDefaultSubobject<UNetworkController>(TEXT("Network Component"));
+	networkComponent = CreateDefaultSubobject<UNetworkComponent>(TEXT("Network Component"));
 }
 
 // Called when the game starts or when spawned
