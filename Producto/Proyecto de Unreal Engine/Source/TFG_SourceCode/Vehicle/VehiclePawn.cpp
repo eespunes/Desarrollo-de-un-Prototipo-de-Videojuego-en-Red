@@ -395,6 +395,11 @@ URaceComponent* AVehiclePawn::GetRaceComponent() const
 	return raceComponent;
 }
 
+UNetworkComponent* AVehiclePawn::GetNetworkComponent() const
+{
+	return networkComponent;
+}
+
 AObjectBase* AVehiclePawn::GetCurrentObject() const
 {
 	return currentObject;
