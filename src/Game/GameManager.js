@@ -27,7 +27,6 @@ function createRace(levelID, io) {
 }
 
 function usernameInRace(username, raceID) {
-    console.log(raceID)
     const race = getRace(raceID);
     if (!race) return false;
     return race.hasPlayer(username);

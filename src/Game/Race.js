@@ -76,9 +76,10 @@ class Race {
             if (this.allPlayersAreReady()) {
                 this.raceStarted = true;
                 this.io.emit(this.id + "-start", "Lights out")
-                console.log(this.id + ": It's lights out and away we go!!")
+                // console.log(this.id + ": It's lights out and away we go!!")
             }
         } else {
+            this.io.emit(this.id, this.getMessages())
         }
     }
 
@@ -144,6 +145,16 @@ class Race {
                 return false
         }
         return true
+    }
+
+    getMessages() {
+        let message = []
+        for (let i = 0; i < this.players.length; i++) {
+            let player = this.players.pop()
+            this.players.unshift(player)
+            message.push(this.playersMessages.get(player).shift())
+        }
+        return message;
     }
 }
 

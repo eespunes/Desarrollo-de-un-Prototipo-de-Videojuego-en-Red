@@ -36,8 +36,9 @@ io.on('connection', client => {
     });
 
     client.on("Racing", (json) => {
-        const {race, username, message} = JSON.parse(json);
-        gameManager.addMessageToThePlayer(race, username, message)
+        const {race, username, data} = JSON.parse(json);
+        // console.log(data)
+        gameManager.addMessageToThePlayer(race, username, JSON.parse(data))
     });
 
     client.on("Disconnect", (json) => {
