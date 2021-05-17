@@ -59,14 +59,14 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 
 		suspensionCompression = currentSuspensionCompression;
 
-		DrawDebugLine(GetWorld(), position, hit.ImpactPoint, FColor::Green, false, -1, 0, 5);
+		// DrawDebugLine(GetWorld(), position, hit.ImpactPoint, FColor::Green, false, -1, 0, 5);
 		return true;
 	}
 	else
 	{
 		suspensionCompression = 0;
 		rootPoint->SetWorldLocation(end);
-		DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0, 5);
+		// DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0, 5);
 		return false;
 	}
 }

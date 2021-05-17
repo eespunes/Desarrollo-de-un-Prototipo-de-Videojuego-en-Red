@@ -70,6 +70,8 @@ void AVehiclePawn::Tick(float DeltaTime)
 		WaitAfterHit(DeltaTime);
 
 		Movement();
+		
+		networkComponent->SetDataIsDrifting(isDrifting);
 	}
 	else
 	{
@@ -150,6 +152,7 @@ void AVehiclePawn::Movement()
 void AVehiclePawn::Accelerate()
 {
 	isAccelerating = !isAccelerating;
+	networkComponent->SetDataIsAccelerating(isAccelerating);
 }
 
 void AVehiclePawn::PerformAcceleration()
@@ -171,6 +174,7 @@ void AVehiclePawn::PerformAcceleration()
 void AVehiclePawn::Brake()
 {
 	isBraking = !isBraking;
+	networkComponent->SetDataIsBraking(isBraking);
 }
 
 void AVehiclePawn::PerformBraking(float& currentVelocity)
@@ -193,6 +197,7 @@ void AVehiclePawn::PerformBraking(float& currentVelocity)
 void AVehiclePawn::Steer(float value)
 {
 	turnValue = invertControls ? -value : value;
+	networkComponent->SetDataTurnValue(turnValue);
 }
 
 void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)

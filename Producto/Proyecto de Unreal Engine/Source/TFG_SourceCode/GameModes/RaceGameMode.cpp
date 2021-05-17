@@ -67,6 +67,7 @@ void ARaceGameMode::MultiplayerSpawn(APlayerStart*& FoundPlayerStart)
 	OrderStartPoints(startPoints);
 
 	TArray<FString> playersInRace = gameInstance->GetPlayersInRace();
+	TArray<AVehiclePawn*> networkPlayers;
 
 	for (int i = 0; i < playersInRace.Num(); ++i)
 	{
@@ -84,8 +85,10 @@ void ARaceGameMode::MultiplayerSpawn(APlayerStart*& FoundPlayerStart)
 			vehiclePawn->AIControllerClass = multiplayerController;
 			vehiclePawn->GetNetworkComponent()->SetUsername(playersInRace[i]);
 			vehiclePawn->SpawnDefaultController();
+			networkPlayers.Push(vehiclePawn);
 		}
 	}
+	gameInstance->AddNetworkPlayers(networkPlayers);
 }
 
 void ARaceGameMode::FindStartPoints(TArray<APlayerStart*>& startPoints)
