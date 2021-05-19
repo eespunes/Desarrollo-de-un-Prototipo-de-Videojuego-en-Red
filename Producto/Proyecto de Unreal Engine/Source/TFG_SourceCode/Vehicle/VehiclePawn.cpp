@@ -70,7 +70,7 @@ void AVehiclePawn::Tick(float DeltaTime)
 		WaitAfterHit(DeltaTime);
 
 		Movement();
-		
+
 		networkComponent->SetDataIsDrifting(isDrifting);
 	}
 	else
@@ -316,6 +316,8 @@ void AVehiclePawn::UseObject()
 	if (currentObject && !hasBeenHit)
 	{
 		currentObject->UseObject();
+		networkComponent->SetUseObjectData(true);
+		networkComponent->SetObjectData(-1);
 	}
 }
 
@@ -324,6 +326,8 @@ void AVehiclePawn::RemoveObject()
 	currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 	currentObject->SetOwner(nullptr);
 	currentObject = nullptr;
+	networkComponent->SetUseObjectData(false);
+	networkComponent->SetObjectData(-1);
 }
 
 void AVehiclePawn::Damage()
@@ -410,15 +414,19 @@ AObjectBase* AVehiclePawn::GetCurrentObject() const
 	return currentObject;
 }
 
-void AVehiclePawn::SetCurrentObject(AObjectBase* CurrentObject)
+void AVehiclePawn::SetCurrentObject(TSubclassOf<UObject> CurrentObject)
 {
 	if (this->currentObject)
 	{
-		this->currentObject->Destroy();
+		return;
+		// this->currentObject->Destroy();
 	}
 	if (CurrentObject)
 	{
-		this->currentObject = CurrentObject;
+		networkComponent->SetUseObjectData(false);
+		this->currentObject = GetWorld()->SpawnActor<AObjectBase>(CurrentObject,
+		                                                          objectSpawnPoint->GetComponentLocation(),
+		                                                          GetActorRotation());
 		this->currentObject->SetVehicle(this);
 		this->currentObject->SetOwner(this);
 		this->currentObject->SetActorLocation(objectSpawnPoint->GetComponentLocation());

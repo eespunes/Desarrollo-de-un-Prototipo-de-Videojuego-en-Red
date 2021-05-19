@@ -7,7 +7,10 @@
 #include <fstream>
 #include <iostream>
 
+#include "Kismet/GameplayStatics.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
+#include "TFG_SourceCode/Vehicle/Components/NetworkComponent.h"
+#include "TFG_SourceCode/Vehicle/Controllers/VehicleNetworkController.h"
 
 
 // Sets default values
@@ -25,6 +28,7 @@ void AObjectContainer::BeginPlay()
 {
 	Super::BeginPlay();
 	enabled = true;
+	gameInstance = Cast<URaceGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
 	OnActorBeginOverlap.AddDynamic(this, &AObjectContainer::OnOverlapBegin);
 }
 
@@ -61,7 +65,12 @@ void AObjectContainer::OnOverlapBegin(AActor* ownerActor, AActor* otherActor)
 		{
 			if (!Cast<AObjectBase>(vehiclePawn->GetCurrentObject()))
 			{
-				vehiclePawn->SetCurrentObject(GetObject());
+				if (!Cast<AVehicleNetworkController>(vehiclePawn->GetController()))
+				{
+					int32 objectIdx= GetObject();
+					vehiclePawn->GetNetworkComponent()->SetObjectData(objectIdx);
+					vehiclePawn->SetCurrentObject(SpawnObject(objectIdx));
+				}
 				DisableContainer();
 			}
 		}
@@ -69,10 +78,12 @@ void AObjectContainer::OnOverlapBegin(AActor* ownerActor, AActor* otherActor)
 }
 
 
-AObjectBase* AObjectContainer::GetObject()
+int32 AObjectContainer::GetObject()
 {
-	int32 RandRange = FMath::RandRange(0, objects.Num() - 1);
-	// UE_LOG(LogTemp, Warning, TEXT("%i"), RandRange);
-	return GetWorld()->SpawnActor<AObjectBase>(objects[RandRange]->GeneratedClass, GetActorLocation(),
-	                                           GetActorRotation());
+	return  FMath::RandRange(0, gameInstance->GetObjectsSize());
+}
+
+TSubclassOf<UObject> AObjectContainer::SpawnObject(int32 idx)
+{
+	return gameInstance->GetObject(idx);
 }
