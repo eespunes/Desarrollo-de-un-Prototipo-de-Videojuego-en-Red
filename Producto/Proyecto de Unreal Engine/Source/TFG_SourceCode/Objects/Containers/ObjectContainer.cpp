@@ -10,6 +10,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 #include "TFG_SourceCode/Vehicle/Components/NetworkComponent.h"
+#include "TFG_SourceCode/Vehicle/Components/RaceComponent.h"
 #include "TFG_SourceCode/Vehicle/Controllers/VehicleNetworkController.h"
 
 
@@ -69,7 +70,7 @@ void AObjectContainer::OnOverlapBegin(AActor* ownerActor, AActor* otherActor)
 				{
 					int32 objectIdx= GetObject();
 					vehiclePawn->GetNetworkComponent()->SetObjectData(objectIdx);
-					vehiclePawn->SetCurrentObject(SpawnObject(objectIdx));
+					vehiclePawn->SetCurrentObject(SpawnObject(vehiclePawn->GetRaceComponent()->GetPosition()));
 				}
 				DisableContainer();
 			}
@@ -83,7 +84,7 @@ int32 AObjectContainer::GetObject()
 	return  FMath::RandRange(0, gameInstance->GetObjectsSize());
 }
 
-TSubclassOf<UObject> AObjectContainer::SpawnObject(int32 idx)
+TSubclassOf<UObject> AObjectContainer::SpawnObject(int32 position)
 {
-	return gameInstance->GetObject(idx);
+	return gameInstance->GetRandomObject(position);
 }

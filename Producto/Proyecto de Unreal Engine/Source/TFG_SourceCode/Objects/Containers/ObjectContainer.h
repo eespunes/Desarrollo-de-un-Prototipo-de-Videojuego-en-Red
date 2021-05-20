@@ -31,7 +31,7 @@ class TFG_SOURCECODE_API AObjectContainer : public AActor
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	int32 GetObject();
-	TSubclassOf<UObject> SpawnObject(int32 idx);
+	TSubclassOf<UObject> SpawnObject(int32 position);
 	void DisableContainer();
 
 public:
