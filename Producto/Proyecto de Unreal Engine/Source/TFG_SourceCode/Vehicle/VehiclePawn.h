@@ -27,6 +27,7 @@ public:
 	virtual void Accelerate() override;
 	virtual void Brake() override;
 	virtual void Steer(float value) override;
+	float CalculateMaxSteerValue(float currentVelocity);
 	virtual void Drift() override;
 	virtual void UseObject() override;
 	void RemoveObject();
@@ -100,6 +101,8 @@ protected:
 	//Not Accelerating, nor braking
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float frictionDecelerationRate;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
+	float frictionRate;
 
 	//Turn
 	UPROPERTY(EditAnywhere, Category="Vehicle: Turn")
@@ -151,7 +154,7 @@ protected:
 	void PerformBraking(float& currentVelocity);
 	void PerformSteering(float currentVelocity, float currentAngular);
 	void PerformDrift(float currentVelocity);
-	float CalculateMaxDriftValue();
+	float CalculateMaxDriftValue(float currentVelocity);
 
 	void GravityForce() const;
 	virtual void SuspensionForces();
