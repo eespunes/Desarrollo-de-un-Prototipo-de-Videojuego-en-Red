@@ -4,19 +4,15 @@
     <projectFile>Intermediate/ProjectFiles/TFG_SourceCode.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17410192-dfe8-4f71-9f76-62dcf90fa078" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" afterDir="false" />
+    <list default="true" id="50210621-d43a-4729-8b97-2111a0a0bcdd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameInstance.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameInstance.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/L_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_Test.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,31 +22,31 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleNetworkController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/FenrirRoar.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleNetworkController.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/HarmObjectBase.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/TFG_SourceCode.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/ObjectContainer.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1sNqHSxGYPnTP5RnnFuNUA70YlU" />
+  <component name="ProjectId" id="1sQpDVIK8c9LzVlen8psz8DYzFS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -177,14 +173,20 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17410192-dfe8-4f71-9f76-62dcf90fa078" name="Default Changelist" comment="" />
-      <created>1620723309606</created>
+      <changelist id="50210621-d43a-4729-8b97-2111a0a0bcdd" name="Default Changelist" comment="" />
+      <created>1620814552660</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1620723309606</updated>
-      <workItem from="1620723323733" duration="203000" />
-      <workItem from="1620723593696" duration="2476000" />
-      <workItem from="1620726128755" duration="3409000" />
+      <updated>1620814552660</updated>
+      <workItem from="1620814558137" duration="1874000" />
+      <workItem from="1620896726345" duration="656000" />
+      <workItem from="1620897826941" duration="442000" />
+      <workItem from="1620975959708" duration="5994000" />
+      <workItem from="1621233390257" duration="5602000" />
+      <workItem from="1621244824734" duration="2436000" />
+      <workItem from="1621321763560" duration="5584000" />
+      <workItem from="1621415597692" duration="1364000" />
+      <workItem from="1621494785008" duration="6368000" />
     </task>
     <servers />
   </component>

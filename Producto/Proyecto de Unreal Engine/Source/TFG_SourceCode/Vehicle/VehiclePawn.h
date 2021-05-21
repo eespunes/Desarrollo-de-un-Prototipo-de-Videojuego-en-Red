@@ -35,8 +35,9 @@ public:
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
+	UNetworkComponent* GetNetworkComponent() const;
 	AObjectBase* GetCurrentObject() const;
-	void SetCurrentObject(AObjectBase* CurrentObject);
+	void SetCurrentObject(TSubclassOf<UObject> CurrentObject);
 	float GetMaxSpeed() const;
 	void SetMaxSpeed(float speed);
 	float GetInitialMaxSpeed() const;

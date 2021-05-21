@@ -70,6 +70,8 @@ void AVehiclePawn::Tick(float DeltaTime)
 		WaitAfterHit(DeltaTime);
 
 		Movement();
+
+		networkComponent->SetDataIsDrifting(isDrifting);
 	}
 	else
 	{
@@ -150,6 +152,7 @@ void AVehiclePawn::Movement()
 void AVehiclePawn::Accelerate()
 {
 	isAccelerating = !isAccelerating;
+	networkComponent->SetDataIsAccelerating(isAccelerating);
 }
 
 void AVehiclePawn::PerformAcceleration()
@@ -171,6 +174,7 @@ void AVehiclePawn::PerformAcceleration()
 void AVehiclePawn::Brake()
 {
 	isBraking = !isBraking;
+	networkComponent->SetDataIsBraking(isBraking);
 }
 
 void AVehiclePawn::PerformBraking(float& currentVelocity)
@@ -193,6 +197,7 @@ void AVehiclePawn::PerformBraking(float& currentVelocity)
 void AVehiclePawn::Steer(float value)
 {
 	turnValue = invertControls ? -value : value;
+	networkComponent->SetDataTurnValue(turnValue);
 }
 
 void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
@@ -311,6 +316,8 @@ void AVehiclePawn::UseObject()
 	if (currentObject && !hasBeenHit)
 	{
 		currentObject->UseObject();
+		networkComponent->SetUseObjectData(true);
+		networkComponent->SetObjectData(-1);
 	}
 }
 
@@ -319,6 +326,8 @@ void AVehiclePawn::RemoveObject()
 	currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 	currentObject->SetOwner(nullptr);
 	currentObject = nullptr;
+	networkComponent->SetUseObjectData(false);
+	networkComponent->SetObjectData(-1);
 }
 
 void AVehiclePawn::Damage()
@@ -395,20 +404,29 @@ URaceComponent* AVehiclePawn::GetRaceComponent() const
 	return raceComponent;
 }
 
+UNetworkComponent* AVehiclePawn::GetNetworkComponent() const
+{
+	return networkComponent;
+}
+
 AObjectBase* AVehiclePawn::GetCurrentObject() const
 {
 	return currentObject;
 }
 
-void AVehiclePawn::SetCurrentObject(AObjectBase* CurrentObject)
+void AVehiclePawn::SetCurrentObject(TSubclassOf<UObject> CurrentObject)
 {
 	if (this->currentObject)
 	{
-		this->currentObject->Destroy();
+		return;
+		// this->currentObject->Destroy();
 	}
 	if (CurrentObject)
 	{
-		this->currentObject = CurrentObject;
+		networkComponent->SetUseObjectData(false);
+		this->currentObject = GetWorld()->SpawnActor<AObjectBase>(CurrentObject,
+		                                                          objectSpawnPoint->GetComponentLocation(),
+		                                                          GetActorRotation());
 		this->currentObject->SetVehicle(this);
 		this->currentObject->SetOwner(this);
 		this->currentObject->SetActorLocation(objectSpawnPoint->GetComponentLocation());

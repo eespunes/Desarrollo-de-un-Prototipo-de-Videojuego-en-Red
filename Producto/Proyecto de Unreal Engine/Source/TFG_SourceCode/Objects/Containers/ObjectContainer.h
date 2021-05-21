@@ -9,6 +9,8 @@
 
 #include "TFG_SourceCode/Objects/Base/ObjectBase.h"
 #include "GameFramework/Actor.h"
+#include "TFG_SourceCode/GameModes/RaceGameInstance.h"
+
 #include "ObjectContainer.generated.h"
 
 UCLASS()
@@ -22,13 +24,14 @@ class TFG_SOURCECODE_API AObjectContainer : public AActor
 	float timer;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components",meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* mesh;
-	UPROPERTY(EditAnywhere)
-	TArray<UBlueprint*> objects;
+
+	URaceGameInstance* gameInstance;
 	std::vector<std::vector<float>> objectProbabilities;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	AObjectBase* GetObject();
+	int32 GetObject();
+	TSubclassOf<UObject> SpawnObject(int32 position);
 	void DisableContainer();
 
 public:
