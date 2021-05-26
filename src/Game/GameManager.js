@@ -65,13 +65,12 @@ exports.addPlayerToRace = function (username, levelID, io) {
     return '{ "status":200, "race":"' + raceID + '"}'
 };
 
-exports.removePlayerFromRace = function (username, res) {
-    let raceID = usernameInRace(username);
-    if (raceID === -1) {
+exports.removePlayerFromRace = function (username, raceID) {
+    let isInRace = usernameInRace(username, raceID);
+    if (isInRace === false) {
         return '{ "status":"409"}';
     }
-    let race = getRace(raceID)
-    // race.removePlayer(username)
+    getRace(raceID).removePlayer(username)
     return '{ "status":"200"}';
 }
 

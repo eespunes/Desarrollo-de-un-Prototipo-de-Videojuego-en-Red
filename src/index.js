@@ -37,15 +37,14 @@ io.on('connection', client => {
 
     client.on("Racing", (json) => {
         const {race, username, data} = JSON.parse(json);
-        // console.log(data)
         gameManager.addMessageToThePlayer(race, username, JSON.parse(data))
     });
 
     client.on("Disconnect", (json) => {
-        const {username, race} = JSON.parse(json);
-        client.leave(race, function () {
-            gameManager.removePlayerFromRace(username)
-            io.emit(race, gameManager.getPlayersFromRace(race))
+        const {username, levelId} = JSON.parse(json);
+        client.leave(levelId, function () {
+            gameManager.removePlayerFromRace(username, levelId)
+            io.emit(levelId + "-players", gameManager.getPlayersFromRace(levelId))
         });
     });
 });

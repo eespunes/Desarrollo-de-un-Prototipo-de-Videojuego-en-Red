@@ -3,7 +3,7 @@ class Race {
     levelId = ""
     sessionStarted = false
     players = []
-    time = 5
+    time = 30
     raceStarted = false
 
     playersMessages = new Map()
@@ -49,8 +49,9 @@ class Race {
     removePlayer(username) {
         for (let i = 0; i < this.players.length; i++) {
             let player = this.players.pop()
-            if (player === username)
+            if (player === username) {
                 return
+            }
             this.players.unshift(player)
         }
     }
@@ -76,7 +77,6 @@ class Race {
             if (this.allPlayersAreReady()) {
                 this.raceStarted = true;
                 this.io.emit(this.id + "-start", "Lights out")
-                // console.log(this.id + ": It's lights out and away we go!!")
             }
         } else {
             this.io.emit(this.id, this.getMessages())
@@ -98,7 +98,7 @@ class Race {
     }
 
     addMessageToThePlayer(username, message) {
-        this.playersMessages.get(username).push(message);
+        this.playersMessages.get(username).push(message)
     }
 
     //
@@ -109,11 +109,11 @@ class Race {
     }
 
     get getID() {
-        return this.id;
+        return this.id
     }
 
     get getPlayers() {
-        return this.players;
+        return this.players
     }
 
     searchingPlayers() {
@@ -126,10 +126,16 @@ class Race {
     }
 
     waitingPlayers() {
+        if (this.players.length < this.minPLayersToStart) {
+            this.searchingPlayersTimer = setInterval(this.searchingPlayers.bind(this), 100)
+            clearInterval(this.waitingPlayersTimer)
+            return
+        }
+
         if (this.time <= 0) {
             this.startRace()
             this.io.emit(this.id + "-timer", "Empieza la carrera")
-            clearInterval(this.waitingPlayersTimer);
+            clearInterval(this.waitingPlayersTimer)
         } else {
             this.io.emit(this.id + "-timer", "Tiempo restante para empezar:" + this.time + "")
             this.time--
