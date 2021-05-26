@@ -143,10 +143,17 @@ APlayerStart* ARaceController::GetRaceStart(int idx)
 
 void ARaceController::UpdateTable()
 {
+	if (vehicles.Num() == 1)
+	{
+		vehicles[0]->SetPosition(1);
+		return;
+	}
+	
 	for (URaceComponent* raceComponent : vehicles)
 	{
 		raceComponent->CalculateTimeValue();
 	}
+
 	URaceComponent* aux;
 	for (int i = 1; i < vehicles.Num(); i++)
 	{

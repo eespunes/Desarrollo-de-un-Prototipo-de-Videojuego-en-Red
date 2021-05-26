@@ -8,7 +8,7 @@
 ACarPawn::ACarPawn()
 {
 	rightFrontWheel = CreateDefaultSubobject<UTyreComponent>(TEXT("Right Front Tyre"));
-	rightFrontWheel->SetupAttachment(RootComponent);
+	rightFrontWheel->SetupAttachment(Super::carMesh);
 	tyres.Add(rightFrontWheel);
 	rightFrontWheelRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Right Front Tyre Root"));
 	rightFrontWheelRoot->SetupAttachment(rightFrontWheel);
@@ -19,7 +19,7 @@ ACarPawn::ACarPawn()
 	rightFrontWheel->SetRootPoint(rightFrontWheelRoot);
 
 	leftFrontWheel = CreateDefaultSubobject<UTyreComponent>(TEXT("Left Front Tyre"));
-	leftFrontWheel->SetupAttachment(RootComponent);
+	leftFrontWheel->SetupAttachment(Super::carMesh);
 	tyres.Add(leftFrontWheel);
 	leftFrontWheelRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Left Front Tyre Root"));
 	leftFrontWheelRoot->SetupAttachment(leftFrontWheel);
@@ -30,7 +30,7 @@ ACarPawn::ACarPawn()
 	leftFrontWheel->SetRootPoint(leftFrontWheelRoot);
 
 	rightRearWheel = CreateDefaultSubobject<UTyreComponent>(TEXT("Right Rear Tyre"));
-	rightRearWheel->SetupAttachment(RootComponent);
+	rightRearWheel->SetupAttachment(Super::carMesh);
 	tyres.Add(rightRearWheel);
 	rightRearWheelRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Right Rear Tyre Root"));
 	rightRearWheelRoot->SetupAttachment(rightRearWheel);
@@ -41,7 +41,7 @@ ACarPawn::ACarPawn()
 	rightRearWheel->SetRootPoint(rightRearWheelRoot);
 
 	leftRearWheel = CreateDefaultSubobject<UTyreComponent>(TEXT("Left Rear Tyre"));
-	leftRearWheel->SetupAttachment(RootComponent);
+	leftRearWheel->SetupAttachment(Super::carMesh);
 	tyres.Add(leftRearWheel);
 	leftRearWheelRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Left Rear Tyre Root"));
 	leftRearWheelRoot->SetupAttachment(leftRearWheel);

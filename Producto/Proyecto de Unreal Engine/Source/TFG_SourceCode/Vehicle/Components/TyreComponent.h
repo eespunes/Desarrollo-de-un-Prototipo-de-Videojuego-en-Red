@@ -8,7 +8,7 @@
 #include "TyreComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class TFG_SOURCECODE_API UTyreComponent : public USceneComponent
 {
 	GENERATED_BODY()
@@ -35,4 +35,6 @@ private:
 	float rotationValue;
 	float initialRotation = 0.5f;
 	float lastRotationValue;
+	float maxTyreRotation = 15;
+	float currentTyreRotation;
 };
