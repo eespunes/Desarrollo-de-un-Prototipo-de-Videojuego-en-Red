@@ -7,6 +7,7 @@
 #include <stdbool.h>
 
 #include "IVehicle.h"
+#include "Components/TextRenderComponent.h"
 #include "TFG_SourceCode/GameModes/RaceGameInstance.h"
 
 #include "VehiclePawn.generated.h"
@@ -56,6 +57,7 @@ public:
 	bool GetBraking();
 	float GetCurrentSpeed();
 	float GetDriftSign();
+	UTextRenderComponent* GetPlayerText();
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UStaticMeshComponent* carMesh;
@@ -69,6 +71,8 @@ protected:
 	UCameraComponent* normalCamera;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UCameraComponent* reverseCamera;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
+	UTextRenderComponent* playerNameText;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	URaceComponent* raceComponent;

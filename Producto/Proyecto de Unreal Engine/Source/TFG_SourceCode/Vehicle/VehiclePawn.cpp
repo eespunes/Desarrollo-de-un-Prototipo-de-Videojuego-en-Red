@@ -46,6 +46,9 @@ AVehiclePawn::AVehiclePawn()
 	reverseCamera->SetupAttachment(carMesh);
 	reverseCamera->Deactivate();
 
+	playerNameText = CreateDefaultSubobject<UTextRenderComponent>(TEXT("Player Name"));
+	playerNameText->SetupAttachment(carMesh);
+
 	raceComponent = CreateDefaultSubobject<URaceComponent>(TEXT("Race Component"));
 	networkComponent = CreateDefaultSubobject<UNetworkComponent>(TEXT("Network Component"));
 }
@@ -607,6 +610,11 @@ float AVehiclePawn::GetCurrentSpeed()
 float AVehiclePawn::GetDriftSign()
 {
 	return driftSign;
+}
+
+UTextRenderComponent* AVehiclePawn::GetPlayerText()
+{
+	return playerNameText;
 }
 
 bool AVehiclePawn::GetHasBeenHit() const

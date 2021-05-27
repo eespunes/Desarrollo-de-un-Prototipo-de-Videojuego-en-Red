@@ -148,31 +148,17 @@ void ARaceController::UpdateTable()
 		vehicles[0]->SetPosition(1);
 		return;
 	}
-	
-	for (URaceComponent* raceComponent : vehicles)
-	{
-		raceComponent->CalculateTimeValue();
-	}
 
 	URaceComponent* aux;
 	for (int i = 1; i < vehicles.Num(); i++)
 	{
 		for (int j = vehicles.Num() - 1; j >= i; j--)
 		{
-			if (vehicles[j]->GetTimeValue() > vehicles[j - 1]->GetTimeValue())
+			if (vehicles[j]->InFrontOfOpponent(vehicles[j - 1]))
 			{
 				aux = vehicles[j];
 				vehicles[j] = vehicles[j - 1];
 				vehicles[j - 1] = aux;
-			}
-			else if (vehicles[j]->GetTimeValue() == vehicles[j - 1]->GetTimeValue())
-			{
-				if (vehicles[j]->GetDistance() < vehicles[j - 1]->GetDistance())
-				{
-					aux = vehicles[j];
-					vehicles[j] = vehicles[j - 1];
-					vehicles[j - 1] = aux;
-				}
 			}
 		}
 	}
