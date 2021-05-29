@@ -52,12 +52,15 @@ public:
 	void NormalControls();
 	bool GetHasBeenHit() const;
 	bool GetIsAccelerating() const;
+	void SetIsAccelerating(bool bIsAccelerating);
+	void SetIsBraking(bool bIsBraking);
 	FVector GetCenterOfMass() const;
 	bool GetDrifting() const;
 	bool GetBraking();
 	float GetCurrentSpeed();
 	float GetDriftSign();
 	UTextRenderComponent* GetPlayerText();
+
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UStaticMeshComponent* carMesh;

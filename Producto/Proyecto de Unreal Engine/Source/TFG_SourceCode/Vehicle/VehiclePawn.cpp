@@ -90,7 +90,7 @@ void AVehiclePawn::Tick(float DeltaTime)
 
 		Movement();
 
-		networkComponent->SetDataIsDrifting(isDrifting);
+		networkComponent->SetDataIsDrifting();
 	}
 	else
 	{
@@ -210,9 +210,10 @@ void AVehiclePawn::Movement()
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
 		                                 FString::Printf(
 			                                 TEXT("Speed: %f"), currentSpeed));
-		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
-		//                                  FString::Printf(
-		// 	                                 TEXT("Expected Checkpoint= %i"), raceComponent->GetExpectedCheckpoint()));
+		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
+		                                 FString::Printf(
+			                                 TEXT("Position= (%f,%f,%f)"), GetActorLocation().X, GetActorLocation().Y,
+			                                 GetActorLocation().Z));
 	}
 }
 
@@ -224,10 +225,14 @@ void AVehiclePawn::Movement()
 
 void AVehiclePawn::Accelerate()
 {
-	isAccelerating = !isAccelerating;
+	// if (!gameInstance->IsMultiplayer())
+	// {
+	networkComponent->SetDataIsAccelerating();
+	isAccelerating = networkComponent->GetDataIsAccelerating();
 	if (!isAccelerating)
 		accelerationTimer = 0;
-	networkComponent->SetDataIsAccelerating(isAccelerating);
+	// }
+	// else
 }
 
 void AVehiclePawn::PerformAcceleration()
@@ -251,13 +256,13 @@ void AVehiclePawn::PerformAcceleration()
 
 void AVehiclePawn::Brake()
 {
-	isBraking = !isBraking;
+	networkComponent->SetDataIsBraking();
+	isBraking = networkComponent->GetDataIsBraking();
 	if (!isBraking)
 	{
 		brakeTimer = 0;
 		reverseTimer = 0;
 	}
-	networkComponent->SetDataIsBraking(isBraking);
 }
 
 void AVehiclePawn::PerformBraking(float& currentVelocity)
@@ -295,8 +300,12 @@ void AVehiclePawn::PerformBraking(float& currentVelocity)
 
 void AVehiclePawn::Steer(float value)
 {
-	steerValue = invertControls ? -value : value;
-	networkComponent->SetDataTurnValue(steerValue);
+	if (!gameInstance->IsMultiplayer())
+	{
+		steerValue = invertControls ? -value : value;
+	}
+	else
+		networkComponent->SetDataTurnValue(steerValue);
 }
 
 float AVehiclePawn::CalculateMaxSteerValue(float currentVelocity)
@@ -313,14 +322,12 @@ void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 {
 	if (turnTimer > turnToDriftSeconds)
 	{
-		UE_LOG(LogTemp, Error, TEXT("Drifting"));
 		Drift();
 		return;
 	}
 	if (FMath::Abs(steerValue) > 0.75)
 	{
 		turnTimer += GetWorld()->DeltaTimeSeconds;
-		UE_LOG(LogTemp, Warning, TEXT("%f"), turnTimer);
 	}
 	else
 	{
@@ -351,17 +358,21 @@ void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 
 void AVehiclePawn::Drift()
 {
-	isDrifting = !isDrifting;
-	if (isDrifting)
+	if (!gameInstance->IsMultiplayer())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Drifting"));
-		driftSign = FMath::Sign(steerValue);
-		springArm->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
+		isDrifting = !isDrifting;
+		if (isDrifting)
+		{
+			driftSign = FMath::Sign(steerValue);
+			springArm->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
+		}
+		else
+		{
+			springArm->AddLocalRotation(FRotator(0, driftSign * cameraRotation, 0));
+		}
 	}
 	else
-	{
-		springArm->AddLocalRotation(FRotator(0, driftSign * cameraRotation, 0));
-	}
+		networkComponent->SetDataIsDrifting();
 }
 
 void AVehiclePawn::PerformDrift(float currentVelocity)
@@ -630,4 +641,14 @@ bool AVehiclePawn::GetHasBeenHit() const
 bool AVehiclePawn::GetIsAccelerating() const
 {
 	return isAccelerating;
+}
+
+void AVehiclePawn::SetIsAccelerating(bool bIsAccelerating)
+{
+	isAccelerating = bIsAccelerating;
+}
+
+void AVehiclePawn::SetIsBraking(bool bIsBraking)
+{
+	isBraking = bIsBraking;
 }

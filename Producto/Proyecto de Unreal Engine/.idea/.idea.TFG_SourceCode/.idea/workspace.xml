@@ -7,90 +7,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f0dcda9f-a44f-437a-baef-b72e20cf2c04" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_aura.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_aura_fire.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_aura_ice.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_aura_shine.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_aura_water.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_hit.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_hit_dark.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_hit_fire.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_hit_thunder.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_hit_water.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_shot.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_shot_dark.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_shot_fire.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_shot_ice.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_shot_shine.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_shot_thunder.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_shot_water.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_dark.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_darkDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_fire.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_fireDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_ice.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_iceDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_primitive.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_primitive2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_shine.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_shineDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_thunder.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_thunderDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_water.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_waterDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_wind.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/FX/P_ky_trail_windDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Asphalt/14_Asphalt_Road_2x2_M_ticmdamo_8K_inst.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Asphalt/14_Asphalt_Road_2x2_M_ticmdamo_8K_inst.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Automotive/CarPaint/MI_CarPaint_Mix_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Automotive/CarPaint/MI_CarPaint_Mix_01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Automotive/CarbonFiber/MI_CarbonFiber.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Automotive/CarbonFiber/MI_CarbonFiber.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/Automotive/Glass/MI_Glass_Tinted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Materials/Automotive/Glass/MI_Glass_Tinted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_fire.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_fireB_nonD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_ice.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_iceB_nonD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_shine.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_shineB.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_shineC_nonD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_water.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14_waterB_nonD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_aura14b_nonD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_dynDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_primitive2c.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_shockWave03g_4x4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_shockwave07_dark.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_shockwave07_fire.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_shockwave07_thunder.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_starDust_dis.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_trail_sword_dark.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_trail_sword_ice.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_trail_sword_shine.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_trail_sword_thunder.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_trail_sword_water.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_vortex04B_4x4_two.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/MI_ky_waterDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/M_ky_primitive.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/M_ky_shockWave03_4x4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/M_ky_sword_black.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/M_ky_trail_sword.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/M_ky_trail_sword_primitive.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/M_ky_vortex04_4x4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Materials/FX/M_ky_waterDust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/FX/SM_ky_cylinderBend04.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Vehicles/race_body.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Vehicles/race_body.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_FormulaPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_FormulaPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,20 +39,21 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/CheckPoint.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1t6rWv1qIRLMv2h4jIKallUyC2v" />
@@ -372,6 +298,7 @@
       <workItem from="1622126427531" duration="4685000" />
       <workItem from="1622137290902" duration="1804000" />
       <workItem from="1622185708006" duration="7114000" />
+      <workItem from="1622280209854" duration="6329000" />
     </task>
     <servers />
   </component>

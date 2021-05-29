@@ -73,6 +73,7 @@ void ARaceGameMode::MultiplayerSpawn(APlayerStart*& FoundPlayerStart)
 	{
 		if (playersInRace[i].Equals(gameInstance->GetPlayer().pla_username))
 		{
+			UE_LOG(LogTemp, Error, TEXT("PLAYER: %i"), i)
 			FoundPlayerStart = startPoints[i];
 		}
 		else
