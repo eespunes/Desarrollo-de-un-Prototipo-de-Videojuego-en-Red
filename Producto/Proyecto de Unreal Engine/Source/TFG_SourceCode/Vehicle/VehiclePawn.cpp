@@ -121,33 +121,38 @@ void AVehiclePawn::Movement()
 			deaccelerationTimer = 1;
 			PerformBraking(currentSpeed);
 		}
-		else if (isBraking && isAccelerating)
+		else
 		{
-			currentSpeed = lastVelocity < currentSpeed ? -currentSpeed : currentSpeed;
+			// currentSpeed = lastVelocity < currentSpeed ? -currentSpeed : currentSpeed;
 			// carMesh->SetLinearDamping(1.f);
 			brakeTimer = 0;
 			accelerationTimer = 0;
 			reverseTimer = 0;
 			deaccelerationTimer += GetWorld()->DeltaTimeSeconds;
+			float deaccelerationMultiplier = (isBraking && isAccelerating) ? 1 : 2.5f;
 
-			carMesh->AddForceAtLocation(
-				carMesh->GetForwardVector() * acceleration * accelerationRate / FMath::Exp(deaccelerationTimer / 5),
-				GetCenterOfMass());
-			// UE_LOG(LogTemp, Warning, TEXT("%f"), (acceleration * accelerationRate / FMath::Exp(deaccelerationTimer/5)))
-		}
-		else
-		{
-			// carMesh->SetLinearDamping(0.5f);
-			brakeTimer = 0;
-			accelerationTimer = 0;
-			reverseTimer = 0;
-			deaccelerationTimer += GetWorld()->DeltaTimeSeconds;
 
-			carMesh->AddForceAtLocation(
-				carMesh->GetForwardVector() * acceleration * accelerationRate / FMath::Exp(deaccelerationTimer / 10),
-				GetCenterOfMass());
-			// UE_LOG(LogTemp, Warning, TEXT("%f"), (acceleration * accelerationRate / FMath::Exp(deaccelerationTimer/10)))
+			if (currentSpeed > maxSpeed / 100)
+				carMesh->AddForceAtLocation(
+					carMesh->GetForwardVector() * acceleration * brakeRate /
+					FMath::Exp(deaccelerationTimer / deaccelerationMultiplier),
+					GetCenterOfMass());
 		}
+		// else
+		// {
+		// 	// carMesh->SetLinearDamping(0.5f);
+		// 	brakeTimer = 0;
+		// 	accelerationTimer = 0;
+		// 	reverseTimer = 0;
+		// 	deaccelerationTimer += GetWorld()->DeltaTimeSeconds;
+		//
+		// 	if (currentSpeed > maxSpeed / 100)
+		// 		carMesh->AddForceAtLocation(
+		// 			carMesh->GetForwardVector() * acceleration * accelerationRate / FMath::Exp(
+		// 				deaccelerationTimer / 2.5f),
+		// 			GetCenterOfMass());
+		// 	// UE_LOG(LogTemp, Warning, TEXT("%f"), (acceleration * accelerationRate / FMath::Exp(deaccelerationTimer/10)))
+		// }
 
 
 		if (isDrifting)
