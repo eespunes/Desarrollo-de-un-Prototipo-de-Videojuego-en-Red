@@ -3,11 +3,11 @@ class Race {
     levelId = ""
     sessionStarted = false
     players = []
-    time = 30
+    time = 5
     raceStarted = false
 
     playersMessages = new Map()
-    minPLayersToStart = 2;
+    minPLayersToStart = 1;
 
     constructor(id, levelId, io) {
         let idString = "R"
@@ -56,21 +56,6 @@ class Race {
         }
     }
 
-    //
-    // function
-    //
-    // stopRace() {
-    //
-
-    // a()
-    // {
-    //     if (smthCompleted)
-    //         dosmth();
-    //     else return Promise.delay(1000).then(() => a());
-    // }
-    //
-    // function
-    //
     racing() {
         if (!this.sessionStarted) return;
         if (!this.raceStarted) {
@@ -79,7 +64,9 @@ class Race {
                 this.io.emit(this.id + "-start", "Lights out")
             }
         } else {
-            this.io.emit(this.id, this.getMessages())
+            // if (this.players.length === 0)
+            //     clearInterval(this.racingTimer)
+            // this.io.emit(this.id, this.getMessages())
         }
     }
 
@@ -98,7 +85,11 @@ class Race {
     }
 
     addMessageToThePlayer(username, message) {
-        this.playersMessages.get(username).push(message)
+        if (this.raceStarted) {
+            console.log(username + ": " + JSON.stringify(message))
+            this.io.emit(this.id, message);
+        } else
+            this.playersMessages.get(username).push(message)
     }
 
     //
@@ -146,7 +137,6 @@ class Race {
         for (let i = 0; i < this.players.length; i++) {
             let player = this.players.pop()
             this.players.unshift(player)
-            // console.log(player + " -" + this.playersMessages.get(player).length)
             if (this.playersMessages.get(player).length === 0)
                 return false
         }
@@ -154,13 +144,55 @@ class Race {
     }
 
     getMessages() {
-        let message = []
+        let messages = []
         for (let i = 0; i < this.players.length; i++) {
-            let player = this.players.pop()
-            this.players.unshift(player)
-            message.push(this.playersMessages.get(player).shift())
+            let player = this.players[i]
+            if (player === undefined)
+                continue
+            //check ids
+            let message = this.playersMessages.get(player).shift()
+
+            if (message === undefined) {
+                message = "{username: \"" + player + "\", id:\"NOT RECIEVED\"}"
+            }
+            console.log(i + " - " + player + ": " + message)
+
+            messages.push(message)
         }
-        return message;
+
+        let biggerID = 0
+        for (let i = 0; i < messages.length; i++) {
+            let message = messages[i]
+            const {id, username} = message
+            // console.log(i + " - " + id + " - " + username)
+            if (id > biggerID)
+                biggerID = id
+        }
+
+        let aux;
+        for (let i = 1; i < messages.length; i++) {
+            for (let j = messages.length - 1; j >= i; j--) {
+                if (this.InFrontOfOpponent(messages[j], messages[j - 1])) {
+                    aux = messages[j];
+                    messages[j] = messages[j - 1];
+                    messages[j - 1] = aux;
+                }
+            }
+        }
+
+        return messages;
+    }
+
+    InFrontOfOpponent(message, message2) {
+        const json1 = message;
+        const json2 = message2;
+        if (message === undefined || message2 === undefined)
+            return false
+        return json1.lap > json2.lap ||
+            json1.lap == json2.lap && (
+                json1.checkpoint > json2.checkpoint ||
+                json1.checkpoint == json2.checkpoint && json1.distance < json2.distance
+            )
     }
 }
 
