@@ -62,6 +62,9 @@ public:
 	float GetCurrentSpeed();
 	float GetDriftSign();
 	UTextRenderComponent* GetPlayerText();
+	void SetPing(int32 ping);
+	UFUNCTION(BlueprintPure)
+	int32 GetPing();
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")

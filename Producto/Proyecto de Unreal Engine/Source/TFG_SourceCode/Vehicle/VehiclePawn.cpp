@@ -620,6 +620,16 @@ UTextRenderComponent* AVehiclePawn::GetPlayerText()
 	return playerNameText;
 }
 
+void AVehiclePawn::SetPing(int32 ping)
+{
+	return networkComponent->SetPing(ping);
+}
+
+int32 AVehiclePawn::GetPing()
+{
+	return networkComponent->GetPing();
+}
+
 bool AVehiclePawn::GetHasBeenHit() const
 {
 	return hasBeenHit;
