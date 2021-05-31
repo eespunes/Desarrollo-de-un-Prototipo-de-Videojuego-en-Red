@@ -92,5 +92,7 @@ exports.getAllRaces = function () {
 }
 
 exports.addMessageToThePlayer = function (raceID, username, message) {
-    getRace(raceID).addMessageToThePlayer(username, message)
+    const race = getRace(raceID)
+    if (race !== undefined)
+        race.addMessageToThePlayer(username, message)
 }

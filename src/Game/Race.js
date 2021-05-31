@@ -7,7 +7,7 @@ class Race {
     raceStarted = false
 
     playersMessages = new Map()
-    minPLayersToStart = 1;
+    minPLayersToStart = 2;
 
     constructor(id, levelId, io) {
         let idString = "R"
@@ -86,7 +86,7 @@ class Race {
 
     addMessageToThePlayer(username, message) {
         if (this.raceStarted) {
-            console.log(username + ": " + JSON.stringify(message))
+            // console.log(username + ": " + JSON.stringify(message))
             this.io.emit(this.id, message);
         } else
             this.playersMessages.get(username).push(message)
@@ -108,6 +108,7 @@ class Race {
     }
 
     searchingPlayers() {
+        // this.startTime=this.maxStartTime
         if (this.players.length < this.minPLayersToStart) {
             this.io.emit(this.id + "-timer", "Buscando " + (this.minPLayersToStart - this.players.length) + " jugadores...")
         } else {
