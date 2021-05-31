@@ -89,8 +89,6 @@ void AVehiclePawn::Tick(float DeltaTime)
 		WaitAfterHit(DeltaTime);
 
 		Movement();
-
-		networkComponent->SetDataIsDrifting();
 	}
 	else
 	{
@@ -129,13 +127,13 @@ void AVehiclePawn::Movement()
 			accelerationTimer = 0;
 			reverseTimer = 0;
 			deaccelerationTimer += GetWorld()->DeltaTimeSeconds;
-			float deaccelerationMultiplier = (isBraking && isAccelerating) ? 1 : 2.5f;
+			float decelerationMultiplier = (isBraking && isAccelerating) ? 1 : 2.5f;
 
 
 			if (currentSpeed > maxSpeed / 100)
 				carMesh->AddForceAtLocation(
 					carMesh->GetForwardVector() * acceleration * brakeRate /
-					FMath::Exp(deaccelerationTimer / deaccelerationMultiplier),
+					FMath::Exp(deaccelerationTimer / decelerationMultiplier),
 					GetCenterOfMass());
 		}
 		// else
@@ -202,19 +200,19 @@ void AVehiclePawn::Movement()
 	}
 
 	//DEBUG
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
-		                                 FString::Printf(
-			                                 TEXT("Angular: %f"), currentAngular));
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
-		                                 FString::Printf(
-			                                 TEXT("Speed: %f"), currentSpeed));
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
-		                                 FString::Printf(
-			                                 TEXT("Position= (%f,%f,%f)"), GetActorLocation().X, GetActorLocation().Y,
-			                                 GetActorLocation().Z));
-	}
+	// if (GEngine)
+	// {
+	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
+	// 	                                 FString::Printf(
+	// 		                                 TEXT("Angular: %f"), currentAngular));
+	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
+	// 	                                 FString::Printf(
+	// 		                                 TEXT("Speed: %f"), currentSpeed));
+	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
+	// 	                                 FString::Printf(
+	// 		                                 TEXT("%s Position= (%f,%f,%f)"),*networkComponent->username , GetActorLocation().X, GetActorLocation().Y,
+	// 		                                 GetActorLocation().Z));
+	// }
 }
 
 /*
@@ -225,14 +223,10 @@ void AVehiclePawn::Movement()
 
 void AVehiclePawn::Accelerate()
 {
-	// if (!gameInstance->IsMultiplayer())
-	// {
 	networkComponent->SetDataIsAccelerating();
 	isAccelerating = networkComponent->GetDataIsAccelerating();
 	if (!isAccelerating)
 		accelerationTimer = 0;
-	// }
-	// else
 }
 
 void AVehiclePawn::PerformAcceleration()
@@ -300,12 +294,8 @@ void AVehiclePawn::PerformBraking(float& currentVelocity)
 
 void AVehiclePawn::Steer(float value)
 {
-	if (!gameInstance->IsMultiplayer())
-	{
-		steerValue = invertControls ? -value : value;
-	}
-	else
-		networkComponent->SetDataTurnValue(steerValue);
+	networkComponent->SetDataTurnValue(invertControls ? -value : value);
+	steerValue = networkComponent->GetDataTurnValue();
 }
 
 float AVehiclePawn::CalculateMaxSteerValue(float currentVelocity)
@@ -322,6 +312,7 @@ void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 {
 	if (turnTimer > turnToDriftSeconds)
 	{
+		UE_LOG(LogTemp, Error, TEXT("yepa"))
 		Drift();
 		return;
 	}
@@ -358,21 +349,17 @@ void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 
 void AVehiclePawn::Drift()
 {
-	if (!gameInstance->IsMultiplayer())
+	networkComponent->SetDataIsDrifting();
+	isDrifting = networkComponent->GetDataIsDrifting();
+	if (isDrifting)
 	{
-		isDrifting = !isDrifting;
-		if (isDrifting)
-		{
-			driftSign = FMath::Sign(steerValue);
-			springArm->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
-		}
-		else
-		{
-			springArm->AddLocalRotation(FRotator(0, driftSign * cameraRotation, 0));
-		}
+		driftSign = FMath::Sign(steerValue);
+		springArm->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
 	}
 	else
-		networkComponent->SetDataIsDrifting();
+	{
+		springArm->AddLocalRotation(FRotator(0, driftSign * cameraRotation, 0));
+	}
 }
 
 void AVehiclePawn::PerformDrift(float currentVelocity)
@@ -651,4 +638,14 @@ void AVehiclePawn::SetIsAccelerating(bool bIsAccelerating)
 void AVehiclePawn::SetIsBraking(bool bIsBraking)
 {
 	isBraking = bIsBraking;
+}
+
+void AVehiclePawn::SetSteerValue(float bSteerValue)
+{
+	steerValue = bSteerValue;
+}
+
+void AVehiclePawn::SetIsDrifting(bool bIsDrifting)
+{
+	isDrifting = bIsDrifting;
 }

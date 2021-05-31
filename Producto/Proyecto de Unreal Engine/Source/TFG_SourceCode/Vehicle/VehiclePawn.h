@@ -54,6 +54,8 @@ public:
 	bool GetIsAccelerating() const;
 	void SetIsAccelerating(bool bIsAccelerating);
 	void SetIsBraking(bool bIsBraking);
+	void SetSteerValue(float bSteerValue);
+	void SetIsDrifting(bool bIsDrifting);
 	FVector GetCenterOfMass() const;
 	bool GetDrifting() const;
 	bool GetBraking();
