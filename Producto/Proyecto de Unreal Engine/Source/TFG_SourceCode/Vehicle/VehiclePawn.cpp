@@ -200,19 +200,25 @@ void AVehiclePawn::Movement()
 	}
 
 	//DEBUG
-	// if (GEngine)
-	// {
-	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
-	// 	                                 FString::Printf(
-	// 		                                 TEXT("Angular: %f"), currentAngular));
-	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
-	// 	                                 FString::Printf(
-	// 		                                 TEXT("Speed: %f"), currentSpeed));
-	// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
-	// 	                                 FString::Printf(
-	// 		                                 TEXT("%s Position= (%f,%f,%f)"),*networkComponent->username , GetActorLocation().X, GetActorLocation().Y,
-	// 		                                 GetActorLocation().Z));
-	// }
+	if (GEngine)
+	{
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Angular: %f"), currentAngular));
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Speed: %f"), currentSpeed));
+		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
+		                                 FString::Printf(
+			                                 TEXT("%s Position= (%f,%f,%f)"), *networkComponent->username,
+			                                 GetActorLocation().X, GetActorLocation().Y,
+			                                 GetActorLocation().Z));
+		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
+		                                 FString::Printf(
+			                                 TEXT("%s Rotation= (%f,%f,%f)"), *networkComponent->username,
+			                                 GetActorRotation().Pitch, GetActorRotation().Yaw,
+			                                 GetActorRotation().Roll));
+	}
 }
 
 /*
