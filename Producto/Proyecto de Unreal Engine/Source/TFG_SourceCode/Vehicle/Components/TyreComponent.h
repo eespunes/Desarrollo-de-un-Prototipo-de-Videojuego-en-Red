@@ -21,6 +21,8 @@ public:
 	void Steer(float value);
 	void Drift(float value);
 
+	void RotateYawTyre(float value, int32 maxRotation);
+
 	void SetRootPoint(USceneComponent* RootPoint);
 	void SetMesh(UStaticMeshComponent* Mesh);
 

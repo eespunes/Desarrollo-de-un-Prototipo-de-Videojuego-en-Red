@@ -31,12 +31,12 @@ public:
 	virtual void Accelerate() override;
 	virtual void Brake() override;
 	virtual void Steer(float value) override;
-	float CalculateMaxSteerValue(float currentVelocity);
 	virtual void Drift() override;
 	virtual void UseObject() override;
 	void RemoveObject();
 
 	FVector GetForward() const;
+	FVector GetUp() const;
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
@@ -105,22 +105,30 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float maxSpeed = 500.f;
 	float initialMaxSpeed;
+	float currentSpeed;
 	bool isAccelerating = false;
 	float lastVelocity;
+	float accelerationTimer;
+
 	//Brake
 	bool isBraking;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float brakeRate = 1.5f;
+	float brakeTimer;
+
 	//Reverse
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float reverseRate = 3;
 	float reverseSpeed;
 	float reverseAcceleration;
-	//Not Accelerating, nor braking
+	float reverseTimer;
+
+	//Deceleration
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float frictionDecelerationRate;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float frictionRate;
+	float decelerationTimer;
 
 	//Turn
 	UPROPERTY(EditAnywhere, Category="Vehicle: Turn")
@@ -154,17 +162,13 @@ protected:
 	float hitTimer;
 	bool invertControls;
 	AActor* currentParticle;
-	float currentSpeed;
+
 	float cameraRotation = 15;
+	float driftCameraRotationValue;
 	float cameraRotationConstant = 0;
-	float accelerationTimer;
-	float reverseTimer;
-	float brakeTimer;
-	float decelerationTimer;
 	bool traction4x4 = false;
 
 	URaceGameInstance* gameInstance;
-	float driftCameraRotationValue;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -173,6 +177,7 @@ protected:
 	void PerformBraking(float& currentVelocity);
 	void PerformSteering(float currentVelocity, float currentAngular);
 	void PerformDrift(float currentVelocity);
+	float CalculateMaxSteerValue(float currentVelocity);
 	float CalculateMaxDriftValue(float currentVelocity);
 
 	void GravityForce() const;

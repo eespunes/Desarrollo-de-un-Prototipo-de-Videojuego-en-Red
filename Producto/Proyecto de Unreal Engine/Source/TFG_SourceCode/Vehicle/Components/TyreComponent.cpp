@@ -4,6 +4,7 @@
 #include "TyreComponent.h"
 
 #include <dshow.h>
+#include <windows/PxWindowsIntrinsics.h>
 
 
 #include "DrawDebugHelpers.h"
@@ -74,17 +75,31 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 
 void UTyreComponent::RotateTyres(float currentVelocity)
 {
-	mesh->AddLocalRotation(FRotator(-currentVelocity * GetWorld()->DeltaTimeSeconds, 0, 0));
+	mesh->AddLocalRotation(FRotator(-currentVelocity * GetWorld()->DeltaTimeSeconds/2, 0, 0));
 }
 
 void UTyreComponent::Steer(float value)
 {
-	rootPoint->SetWorldRotation(GetOwner()->GetActorRotation() + FRotator(0, value * 15, 0));
+	RotateYawTyre(value,15);
 }
 
 void UTyreComponent::Drift(float value)
 {
-	rootPoint->SetWorldRotation(GetOwner()->GetActorRotation() + FRotator(0, -value * 30, 0));
+	RotateYawTyre(-value,30);
+}
+
+void UTyreComponent::RotateYawTyre(float value,int32 maxRotation)
+{
+	if (value == 0)
+	{
+		rootPoint->SetRelativeRotation(FRotator::ZeroRotator);
+		return;
+	}
+	if (FMath::Sign(rootPoint->GetRelativeRotation().Yaw) != FMath::Sign(value) || FMath::Abs(
+		rootPoint->GetRelativeRotation().Yaw) < maxRotation)
+	{
+		rootPoint->AddRelativeRotation(FRotator(0, value, 0));
+	}
 }
 
 void UTyreComponent::SetRootPoint(USceneComponent* RootPoint)
