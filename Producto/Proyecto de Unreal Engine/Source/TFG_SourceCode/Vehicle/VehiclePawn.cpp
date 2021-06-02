@@ -73,7 +73,7 @@ void AVehiclePawn::BeginPlay()
 	acceleration = maxSpeed;
 	reverseAcceleration = acceleration / reverseRate;
 	initialMaxSpeed = maxSpeed;
-	deaccelerationTimer = 9999999;
+	decelerationTimer = 9999999;
 }
 
 // Called every frame
@@ -111,12 +111,12 @@ void AVehiclePawn::Movement()
 	{
 		if (!invertControls && isAccelerating && !isBraking || invertControls && !isAccelerating && isBraking)
 		{
-			deaccelerationTimer = 1;
+			decelerationTimer = 1;
 			PerformAcceleration();
 		}
 		else if (!invertControls && !isAccelerating && isBraking || invertControls && isAccelerating && !isBraking)
 		{
-			deaccelerationTimer = 1;
+			decelerationTimer = 1;
 			PerformBraking(currentSpeed);
 		}
 		else
@@ -126,14 +126,14 @@ void AVehiclePawn::Movement()
 			brakeTimer = 0;
 			accelerationTimer = 0;
 			reverseTimer = 0;
-			deaccelerationTimer += GetWorld()->DeltaTimeSeconds;
+			decelerationTimer += GetWorld()->DeltaTimeSeconds;
 			float decelerationMultiplier = (isBraking && isAccelerating) ? 1 : 2.5f;
 
 
 			if (currentSpeed > maxSpeed / 100)
 				carMesh->AddForceAtLocation(
 					carMesh->GetForwardVector() * acceleration * brakeRate /
-					FMath::Exp(deaccelerationTimer / decelerationMultiplier),
+					FMath::Exp(decelerationTimer / decelerationMultiplier),
 					GetCenterOfMass());
 		}
 		// else
@@ -342,7 +342,7 @@ void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 
 	for (UTyreComponent* tyre : tyres)
 	{
-		if (Traction4x4 || tyre->GetName().Contains("Front"))
+		if (traction4x4 || tyre->GetName().Contains("Front"))
 			tyre->Steer(steerValue);
 	}
 }
@@ -357,14 +357,17 @@ void AVehiclePawn::Drift()
 {
 	networkComponent->SetDataIsDrifting();
 	isDrifting = networkComponent->GetDataIsDrifting();
+
 	if (isDrifting)
 	{
 		driftSign = FMath::Sign(steerValue);
-		springArm->AddLocalRotation(FRotator(0, -driftSign * cameraRotation, 0));
+		driftCameraRotationValue = -driftSign * cameraRotation;
+		springArm->AddLocalRotation(FRotator(0, driftCameraRotationValue, 0));
 	}
 	else
 	{
-		springArm->AddLocalRotation(FRotator(0, driftSign * cameraRotation, 0));
+		springArm->AddLocalRotation(FRotator(0, -driftCameraRotationValue, 0));
+		driftCameraRotationValue=0;
 	}
 }
 
@@ -378,7 +381,8 @@ void AVehiclePawn::PerformDrift(float currentVelocity)
 		turnTimer = 0;
 		driftTimer = 0;
 		driftInverseTimer = 0;
-		springArm->AddLocalRotation(FRotator(0, driftSign * cameraRotation, 0));
+		springArm->AddLocalRotation(FRotator(0, -driftCameraRotationValue, 0));
+		driftCameraRotationValue=0;
 		return;
 	}
 

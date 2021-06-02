@@ -89,3 +89,19 @@ APlayerStart* ARacingLevel::GetRaceStart(int idx) const
 		return nullptr;
 	return raceController->GetRaceStart(idx);
 }
+
+void ARacingLevel::PlayerHasFinished(AController* vehicle)
+{
+	// UUserWidget* classification = CreateWidget(vehicle, classificationClass);
+	// classification->AddToViewport();
+}
+
+TArray<URaceComponent*> ARacingLevel::GetVehicles() const
+{
+	if (!raceController)
+	{
+		TArray<URaceComponent*> foundActors;
+		return foundActors;
+	}
+	return raceController->GetVehicles();
+}

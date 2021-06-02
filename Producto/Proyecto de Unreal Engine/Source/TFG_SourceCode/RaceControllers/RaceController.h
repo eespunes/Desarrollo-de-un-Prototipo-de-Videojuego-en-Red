@@ -45,4 +45,6 @@ public:
 	void SetCanStartRace(bool value);
 	APlayerStart* GetRaceStart(int idx);
 	void UpdateTable();
+
+	TArray<URaceComponent*> GetVehicles() const;
 };

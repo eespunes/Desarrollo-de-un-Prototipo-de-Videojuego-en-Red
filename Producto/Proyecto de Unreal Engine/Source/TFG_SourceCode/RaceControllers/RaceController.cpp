@@ -169,6 +169,11 @@ void ARaceController::UpdateTable()
 	}
 }
 
+TArray<URaceComponent*> ARaceController::GetVehicles() const
+{
+	return vehicles;
+}
+
 // Called every frame
 void ARaceController::Tick(float DeltaTime)
 {

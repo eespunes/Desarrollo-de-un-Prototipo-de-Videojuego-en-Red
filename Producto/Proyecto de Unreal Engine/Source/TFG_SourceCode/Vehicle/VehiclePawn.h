@@ -160,14 +160,12 @@ protected:
 	float accelerationTimer;
 	float reverseTimer;
 	float brakeTimer;
-	float deaccelerationTimer;
-	bool Traction4x4 = false;
+	float decelerationTimer;
+	bool traction4x4 = false;
 
-	
 	URaceGameInstance* gameInstance;
+	float driftCameraRotationValue;
 
-
-protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();

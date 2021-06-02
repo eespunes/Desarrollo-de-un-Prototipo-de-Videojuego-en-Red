@@ -11,7 +11,6 @@
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 
-
 #include "RacingLevel.generated.h"
 
 class ARaceController;
@@ -26,20 +25,22 @@ UCLASS()
 class TFG_SOURCECODE_API ARacingLevel : public ALevelScriptActor, public ILevel
 {
 private:
-
 	GENERATED_BODY()
 
 protected:
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(AllowPrivateAccess="true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(AllowPrivateAccess="true"))
 	int32 numberOfLaps;
 	ARaceController* raceController;
-	
+	UPROPERTY(EditAnywhere, Category="UI")
+	TSubclassOf<class UUserWidget> classificationClass;
+
 	virtual void BeginPlay() override;
 public:
 	ARacingLevel();
+
 	int32 GetNumberOfLaps() const;
 	int32 GetNumberOfCheckpoints() const;
-	int32 GetNumberOfVehicles()const;
+	int32 GetNumberOfVehicles() const;
 	ACheckPoint* GetCheckpoint(int32 idx) const;
 	URaceComponent* GetVehicle(int32 position);
 	bool GetCanRace() const;
@@ -47,4 +48,8 @@ public:
 	bool GetCanStartRace() const;
 	void SetCanStartRace(bool value) const;
 	APlayerStart* GetRaceStart(int idx) const;
+	void PlayerHasFinished(AController* vehicle);
+	UFUNCTION(BlueprintPure)
+	TArray<URaceComponent*> GetVehicles() const;
+	
 };
