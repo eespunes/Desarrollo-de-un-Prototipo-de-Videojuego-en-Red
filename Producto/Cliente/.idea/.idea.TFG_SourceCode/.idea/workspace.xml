@@ -6,9 +6,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0dcda9f-a44f-437a-baef-b72e20cf2c04" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode.dir/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode.dir/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode.dir/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode.dir/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode.dir/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/SocketIOClient.uplugin" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/SocketIOClient.uplugin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/CoreUtility/Private/CUBlueprintLibrary.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/CoreUtility/Private/CUBlueprintLibrary.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/CoreUtility/Public/CUBlueprintLibrary.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/CoreUtility/Public/CUBlueprintLibrary.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SIOJson/Private/SIOJConvert.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SIOJson/Private/SIOJConvert.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SIOJson/Private/SIOJRequestJSON.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SIOJson/Private/SIOJRequestJSON.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SIOJson/Private/SIOJsonObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SIOJson/Private/SIOJsonObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SIOJson/Private/SIOJsonValue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SIOJson/Private/SIOJsonValue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOClient/Private/SocketIOFunctionLibrary.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOClient/Private/SocketIOFunctionLibrary.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOClient/Public/SocketIOFunctionLibrary.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOClient/Public/SocketIOFunctionLibrary.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/internal/sio_client_impl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/internal/sio_client_impl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/internal/sio_client_impl.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/internal/sio_client_impl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/internal/sio_packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/internal/sio_packet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/internal/sio_packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/internal/sio_packet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/sio_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/sio_client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/sio_socket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Private/sio_socket.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Public/sio_client.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Public/sio_client.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Public/sio_message.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Public/sio_message.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Public/sio_socket.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/socketio-client-ue4/Source/SocketIOLib/Public/sio_socket.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,15 +46,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Base/ObjectBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/CarPawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -56,7 +84,10 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1t6rWv1qIRLMv2h4jIKallUyC2v" />
@@ -311,6 +342,8 @@
       <workItem from="1622650417202" duration="1546000" />
       <workItem from="1622704205008" duration="7635000" />
       <workItem from="1622729815335" duration="4346000" />
+      <workItem from="1622735130579" duration="784000" />
+      <workItem from="1622735997677" duration="2987000" />
     </task>
     <servers />
   </component>
