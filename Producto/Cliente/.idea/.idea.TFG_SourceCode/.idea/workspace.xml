@@ -7,12 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f0dcda9f-a44f-437a-baef-b72e20cf2c04" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_IdunApple.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_IdunApple.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_Sleipnir.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_Sleipnir.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +53,10 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1t6rWv1qIRLMv2h4jIKallUyC2v" />
@@ -313,7 +310,7 @@
       <workItem from="1622626844944" duration="2671000" />
       <workItem from="1622650417202" duration="1546000" />
       <workItem from="1622704205008" duration="7635000" />
-      <workItem from="1622729815335" duration="3721000" />
+      <workItem from="1622729815335" duration="4346000" />
     </task>
     <servers />
   </component>
