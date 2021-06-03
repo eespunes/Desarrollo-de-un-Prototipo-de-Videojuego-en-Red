@@ -9,6 +9,7 @@
 
 #include "DrawDebugHelpers.h"
 #include "MovieSceneSequenceID.h"
+#include "PhysicalMaterials/PhysicalMaterial.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 // Sets default values for this component's properties
@@ -33,7 +34,7 @@ void UTyreComponent::BeginPlay()
 	}
 }
 
-bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, float frictionValue)
+bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, float frictionValue, float* TerrainFriction)
 {
 	if (!vehicleMesh)
 	{
@@ -61,34 +62,37 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 
 		suspensionCompression = currentSuspensionCompression;
 
-		// DrawDebugLine(GetWorld(), position, hit.ImpactPoint, FColor::Green, false, -1, 0, 5);
+		if (hit.Actor->ActorHasTag(TEXT("Grass")))
+		{
+			*TerrainFriction = 0.5f;
+		}
 		return true;
 	}
+
 	else
 	{
 		suspensionCompression = 0;
 		rootPoint->SetWorldLocation(end);
-		// DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0, 5);
 		return false;
 	}
 }
 
 void UTyreComponent::RotateTyres(float currentVelocity)
 {
-	mesh->AddLocalRotation(FRotator(-currentVelocity * GetWorld()->DeltaTimeSeconds/2, 0, 0));
+	mesh->AddLocalRotation(FRotator(-currentVelocity * GetWorld()->DeltaTimeSeconds / 2, 0, 0));
 }
 
 void UTyreComponent::Steer(float value)
 {
-	RotateYawTyre(value,15);
+	RotateYawTyre(value, 15);
 }
 
 void UTyreComponent::Drift(float value)
 {
-	RotateYawTyre(-value,30);
+	RotateYawTyre(-value, 30);
 }
 
-void UTyreComponent::RotateYawTyre(float value,int32 maxRotation)
+void UTyreComponent::RotateYawTyre(float value, int32 maxRotation)
 {
 	if (value == 0)
 	{
@@ -116,4 +120,3 @@ USceneComponent* UTyreComponent::GetRootPoint() const
 {
 	return rootPoint;
 }
-

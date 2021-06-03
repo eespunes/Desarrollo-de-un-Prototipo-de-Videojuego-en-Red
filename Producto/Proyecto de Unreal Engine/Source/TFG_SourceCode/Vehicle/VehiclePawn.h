@@ -181,6 +181,8 @@ protected:
 	bool traction4x4 = false;
 
 	URaceGameInstance* gameInstance;
+	
+	float terrainFriction=1;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

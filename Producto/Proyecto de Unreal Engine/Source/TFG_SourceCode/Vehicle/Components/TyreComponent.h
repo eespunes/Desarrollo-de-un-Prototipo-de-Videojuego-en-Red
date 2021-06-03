@@ -16,7 +16,7 @@ class TFG_SOURCECODE_API UTyreComponent : public USceneComponent
 public:
 	// Sets default values for this component's properties
 	UTyreComponent();
-	bool SuspensionForce(float suspensionDistance, float force, float frictionValue);
+	bool SuspensionForce(float suspensionDistance, float force, float frictionValue,float* TerrainFriction);
 	void RotateTyres(float currentVelocity);
 	void Steer(float value);
 	void Drift(float value);
@@ -41,4 +41,5 @@ private:
 	float lastRotationValue;
 	float maxTyreRotation = 15;
 	float currentTyreRotation;
+
 };

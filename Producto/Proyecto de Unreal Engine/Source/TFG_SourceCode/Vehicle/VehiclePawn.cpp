@@ -252,7 +252,7 @@ void AVehiclePawn::Accelerate()
 void AVehiclePawn::PerformAcceleration()
 {
 	carMesh->SetLinearDamping(1.f);
-	if (currentSpeed < maxSpeed)
+	if (currentSpeed < maxSpeed * terrainFriction)
 	{
 		carMesh->AddForceAtLocation(
 			GetForward() * acceleration * FMath::Exp(accelerationTimer) * accelerationRate,
@@ -479,9 +479,10 @@ void AVehiclePawn::GravityForce() const
 void AVehiclePawn::SuspensionForces()
 {
 	inGround = false;
+	terrainFriction = 1;
 	for (UTyreComponent* tyre : tyres)
 	{
-		if (tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate))
+		if (tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate, &terrainFriction))
 			inGround = true;
 	}
 }
@@ -492,16 +493,13 @@ void AVehiclePawn::InstantiateDriftBoostParticles()
 	{
 		if (tyre->GetName().Contains("Rear"))
 		{
-			if (tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate))
-			{
-				AActor* particle = GetWorld()->SpawnActor<AActor>(
-					driftBoostParticle,
-					tyre->GetRootPoint()->GetComponentLocation(),
-					tyre->GetRootPoint()->GetComponentRotation()
-				);
-				particle->AttachToComponent(tyre->GetRootPoint(), FAttachmentTransformRules::KeepWorldTransform);
-				boostParticles.Add(particle);
-			}
+			AActor* particle = GetWorld()->SpawnActor<AActor>(
+				driftBoostParticle,
+				tyre->GetRootPoint()->GetComponentLocation(),
+				tyre->GetRootPoint()->GetComponentRotation()
+			);
+			particle->AttachToComponent(tyre->GetRootPoint(), FAttachmentTransformRules::KeepWorldTransform);
+			boostParticles.Add(particle);
 		}
 	}
 }
