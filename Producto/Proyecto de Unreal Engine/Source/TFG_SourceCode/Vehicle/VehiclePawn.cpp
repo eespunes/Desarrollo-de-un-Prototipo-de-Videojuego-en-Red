@@ -330,28 +330,13 @@ float AVehiclePawn::CalculateMaxSteerValue(float currentVelocity)
 
 void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 {
-	if (turnTimer > turnToDriftSeconds)
-	{
-		UE_LOG(LogTemp, Error, TEXT("yepa"))
-		Drift();
-		return;
-	}
-	if (FMath::Abs(steerValue) > 0.75)
-	{
-		turnTimer += GetWorld()->DeltaTimeSeconds;
-	}
-	else
-	{
-		turnTimer = 0;
-	}
-	driftValue = 0;
-	carMesh->SetAngularDamping(10.f);
+	carMesh->SetAngularDamping(0.f);
 	float steeringAngle = CalculateMaxSteerValue(currentVelocity);
 
 	carMesh->SetPhysicsMaxAngularVelocityInDegrees(steeringAngle);
 
 	carMesh->AddTorqueInDegrees(
-		carMesh->GetUpVector() * steeringRate * 2 * steerValue * steeringAngle / maxDriftAngle,
+		carMesh->GetUpVector() * steeringRate * steerValue * steeringAngle,
 		NAME_None, true);
 
 	for (UTyreComponent* tyre : tyres)
@@ -386,9 +371,8 @@ void AVehiclePawn::Drift()
 
 void AVehiclePawn::PerformDrift(float currentVelocity, float currentAngular)
 {
-	carMesh->SetAngularDamping(5.f);
-	if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / reverseRate || steerValue != 0 && driftSign !=
-		FMath::Sign(steerValue) && turnTimer > turnToDriftSeconds)
+	carMesh->SetAngularDamping(0.f);
+	if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / 1.75f)
 	{
 		StopDrift();
 		return;
@@ -415,7 +399,6 @@ void AVehiclePawn::PerformDrift(float currentVelocity, float currentAngular)
 void AVehiclePawn::StopDrift()
 {
 	isDrifting = false;
-	turnTimer = 0;
 	driftTimer = 0;
 	driftInverseTimer = 0;
 	springArm->AddLocalRotation(FRotator(0, -driftCameraRotationValue, 0));
@@ -424,10 +407,12 @@ void AVehiclePawn::StopDrift()
 	if (canDriftBoost)
 	{
 		canDriftBoost = false;
+
 		for (AActor* particle : boostParticles)
 		{
 			particle->Destroy();
 		}
+		boostParticles.Empty();
 		SetMaxSpeed(initialMaxSpeed * driftBoostRate);
 		performDriftBoost = true;
 	}
@@ -522,11 +507,14 @@ void AVehiclePawn::UseObject()
 
 void AVehiclePawn::RemoveObject()
 {
-	currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-	currentObject->SetOwner(nullptr);
-	currentObject = nullptr;
-	networkComponent->SetUseObjectData(false);
-	networkComponent->SetObjectData(-1);
+	if(currentObject)
+	{
+		currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		currentObject->SetOwner(nullptr);
+		currentObject = nullptr;
+		networkComponent->SetUseObjectData(false);
+		networkComponent->SetObjectData(-1);
+	}
 }
 
 void AVehiclePawn::Damage()

@@ -136,9 +136,6 @@ protected:
 	float steeringRate = 10.f;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Turn")
 	float maxSteerAngle = 50.f;
-	UPROPERTY(EditAnywhere, Category="Vehicle: Turn")
-	int turnToDriftSeconds;
-	float turnTimer;
 	float lastTurnValue;
 	float steerValue;
 
