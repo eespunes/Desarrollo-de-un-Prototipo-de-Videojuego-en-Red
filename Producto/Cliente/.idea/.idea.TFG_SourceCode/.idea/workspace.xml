@@ -81,12 +81,12 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/JormundgandrBite.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" />
     </changedPaths>
   </component>
@@ -343,7 +343,7 @@
       <workItem from="1622704205008" duration="7635000" />
       <workItem from="1622729815335" duration="4346000" />
       <workItem from="1622735130579" duration="784000" />
-      <workItem from="1622735997677" duration="2987000" />
+      <workItem from="1622735997677" duration="4144000" />
     </task>
     <servers />
   </component>
