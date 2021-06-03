@@ -111,3 +111,9 @@ void UTyreComponent::SetMesh(UStaticMeshComponent* Mesh)
 {
 	mesh = Mesh;
 }
+
+USceneComponent* UTyreComponent::GetRootPoint() const
+{
+	return rootPoint;
+}
+

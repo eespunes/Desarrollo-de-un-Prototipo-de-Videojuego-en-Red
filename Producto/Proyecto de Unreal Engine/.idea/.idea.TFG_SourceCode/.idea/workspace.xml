@@ -7,9 +7,21 @@
   <component name="ChangeListManager">
     <list default="true" id="f0dcda9f-a44f-437a-baef-b72e20cf2c04" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Track/grandStandCovered.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Track/grandStandCovered.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Meshes/Track/grandStandCoveredRound.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Meshes/Track/grandStandCoveredRound.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_FenrirRoarContainer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_FenrirRoarContainer.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_JormundgandrBite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_JormundgandrBite.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_LokiTrick.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_LokiTrick.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_OdinEye.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Objects/BP_OdinEye.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/FX/BP_FenrirRoar.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/FX/BP_JormundgandrHit.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/FX/BP_LokiAura.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Objects/FX/BP_OdinTeleport.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_FormulaPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_FormulaPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/L_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
@@ -42,7 +54,6 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameMode.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" />
@@ -54,9 +65,11 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/LokiTrick.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1t6rWv1qIRLMv2h4jIKallUyC2v" />
@@ -307,7 +320,9 @@
       <workItem from="1622473893677" duration="1554000" />
       <workItem from="1622560336427" duration="3314000" />
       <workItem from="1622617753327" duration="3052000" />
-      <workItem from="1622626844944" duration="1302000" />
+      <workItem from="1622626844944" duration="2671000" />
+      <workItem from="1622650417202" duration="1546000" />
+      <workItem from="1622704205008" duration="2661000" />
     </task>
     <servers />
   </component>

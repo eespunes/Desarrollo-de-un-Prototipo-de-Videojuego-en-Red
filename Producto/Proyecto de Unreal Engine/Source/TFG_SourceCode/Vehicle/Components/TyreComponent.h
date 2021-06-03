@@ -26,6 +26,8 @@ public:
 	void SetRootPoint(USceneComponent* RootPoint);
 	void SetMesh(UStaticMeshComponent* Mesh);
 
+	USceneComponent* GetRootPoint() const;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

@@ -32,6 +32,7 @@ public:
 	virtual void Brake() override;
 	virtual void Steer(float value) override;
 	virtual void Drift() override;
+	void StopDrift();
 	virtual void UseObject() override;
 	void RemoveObject();
 
@@ -84,7 +85,7 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	URaceComponent* raceComponent;
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UNetworkComponent* networkComponent;
 
 	UPROPERTY(EditAnywhere, Category="Vehicle: Suspension")
@@ -154,6 +155,17 @@ protected:
 	float driftRateIncrease = 20;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Drift")
 	float driftRateDecrease = 40;
+	//Drift Boost
+	bool canDriftBoost;
+	bool performDriftBoost;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Drift Boost")
+	float driftBoostRate = 1.25f;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Drift Boost")
+	float driftBoostTime = 1;
+	float driftBoostTimer;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Drift Boost")
+	TSubclassOf<class AActor> driftBoostParticle;
+	TArray<AActor*> boostParticles;
 
 	//Objects
 	AObjectBase* currentObject = nullptr;
@@ -176,12 +188,13 @@ protected:
 	void PerformAcceleration();
 	void PerformBraking(float& currentVelocity);
 	void PerformSteering(float currentVelocity, float currentAngular);
-	void PerformDrift(float currentVelocity);
+	void PerformDrift(float currentVelocity, float currentAngular);
 	float CalculateMaxSteerValue(float currentVelocity);
 	float CalculateMaxDriftValue(float currentVelocity);
 
 	void GravityForce() const;
 	virtual void SuspensionForces();
+	virtual void InstantiateDriftBoostParticles();
 
 	void WaitAfterHit(float DeltaTime);
 };

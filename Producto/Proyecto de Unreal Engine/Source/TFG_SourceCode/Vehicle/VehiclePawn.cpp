@@ -73,7 +73,7 @@ void AVehiclePawn::BeginPlay()
 	acceleration = maxSpeed;
 	reverseAcceleration = acceleration / reverseRate;
 	initialMaxSpeed = maxSpeed;
-	decelerationTimer = 9999999;
+	// decelerationTimer = 9999999;
 }
 
 // Called every frame
@@ -155,7 +155,7 @@ void AVehiclePawn::Movement()
 
 		if (isDrifting)
 		{
-			PerformDrift(currentSpeed);
+			PerformDrift(currentSpeed, currentAngular);
 		}
 		else
 		{
@@ -199,6 +199,20 @@ void AVehiclePawn::Movement()
 		normalCamera->Activate();
 	}
 
+	if (performDriftBoost)
+	{
+		if (driftBoostTimer > driftBoostTime)
+		{
+			performDriftBoost = false;
+			SetMaxSpeed(initialMaxSpeed);
+			driftBoostTimer = 0;
+		}
+		else
+		{
+			driftBoostTimer += GetWorld()->DeltaTimeSeconds;
+		}
+	}
+
 	//DEBUG
 	if (GEngine)
 	{
@@ -208,12 +222,6 @@ void AVehiclePawn::Movement()
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
 		                                 FString::Printf(
 			                                 TEXT("Speed: %f"), currentSpeed));
-		DrawDebugLine(GetWorld(), GetActorLocation(),
-			GetActorLocation() + GetForward() * 10000,
-			FColor::Green, false, -1, 0, 5);
-		DrawDebugLine(GetWorld(), GetActorLocation(),
-	GetActorLocation() + GetUp() * 10000,
-	FColor::Red, false, -1, 0, 5);
 		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
 		//                                  FString::Printf(
 		// 	                                 TEXT("%s Position= (%f,%f,%f)"), *networkComponent->username,
@@ -372,26 +380,27 @@ void AVehiclePawn::Drift()
 	}
 	else
 	{
-		springArm->AddLocalRotation(FRotator(0, -driftCameraRotationValue, 0));
-		driftCameraRotationValue = 0;
+		StopDrift();
 	}
 }
 
-void AVehiclePawn::PerformDrift(float currentVelocity)
+void AVehiclePawn::PerformDrift(float currentVelocity, float currentAngular)
 {
 	carMesh->SetAngularDamping(5.f);
 	if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / reverseRate || steerValue != 0 && driftSign !=
 		FMath::Sign(steerValue) && turnTimer > turnToDriftSeconds)
 	{
-		isDrifting = false;
-		turnTimer = 0;
-		driftTimer = 0;
-		driftInverseTimer = 0;
-		springArm->AddLocalRotation(FRotator(0, -driftCameraRotationValue, 0));
-		driftCameraRotationValue = 0;
+		StopDrift();
 		return;
 	}
-
+	if (currentAngular >= maxDriftAngle / 2)
+	{
+		if (!canDriftBoost)
+		{
+			InstantiateDriftBoostParticles();
+			canDriftBoost = true;
+		}
+	}
 	carMesh->SetPhysicsMaxAngularVelocityInDegrees(CalculateMaxDriftValue(currentVelocity));
 
 	carMesh->AddTorqueInDegrees(carMesh->GetUpVector() * steeringRate * driftSign, NAME_None, true);
@@ -400,6 +409,27 @@ void AVehiclePawn::PerformDrift(float currentVelocity)
 	{
 		if (tyre->GetName().Contains("Front"))
 			tyre->Drift(steerValue);
+	}
+}
+
+void AVehiclePawn::StopDrift()
+{
+	isDrifting = false;
+	turnTimer = 0;
+	driftTimer = 0;
+	driftInverseTimer = 0;
+	springArm->AddLocalRotation(FRotator(0, -driftCameraRotationValue, 0));
+	driftCameraRotationValue = 0;
+
+	if (canDriftBoost)
+	{
+		canDriftBoost = false;
+		for (AActor* particle : boostParticles)
+		{
+			particle->Destroy();
+		}
+		SetMaxSpeed(initialMaxSpeed * driftBoostRate);
+		performDriftBoost = true;
 	}
 }
 
@@ -453,6 +483,26 @@ void AVehiclePawn::SuspensionForces()
 	{
 		if (tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate))
 			inGround = true;
+	}
+}
+
+void AVehiclePawn::InstantiateDriftBoostParticles()
+{
+	for (UTyreComponent* tyre : tyres)
+	{
+		if (tyre->GetName().Contains("Rear"))
+		{
+			if (tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate))
+			{
+				AActor* particle = GetWorld()->SpawnActor<AActor>(
+					driftBoostParticle,
+					tyre->GetRootPoint()->GetComponentLocation(),
+					tyre->GetRootPoint()->GetComponentRotation()
+				);
+				particle->AttachToComponent(tyre->GetRootPoint(), FAttachmentTransformRules::KeepWorldTransform);
+				boostParticles.Add(particle);
+			}
+		}
 	}
 }
 
@@ -587,7 +637,6 @@ void AVehiclePawn::SetCurrentObject(TSubclassOf<UObject> CurrentObject)
 	if (this->currentObject)
 	{
 		return;
-		// this->currentObject->Destroy();
 	}
 	if (CurrentObject)
 	{
@@ -610,7 +659,8 @@ float AVehiclePawn::GetMaxSpeed() const
 void AVehiclePawn::SetMaxSpeed(float speed)
 {
 	maxSpeed = speed;
-	acceleration = (maxSpeed / accelerationRate) * 200;
+	UE_LOG(LogTemp, Warning, TEXT("Current MAX Speed: %f"), maxSpeed)
+	acceleration = maxSpeed;
 }
 
 float AVehiclePawn::GetInitialMaxSpeed() const
