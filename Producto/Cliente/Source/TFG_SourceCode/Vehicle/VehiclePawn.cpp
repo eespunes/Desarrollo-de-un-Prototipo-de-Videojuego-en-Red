@@ -70,9 +70,12 @@ void AVehiclePawn::BeginPlay()
 	lastUpVector = GetActorUpVector();
 
 	reverseSpeed = -maxSpeed / reverseRate;
-	acceleration = maxSpeed;
-	reverseAcceleration = acceleration / reverseRate;
+	// acceleration = maxSpeed;
+	// reverseAcceleration = acceleration / reverseRate;
 	initialMaxSpeed = maxSpeed;
+	accelerationTimer = 1;
+	brakeTimer = 1;
+	decelerationTimer = 1;
 	// decelerationTimer = 9999999;
 }
 
@@ -105,62 +108,71 @@ void AVehiclePawn::Tick(float DeltaTime)
 
 void AVehiclePawn::Movement()
 {
-	currentSpeed = (GetForward() * carMesh->GetPhysicsLinearVelocity()).Size();
+	carMesh->SetLinearDamping(1);
+	carMesh->SetAngularDamping(1);
 	float currentAngular = (carMesh->GetPhysicsAngularVelocityInDegrees() * GetActorUpVector()).Size();
 	if (inGround)
 	{
 		if (!invertControls && isAccelerating && !isBraking || invertControls && !isAccelerating && isBraking)
 		{
 			decelerationTimer = 1;
-			PerformAcceleration();
+
+			currentSpeed = FMath::Min<float>(
+				currentSpeed + maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->
+				DeltaTimeSeconds, maxSpeed * terrainFriction);
+			accelerationTimer += GetWorld()->DeltaTimeSeconds;
+
+			// GetMesh()->SetRelativeRotation(FRotator(
+			// 	FMath::Min<float>(
+			// 		maxPitchRotation * (FMath::Abs(currentSpeed) / maxSpeed), maxPitchRotation), 0, 0));
 		}
 		else if (!invertControls && !isAccelerating && isBraking || invertControls && isAccelerating && !isBraking)
 		{
 			decelerationTimer = 1;
-			PerformBraking(currentSpeed);
+
+			currentSpeed = FMath::Max<float>(
+				currentSpeed - maxSpeed * (FMath::Exp(brakeTimer / brakeRate) - 1) * GetWorld()->DeltaTimeSeconds,
+				reverseSpeed);
+			brakeTimer += GetWorld()->DeltaTimeSeconds;
+
+			// GetMesh()->SetRelativeRotation(FRotator(
+			// 	FMath::Max<float>(
+			// 		-maxPitchRotation * (FMath::Abs(currentSpeed) / maxSpeed), -maxPitchRotation),
+			// 	0, 0));
 		}
 		else
 		{
-			// currentSpeed = lastVelocity < currentSpeed ? -currentSpeed : currentSpeed;
-			// carMesh->SetLinearDamping(1.f);
-			brakeTimer = 0;
-			accelerationTimer = 0;
-			reverseTimer = 0;
+			float exponentialValue = (FMath::Exp(decelerationTimer / decelerationRate) - 1);
+			if (currentSpeed > 0)
+			{
+				currentSpeed = FMath::Max<float>(
+					currentSpeed - maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
+
+				// GetMesh()->SetRelativeRotation(FRotator(
+				// 	FMath::Max<float>(maxPitchRotation * (FMath::Abs(currentSpeed) / maxSpeed), 0), 0, 0));
+			}
+			else if (currentSpeed < 0)
+			{
+				currentSpeed = FMath::Min<float>(
+					currentSpeed + maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
+
+				// GetMesh()->SetRelativeRotation(FRotator(
+				// 	FMath::Min<float>(
+				// 		-maxPitchRotation * (FMath::Abs(currentSpeed) / maxSpeed),
+				// 		0), 0, 0));
+			}
 			decelerationTimer += GetWorld()->DeltaTimeSeconds;
-			float decelerationMultiplier = (isBraking && isAccelerating) ? 1 : 2.5f;
-
-
-			if (currentSpeed > maxSpeed / 100)
-				carMesh->AddForceAtLocation(
-					GetForward() * acceleration * brakeRate /
-					FMath::Exp(decelerationTimer / decelerationMultiplier),
-					GetCenterOfMass());
 		}
+
+
+		// if (isDrifting)
+		// {
+		// 	PerformDrift(currentSpeed, currentAngular);
+		// }
 		// else
 		// {
-		// 	// carMesh->SetLinearDamping(0.5f);
-		// 	brakeTimer = 0;
-		// 	accelerationTimer = 0;
-		// 	reverseTimer = 0;
-		// 	deaccelerationTimer += GetWorld()->DeltaTimeSeconds;
-		//
-		// 	if (currentSpeed > maxSpeed / 100)
-		// 		carMesh->AddForceAtLocation(
-		// 			carMesh->GetForwardVector() * acceleration * accelerationRate / FMath::Exp(
-		// 				deaccelerationTimer / 2.5f),
-		// 			GetCenterOfMass());
-		// 	// UE_LOG(LogTemp, Warning, TEXT("%f"), (acceleration * accelerationRate / FMath::Exp(deaccelerationTimer/10)))
+		// 	PerformSteering(currentSpeed, currentAngular);
 		// }
-
-
-		if (isDrifting)
-		{
-			PerformDrift(currentSpeed, currentAngular);
-		}
-		else
-		{
-			PerformSteering(currentSpeed, currentAngular);
-		}
 
 		// float rightFrictionForce = FVector::DotProduct(carMesh->GetPhysicsLinearVelocity(), GetActorRightVector());
 		//
@@ -174,12 +186,24 @@ void AVehiclePawn::Movement()
 		//
 		// carMesh->AddForce(frontFrictionForce * GetActorForwardVector() * -1 * frictionRate);
 		//
+
+		carMesh->SetPhysicsLinearVelocity(GetForward() * currentSpeed);
 	}
 	else
 	{
-		carMesh->SetLinearDamping(.1f);
-	}
+		float exponentialValue = (FMath::Exp(decelerationTimer / decelerationRate) - 1);
+		if (currentSpeed > 0)
+			currentSpeed = FMath::Max<float>(
+				currentSpeed - maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
+		else if (currentSpeed < 0)
+			currentSpeed = FMath::Min<float>(
+				currentSpeed + maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
 
+		// GetMesh()->AddRelativeRotation(FRotator(-5 * GetWorld()->DeltaTimeSeconds, 0, 0));
+		//
+		// carMesh->SetPhysicsLinearVelocity(GetForward() * currentSpeed);
+	}
+	//
 	for (UTyreComponent* tyre : tyres)
 	{
 		if (tyre->GetName().Contains("Left"))
@@ -187,8 +211,8 @@ void AVehiclePawn::Movement()
 		else
 			tyre->RotateTyres(currentSpeed);
 	}
-
-	if (lastVelocity < 0)
+	//
+	if (currentSpeed < 0)
 	{
 		normalCamera->Deactivate();
 		reverseCamera->Activate();
@@ -198,27 +222,27 @@ void AVehiclePawn::Movement()
 		reverseCamera->Deactivate();
 		normalCamera->Activate();
 	}
-
-	if (performDriftBoost)
-	{
-		if (driftBoostTimer > driftBoostTime)
-		{
-			performDriftBoost = false;
-			SetMaxSpeed(initialMaxSpeed);
-			driftBoostTimer = 0;
-		}
-		else
-		{
-			driftBoostTimer += GetWorld()->DeltaTimeSeconds;
-		}
-	}
+	//
+	// if (performDriftBoost)
+	// {
+	// 	if (driftBoostTimer > driftBoostTime)
+	// 	{
+	// 		performDriftBoost = false;
+	// 		SetMaxSpeed(initialMaxSpeed);
+	// 		driftBoostTimer = 0;
+	// 	}
+	// 	else
+	// 	{
+	// 		driftBoostTimer += GetWorld()->DeltaTimeSeconds;
+	// 	}
+	// }
 
 	//DEBUG
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
 		                                 FString::Printf(
-			                                 TEXT("Angular: %f"), currentAngular));
+			                                 TEXT("Angular: %f"), GetMesh()->GetRelativeRotation().Pitch));
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
 		                                 FString::Printf(
 			                                 TEXT("Speed: %f"), currentSpeed));
@@ -246,21 +270,21 @@ void AVehiclePawn::Accelerate()
 	networkComponent->SetDataIsAccelerating();
 	isAccelerating = networkComponent->GetDataIsAccelerating();
 	if (!isAccelerating)
-		accelerationTimer = 0;
+		accelerationTimer = 1;
 }
 
-void AVehiclePawn::PerformAcceleration()
-{
-	carMesh->SetLinearDamping(1.f);
-	if (currentSpeed < maxSpeed * terrainFriction)
-	{
-		carMesh->AddForceAtLocation(
-			GetForward() * acceleration * FMath::Exp(accelerationTimer) * accelerationRate,
-			GetCenterOfMass());
-		lastVelocity = currentSpeed;
-		accelerationTimer += GetWorld()->DeltaTimeSeconds;
-	}
-}
+// void AVehiclePawn::PerformAcceleration()
+// {
+// 	carMesh->SetLinearDamping(1.f);
+// 	if (currentSpeed < maxSpeed * terrainFriction)
+// 	{
+// 		carMesh->AddForceAtLocation(
+// 			GetForward() * acceleration * FMath::Exp(accelerationTimer) * accelerationRate,
+// 			GetCenterOfMass());
+// 		lastVelocity = currentSpeed;
+// 		accelerationTimer += GetWorld()->DeltaTimeSeconds;
+// 	}
+// }
 
 /*
 *#####
@@ -274,37 +298,38 @@ void AVehiclePawn::Brake()
 	isBraking = networkComponent->GetDataIsBraking();
 	if (!isBraking)
 	{
-		brakeTimer = 0;
-		reverseTimer = 0;
+		brakeTimer = 1;
+		// reverseTimer = 0;
 	}
 }
 
-void AVehiclePawn::PerformBraking(float& currentVelocity)
-{
-	carMesh->SetLinearDamping(1.f);
-	currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
-	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
-	                                 FString::Printf(
-		                                 TEXT("Object= %f"),
-		                                 currentVelocity));
-	if (currentVelocity < maxSpeed / 20 && currentVelocity > reverseSpeed)
-	{
-		carMesh->AddForceAtLocation(
-			-GetForward() * acceleration * FMath::Exp(reverseTimer) * accelerationRate,
-			GetCenterOfMass());
-		lastVelocity = currentVelocity;
-		brakeTimer = 0;
-		reverseTimer += GetWorld()->DeltaTimeSeconds;
-	}
-	else
-	{
-		carMesh->AddForceAtLocation(-GetForward() * acceleration * FMath::Exp(brakeTimer) * brakeRate,
-		                            GetCenterOfMass());
-		lastVelocity = currentVelocity;
-		reverseTimer = 0;
-		brakeTimer += GetWorld()->DeltaTimeSeconds;
-	}
-}
+//
+// void AVehiclePawn::PerformBraking(float& currentVelocity)
+// {
+// 	carMesh->SetLinearDamping(1.f);
+// 	currentVelocity = lastVelocity < currentVelocity ? -currentVelocity : currentVelocity;
+// 	GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
+// 	                                 FString::Printf(
+// 		                                 TEXT("Object= %f"),
+// 		                                 currentVelocity));
+// 	if (currentVelocity < maxSpeed / 20 && currentVelocity > reverseSpeed)
+// 	{
+// 		carMesh->AddForceAtLocation(
+// 			-GetForward() * acceleration * FMath::Exp(reverseTimer) * accelerationRate,
+// 			GetCenterOfMass());
+// 		lastVelocity = currentVelocity;
+// 		brakeTimer = 0;
+// 		reverseTimer += GetWorld()->DeltaTimeSeconds;
+// 	}
+// 	else
+// 	{
+// 		carMesh->AddForceAtLocation(-GetForward() * acceleration * FMath::Exp(brakeTimer) * brakeRate,
+// 		                            GetCenterOfMass());
+// 		lastVelocity = currentVelocity;
+// 		reverseTimer = 0;
+// 		brakeTimer += GetWorld()->DeltaTimeSeconds;
+// 	}
+// }
 
 /*
 *#####
@@ -318,40 +343,39 @@ void AVehiclePawn::Steer(float value)
 	steerValue = networkComponent->GetDataTurnValue();
 }
 
-float AVehiclePawn::CalculateMaxSteerValue(float currentVelocity)
-{
-	float x = currentVelocity / maxSpeed;
-	float steeringAngle = maxSteerAngle;
-	if (x < 0) steeringAngle *= FMath::Sin(-4 * x);
-	else if (x < 0.25) steeringAngle *= FMath::Sin(1885 * x / 300);
-	else steeringAngle *= FMath::Sin((x / 1.15) + 1.5);
-	return steeringAngle;
-}
-
-void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
-{
-	carMesh->SetAngularDamping(10.f);
-	float steeringAngle = CalculateMaxSteerValue(currentVelocity);
-
-	carMesh->SetPhysicsMaxAngularVelocityInDegrees(steeringAngle);
-
-	carMesh->AddTorqueInDegrees(
-		carMesh->GetUpVector() * steeringRate * steerValue * steeringAngle,
-		NAME_None, true);
-
-	for (UTyreComponent* tyre : tyres)
-	{
-		if (traction4x4 || tyre->GetName().Contains("Front"))
-			tyre->Steer(steerValue);
-	}
-}
+// float AVehiclePawn::CalculateMaxSteerValue(float currentVelocity)
+// {
+// 	float x = currentVelocity / maxSpeed;
+// 	float steeringAngle = maxSteerAngle;
+// 	if (x < 0) steeringAngle *= FMath::Sin(-4 * x);
+// 	else if (x < 0.25) steeringAngle *= FMath::Sin(1885 * x / 300);
+// 	else steeringAngle *= FMath::Sin((x / 1.15) + 1.5);
+// 	return steeringAngle;
+// }
+//
+// void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
+// {
+// 	carMesh->SetAngularDamping(10.f);
+// 	float steeringAngle = CalculateMaxSteerValue(currentVelocity);
+//
+// 	carMesh->SetPhysicsMaxAngularVelocityInDegrees(steeringAngle);
+//
+// 	carMesh->AddTorqueInDegrees(
+// 		carMesh->GetUpVector() * steeringRate * steerValue * steeringAngle,
+// 		NAME_None, true);
+//
+// 	for (UTyreComponent* tyre : tyres)
+// 	{
+// 		if (traction4x4 || tyre->GetName().Contains("Front"))
+// 			tyre->Steer(steerValue);
+// 	}
+// }
 
 /*
 *#####
 *DRIFT
 *#####
 */
-
 void AVehiclePawn::Drift()
 {
 	networkComponent->SetDataIsDrifting();
@@ -359,9 +383,7 @@ void AVehiclePawn::Drift()
 
 	if (isDrifting)
 	{
-		driftSign = FMath::Sign(steerValue);
-		driftCameraRotationValue = -driftSign * cameraRotation;
-		springArm->AddLocalRotation(FRotator(0, driftCameraRotationValue, 0));
+		StartDrift();
 	}
 	else
 	{
@@ -369,31 +391,40 @@ void AVehiclePawn::Drift()
 	}
 }
 
-void AVehiclePawn::PerformDrift(float currentVelocity, float currentAngular)
+//
+// void AVehiclePawn::PerformDrift(float currentVelocity, float currentAngular)
+// {
+// 	carMesh->SetAngularDamping(5.f);
+// 	if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / 1.75f)
+// 	{
+// 		StopDrift();
+// 		return;
+// 	}
+// 	if (currentAngular >= maxDriftAngle / 2)
+// 	{
+// 		if (!canDriftBoost)
+// 		{
+// 			InstantiateDriftBoostParticles();
+// 			canDriftBoost = true;
+// 		}
+// 	}
+// 	carMesh->SetPhysicsMaxAngularVelocityInDegrees(CalculateMaxDriftValue(currentVelocity));
+//
+// 	carMesh->AddTorqueInDegrees(carMesh->GetUpVector() * steeringRate * driftSign, NAME_None, true);
+//
+// 	for (UTyreComponent* tyre : tyres)
+// 	{
+// 		if (tyre->GetName().Contains("Front"))
+// 			tyre->Drift(steerValue);
+// 	}
+// }
+//
+
+void AVehiclePawn::StartDrift()
 {
-	carMesh->SetAngularDamping(5.f);
-	if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / 1.75f)
-	{
-		StopDrift();
-		return;
-	}
-	if (currentAngular >= maxDriftAngle / 2)
-	{
-		if (!canDriftBoost)
-		{
-			InstantiateDriftBoostParticles();
-			canDriftBoost = true;
-		}
-	}
-	carMesh->SetPhysicsMaxAngularVelocityInDegrees(CalculateMaxDriftValue(currentVelocity));
-
-	carMesh->AddTorqueInDegrees(carMesh->GetUpVector() * steeringRate * driftSign, NAME_None, true);
-
-	for (UTyreComponent* tyre : tyres)
-	{
-		if (tyre->GetName().Contains("Front"))
-			tyre->Drift(steerValue);
-	}
+	driftSign = FMath::Sign(steerValue);
+	driftCameraRotationValue = -driftSign * cameraRotation;
+	springArm->AddLocalRotation(FRotator(0, driftCameraRotationValue, 0));
 }
 
 void AVehiclePawn::StopDrift()
@@ -418,37 +449,38 @@ void AVehiclePawn::StopDrift()
 	}
 }
 
-float AVehiclePawn::CalculateMaxDriftValue(float currentVelocity)
-{
-	float MaxSteerValue = CalculateMaxSteerValue(currentVelocity);
-	if (driftValue == 0)
-		driftValue = MaxSteerValue;
-
-	if (steerValue == 0)
-	{
-		driftTimer = 0;
-		driftInverseTimer = 0;
-	}
-
-	if (FMath::Sign(steerValue) == driftSign)
-	{
-		driftInverseTimer = 0;
-		driftTimer += FMath::Abs(steerValue) * GetWorld()->DeltaTimeSeconds;
-		driftValue += (FMath::Exp(driftTimer / driftRateIncrease) - 1);
-	}
-	else
-	{
-		driftTimer = 0;
-		driftInverseTimer += FMath::Abs(steerValue) * GetWorld()->DeltaTimeSeconds;
-		driftValue -= (FMath::Exp(driftInverseTimer / driftRateDecrease) - 1);
-	}
-
-	return driftValue >= maxDriftAngle
-		       ? maxDriftAngle
-		       : driftValue <= MaxSteerValue
-		       ? MaxSteerValue
-		       : driftSign * driftValue;
-}
+//
+// float AVehiclePawn::CalculateMaxDriftValue(float currentVelocity)
+// {
+// 	float MaxSteerValue = CalculateMaxSteerValue(currentVelocity);
+// 	if (driftValue == 0)
+// 		driftValue = MaxSteerValue;
+//
+// 	if (steerValue == 0)
+// 	{
+// 		driftTimer = 0;
+// 		driftInverseTimer = 0;
+// 	}
+//
+// 	if (FMath::Sign(steerValue) == driftSign)
+// 	{
+// 		driftInverseTimer = 0;
+// 		driftTimer += FMath::Abs(steerValue) * GetWorld()->DeltaTimeSeconds;
+// 		driftValue += (FMath::Exp(driftTimer / driftRateIncrease) - 1);
+// 	}
+// 	else
+// 	{
+// 		driftTimer = 0;
+// 		driftInverseTimer += FMath::Abs(steerValue) * GetWorld()->DeltaTimeSeconds;
+// 		driftValue -= (FMath::Exp(driftInverseTimer / driftRateDecrease) - 1);
+// 	}
+//
+// 	return driftValue >= maxDriftAngle
+// 		       ? maxDriftAngle
+// 		       : driftValue <= MaxSteerValue
+// 		       ? MaxSteerValue
+// 		       : driftSign * driftValue;
+// }
 
 /*
 *#######
@@ -463,12 +495,12 @@ void AVehiclePawn::GravityForce() const
 
 void AVehiclePawn::SuspensionForces()
 {
-	inGround = false;
+	inGround = true;
 	terrainFriction = 1;
 	for (UTyreComponent* tyre : tyres)
 	{
-		if (tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate, &terrainFriction))
-			inGround = true;
+		if (!tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate, &terrainFriction))
+			inGround = false;
 	}
 }
 
@@ -507,7 +539,7 @@ void AVehiclePawn::UseObject()
 
 void AVehiclePawn::RemoveObject()
 {
-	if(currentObject)
+	if (currentObject)
 	{
 		currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		currentObject->SetOwner(nullptr);
@@ -566,17 +598,59 @@ void AVehiclePawn::NormalControls()
 
 FVector AVehiclePawn::GetForward() const
 {
-	FHitResult hit;
-	FVector position = GetActorLocation();
-	FVector end = position - (GetActorUpVector() * 300);
-	FVector forward = GetActorForwardVector();
+	// FHitResult hit;
+	// FVector position = GetActorLocation();
+	// FVector end = position - (GetActorUpVector() * 300);
+	// FVector forward = GetActorForwardVector();
+	//
+	// GetWorld()->LineTraceSingleByChannel(hit, position, end, ECC_WorldStatic);
+	//
+	// if (hit.bBlockingHit)
+	// {
+	// 	forward = GetActorForwardVector() - hit.Normal * GetActorForwardVector();
+	// }
+	//
+	// end = position + (forward * 3000);
+	//
+	// GetWorld()->LineTraceSingleByChannel(hit, position, end, ECC_WorldStatic);
+	// if (hit.bBlockingHit)
+	// {
+	// 	DrawDebugLine(GetWorld(), hit.ImpactPoint, hit.ImpactPoint + (hit.ImpactNormal+ * 3000), FColor::Blue, true, 100, 0, 10);
+	// 	end = hit.ImpactPoint;
+	// }
+	//
+	// DrawDebugLine(GetWorld(), position, position + (forward * 3000), FColor::Blue, false, -1, 0, 10);
+	TArray<FVector> rearArray, frontArray;
 
-	GetWorld()->LineTraceSingleByChannel(hit, position, end, ECC_WorldStatic);
-
-	if (hit.bBlockingHit)
+	for (UTyreComponent* tyre : tyres)
 	{
-		forward = GetActorForwardVector() - hit.Normal * GetActorForwardVector();
+		if (tyre->GetName().Contains("Rear"))
+		{
+			rearArray.Add(tyre->GetImpactPoint());
+		}
+		else
+		{
+			frontArray.Add(tyre->GetImpactPoint());
+		}
 	}
+	FVector rearVector, frontVector;
+	for (auto rear : rearArray)
+	{
+		rearVector += rear;
+	}
+	rearVector /= rearArray.Num();
+
+	for (auto front : frontArray)
+	{
+		frontVector += front;
+	}
+	frontVector /= frontArray.Num();
+
+
+	FVector forward = frontVector - rearVector;
+	forward.Normalize();
+	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + (forward * 3000), FColor::Blue, false, -1, 0,
+	              10);
 
 	return forward;
 }

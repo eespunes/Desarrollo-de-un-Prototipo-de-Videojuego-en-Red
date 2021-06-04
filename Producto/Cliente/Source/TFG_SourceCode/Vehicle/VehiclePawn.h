@@ -31,6 +31,7 @@ public:
 	virtual void Accelerate() override;
 	virtual void Brake() override;
 	virtual void Steer(float value) override;
+	void StartDrift();
 	virtual void Drift() override;
 	void StopDrift();
 	virtual void UseObject() override;
@@ -101,15 +102,15 @@ protected:
 
 	//Accelerate
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
-	float accelerationRate = 1.f;
-	float acceleration;
-	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float maxSpeed = 500.f;
 	float initialMaxSpeed;
 	float currentSpeed;
 	bool isAccelerating = false;
 	float lastVelocity;
 	float accelerationTimer;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
+	float accelerationRate = 1.f;
+	float acceleration;
 
 	//Brake
 	bool isBraking;
@@ -121,15 +122,16 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float reverseRate = 3;
 	float reverseSpeed;
-	float reverseAcceleration;
-	float reverseTimer;
+	// float reverseAcceleration;
+	// float reverseTimer;
 
 	//Deceleration
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
-	float frictionDecelerationRate;
-	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
-	float frictionRate;
+	float decelerationRate;
 	float decelerationTimer;
+
+	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
+	int maxPitchRotation=5;
 
 	//Turn
 	UPROPERTY(EditAnywhere, Category="Vehicle: Turn")
