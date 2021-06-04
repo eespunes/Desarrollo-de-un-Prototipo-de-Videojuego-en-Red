@@ -330,7 +330,7 @@ float AVehiclePawn::CalculateMaxSteerValue(float currentVelocity)
 
 void AVehiclePawn::PerformSteering(float currentVelocity, float currentAngular)
 {
-	carMesh->SetAngularDamping(0.f);
+	carMesh->SetAngularDamping(10.f);
 	float steeringAngle = CalculateMaxSteerValue(currentVelocity);
 
 	carMesh->SetPhysicsMaxAngularVelocityInDegrees(steeringAngle);
@@ -371,7 +371,7 @@ void AVehiclePawn::Drift()
 
 void AVehiclePawn::PerformDrift(float currentVelocity, float currentAngular)
 {
-	carMesh->SetAngularDamping(0.f);
+	carMesh->SetAngularDamping(5.f);
 	if (driftSign == 0 || FMath::Abs(currentVelocity) < maxSpeed / 1.75f)
 	{
 		StopDrift();

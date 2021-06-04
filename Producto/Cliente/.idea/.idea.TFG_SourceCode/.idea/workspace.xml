@@ -86,8 +86,8 @@
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Containers/FenrirRoarContainer.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1t6rWv1qIRLMv2h4jIKallUyC2v" />
@@ -343,7 +343,7 @@
       <workItem from="1622704205008" duration="7635000" />
       <workItem from="1622729815335" duration="4346000" />
       <workItem from="1622735130579" duration="784000" />
-      <workItem from="1622735997677" duration="5562000" />
+      <workItem from="1622735997677" duration="6190000" />
     </task>
     <servers />
   </component>
