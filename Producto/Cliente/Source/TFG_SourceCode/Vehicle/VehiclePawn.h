@@ -37,8 +37,7 @@ public:
 	virtual void UseObject() override;
 	void RemoveObject();
 
-	FVector GetForward() const;
-	FVector GetUp() const;
+	FVector GetForward();
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
@@ -106,11 +105,9 @@ protected:
 	float initialMaxSpeed;
 	float currentSpeed;
 	bool isAccelerating = false;
-	float lastVelocity;
 	float accelerationTimer;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float accelerationRate = 1.f;
-	float acceleration;
 
 	//Brake
 	bool isBraking;
@@ -122,38 +119,41 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float reverseRate = 3;
 	float reverseSpeed;
-	// float reverseAcceleration;
-	// float reverseTimer;
 
 	//Deceleration
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float decelerationRate;
 	float decelerationTimer;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
+	float flyRate;
 
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	int maxPitchRotation=5;
 
 	//Turn
 	UPROPERTY(EditAnywhere, Category="Vehicle: Turn")
-	float steeringRate = 10.f;
-	UPROPERTY(EditAnywhere, Category="Vehicle: Turn")
-	float maxSteerAngle = 50.f;
+	float steeringRate = 40.f;
 	float lastTurnValue;
 	float steerValue;
 
 	//Drift
 	UPROPERTY(EditAnywhere, Category="Vehicle: Drift")
-	float maxDriftAngle = 100.f;
+	float finalDriftingRate = 100.f;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Drift")
+	float initialDriftingRate = 20.f;
 	bool isDrifting;
 	float driftValue;
-	float driftTimer;
-	float driftInverseTimer;
+	float driftIncreaseTimer;
+	float driftDecreaseTimer;
 	float driftSign;
-	float lastAngular;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Drift")
 	float driftRateIncrease = 20;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Drift")
 	float driftRateDecrease = 40;
+	float cameraRotation = 15;
+	float driftCameraRotationValue;
+	bool traction4x4 = false;
+
 	//Drift Boost
 	bool canDriftBoost;
 	bool performDriftBoost;
@@ -168,34 +168,34 @@ protected:
 
 	//Objects
 	AObjectBase* currentObject = nullptr;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Object")
 	float hitWaiting = 3;
-	bool hasBeenHit{true};
+	bool hasBeenHit=true;
 	float hitTimer;
 	bool invertControls;
 	AActor* currentParticle;
 
-	float cameraRotation = 15;
-	float driftCameraRotationValue;
-	float cameraRotationConstant = 0;
-	bool traction4x4 = false;
-
 	URaceGameInstance* gameInstance;
 	
 	float terrainFriction=1;
+	float inPitch;
+	float inPitchValue=0;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();
+	
 	void PerformAcceleration();
 	void PerformBraking(float& currentVelocity);
 	void PerformSteering(float currentVelocity, float currentAngular);
 	void PerformDrift(float currentVelocity, float currentAngular);
-	float CalculateMaxSteerValue(float currentVelocity);
-	float CalculateMaxDriftValue(float currentVelocity);
 
 	void GravityForce() const;
 	virtual void SuspensionForces();
 	virtual void InstantiateDriftBoostParticles();
 
 	void WaitAfterHit(float DeltaTime);
+	
+	FVector CalculateAverageDirection(TArray<FVector> vectors);
+	
 };

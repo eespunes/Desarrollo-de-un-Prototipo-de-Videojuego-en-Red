@@ -66,14 +66,14 @@ void AObjectContainer::OnOverlapBegin(AActor* ownerActor, AActor* otherActor)
 		{
 			if (!Cast<AObjectBase>(vehiclePawn->GetCurrentObject()))
 			{
-				// if (!Cast<AVehicleNetworkController>(vehiclePawn->GetController()))
-				// {
-				// 	int32 objectIdx = gameInstance->GetRandomObject(vehiclePawn->GetRaceComponent()->GetPosition());
-				//
-				// 	vehiclePawn->GetNetworkComponent()->SetObjectData(objectIdx);
-				// 	
-				// 	vehiclePawn->SetCurrentObject(gameInstance->GetObject(objectIdx));
-				// }
+				if (!Cast<AVehicleNetworkController>(vehiclePawn->GetController()))
+				{
+					int32 objectIdx = gameInstance->GetRandomObject(vehiclePawn->GetRaceComponent()->GetPosition());
+				
+					vehiclePawn->GetNetworkComponent()->SetObjectData(objectIdx);
+					
+					vehiclePawn->SetCurrentObject(gameInstance->GetObject(objectIdx));
+				}
 				DisableContainer();
 			}
 		}

@@ -67,7 +67,7 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 		{
 			*TerrainFriction = 0.5f;
 		}
-		
+
 		return true;
 	}
 
@@ -75,8 +75,8 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 	{
 		suspensionCompression = 0;
 		rootPoint->SetWorldLocation(end);
-		DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0,
-	10);
+		impactPoint = FVector::ZeroVector;
+		DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0,10);
 		return false;
 	}
 }
@@ -129,5 +129,3 @@ FVector UTyreComponent::GetImpactPoint() const
 {
 	return impactPoint;
 }
-
-
