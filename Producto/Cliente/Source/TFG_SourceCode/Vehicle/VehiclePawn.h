@@ -45,7 +45,8 @@ public:
 	AObjectBase* GetCurrentObject() const;
 	void SetCurrentObject(TSubclassOf<UObject> CurrentObject);
 	float GetMaxSpeed() const;
-	void SetMaxSpeed(float speed);
+	void SetMaxSpeedMultiplier(float multiplier);
+	void ResetMaxSpeedMultiplier();
 	float GetInitialMaxSpeed() const;
 	void Damage();
 	void InstantiateParticle(const TSubclassOf<AActor>& particle);
@@ -75,9 +76,11 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	USceneComponent* particleSpawnPoint;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
-	USpringArmComponent* springArm;
+	USpringArmComponent* normalSpringArm;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UCameraComponent* normalCamera;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
+	USpringArmComponent* reverseSpringArm;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UCameraComponent* reverseCamera;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
@@ -103,6 +106,7 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float maxSpeed = 500.f;
 	float initialMaxSpeed;
+	float maxSpeedMultiplier=1;
 	float currentSpeed;
 	bool isAccelerating = false;
 	float accelerationTimer;
@@ -177,18 +181,20 @@ protected:
 
 	URaceGameInstance* gameInstance;
 	
-	float terrainFriction=1;
-	float inPitch;
-	float inPitchValue=0;
+	bool performObjectBoost;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Camera")
+	int constantFieldOfView;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Camera")
+	int variableFieldOfView;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();
 	
 	void PerformAcceleration();
-	void PerformBraking(float& currentVelocity);
-	void PerformSteering(float currentVelocity, float currentAngular);
-	void PerformDrift(float currentVelocity, float currentAngular);
+	void PerformBraking();
+	void PerformSteering();
+	void PerformDrift();
 
 	void GravityForce() const;
 	virtual void SuspensionForces();
