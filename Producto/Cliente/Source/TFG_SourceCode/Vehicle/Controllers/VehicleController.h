@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "TFG_SourceCode/GameModes/RaceGameInstance.h"
 #include "TFG_SourceCode/Vehicle/IVehicle.h"
 
 #include "VehicleController.generated.h"
@@ -33,6 +34,8 @@ private:
 	TSubclassOf<class UUserWidget> hudClass;
 	UPROPERTY(EditAnywhere,Category="UI")
 	TSubclassOf<class UUserWidget> pauseClass;
+	URaceGameInstance* gameInstance;
+	bool pauseMenuActivated;
 
 	virtual void SetupInputComponent() override;
 	void Actions();

@@ -39,6 +39,7 @@ public:
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
+	UFUNCTION(BlueprintPure)
 	UNetworkComponent* GetNetworkComponent() const;
 	
 	AObjectBase* GetCurrentObject() const;
@@ -81,11 +82,6 @@ public:
 
 	float GetDriftSign();
 	UTextRenderComponent* GetPlayerText();
-
-	void SetPing(int32 ping);
-	UFUNCTION(BlueprintPure)
-	int32 GetPing();
-
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UStaticMeshComponent* carMesh;

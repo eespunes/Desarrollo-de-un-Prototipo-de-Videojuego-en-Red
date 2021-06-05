@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b9b6b5-5593-4d70-afa3-760a9c114479" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_RaceGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_CarPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_FormulaPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_FormulaPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_PauseMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_PauseMenu.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/AI/States/RacingState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Ragnarok.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/TyreComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleNetworkController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleNetworkController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" afterDir="false" />
     </list>
@@ -29,11 +28,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
     </changedPaths>
   </component>
@@ -170,13 +183,17 @@
       <option name="presentableId" value="Default" />
       <updated>1622908250742</updated>
       <workItem from="1622908281199" duration="2183000" />
+      <workItem from="1622911041133" duration="627000" />
+      <workItem from="1622913130106" duration="12000" />
+      <workItem from="1622913195487" duration="2064000" />
+      <workItem from="1622915341590" duration="1789000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

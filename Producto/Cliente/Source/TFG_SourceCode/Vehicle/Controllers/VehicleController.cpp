@@ -4,6 +4,7 @@
 #include "VehicleController.h"
 
 #include "Blueprint/UserWidget.h"
+#include "Kismet/GameplayStatics.h"
 #include "TFG_SourceCode/Vehicle/VehiclePawn.h"
 
 void AVehicleController::BeginPlay()
@@ -12,6 +13,8 @@ void AVehicleController::BeginPlay()
 	vehiclePawn = Cast<AVehiclePawn>(GetPawn());
 	UUserWidget* HUD = CreateWidget(this, hudClass);
 	HUD->AddToViewport();
+
+	gameInstance = Cast<URaceGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
 }
 
 void AVehicleController::SetupInputComponent()
@@ -80,11 +83,14 @@ void AVehicleController::UseObject()
 
 void AVehicleController::Pause()
 {
-	if (!IsPaused())
+	if (!gameInstance->GetPauseMenuActivated())
 	{
 		UUserWidget* pauseHUD = CreateWidget(this, pauseClass);
 		pauseHUD->AddToViewport();
-		SetPause(true);
+		if (!gameInstance->IsMultiplayer())
+			SetPause(true);
+		gameInstance->SetPauseMenuActivated(true);
+		pauseMenuActivated = true;
 		bShowMouseCursor = true;
 		bEnableClickEvents = true;
 		bEnableMouseOverEvents = true;
