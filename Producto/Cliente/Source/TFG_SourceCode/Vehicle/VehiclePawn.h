@@ -31,9 +31,7 @@ public:
 	virtual void Accelerate() override;
 	virtual void Brake() override;
 	virtual void Steer(float value) override;
-	void StartDrift();
 	virtual void Drift() override;
-	void StopDrift();
 	virtual void UseObject() override;
 	void RemoveObject();
 
@@ -107,7 +105,7 @@ protected:
 	float maxSpeed = 500.f;
 	float initialMaxSpeed;
 	float maxSpeedMultiplier=1;
-	float currentSpeed;
+	float speed;
 	bool isAccelerating = false;
 	float accelerationTimer;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
@@ -178,6 +176,8 @@ protected:
 	float hitTimer;
 	bool invertControls;
 	AActor* currentParticle;
+	UPROPERTY(EditAnywhere, Category="Vehicle: Object")
+	TSubclassOf<UMatineeCameraShake> cameraShake;
 
 	URaceGameInstance* gameInstance;
 	
@@ -195,6 +195,9 @@ protected:
 	void PerformBraking();
 	void PerformSteering();
 	void PerformDrift();
+
+	void StartDrift();
+	void StopDrift();
 
 	void GravityForce() const;
 	virtual void SuspensionForces();

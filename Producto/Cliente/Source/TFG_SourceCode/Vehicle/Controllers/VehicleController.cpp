@@ -45,62 +45,42 @@ void AVehicleController::Axis()
 
 void AVehicleController::Accelerate()
 {
-	if (!vehiclePawn)
-	{
-		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
-		return;
-	}
+	if (!vehiclePawn)return;
 
 	vehiclePawn->Accelerate();
 }
 
 void AVehicleController::Brake()
 {
-	if (!vehiclePawn)
-	{
-		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
-		return;
-	}
+	if (!vehiclePawn)return;
 
 	vehiclePawn->Brake();
 }
 
 void AVehicleController::Steer(float value)
 {
-	if (!vehiclePawn)
-	{
-		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
-		return;
-	}
+	if (!vehiclePawn) return;
 
 	vehiclePawn->Steer(value);
 }
 
 void AVehicleController::Drift()
 {
-	if (!vehiclePawn)
-	{
-		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
-		return;
-	}
+	if (!vehiclePawn) return;
 
 	vehiclePawn->Drift();
 }
 
 void AVehicleController::UseObject()
 {
-	if (!vehiclePawn)
-	{
-		UE_LOG(LogTemp, Error, TEXT("There's no AVehiclePawn instance in %s"), *GetName());
-		return;
-	}
+	if (!vehiclePawn)return;
 
 	vehiclePawn->UseObject();
 }
 
 void AVehicleController::Pause()
 {
-	if(!IsPaused())
+	if (!IsPaused())
 	{
 		UUserWidget* pauseHUD = CreateWidget(this, pauseClass);
 		pauseHUD->AddToViewport();

@@ -42,7 +42,7 @@ AVehiclePawn::AVehiclePawn()
 
 	reverseSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Reverse Spring Arm"));
 	reverseSpringArm->SetupAttachment(carMesh);
-	
+
 	reverseCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Reverse Camera"));
 	reverseCamera->SetupAttachment(reverseSpringArm);
 	reverseCamera->Deactivate();
@@ -118,15 +118,15 @@ void AVehiclePawn::Movement()
 		else
 		{
 			float exponentialValue = (FMath::Exp(decelerationTimer / decelerationRate) - 1);
-			if (currentSpeed > 0)
+			if (speed > 0)
 			{
-				currentSpeed = FMath::Max<float>(
-					currentSpeed - maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
+				speed = FMath::Max<float>(
+					speed - maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
 			}
-			else if (currentSpeed < 0)
+			else if (speed < 0)
 			{
-				currentSpeed = FMath::Min<float>(
-					currentSpeed + maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
+				speed = FMath::Min<float>(
+					speed + maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
 			}
 			decelerationTimer += GetWorld()->DeltaTimeSeconds;
 		}
@@ -163,30 +163,30 @@ void AVehiclePawn::Movement()
 			}
 		}
 
-		carMesh->SetPhysicsLinearVelocity(GetForward() * currentSpeed);
+		carMesh->SetPhysicsLinearVelocity(GetForward() * speed);
 	}
 	else
 	{
 		float exponentialValue = (FMath::Exp(decelerationTimer / decelerationRate) - 1);
-		if (currentSpeed > 0)
-			currentSpeed = FMath::Max<float>(
-				currentSpeed - maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
-		else if (currentSpeed < 0)
-			currentSpeed = FMath::Min<float>(
-				currentSpeed + maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
+		if (speed > 0)
+			speed = FMath::Max<float>(
+				speed - maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
+		else if (speed < 0)
+			speed = FMath::Min<float>(
+				speed + maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
 
-		carMesh->AddForce(GetForward() * currentSpeed / flyRate, NAME_None, true);
+		carMesh->AddForce(GetForward() * speed / flyRate, NAME_None, true);
 	}
 
 	for (UTyreComponent* tyre : tyres)
 	{
 		if (tyre->GetName().Contains("Left"))
-			tyre->RotateTyres(-currentSpeed / 2);
+			tyre->RotateTyres(-speed / 2);
 		else
-			tyre->RotateTyres(currentSpeed / 2);
+			tyre->RotateTyres(speed / 2);
 	}
 
-	if (currentSpeed < 0)
+	if (speed < 0)
 	{
 		normalCamera->Deactivate();
 		reverseCamera->Activate();
@@ -197,20 +197,20 @@ void AVehiclePawn::Movement()
 		normalCamera->Activate();
 	}
 
-	normalCamera->FieldOfView = constantFieldOfView + (variableFieldOfView * (FMath::Abs(currentSpeed) / maxSpeed));
+	normalCamera->FieldOfView = constantFieldOfView + (variableFieldOfView * (FMath::Abs(speed) / maxSpeed));
 
 	//DEBUG
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
 		                                 FString::Printf(
-			                                 TEXT("Angular: %f"), maxSpeedMultiplier));
-		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
-		//                                  FString::Printf(
-		// 	                                 TEXT("inPitch: %f"), inPitch));
+			                                 TEXT("Steer: %f"), accelerationTimer));
+		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
+		                                 FString::Printf(
+			                                 TEXT("Drift: %f"), driftValue));
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
 		                                 FString::Printf(
-			                                 TEXT("Speed: %f"), currentSpeed));
+			                                 TEXT("Speed: %f"), speed));
 		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
 		//                                  FString::Printf(
 		// 	                                 TEXT("%s Position= (%f,%f,%f)"), *networkComponent->username,
@@ -241,32 +241,28 @@ void AVehiclePawn::Accelerate()
 
 void AVehiclePawn::PerformAcceleration()
 {
-	decelerationTimer = 1;
-
+	if (!hasBeenHit)
+		decelerationTimer = 1;
 
 	if (maxSpeedMultiplier == 1)
 	{
-		currentSpeed = FMath::Min<float>(
-			currentSpeed + maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->
-			DeltaTimeSeconds, maxSpeed);
+		speed = FMath::Min<float>(
+			speed + maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->DeltaTimeSeconds,
+			maxSpeed);
 	}
 	else
 	{
-		if (maxSpeedMultiplier < 1)
-		{
-			currentSpeed = FMath::Max<float>(
-				currentSpeed - maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->
-				DeltaTimeSeconds, maxSpeed * maxSpeedMultiplier);
-		}
+		if (maxSpeedMultiplier < 1 && speed > maxSpeed * maxSpeedMultiplier)
+			speed = FMath::Max<float>(
+				speed - maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->DeltaTimeSeconds,
+				maxSpeed * maxSpeedMultiplier);
 		else
-		{
-			currentSpeed = FMath::Min<float>(
-				currentSpeed + maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->
-				DeltaTimeSeconds, maxSpeed * maxSpeedMultiplier);
-		}
+			speed = FMath::Min<float>(
+				speed + maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->DeltaTimeSeconds,
+				maxSpeed * maxSpeedMultiplier);
 	}
 
-	if (currentSpeed == maxSpeed * maxSpeedMultiplier)
+	if (speed == maxSpeed * maxSpeedMultiplier)
 	{
 		accelerationTimer = 1;
 	}
@@ -295,11 +291,12 @@ void AVehiclePawn::Brake()
 
 void AVehiclePawn::PerformBraking()
 {
-	decelerationTimer = 1;
+	if (!hasBeenHit)
+		decelerationTimer = 1;
 
-	currentSpeed = FMath::Max<float>(
-		currentSpeed - maxSpeed * (FMath::Exp(brakeTimer / brakeRate) - 1) * GetWorld()->DeltaTimeSeconds,
-		reverseSpeed);
+	speed = FMath::Max<float>(
+		speed - maxSpeed * (FMath::Exp(brakeTimer / brakeRate) - 1) * GetWorld()->DeltaTimeSeconds,
+		reverseSpeed * maxSpeedMultiplier);
 	brakeTimer += GetWorld()->DeltaTimeSeconds;
 }
 
@@ -319,8 +316,8 @@ void AVehiclePawn::PerformSteering()
 {
 	GetMesh()->AddLocalRotation(
 		FRotator(
-			0, steeringRate * steerValue * (currentSpeed / (maxSpeed * maxSpeedMultiplier)) * GetWorld()->
-			DeltaTimeSeconds,
+			0,
+			steeringRate * steerValue * (speed / (maxSpeed * maxSpeedMultiplier)) * GetWorld()->DeltaTimeSeconds,
 			0));
 	for (UTyreComponent* tyre : tyres)
 	{
@@ -339,19 +336,13 @@ void AVehiclePawn::Drift()
 	networkComponent->SetDataIsDrifting();
 	isDrifting = networkComponent->GetDataIsDrifting();
 
-	if (isDrifting)
-	{
-		StartDrift();
-	}
-	else
-	{
-		StopDrift();
-	}
+	if (isDrifting) StartDrift();
+	else StopDrift();
 }
 
 void AVehiclePawn::PerformDrift()
 {
-	if (currentSpeed < maxSpeed / 2)
+	if (speed < maxSpeed / 2)
 	{
 		StopDrift();
 		return;
@@ -442,26 +433,9 @@ void AVehiclePawn::SuspensionForces()
 		if (!tyre->SuspensionForce(suspensionDistance, suspensionRate, dampingRate, &terrainFriction))
 			inGround = false;
 	}
-	if (!performObjectBoost && !performDriftBoost)
+	if (!performObjectBoost && !performDriftBoost && !hasBeenHit)
 	{
 		maxSpeedMultiplier = terrainFriction;
-	}
-}
-
-void AVehiclePawn::InstantiateDriftBoostParticles()
-{
-	for (UTyreComponent* tyre : tyres)
-	{
-		if (tyre->GetName().Contains("Rear"))
-		{
-			AActor* particle = GetWorld()->SpawnActor<AActor>(
-				driftBoostParticle,
-				tyre->GetRootPoint()->GetComponentLocation(),
-				tyre->GetRootPoint()->GetComponentRotation()
-			);
-			particle->AttachToComponent(tyre->GetRootPoint(), FAttachmentTransformRules::KeepWorldTransform);
-			boostParticles.Add(particle);
-		}
 	}
 }
 
@@ -470,6 +444,30 @@ void AVehiclePawn::InstantiateDriftBoostParticles()
 *OBJECTS RELATED
 *####### #######
 */
+
+AObjectBase* AVehiclePawn::GetCurrentObject() const
+{
+	return currentObject;
+}
+
+void AVehiclePawn::SetCurrentObject(TSubclassOf<UObject> CurrentObject)
+{
+	if (this->currentObject)
+	{
+		return;
+	}
+	if (CurrentObject)
+	{
+		networkComponent->SetUseObjectData(false);
+		this->currentObject = GetWorld()->SpawnActor<AObjectBase>(CurrentObject,
+		                                                          objectSpawnPoint->GetComponentLocation(),
+		                                                          GetActorRotation());
+		this->currentObject->SetVehicle(this);
+		this->currentObject->SetOwner(this);
+		this->currentObject->SetActorLocation(objectSpawnPoint->GetComponentLocation());
+		this->currentObject->AttachToComponent(objectSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
+	}
+}
 
 void AVehiclePawn::UseObject()
 {
@@ -496,7 +494,11 @@ void AVehiclePawn::RemoveObject()
 void AVehiclePawn::Damage()
 {
 	hasBeenHit = true;
-	maxSpeed = 0;
+	maxSpeedMultiplier = 0;
+	accelerationTimer = accelerationRate;
+	decelerationTimer = decelerationRate;
+	brakeTimer = brakeRate;
+	GetWorld()->GetFirstPlayerController()->PlayerCameraManager->PlayCameraShake(cameraShake, 1.0f);
 }
 
 void AVehiclePawn::WaitAfterHit(float DeltaTime)
@@ -506,7 +508,7 @@ void AVehiclePawn::WaitAfterHit(float DeltaTime)
 		if (hitTimer >= hitWaiting)
 		{
 			hasBeenHit = false;
-			maxSpeed = initialMaxSpeed;
+			maxSpeedMultiplier = 1;
 			hitTimer = 0;
 		}
 		hitTimer += DeltaTime;
@@ -569,13 +571,6 @@ FVector AVehiclePawn::GetForward()
 	{
 		forward = GetActorForwardVector();
 	}
-	// DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + (forward * 3000), FColor::Green, false, -1,
-	//               0, 10);
-	//
-	// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
-	//                                  FString::Printf(
-	// 	                                 TEXT("Forward= (%f,%f,%f)"),
-	// 	                                 forward.X, forward.Y, forward.Z));
 	return forward;
 }
 
@@ -604,30 +599,6 @@ URaceComponent* AVehiclePawn::GetRaceComponent() const
 UNetworkComponent* AVehiclePawn::GetNetworkComponent() const
 {
 	return networkComponent;
-}
-
-AObjectBase* AVehiclePawn::GetCurrentObject() const
-{
-	return currentObject;
-}
-
-void AVehiclePawn::SetCurrentObject(TSubclassOf<UObject> CurrentObject)
-{
-	if (this->currentObject)
-	{
-		return;
-	}
-	if (CurrentObject)
-	{
-		networkComponent->SetUseObjectData(false);
-		this->currentObject = GetWorld()->SpawnActor<AObjectBase>(CurrentObject,
-		                                                          objectSpawnPoint->GetComponentLocation(),
-		                                                          GetActorRotation());
-		this->currentObject->SetVehicle(this);
-		this->currentObject->SetOwner(this);
-		this->currentObject->SetActorLocation(objectSpawnPoint->GetComponentLocation());
-		this->currentObject->AttachToComponent(objectSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
-	}
 }
 
 float AVehiclePawn::GetMaxSpeed() const
@@ -670,7 +641,7 @@ bool AVehiclePawn::GetBraking()
 
 float AVehiclePawn::GetCurrentSpeed()
 {
-	return currentSpeed;
+	return speed;
 }
 
 float AVehiclePawn::GetDriftSign()
@@ -721,4 +692,21 @@ void AVehiclePawn::SetSteerValue(float bSteerValue)
 void AVehiclePawn::SetIsDrifting(bool bIsDrifting)
 {
 	isDrifting = bIsDrifting;
+}
+
+void AVehiclePawn::InstantiateDriftBoostParticles()
+{
+	for (UTyreComponent* tyre : tyres)
+	{
+		if (tyre->GetName().Contains("Rear"))
+		{
+			AActor* particle = GetWorld()->SpawnActor<AActor>(
+				driftBoostParticle,
+				tyre->GetRootPoint()->GetComponentLocation(),
+				tyre->GetRootPoint()->GetComponentRotation()
+			);
+			particle->AttachToComponent(tyre->GetRootPoint(), FAttachmentTransformRules::KeepWorldTransform);
+			boostParticles.Add(particle);
+		}
+	}
 }
