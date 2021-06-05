@@ -27,6 +27,7 @@ public:
 	void SetMesh(UStaticMeshComponent* Mesh);
 
 	USceneComponent* GetRootPoint() const;
+	FVector GetImpactPoint() const;
 
 protected:
 	// Called when the game starts
@@ -41,5 +42,5 @@ private:
 	float lastRotationValue;
 	float maxTyreRotation = 15;
 	float currentTyreRotation;
-
+	FVector impactPoint;
 };
