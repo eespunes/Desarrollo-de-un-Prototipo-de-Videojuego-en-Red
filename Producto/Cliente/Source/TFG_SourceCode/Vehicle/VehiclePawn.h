@@ -78,10 +78,6 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UCameraComponent* normalCamera;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
-	USpringArmComponent* reverseSpringArm;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
-	UCameraComponent* reverseCamera;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UTextRenderComponent* playerNameText;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
@@ -182,10 +178,13 @@ protected:
 	URaceGameInstance* gameInstance;
 	
 	bool performObjectBoost;
+	
 	UPROPERTY(EditAnywhere, Category="Vehicle: Camera")
 	int constantFieldOfView;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Camera")
 	int variableFieldOfView;
+	bool inForward;
+	bool inReverse;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

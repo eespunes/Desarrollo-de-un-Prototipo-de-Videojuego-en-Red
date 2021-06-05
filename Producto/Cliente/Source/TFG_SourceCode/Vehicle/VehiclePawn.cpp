@@ -40,15 +40,8 @@ AVehiclePawn::AVehiclePawn()
 	normalCamera->SetupAttachment(normalSpringArm);
 	normalCamera->Activate();
 
-	reverseSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Reverse Spring Arm"));
-	reverseSpringArm->SetupAttachment(carMesh);
-
-	reverseCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Reverse Camera"));
-	reverseCamera->SetupAttachment(reverseSpringArm);
-	reverseCamera->Deactivate();
-
 	playerNameText = CreateDefaultSubobject<UTextRenderComponent>(TEXT("Player Name"));
-	playerNameText->SetupAttachment(carMesh);
+	playerNameText->SetupAttachment(normalSpringArm);
 
 	raceComponent = CreateDefaultSubobject<URaceComponent>(TEXT("Race Component"));
 	networkComponent = CreateDefaultSubobject<UNetworkComponent>(TEXT("Network Component"));
@@ -71,6 +64,7 @@ void AVehiclePawn::BeginPlay()
 	accelerationTimer = 1;
 	brakeTimer = 1;
 	decelerationTimer = 1;
+	inForward = true;
 }
 
 // Called every frame
@@ -188,13 +182,21 @@ void AVehiclePawn::Movement()
 
 	if (speed < 0)
 	{
-		normalCamera->Deactivate();
-		reverseCamera->Activate();
+		if (!inReverse)
+		{
+			inForward = false;
+			normalSpringArm->AddLocalRotation(FRotator(-20,180, 0));
+			inReverse = true;
+		}
 	}
 	else
 	{
-		reverseCamera->Deactivate();
-		normalCamera->Activate();
+		if (!inForward)
+		{
+			inReverse = false;
+			normalSpringArm->AddLocalRotation(FRotator(-20, 180, 0));
+			inForward = true;
+		}
 	}
 
 	normalCamera->FieldOfView = constantFieldOfView + (variableFieldOfView * (FMath::Abs(speed) / maxSpeed));
@@ -202,26 +204,26 @@ void AVehiclePawn::Movement()
 	//DEBUG
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
-		                                 FString::Printf(
-			                                 TEXT("Steer: %f"), accelerationTimer));
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
-		                                 FString::Printf(
-			                                 TEXT("Drift: %f"), driftValue));
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
-		                                 FString::Printf(
-			                                 TEXT("Speed: %f"), speed));
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Steer: %f"), accelerationTimer));
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Drift: %f"), driftValue));
+		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
+		//                                  FString::Printf(
+		// 	                                 TEXT("Speed: %f"), speed));
 		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
 		//                                  FString::Printf(
 		// 	                                 TEXT("%s Position= (%f,%f,%f)"), *networkComponent->username,
 		// 	                                 GetActorLocation().X, GetActorLocation().Y,
 		// 	                                 GetActorLocation().Z));
-		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
-		//                                  FString::Printf(
-		// 	                                 TEXT("%s Rotation= (%f,%f,%f)"), *networkComponent->username,
-		// 	                                 GetMesh()->GetRelativeRotation().Pitch,
-		// 	                                 GetMesh()->GetRelativeRotation().Yaw,
-		// 	                                 GetMesh()->GetRelativeRotation().Roll));
+		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
+		                                 FString::Printf(
+			                                 TEXT("%s Rotation= (%f,%f,%f)"), *networkComponent->username,
+			                                 normalSpringArm->GetRelativeRotation().Pitch,
+			                                 normalSpringArm->GetRelativeRotation().Yaw,
+			                                 normalSpringArm->GetRelativeRotation().Roll));
 	}
 }
 
@@ -254,11 +256,13 @@ void AVehiclePawn::PerformAcceleration()
 	{
 		if (maxSpeedMultiplier < 1 && speed > maxSpeed * maxSpeedMultiplier)
 			speed = FMath::Max<float>(
-				speed - maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->DeltaTimeSeconds,
+				speed - maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->
+				DeltaTimeSeconds,
 				maxSpeed * maxSpeedMultiplier);
 		else
 			speed = FMath::Min<float>(
-				speed + maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->DeltaTimeSeconds,
+				speed + maxSpeed * (FMath::Exp(accelerationTimer / accelerationRate) - 1) * GetWorld()->
+				DeltaTimeSeconds,
 				maxSpeed * maxSpeedMultiplier);
 	}
 
