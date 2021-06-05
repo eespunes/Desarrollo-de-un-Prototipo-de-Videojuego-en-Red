@@ -7,6 +7,7 @@
 #include <stdbool.h>
 
 #include "IVehicle.h"
+#include "Components/NetworkComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "TFG_SourceCode/GameModes/RaceGameInstance.h"
 
@@ -33,35 +34,54 @@ public:
 	virtual void Steer(float value) override;
 	virtual void Drift() override;
 	virtual void UseObject() override;
-	void RemoveObject();
 
 	FVector GetForward();
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
 	URaceComponent* GetRaceComponent() const;
 	UNetworkComponent* GetNetworkComponent() const;
+	
 	AObjectBase* GetCurrentObject() const;
 	void SetCurrentObject(TSubclassOf<UObject> CurrentObject);
+	void RemoveObject();
+	
+	float GetSpeed();
+	void SetSpeed(float speedField);
 	float GetMaxSpeed() const;
 	void SetMaxSpeedMultiplier(float multiplier);
 	void ResetMaxSpeedMultiplier();
-	float GetInitialMaxSpeed() const;
+
 	void Damage();
 	void InstantiateParticle(const TSubclassOf<AActor>& particle);
 	void InvertControls();
 	void NormalControls();
+	
 	bool GetHasBeenHit() const;
+	
 	bool GetIsAccelerating() const;
 	void SetIsAccelerating(bool bIsAccelerating);
+	bool GetIsBraking();
 	void SetIsBraking(bool bIsBraking);
 	void SetSteerValue(float bSteerValue);
+	bool GetIsDrifting() const;
 	void SetIsDrifting(bool bIsDrifting);
-	FVector GetCenterOfMass() const;
-	bool GetDrifting() const;
-	bool GetBraking();
-	float GetCurrentSpeed();
+
+	float GetDriftValue();
+	void SetDriftValue(float driftValueField);
+	float GetAccelerationTimer();
+	void SetAccelerationTimer(float accelerationTimerField);
+	float GetBrakeTimer();
+	void SetBrakeTimer(float brakeTimerField);
+	float GetDecelerationTimer();
+	void SetDecelerationTimer(float decelerationTimerField);
+	float GetDriftIncreaseTimer();
+	void SetDriftIncreaseTimer(float driftIncreaseTimerField);
+	float GetDriftDecreaseTimer();
+	void SetDriftDecreaseIncreaseTimer(double driftDecreaseTimerField);
+
 	float GetDriftSign();
 	UTextRenderComponent* GetPlayerText();
+
 	void SetPing(int32 ping);
 	UFUNCTION(BlueprintPure)
 	int32 GetPing();
@@ -185,6 +205,7 @@ protected:
 	int variableFieldOfView;
 	bool inForward;
 	bool inReverse;
+	FVector forward;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -198,7 +219,7 @@ protected:
 	void StartDrift();
 	void StopDrift();
 
-	void GravityForce() const;
+	void GravityForce();
 	virtual void SuspensionForces();
 	virtual void InstantiateDriftBoostParticles();
 

@@ -58,7 +58,8 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 		springForce += frictionForce;
 
 		vehicleMesh->AddForceAtLocation(hit.Normal * springForce, position, NAME_None);
-		impactPoint = hit.ImpactPoint;
+		if (!Cast<AVehiclePawn>(hit.Actor))
+			impactPoint = hit.ImpactPoint;
 		rootPoint->SetWorldLocation(impactPoint);
 
 		suspensionCompression = currentSuspensionCompression;
@@ -76,7 +77,7 @@ bool UTyreComponent::SuspensionForce(float suspensionDistance, float force, floa
 		suspensionCompression = 0;
 		rootPoint->SetWorldLocation(end);
 		impactPoint = FVector::ZeroVector;
-		DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0,10);
+		DrawDebugLine(GetWorld(), position, end, FColor::Red, false, -1, 0, 10);
 		return false;
 	}
 }

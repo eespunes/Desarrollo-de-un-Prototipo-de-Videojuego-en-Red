@@ -42,14 +42,14 @@ void RacingState::Steering()
   //                                FString::Printf(
   //                                    TEXT("%s Angle: %f"), *vehicle->GetOwner()->GetActorLabel(),angle));
 
-		if (vehicle->GetCurrentSpeed() < 1 && started)
+		if (vehicle->GetSpeed() < 1 && started)
 		{
 			vehicle->Steer(-angle);
 
 			if (vehicle->GetIsAccelerating())
 				vehicle->Accelerate();
 
-			if (!vehicle->GetBraking())
+			if (!vehicle->GetIsBraking())
 				vehicle->Brake();
 
 			if (FMath::Abs(angle) > 0.25f)
@@ -65,16 +65,16 @@ void RacingState::Steering()
 			{
 				if (FMath::Abs(angle) > 0.75f)
 				{
-					if (vehicle->GetIsAccelerating() && vehicle->GetCurrentSpeed() > vehicle->GetMaxSpeed() * 0.25f)
+					if (vehicle->GetIsAccelerating() && vehicle->GetSpeed() > vehicle->GetMaxSpeed() * 0.25f)
 						vehicle->Accelerate();
 					else if (!vehicle->GetIsAccelerating())
 						vehicle->Accelerate();
 				}
-				else if (!vehicle->GetIsAccelerating() && vehicle->GetCurrentSpeed() < vehicle->GetMaxSpeed() * 0.25f)
+				else if (!vehicle->GetIsAccelerating() && vehicle->GetSpeed() < vehicle->GetMaxSpeed() * 0.25f)
 				{
 					vehicle->Accelerate();
 				}
-				if (!vehicle->GetDrifting())
+				if (!vehicle->GetIsDrifting())
 					vehicle->Drift();
 				else if (vehicle->GetDriftSign() > 0 && angle < 0 || vehicle->GetDriftSign() < 0 && angle > 0)
 					vehicle->Drift();
@@ -85,7 +85,7 @@ void RacingState::Steering()
 				{
 					vehicle->Accelerate();
 				}
-				if (vehicle->GetDrifting())
+				if (vehicle->GetIsDrifting())
 					vehicle->Drift();
 			}
 		}

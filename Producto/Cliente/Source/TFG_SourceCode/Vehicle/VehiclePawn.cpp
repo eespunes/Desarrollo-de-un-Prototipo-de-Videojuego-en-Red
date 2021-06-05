@@ -161,7 +161,7 @@ void AVehiclePawn::Movement()
 	}
 	else
 	{
-		float exponentialValue = (FMath::Exp(decelerationTimer / decelerationRate) - 1);
+		float exponentialValue = (FMath::Exp(decelerationTimer / (decelerationRate * flyRate)) - 1);
 		if (speed > 0)
 			speed = FMath::Max<float>(
 				speed - maxSpeed * exponentialValue * GetWorld()->DeltaTimeSeconds, 0);
@@ -185,7 +185,7 @@ void AVehiclePawn::Movement()
 		if (!inReverse)
 		{
 			inForward = false;
-			normalSpringArm->AddLocalRotation(FRotator(-20,180, 0));
+			normalSpringArm->AddLocalRotation(FRotator(-20, 180, 0));
 			inReverse = true;
 		}
 	}
@@ -213,17 +213,17 @@ void AVehiclePawn::Movement()
 		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
 		//                                  FString::Printf(
 		// 	                                 TEXT("Speed: %f"), speed));
-		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
-		//                                  FString::Printf(
-		// 	                                 TEXT("%s Position= (%f,%f,%f)"), *networkComponent->username,
-		// 	                                 GetActorLocation().X, GetActorLocation().Y,
-		// 	                                 GetActorLocation().Z));
+		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
+		                                 FString::Printf(
+			                                 TEXT("%s Position= (%f,%f,%f)"), *networkComponent->username,
+			                                 GetActorLocation().X, GetActorLocation().Y,
+			                                 GetActorLocation().Z));
 		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
 		                                 FString::Printf(
 			                                 TEXT("%s Rotation= (%f,%f,%f)"), *networkComponent->username,
-			                                 normalSpringArm->GetRelativeRotation().Pitch,
-			                                 normalSpringArm->GetRelativeRotation().Yaw,
-			                                 normalSpringArm->GetRelativeRotation().Roll));
+			                                 GetActorRotation().Pitch,
+			                                 GetActorRotation().Yaw,
+			                                 GetActorRotation().Roll));
 	}
 }
 
@@ -423,9 +423,10 @@ void AVehiclePawn::StopDrift()
 *#######
 */
 
-void AVehiclePawn::GravityForce() const
+void AVehiclePawn::GravityForce()
 {
-	carMesh->AddForce(GetActorUpVector() * GetWorld()->GetGravityZ(), NAME_None, true);
+	carMesh->AddForce(FVector::CrossProduct(GetForward(), GetActorRightVector()) * GetWorld()->GetGravityZ(), NAME_None,
+	                  true);
 }
 
 void AVehiclePawn::SuspensionForces()
@@ -502,7 +503,7 @@ void AVehiclePawn::Damage()
 	accelerationTimer = accelerationRate;
 	decelerationTimer = decelerationRate;
 	brakeTimer = brakeRate;
-	GetWorld()->GetFirstPlayerController()->PlayerCameraManager->PlayCameraShake(cameraShake, 1.0f);
+	GetWorld()->GetFirstPlayerController()->PlayerCameraManager->StartMatineeCameraShake(cameraShake, 1.0f);
 }
 
 void AVehiclePawn::WaitAfterHit(float DeltaTime)
@@ -563,7 +564,6 @@ FVector AVehiclePawn::GetForward()
 			}
 		}
 	}
-	FVector forward;
 	if (rearArray.Num() != 0 && frontArray.Num() != 0)
 	{
 		FVector rearVector = CalculateAverageDirection(rearArray);
@@ -571,10 +571,10 @@ FVector AVehiclePawn::GetForward()
 		forward = frontVector - rearVector;
 		forward.Normalize();
 	}
-	else
-	{
-		forward = GetActorForwardVector();
-	}
+	// else
+	// {
+	// 	forward = GetActorForwardVector();
+	// }
 	return forward;
 }
 
@@ -605,6 +605,16 @@ UNetworkComponent* AVehiclePawn::GetNetworkComponent() const
 	return networkComponent;
 }
 
+float AVehiclePawn::GetSpeed()
+{
+	return speed;
+}
+
+void AVehiclePawn::SetSpeed(float speedField)
+{
+	speed = speedField;
+}
+
 float AVehiclePawn::GetMaxSpeed() const
 {
 	return maxSpeed;
@@ -620,32 +630,6 @@ void AVehiclePawn::ResetMaxSpeedMultiplier()
 {
 	maxSpeedMultiplier = 1;
 	performObjectBoost = false;
-}
-
-float AVehiclePawn::GetInitialMaxSpeed() const
-{
-	return initialMaxSpeed;
-}
-
-FVector AVehiclePawn::GetCenterOfMass() const
-{
-	return carMesh->GetCenterOfMass() - GetActorUpVector() * 10 +
-		GetActorForwardVector() * 10;
-}
-
-bool AVehiclePawn::GetDrifting() const
-{
-	return isDrifting;
-}
-
-bool AVehiclePawn::GetBraking()
-{
-	return isBraking;
-}
-
-float AVehiclePawn::GetCurrentSpeed()
-{
-	return speed;
 }
 
 float AVehiclePawn::GetDriftSign()
@@ -683,6 +667,11 @@ void AVehiclePawn::SetIsAccelerating(bool bIsAccelerating)
 	isAccelerating = bIsAccelerating;
 }
 
+bool AVehiclePawn::GetIsBraking()
+{
+	return isBraking;
+}
+
 void AVehiclePawn::SetIsBraking(bool bIsBraking)
 {
 	isBraking = bIsBraking;
@@ -693,9 +682,74 @@ void AVehiclePawn::SetSteerValue(float bSteerValue)
 	steerValue = bSteerValue;
 }
 
+bool AVehiclePawn::GetIsDrifting() const
+{
+	return isDrifting;
+}
+
 void AVehiclePawn::SetIsDrifting(bool bIsDrifting)
 {
 	isDrifting = bIsDrifting;
+}
+
+float AVehiclePawn::GetDriftValue()
+{
+	return driftValue;
+}
+
+void AVehiclePawn::SetDriftValue(float driftValueField)
+{
+	driftValue = driftValueField;
+}
+
+float AVehiclePawn::GetAccelerationTimer()
+{
+	return accelerationTimer;
+}
+
+void AVehiclePawn::SetAccelerationTimer(float accelerationTimerField)
+{
+	accelerationTimer = accelerationTimerField;
+}
+
+float AVehiclePawn::GetBrakeTimer()
+{
+	return brakeTimer;
+}
+
+void AVehiclePawn::SetBrakeTimer(float brakeTimerField)
+{
+	brakeTimer = brakeTimerField;
+}
+
+float AVehiclePawn::GetDecelerationTimer()
+{
+	return decelerationTimer;
+}
+
+void AVehiclePawn::SetDecelerationTimer(float decelerationTimerField)
+{
+	decelerationTimer = decelerationTimerField;
+}
+
+float AVehiclePawn::GetDriftIncreaseTimer()
+{
+	return driftIncreaseTimer;
+}
+
+void AVehiclePawn::SetDriftIncreaseTimer(float driftIncreaseTimerField)
+{
+	driftIncreaseTimer = driftIncreaseTimer;
+}
+
+float AVehiclePawn::GetDriftDecreaseTimer()
+{
+	return driftDecreaseTimer;
+}
+
+void AVehiclePawn::SetDriftDecreaseIncreaseTimer(double driftDecreaseTimerField)
+{
+	driftDecreaseTimer = driftDecreaseTimerField;
 }
 
 void AVehiclePawn::InstantiateDriftBoostParticles()
