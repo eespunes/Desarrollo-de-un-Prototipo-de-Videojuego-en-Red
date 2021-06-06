@@ -86,8 +86,11 @@ class Race {
 
     addMessageToThePlayer(username, message) {
         if (this.raceStarted) {
-            // console.log(username + ": " + JSON.stringify(message))
-            this.io.emit(this.id, message);
+            if(!message.finished) {
+                this.io.emit(this.id, message);
+                this.changePlayerMessage(username, message);
+                this.io.emit(this.id + '-classification', this.getClassification());
+            }
         } else
             this.playersMessages.get(username).push(message)
     }
@@ -144,44 +147,33 @@ class Race {
         return true
     }
 
-    getMessages() {
-        let messages = []
+    getClassification() {
+        let aux;
         for (let i = 0; i < this.players.length; i++) {
             let player = this.players[i]
             if (player === undefined)
                 continue
-            //check ids
+
             let message = this.playersMessages.get(player).shift()
+            this.playersMessages.get(player).push(message)
 
-            if (message === undefined) {
-                message = "{username: \"" + player + "\", id:\"NOT RECIEVED\"}"
-            }
-            console.log(i + " - " + player + ": " + message)
+            for (let j = this.players.length - 1; j >= i; j--) {
+                let otherPlayer = this.players[j]
+                console.log('(' + j + ', ' + i + '): ' + player + ' - ' + otherPlayer)
+                if (otherPlayer === undefined || player == otherPlayer)
+                    continue
+                let otherMessage = this.playersMessages.get(otherPlayer).shift()
+                this.playersMessages.get(otherPlayer).push(otherMessage)
 
-            messages.push(message)
-        }
-
-        let biggerID = 0
-        for (let i = 0; i < messages.length; i++) {
-            let message = messages[i]
-            const {id, username} = message
-            // console.log(i + " - " + id + " - " + username)
-            if (id > biggerID)
-                biggerID = id
-        }
-
-        let aux;
-        for (let i = 1; i < messages.length; i++) {
-            for (let j = messages.length - 1; j >= i; j--) {
-                if (this.InFrontOfOpponent(messages[j], messages[j - 1])) {
-                    aux = messages[j];
-                    messages[j] = messages[j - 1];
-                    messages[j - 1] = aux;
+                if (!this.InFrontOfOpponent(message, otherMessage)) {
+                    aux = this.players[j];
+                    this.players[j] = this.players[i];
+                    this.players[i] = aux;
                 }
             }
         }
 
-        return messages;
+        return this.players;
     }
 
     InFrontOfOpponent(message, message2) {
@@ -189,11 +181,21 @@ class Race {
         const json2 = message2;
         if (message === undefined || message2 === undefined)
             return false
+
         return json1.lap > json2.lap ||
             json1.lap == json2.lap && (
                 json1.checkpoint > json2.checkpoint ||
                 json1.checkpoint == json2.checkpoint && json1.distance < json2.distance
             )
+    }
+
+    changePlayerMessage(username, message) {
+        const currentMessage = this.playersMessages.get(username).pop();
+        if (message.id >= currentMessage.id)
+            this.playersMessages.get(username).push(message);
+        else {
+            this.playersMessages.get(username).push(currentMessage);
+        }
     }
 }
 

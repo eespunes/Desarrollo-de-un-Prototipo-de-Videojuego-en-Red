@@ -22,7 +22,6 @@ app.use(bodyParser.json());
 
 io.on('connection', client => {
     client.on("FindRace", (json) => {
-        console.log(json)
         const {username, levelId} = JSON.parse(json);
         const returnJSON = JSON.parse(gameManager.addPlayerToRace(username, levelId, io))
         io.to(client.id).emit("FindRace", returnJSON);
