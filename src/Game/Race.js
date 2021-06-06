@@ -86,11 +86,9 @@ class Race {
 
     addMessageToThePlayer(username, message) {
         if (this.raceStarted) {
-            if(!message.finished) {
                 this.io.emit(this.id, message);
                 this.changePlayerMessage(username, message);
                 this.io.emit(this.id + '-classification', this.getClassification());
-            }
         } else
             this.playersMessages.get(username).push(message)
     }
@@ -159,7 +157,6 @@ class Race {
 
             for (let j = this.players.length - 1; j >= i; j--) {
                 let otherPlayer = this.players[j]
-                console.log('(' + j + ', ' + i + '): ' + player + ' - ' + otherPlayer)
                 if (otherPlayer === undefined || player == otherPlayer)
                     continue
                 let otherMessage = this.playersMessages.get(otherPlayer).shift()
