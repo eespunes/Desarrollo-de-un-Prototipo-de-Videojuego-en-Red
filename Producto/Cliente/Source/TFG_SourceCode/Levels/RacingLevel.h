@@ -33,6 +33,7 @@ protected:
 	ARaceController* raceController;
 	UPROPERTY(EditAnywhere, Category="UI")
 	TSubclassOf<class UUserWidget> classificationClass;
+	bool playerHasFinished;
 
 	virtual void BeginPlay() override;
 public:
@@ -48,8 +49,10 @@ public:
 	bool GetCanStartRace() const;
 	void SetCanStartRace(bool value) const;
 	APlayerStart* GetRaceStart(int idx) const;
-	void PlayerHasFinished(AController* vehicle);
+	void SetPlayerHasFinished();
+	UFUNCTION(BlueprintPure)
+	bool GetPlayerHasFinished();
 	UFUNCTION(BlueprintPure)
 	TArray<URaceComponent*> GetVehicles() const;
-	
+	void SetClassification(TArray<URaceComponent*> classification);
 };

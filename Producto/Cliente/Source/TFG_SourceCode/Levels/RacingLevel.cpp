@@ -90,10 +90,14 @@ APlayerStart* ARacingLevel::GetRaceStart(int idx) const
 	return raceController->GetRaceStart(idx);
 }
 
-void ARacingLevel::PlayerHasFinished(AController* vehicle)
+void ARacingLevel::SetPlayerHasFinished()
 {
-	// UUserWidget* classification = CreateWidget(vehicle, classificationClass);
-	// classification->AddToViewport();
+	playerHasFinished = true;
+}
+
+bool ARacingLevel::GetPlayerHasFinished()
+{
+	return playerHasFinished;
 }
 
 TArray<URaceComponent*> ARacingLevel::GetVehicles() const
@@ -104,4 +108,13 @@ TArray<URaceComponent*> ARacingLevel::GetVehicles() const
 		return foundActors;
 	}
 	return raceController->GetVehicles();
+}
+
+void ARacingLevel::SetClassification(TArray<URaceComponent*> classification)
+{
+	if (!raceController)
+	{
+		return;
+	}
+	return raceController->SetClassification(classification);
 }

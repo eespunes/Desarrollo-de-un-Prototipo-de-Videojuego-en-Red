@@ -43,6 +43,8 @@ void ARaceController::BeginPlay()
 			}
 		}
 	}
+
+	gameInstance = Cast<URaceGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
 }
 
 void ARaceController::FindCheckpoints()
@@ -141,7 +143,7 @@ APlayerStart* ARaceController::GetRaceStart(int idx)
 	return nullptr;
 }
 
-void ARaceController::UpdateTable()
+void ARaceController::UpdatePositions()
 {
 	if (vehicles.Num() == 1)
 	{
@@ -169,14 +171,22 @@ void ARaceController::UpdateTable()
 	}
 }
 
+
 TArray<URaceComponent*> ARaceController::GetVehicles() const
 {
 	return vehicles;
+}
+
+void ARaceController::SetClassification(TArray<URaceComponent*> classification)
+{
+	vehicles = classification;
 }
 
 // Called every frame
 void ARaceController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	UpdateTable();
+
+	if (!gameInstance->IsMultiplayer())
+		UpdatePositions();
 }

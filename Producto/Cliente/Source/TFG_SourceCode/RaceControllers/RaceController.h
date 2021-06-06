@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerStart.h"
+#include "TFG_SourceCode/GameModes/RaceGameInstance.h"
 
 #include "RaceController.generated.h"
 
@@ -26,6 +27,7 @@ protected:
 	bool canRace = false;
 	TArray<APlayerStart*> raceStarts;
 	bool canStartRace;
+	URaceGameInstance* gameInstance;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -44,7 +46,8 @@ public:
 	bool GetCanStartRace() const;
 	void SetCanStartRace(bool value);
 	APlayerStart* GetRaceStart(int idx);
-	void UpdateTable();
+	void UpdatePositions();
 
 	TArray<URaceComponent*> GetVehicles() const;
+	void SetClassification(TArray<URaceComponent*> classification);
 };
