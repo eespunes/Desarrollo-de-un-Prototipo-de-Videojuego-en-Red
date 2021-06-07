@@ -48,42 +48,42 @@ void AVehicleController::Axis()
 
 void AVehicleController::Accelerate()
 {
-	if (!vehiclePawn)return;
+	if (!vehiclePawn || (vehiclePawn && vehiclePawn->GetRaceComponent()->HasFinished()))return;
 
 	vehiclePawn->Accelerate();
 }
 
 void AVehicleController::Brake()
 {
-	if (!vehiclePawn)return;
+	if (!vehiclePawn || (vehiclePawn && vehiclePawn->GetRaceComponent()->HasFinished()))return;
 
 	vehiclePawn->Brake();
 }
 
 void AVehicleController::Steer(float value)
 {
-	if (!vehiclePawn) return;
+	if (!vehiclePawn || (vehiclePawn && vehiclePawn->GetRaceComponent()->HasFinished())) return;
 
 	vehiclePawn->Steer(value);
 }
 
 void AVehicleController::Drift()
 {
-	if (!vehiclePawn) return;
+	if (!vehiclePawn || (vehiclePawn && vehiclePawn->GetRaceComponent()->HasFinished())) return;
 
 	vehiclePawn->Drift();
 }
 
 void AVehicleController::UseObject()
 {
-	if (!vehiclePawn)return;
+	if (!vehiclePawn || (vehiclePawn && vehiclePawn->GetRaceComponent()->HasFinished()))return;
 
 	vehiclePawn->UseObject();
 }
 
 void AVehicleController::Pause()
 {
-	if (!gameInstance->GetPauseMenuActivated())
+	if (!gameInstance->GetPauseMenuActivated() && (vehiclePawn && !vehiclePawn->GetRaceComponent()->HasFinished()))
 	{
 		UUserWidget* pauseHUD = CreateWidget(this, pauseClass);
 		pauseHUD->AddToViewport();

@@ -75,7 +75,7 @@ void AVehiclePawn::Tick(float DeltaTime)
 	GravityForce();
 	SuspensionForces();
 
-	if (raceComponent->CanRace())
+	if (raceComponent->CanRace() && !raceComponent->HasFinished())
 	{
 		WaitAfterHit(DeltaTime);
 

@@ -7,26 +7,18 @@
   <component name="ChangeListManager">
     <list default="true" id="22b9b6b5-5593-4d70-afa3-760a9c114479" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TFG_SourceCode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerControllers/BP_VehicleController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerControllers/BP_VehicleController.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Position/WBP_PositionOthers.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Position/WBP_PositionOthers.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Position/WBP_PositionPodium.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Position/WBP_PositionPodium.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_Classification.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_Classification.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_HUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/L_SimpleTrack.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/NetworkController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/Mjolnir.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Objects/Simple Objects/OdinEye.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,23 +38,26 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Controllers/NetworkController.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/NetworkController.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/RaceController.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/NetworkController.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.cpp" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Levels/RacingLevel.h" />
-      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/NetworkComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/VehiclePawn.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/ClassificationWidget.h" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/ClassificationWidget.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Controllers/VehicleController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/GameModes/RaceGameInstance.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.h" />
       <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Vehicle/Components/RaceComponent.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/RaceControllers/NetworkController.cpp" />
+      <option value="$PROJECT_DIR$/Source/TFG_SourceCode/Widgets/MainMenuWidget.cpp" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1tXGus36DMCvBLewyKs2KCYYAy4" />
@@ -308,7 +303,8 @@
       <workItem from="1622913130106" duration="12000" />
       <workItem from="1622913195487" duration="2064000" />
       <workItem from="1622915341590" duration="1789000" />
-      <workItem from="1622962876453" duration="10775000" />
+      <workItem from="1622962876453" duration="10927000" />
+      <workItem from="1623049746406" duration="6203000" />
     </task>
     <servers />
   </component>
@@ -327,6 +323,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
