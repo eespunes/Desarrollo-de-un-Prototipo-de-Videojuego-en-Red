@@ -40,7 +40,7 @@ public:
 	ACheckPoint* GetCheckpoint(int32 idx);
 	int GetNumberOfCheckpoints() const;
 	int32 GetNumberOfVehicles() const;
-	URaceComponent* GetVehicle(int32 position);
+	URaceComponent* GetVehicleByPosition(int32 position);
 	bool GetCanRace() const;
 	void SetCanRace(bool value);
 	bool GetCanStartRace() const;
@@ -50,4 +50,5 @@ public:
 
 	TArray<URaceComponent*> GetVehicles() const;
 	void SetClassification(TArray<URaceComponent*> classification);
+	URaceComponent* GetVehicleByUsername(const FString& Username);
 };

@@ -41,11 +41,11 @@ public:
 	URaceComponent* GetRaceComponent() const;
 	UFUNCTION(BlueprintPure)
 	UNetworkComponent* GetNetworkComponent() const;
-	
+
 	AObjectBase* GetCurrentObject() const;
-	void SetCurrentObject(TSubclassOf<UObject> CurrentObject);
+	void SetCurrentObject(TSubclassOf<UObject> CurrentObject, int32 id = -1);
 	void RemoveObject();
-	
+
 	float GetSpeed();
 	void SetSpeed(float speedField);
 	float GetMaxSpeed() const;
@@ -56,9 +56,9 @@ public:
 	void InstantiateParticle(const TSubclassOf<AActor>& particle);
 	void InvertControls();
 	void NormalControls();
-	
+
 	bool GetHasBeenHit() const;
-	
+
 	bool GetIsAccelerating() const;
 	void SetIsAccelerating(bool bIsAccelerating);
 	bool GetIsBraking();
@@ -82,6 +82,7 @@ public:
 
 	float GetDriftSign();
 	UTextRenderComponent* GetPlayerText();
+	void SetHasBeenHit(bool hit);
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UStaticMeshComponent* carMesh;
@@ -116,7 +117,7 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
 	float maxSpeed = 500.f;
 	float initialMaxSpeed;
-	float maxSpeedMultiplier=1;
+	float maxSpeedMultiplier = 1;
 	float speed;
 	bool isAccelerating = false;
 	float accelerationTimer;
@@ -142,7 +143,7 @@ protected:
 	float flyRate;
 
 	UPROPERTY(EditAnywhere, Category="Vehicle: Speed")
-	int maxPitchRotation=5;
+	int maxPitchRotation = 5;
 
 	//Turn
 	UPROPERTY(EditAnywhere, Category="Vehicle: Turn")
@@ -184,7 +185,7 @@ protected:
 	AObjectBase* currentObject = nullptr;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Object")
 	float hitWaiting = 3;
-	bool hasBeenHit=true;
+	bool hasBeenHit = true;
 	float hitTimer;
 	bool invertControls;
 	AActor* currentParticle;
@@ -192,9 +193,9 @@ protected:
 	TSubclassOf<UMatineeCameraShake> cameraShake;
 
 	URaceGameInstance* gameInstance;
-	
+
 	bool performObjectBoost;
-	
+
 	UPROPERTY(EditAnywhere, Category="Vehicle: Camera")
 	int constantFieldOfView;
 	UPROPERTY(EditAnywhere, Category="Vehicle: Camera")
@@ -206,7 +207,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Movement();
-	
+
 	void PerformAcceleration();
 	void PerformBraking();
 	void PerformSteering();
@@ -220,7 +221,6 @@ protected:
 	virtual void InstantiateDriftBoostParticles();
 
 	void WaitAfterHit(float DeltaTime);
-	
+
 	FVector CalculateAverageDirection(TArray<FVector> vectors);
-	
 };

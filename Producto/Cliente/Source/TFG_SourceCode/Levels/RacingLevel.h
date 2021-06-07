@@ -43,7 +43,8 @@ public:
 	int32 GetNumberOfCheckpoints() const;
 	int32 GetNumberOfVehicles() const;
 	ACheckPoint* GetCheckpoint(int32 idx) const;
-	URaceComponent* GetVehicle(int32 position);
+	URaceComponent* GetVehicleByPosition(int32 position);
+	URaceComponent* GetVehicleByUsername(FString username);
 	bool GetCanRace() const;
 	void SetCanRace(bool value) const;
 	bool GetCanStartRace() const;

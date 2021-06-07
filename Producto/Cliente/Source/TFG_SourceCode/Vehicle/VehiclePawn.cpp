@@ -455,20 +455,21 @@ AObjectBase* AVehiclePawn::GetCurrentObject() const
 	return currentObject;
 }
 
-void AVehiclePawn::SetCurrentObject(TSubclassOf<UObject> CurrentObject)
+void AVehiclePawn::SetCurrentObject(TSubclassOf<UObject> CurrentObject, int32 id)
 {
 	if (this->currentObject)
 	{
-		return;
+		RemoveObject();
 	}
 	if (CurrentObject)
 	{
-		networkComponent->SetUseObjectData(false);
 		this->currentObject = GetWorld()->SpawnActor<AObjectBase>(CurrentObject,
 		                                                          objectSpawnPoint->GetComponentLocation(),
 		                                                          GetActorRotation());
 		this->currentObject->SetVehicle(this);
 		this->currentObject->SetOwner(this);
+		if (id >= 0)
+			this->currentObject->SetID(id);
 		this->currentObject->SetActorLocation(objectSpawnPoint->GetComponentLocation());
 		this->currentObject->AttachToComponent(objectSpawnPoint, FAttachmentTransformRules::KeepWorldTransform);
 	}
@@ -479,8 +480,6 @@ void AVehiclePawn::UseObject()
 	if (currentObject && !hasBeenHit)
 	{
 		currentObject->UseObject();
-		networkComponent->SetUseObjectData(true);
-		networkComponent->SetObjectData(-1);
 	}
 }
 
@@ -491,8 +490,6 @@ void AVehiclePawn::RemoveObject()
 		currentObject->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 		currentObject->SetOwner(nullptr);
 		currentObject = nullptr;
-		networkComponent->SetUseObjectData(false);
-		networkComponent->SetObjectData(-1);
 	}
 }
 
@@ -571,10 +568,7 @@ FVector AVehiclePawn::GetForward()
 		forward = frontVector - rearVector;
 		forward.Normalize();
 	}
-	// else
-	// {
-	// 	forward = GetActorForwardVector();
-	// }
+
 	return forward;
 }
 
@@ -640,6 +634,11 @@ float AVehiclePawn::GetDriftSign()
 UTextRenderComponent* AVehiclePawn::GetPlayerText()
 {
 	return playerNameText;
+}
+
+void AVehiclePawn::SetHasBeenHit(bool hit)
+{
+	hasBeenHit = hit;
 }
 
 bool AVehiclePawn::GetHasBeenHit() const

@@ -48,11 +48,18 @@ ACheckPoint* ARacingLevel::GetCheckpoint(int32 idx) const
 	return raceController->GetCheckpoint(idx);
 }
 
-inline URaceComponent* ARacingLevel::GetVehicle(int32 position)
+URaceComponent* ARacingLevel::GetVehicleByPosition(int32 position)
 {
 	if (!raceController)
 		return nullptr;
-	return raceController->GetVehicle(position);
+	return raceController->GetVehicleByPosition(position);
+}
+
+URaceComponent* ARacingLevel::GetVehicleByUsername(FString username)
+{
+	if (!raceController)
+		return nullptr;
+	return raceController->GetVehicleByUsername(username);
 }
 
 bool ARacingLevel::GetCanRace() const

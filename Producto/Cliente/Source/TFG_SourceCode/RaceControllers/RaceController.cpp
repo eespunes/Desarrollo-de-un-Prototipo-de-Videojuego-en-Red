@@ -108,7 +108,7 @@ int32 ARaceController::GetNumberOfVehicles() const
 	return vehicles.Num();
 }
 
-URaceComponent* ARaceController::GetVehicle(int32 position)
+URaceComponent* ARaceController::GetVehicleByPosition(int32 position)
 {
 	if (position >= vehicles.Num() || position < 0)
 		return nullptr;
@@ -180,6 +180,16 @@ TArray<URaceComponent*> ARaceController::GetVehicles() const
 void ARaceController::SetClassification(TArray<URaceComponent*> classification)
 {
 	vehicles = classification;
+}
+
+URaceComponent* ARaceController::GetVehicleByUsername(const FString& Username)
+{
+	for (auto vehicle : vehicles)
+	{
+		if (vehicle->GetUsername().Equals(Username))
+			return vehicle;
+	}
+	return nullptr;
 }
 
 // Called every frame
