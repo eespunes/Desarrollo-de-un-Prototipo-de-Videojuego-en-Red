@@ -50,6 +50,12 @@ class Race {
         for (let i = 0; i < this.players.length; i++) {
             let player = this.players.pop()
             if (player === username) {
+                if (this.playersMessages.get(player).length > 0) {
+                    if (this.playersMessages.get(player)[0].finished) {
+                        this.players.unshift(player)
+                        return
+                    }
+                }
                 return
             }
             this.players.unshift(player)
@@ -86,9 +92,9 @@ class Race {
 
     addMessageToThePlayer(username, message) {
         if (this.raceStarted) {
-                this.io.emit(this.id, message);
-                this.changePlayerMessage(username, message);
-                this.io.emit(this.id + '-classification', this.getClassification());
+            this.io.emit(this.id, message);
+            this.changePlayerMessage(username, message);
+            this.io.emit(this.id + '-classification', this.getClassification());
         } else
             this.playersMessages.get(username).push(message)
     }
@@ -193,6 +199,11 @@ class Race {
         else {
             this.playersMessages.get(username).push(currentMessage);
         }
+    }
+
+    addGameObject(json) {
+
+        this.io.emit(this.id + "-object", json)
     }
 }
 

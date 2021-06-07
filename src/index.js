@@ -40,6 +40,11 @@ io.on('connection', client => {
         gameManager.addMessageToThePlayer(race, username, JSON.parse(data))
     });
 
+    client.on("Object", (json) => {
+        const {race} = JSON.parse(json);
+        gameManager.addObjectToRace(race, JSON.parse(json))
+    });
+
     client.on("Disconnect", (json) => {
         const {username, levelId} = JSON.parse(json);
         client.leave(levelId, function () {
@@ -66,6 +71,7 @@ app.post('/api/player/', (req, res) => {
 app.get('/api/player/:username', (req, res) => {
     playerDB.getPlayer(req, res)
 })
+
 app.post('/api/golden/', (req, res) => {
     playerDB.addGolden(req, res)
 })
@@ -79,17 +85,8 @@ app.post('/api/wood/', (req, res) => {
     playerDB.addWooden(req, res)
 })
 
-
-app.post('/api/race/add/', (req, res) => {
-    const {username, levelID} = req.body;
-    gameManager.addPlayerToRace(username, levelID, res)
-})
 app.get('/api/race/all/:username', (req, res) => {
     playerDB.getAllRacesByPlayer(req, res)
-})
-app.get('/api/race/remove/:username', (req, res) => {
-    const {username} = req.params;
-    gameManager.removePlayerFromRace(username, res)
 })
 
 app.get('/api/car/:id', (req, res) => {

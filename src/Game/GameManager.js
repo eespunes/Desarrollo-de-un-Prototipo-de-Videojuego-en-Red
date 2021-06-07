@@ -96,3 +96,9 @@ exports.addMessageToThePlayer = function (raceID, username, message) {
     if (race !== undefined && race !== null)
         race.addMessageToThePlayer(username, message)
 }
+
+exports.addObjectToRace = function (raceID, json) {
+    const race = getRace(raceID)
+    if (race !== undefined && race !== null)
+        race.addGameObject(json)
+}
