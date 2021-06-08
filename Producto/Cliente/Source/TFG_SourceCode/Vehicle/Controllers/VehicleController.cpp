@@ -38,6 +38,8 @@ void AVehicleController::Actions()
 
 	InputComponent->BindAction("Use Object", IE_Pressed, this, &AVehicleController::UseObject);
 
+	InputComponent->BindAction("Teleport", IE_Pressed, this, &AVehicleController::Teleport);
+
 	InputComponent->BindAction("Pause", IE_Pressed, this, &AVehicleController::Pause);
 }
 
@@ -79,6 +81,13 @@ void AVehicleController::UseObject()
 	if (!vehiclePawn || (vehiclePawn && vehiclePawn->GetRaceComponent()->HasFinished()))return;
 
 	vehiclePawn->UseObject();
+}
+
+void AVehicleController::Teleport()
+{
+	if (!vehiclePawn || (vehiclePawn && vehiclePawn->GetRaceComponent()->HasFinished()))return;
+
+	vehiclePawn->Teleport();
 }
 
 void AVehicleController::Pause()

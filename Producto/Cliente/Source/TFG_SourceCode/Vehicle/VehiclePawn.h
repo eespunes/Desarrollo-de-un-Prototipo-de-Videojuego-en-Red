@@ -34,7 +34,8 @@ public:
 	virtual void Steer(float value) override;
 	virtual void Drift() override;
 	virtual void UseObject() override;
-
+	virtual void Teleport() override;
+	
 	FVector GetForward();
 	UStaticMeshComponent* GetMesh() const;
 	UFUNCTION(BlueprintPure)
@@ -83,6 +84,7 @@ public:
 	float GetDriftSign();
 	UTextRenderComponent* GetPlayerText();
 	void SetHasBeenHit(bool hit);
+	void ResetForces(FVector newForward);
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components")
 	UStaticMeshComponent* carMesh;
@@ -203,6 +205,7 @@ protected:
 	bool inForward;
 	bool inReverse;
 	FVector forward;
+	bool resetForces;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

@@ -17,6 +17,7 @@
 #include "Misc/TextFilterExpressionEvaluator.h"
 #include "TFG_SourceCode/GameModes/RaceGameInstance.h"
 #include "TFG_SourceCode/Objects/Base/ObjectBase.h"
+#include "TFG_SourceCode/RaceControllers/CheckPoint.h"
 
 // Sets default values
 AVehiclePawn::AVehiclePawn()
@@ -71,6 +72,11 @@ void AVehiclePawn::BeginPlay()
 void AVehiclePawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (resetForces)
+	{
+		resetForces = false;
+		return;
+	}
 
 	GravityForce();
 	SuspensionForces();
@@ -200,31 +206,6 @@ void AVehiclePawn::Movement()
 	}
 
 	normalCamera->FieldOfView = constantFieldOfView + (variableFieldOfView * (FMath::Abs(speed) / maxSpeed));
-
-	//DEBUG
-	if (GEngine)
-	{
-		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
-		//                                  FString::Printf(
-		// 	                                 TEXT("Steer: %f"), accelerationTimer));
-		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Orange,
-		//                                  FString::Printf(
-		// 	                                 TEXT("Drift: %f"), driftValue));
-		// GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Yellow,
-		//                                  FString::Printf(
-		// 	                                 TEXT("Speed: %f"), speed));
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Blue,
-		                                 FString::Printf(
-			                                 TEXT("%s Position= (%f,%f,%f)"), *networkComponent->username,
-			                                 GetActorLocation().X, GetActorLocation().Y,
-			                                 GetActorLocation().Z));
-		GEngine->AddOnScreenDebugMessage(-1, GetWorld()->DeltaTimeSeconds, FColor::Red,
-		                                 FString::Printf(
-			                                 TEXT("%s Rotation= (%f,%f,%f)"), *networkComponent->username,
-			                                 GetActorRotation().Pitch,
-			                                 GetActorRotation().Yaw,
-			                                 GetActorRotation().Roll));
-	}
 }
 
 /*
@@ -425,8 +406,8 @@ void AVehiclePawn::StopDrift()
 
 void AVehiclePawn::GravityForce()
 {
-	carMesh->AddForce(FVector::CrossProduct(GetForward(), GetActorRightVector()) * GetWorld()->GetGravityZ(), NAME_None,
-	                  true);
+	carMesh->AddForce(FVector::CrossProduct(forward, GetActorRightVector()) * GetWorld()->GetGravityZ(),
+	                  NAME_None, true);
 }
 
 void AVehiclePawn::SuspensionForces()
@@ -480,6 +461,20 @@ void AVehiclePawn::UseObject()
 	if (currentObject && !hasBeenHit)
 	{
 		currentObject->UseObject();
+	}
+}
+
+void AVehiclePawn::Teleport()
+{
+	if (raceComponent->CanRace())
+	{
+		int32 checkpointPosition = raceComponent->GetCheckpointPosition() - 1;
+		if (checkpointPosition < 0 || checkpointPosition >= gameInstance->GetLevel()->GetNumberOfCheckpoints())
+			checkpointPosition = 0;
+
+		ACheckPoint* checkpoint = gameInstance->GetLevel()->GetCheckpoint(checkpointPosition);
+
+		gameInstance->Teleport(checkpoint, this, FVector(0, 0, 65));
 	}
 }
 
@@ -639,6 +634,15 @@ UTextRenderComponent* AVehiclePawn::GetPlayerText()
 void AVehiclePawn::SetHasBeenHit(bool hit)
 {
 	hasBeenHit = hit;
+}
+
+void AVehiclePawn::ResetForces(FVector newForward)
+{
+	resetForces = true;
+	forward = newForward;
+
+	carMesh->SetLinearDamping(TNumericLimits<float>::Max());
+	carMesh->SetAngularDamping(TNumericLimits<float>::Max());
 }
 
 bool AVehiclePawn::GetHasBeenHit() const

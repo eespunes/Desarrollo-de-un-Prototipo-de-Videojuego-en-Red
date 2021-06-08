@@ -23,6 +23,7 @@ public:
 	virtual void Steer(float value) override;
 	virtual void Drift() override;
 	virtual void UseObject() override;
+	virtual void Teleport() override;
 	void Pause();
 protected:
 	virtual void BeginPlay() override;
