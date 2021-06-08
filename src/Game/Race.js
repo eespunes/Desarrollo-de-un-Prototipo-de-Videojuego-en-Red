@@ -50,7 +50,7 @@ class Race {
         for (let i = 0; i < this.players.length; i++) {
             let player = this.players.pop()
             if (player === username) {
-                if (this.playersMessages.get(player).length > 0) {
+                if (this.playersMessages.get(player) !== undefined && this.playersMessages.get(player).length > 0) {
                     if (this.playersMessages.get(player)[0].finished) {
                         this.players.unshift(player)
                         return
@@ -70,23 +70,30 @@ class Race {
                 this.io.emit(this.id + "-start", "Lights out")
             }
         } else {
-            // if (this.players.length === 0)
-            //     clearInterval(this.racingTimer)
-            // this.io.emit(this.id, this.getMessages())
+            clearInterval(this.racingTimer)
         }
     }
 
-    //
-    // function
-    //
     startRace() {
         this.sessionStarted = true
         this.racingTimer = setInterval(this.racing.bind(this), 250)
 
         for (let i = 0; i < this.players.length; i++) {
-            let player = this.players.pop()
-            this.players.unshift(player)
-            this.playersMessages.set(player, [])
+            let player = this.players[i]
+            if (player === undefined)
+                continue
+            if (this.playersMessages.get(player) === undefined) {
+                this.playersMessages.set(player, [])
+                continue;
+            }
+            if (this.playersMessages.get(player).length === 0)
+                continue
+            let message = this.playersMessages.get(player).shift()
+            this.playersMessages.get(player).unshift(message)
+            const {finished} = message
+            if (!finished) {
+                this.playersMessages.set(player, [])
+            }
         }
     }
 
@@ -99,13 +106,6 @@ class Race {
             this.playersMessages.get(username).push(message)
     }
 
-    //
-    // function
-    //
-    stopRace() {
-
-    }
-
     get getID() {
         return this.id
     }
@@ -115,7 +115,6 @@ class Race {
     }
 
     searchingPlayers() {
-        // this.startTime=this.maxStartTime
         if (this.players.length < this.minPLayersToStart) {
             this.io.emit(this.id + "-timer", "Buscando " + (this.minPLayersToStart - this.players.length) + " jugadores...")
         } else {
@@ -145,8 +144,10 @@ class Race {
         for (let i = 0; i < this.players.length; i++) {
             let player = this.players.pop()
             this.players.unshift(player)
-            if (this.playersMessages.get(player).length === 0)
+            if (this.playersMessages.get(player).length === 0) {
+                console.log(player + ' - ' + this.playersMessages.get(player).length)
                 return false
+            }
         }
         return true
     }
@@ -185,6 +186,16 @@ class Race {
         if (message === undefined || message2 === undefined)
             return false
 
+
+        if (json1.finished && json2.finished) {
+            return json1.time < json2.time
+        }
+        if (json1.finished) {
+            return true
+        }
+        if (json2.finished) {
+            return false
+        }
         return json1.lap > json2.lap ||
             json1.lap == json2.lap && (
                 json1.checkpoint > json2.checkpoint ||
@@ -202,7 +213,10 @@ class Race {
     }
 
     addGameObject(json) {
-
+        if (json.ragnarok) {
+            this.raceStarted = false;
+            this.startRace();
+        }
         this.io.emit(this.id + "-object", json)
     }
 }
