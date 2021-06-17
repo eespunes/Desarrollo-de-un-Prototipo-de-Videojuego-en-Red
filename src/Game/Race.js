@@ -145,7 +145,6 @@ class Race {
             let player = this.players.pop()
             this.players.unshift(player)
             if (this.playersMessages.get(player).length === 0) {
-                console.log(player + ' - ' + this.playersMessages.get(player).length)
                 return false
             }
         }
