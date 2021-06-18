@@ -167,7 +167,7 @@ class Race {
                 let otherMessage = this.playersMessages.get(otherPlayer).shift()
                 this.playersMessages.get(otherPlayer).push(otherMessage)
 
-                if (!this.InFrontOfOpponent(message, otherMessage,player,otherPlayer)) {
+                if (!this.InFrontOfOpponent(message, otherMessage, player, otherPlayer)) {
                     aux = this.players[j];
                     this.players[j] = this.players[i];
                     this.players[i] = aux;
@@ -178,14 +178,14 @@ class Race {
         return this.players;
     }
 
-    InFrontOfOpponent(message, message2,player,otherPlayer) {
+    InFrontOfOpponent(message, message2, player, otherPlayer) {
         const json1 = message;
         const json2 = message2;
 
         if (message === undefined || message2 === undefined)
             return false
 
-        console.log(this.id + " - " + player + ":" + json1.distance + " - " + otherPlayer + ":" + json2.distance)
+        console.log(this.id + " - " + player + ":" + json1.lap + "/" + json1.checkpoint + "/" + json1.distance + " - " + otherPlayer + ":" + json2.lap + "/" + json2.checkpoint + "/" + json2.distance)
         if (json1.finished && json2.finished) {
             return json1.time < json2.time
         }
@@ -204,9 +204,10 @@ class Race {
 
     changePlayerMessage(username, message) {
         const currentMessage = this.playersMessages.get(username).pop();
-        if (message.id >= currentMessage.id)
+        if (message.id >= currentMessage.id) {
+            console.log("CHANGED " + username)
             this.playersMessages.get(username).push(message);
-        else {
+        } else {
             this.playersMessages.get(username).push(currentMessage);
         }
     }
