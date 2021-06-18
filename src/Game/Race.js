@@ -204,8 +204,8 @@ class Race {
 
     changePlayerMessage(username, message) {
         const currentMessage = this.playersMessages.get(username).pop();
+        console.log("CHANGED " + username+": "+message.id+"=="+currentMessage.id)
         if (message.id >= currentMessage.id) {
-            console.log("CHANGED " + username)
             this.playersMessages.get(username).push(message);
         } else {
             this.playersMessages.get(username).push(currentMessage);
