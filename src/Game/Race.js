@@ -3,7 +3,7 @@ class Race {
     levelId = ""
     sessionStarted = false
     players = []
-    time = 60
+    time = 30
     raceStarted = false
 
     playersMessages = new Map()
@@ -23,17 +23,24 @@ class Race {
         this.searchingPlayersTimer = setInterval(this.searchingPlayers.bind(this), 100)
     }
 
-
-    addPlayer(username) {
-        this.players.push(username)
-    }
-
     get hasCapacity() {
         if (this.sessionStarted)
             return false;
         if (this.players.length === 12)
             return false
         return true
+    }
+
+    get getID() {
+        return this.id
+    }
+
+    get getPlayers() {
+        return this.players
+    }
+
+    addPlayer(username) {
+        this.players.push(username)
     }
 
     hasPlayer(username) {
@@ -104,14 +111,6 @@ class Race {
             this.io.emit(this.id + '-classification', this.getClassification());
         } else
             this.playersMessages.get(username).push(message)
-    }
-
-    get getID() {
-        return this.id
-    }
-
-    get getPlayers() {
-        return this.players
     }
 
     searchingPlayers() {
@@ -195,6 +194,7 @@ class Race {
         if (json2.finished) {
             return false
         }
+        console.log(this.id + " - " + json1.username + ":" + json1.distance + " - " + json21.username + ":" + json2.distance)
         return json1.lap > json2.lap ||
             json1.lap == json2.lap && (
                 json1.checkpoint > json2.checkpoint ||
