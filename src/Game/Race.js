@@ -3,7 +3,7 @@ class Race {
     levelId = ""
     sessionStarted = false
     players = []
-    time = 30
+    time = 5
     raceStarted = false
 
     playersMessages = new Map()
