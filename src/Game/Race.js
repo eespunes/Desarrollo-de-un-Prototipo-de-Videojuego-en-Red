@@ -167,7 +167,7 @@ class Race {
                 let otherMessage = this.playersMessages.get(otherPlayer).shift()
                 this.playersMessages.get(otherPlayer).push(otherMessage)
 
-                if (!this.InFrontOfOpponent(message, otherMessage)) {
+                if (!this.InFrontOfOpponent(message, otherMessage,player,otherPlayer)) {
                     aux = this.players[j];
                     this.players[j] = this.players[i];
                     this.players[i] = aux;
@@ -178,13 +178,14 @@ class Race {
         return this.players;
     }
 
-    InFrontOfOpponent(message, message2) {
+    InFrontOfOpponent(message, message2,player,otherPlayer) {
         const json1 = message;
         const json2 = message2;
+
         if (message === undefined || message2 === undefined)
             return false
 
-
+        console.log(this.id + " - " + player + ":" + json1.distance + " - " + otherPlayer + ":" + json2.distance)
         if (json1.finished && json2.finished) {
             return json1.time < json2.time
         }
@@ -194,7 +195,6 @@ class Race {
         if (json2.finished) {
             return false
         }
-        console.log(this.id + " - " + json1.username + ":" + json1.distance + " - " + json21.username + ":" + json2.distance)
         return json1.lap > json2.lap ||
             json1.lap == json2.lap && (
                 json1.checkpoint > json2.checkpoint ||
