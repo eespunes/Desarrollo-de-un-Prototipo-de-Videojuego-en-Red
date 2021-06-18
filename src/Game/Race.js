@@ -185,7 +185,7 @@ class Race {
         if (message === undefined || message2 === undefined)
             return false
 
-        console.log(this.id + " - " + player + ":" + json1.lap + "/" + json1.checkpoint + "/" + json1.distance + " - " + otherPlayer + ":" + json2.lap + "/" + json2.checkpoint + "/" + json2.distance)
+        console.log(this.id + " - " + player + ":" + json1.lap + "/" + json1.checkPoint + "/" + json1.distance + " - " + otherPlayer + ":" + json2.lap + "/" + json2.checkPoint + "/" + json2.distance)
         if (json1.finished && json2.finished) {
             return json1.time < json2.time
         }
@@ -204,7 +204,7 @@ class Race {
 
     changePlayerMessage(username, message) {
         const currentMessage = this.playersMessages.get(username).pop();
-        console.log("CHANGED " + username + ": " + message.id + "==" + JSON.stringify(currentMessage))
+        console.log("CHANGED " + username + ": " + message.iD + "==" + currentMessage.iD)
         if (message.id >= currentMessage.id) {
             this.playersMessages.get(username).push(message);
         } else {
