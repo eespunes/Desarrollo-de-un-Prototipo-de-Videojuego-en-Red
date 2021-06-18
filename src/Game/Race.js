@@ -185,7 +185,6 @@ class Race {
         if (message === undefined || message2 === undefined)
             return false
 
-        console.log(this.id + " - " + player + ":" + json1.lap + "/" + json1.checkPoint + "/" + json1.distance + " - " + otherPlayer + ":" + json2.lap + "/" + json2.checkPoint + "/" + json2.distance)
         if (json1.finished && json2.finished) {
             return json1.time < json2.time
         }
@@ -195,17 +194,36 @@ class Race {
         if (json2.finished) {
             return false
         }
+
+        let checkpoint1 = json1.checkpoint;
+        if (checkpoint1 == undefined)
+            checkpoint1 = json1.checkPoint;
+
+        let checkpoint2 = json2.checkpoint;
+        if (checkpoint2 == undefined)
+            checkpoint2 = json2.checkPoint;
+
+        console.log(this.id + " - " + player + ":" + json1.lap + "/" + checkpoint1 + "/" + json1.distance + " - " + otherPlayer + ":" + json2.lap + "/" + checkpoint2 + "/" + json2.distance)
+
+
         return json1.lap > json2.lap ||
             json1.lap == json2.lap && (
-                json1.checkPoint > json2.checkPoint ||
-                json1.checkPoint == json2.checkPoint && json1.distance < json2.distance
+                checkpoint1 > checkpoint2 ||
+                checkpoint1 == checkpoint2 && json1.distance < json2.distance
             )
     }
 
     changePlayerMessage(username, message) {
         const currentMessage = this.playersMessages.get(username).pop();
-        console.log(username + " - " + JSON.stringify(message))
-        if (message.iD >= currentMessage.iD) {
+        let id = message.id;
+        if (id == undefined)
+            id = message.iD;
+
+        let currentId = currentMessage.id;
+        if (currentId == undefined)
+            currentId = currentMessage.iD;
+
+        if (id >= currentId) {
             this.playersMessages.get(username).push(message);
         } else {
             this.playersMessages.get(username).push(currentMessage);
